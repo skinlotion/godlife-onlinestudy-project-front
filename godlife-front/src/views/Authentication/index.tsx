@@ -1,7 +1,6 @@
 import React from 'react'
 import './style.css';
 
-// 테스트 중입니다
 //      component: 인증 페이지      //
 export default function Authentication() {
 
@@ -12,34 +11,40 @@ export default function Authentication() {
     return(
       <div className='auth-box'>
         <div className='auth-top-box'>
-          <div className='auth-top-title-box'>
-            <div className='auth-top-title'>{'갓생살기'}</div>
+          <div className='auth-top-logo-icon-box'>
+            <div className='logo-icon'></div>
           </div>
           <div className='auth-top-message'>{'로그인을 해주세요'}</div>
+          {/* <div className='auth-top-message'>{'계속하려면 로그인을 해주세요'}</div> */}
+          {/* <div className='auth-middle-error-message-box'>
+              <div className='login-error-icon-box'>
+                <div className='login-error-icon'></div>
+              </div>
+              <div className='auth-middle-error-message'>{'잘못된 이메일 주소 또는 비밀번호입니다.\n'}<span className='login-description'>{'로그인'}</span>{'하는데 도움이 필요하세요?'}</div>
+          </div> */}
+          {/* <div className='auth-middle-registered-account-message-box'>
+            <div className='auth-middle-registered-account-message'>{'이 이메일에 연결된 계정을 이미 보유하고 있습니다.\n로그인 하거나 비밀번호를 잊은 경우 재설정 하세요.'}</div>
+          </div> */}
         </div>
-        <div className='auth-middle-error-message-box'>
-          <div className='auth-middle-error-icon'></div>
-          <div className='auth-middle-error-message'>{'잘못된 이메일 주소 또는 비밀번호입니다.\n'}<span className='login-description'>{'로그인'}</span>{'하는데 도움이 필요하세요?'}</div>
-        </div>
-        <div className='auth-middle-registered-account-message'>{'이 이메일에 연결된 계정을 이미 보유하고 있습니다.\n로그인 하거나 비밀번호를 잊은 경우 재설정 하세요.'}</div>
-        <div className='auth-middle-box'>
-          {/* <InputBox />
-          <InputBox /> */}
+
+        {/* <div className='auth-middle-box'>
+          <InputBox />
+          <InputBox />
           <div className='auth-button'>{'로그인'}</div>
           <div className='auth-middle-button-box'>
             <div className='auth-middle-login-support'>{'로그인을 할 수 없나요?'}</div>
             <div className='auth-middle-message-box-divide'>{'|'}</div>
             <div className='auth-middle-create-account'>{'새로운 계정 만들기'}</div>
           </div>
-        </div>
-        <div className='auth-bottom-box'>
+        </div> */}
+        {/* <div className='auth-bottom-box'>
           <div className='auth-another-account-login-message'>{'다음계정을 통해 로그인'}</div>
           <div className='auth-another-account-login-box'>
             <div className='auth-account-login-google'></div>
             <div className='auth-account-login-naver'></div>
             <div className='auth-account-login-daum'></div>
           </div>
-        </div>
+        </div> */}
       </div>
     );
   };
