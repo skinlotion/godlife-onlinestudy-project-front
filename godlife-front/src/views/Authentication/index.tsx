@@ -1,6 +1,7 @@
 import React from 'react'
 import './style.css';
 
+//      component: 인증 페이지      //
 export default function Authentication() {
 
   //      component: sign in 탭 컴포넌트        //
