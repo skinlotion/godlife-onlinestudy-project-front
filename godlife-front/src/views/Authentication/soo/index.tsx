@@ -7,7 +7,7 @@ export default function Login() {
         <div className='login-title'>갓생살기</div>
         <div className='login-sub-title'>로그인을 할 수 없습니까?</div>
         <div className='login-to-link-text'>다음으로 복구 링크 보내기</div>
-        <input className='input-box' placeholder='이메일을 입력하세요.'></input>
+        <input className='input-box' accept='text' placeholder='이메일을 입력하세요.'></input>
         <div className='login-to-link-send'>
           <div className='login-to-link-send-text'>복구 링크 보내기</div>
         </div>
