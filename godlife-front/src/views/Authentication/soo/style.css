@@ -1,4 +1,4 @@
-#fail-login {
+#find-id-login-wrapper {
     width: 100%;
     height: 100%;
 
@@ -12,8 +12,8 @@
 .login-box {
     margin: 275px 470px 275px 470px;
 
-    width: 500px;
-    height: 470px;
+    width: 473px;
+    height: 560px;
 
     display: flex;
     flex-direction: column;
@@ -51,6 +51,7 @@
 
 .login-to-link-text {
     margin-top: 60px;
+    padding-right: 140px;
 
     font-family: 'Montserrat';
     font-size: 20px;
@@ -62,8 +63,8 @@
 .input-box {
     margin-top: 10px;
     padding: 14px 0px 14px 10px;
-    width: 400px;
-    height: 50px;
+    width: 370px;
+    height: 45px;
 
     font-family: 'Roboto';
     font-size: 20px;
@@ -72,7 +73,9 @@
     color: rgba(0, 0, 0, 0.7);
 
     border-radius: 5px 5px;
-    border: 1px solid rgba(192, 192, 192, 1);
+    border: none;
+    outline: none;
+    background: none;
     background-color: rgba(241, 243, 242, 1);
 }
 
@@ -85,7 +88,7 @@
 }
 
 .login-to-link-send {
-    margin-top: 35px;
+    margin-top: 12px;
     width: 370px;
     height: 45px;
     padding: 10px 0px 10px 0px;
@@ -103,10 +106,10 @@
     color: rgba(255, 255, 255, 1);
     
     font-family: 'Roboto';
-    font-size: 20px;
+    font-size: 21px;
     font-weight: 700;
     line-height: normal;
-    letter-spacing: -0.3px;
+    letter-spacing: -0.31px;
 }
 
 .login-to-link-send-text:hover{
@@ -114,8 +117,16 @@
 }
 
 .login-return-text {
-    margin-top: 20px;
-    padding-bottom: 50px;
+    margin-top: 30px;
+    margin-bottom: 50px;
+
+    width: 208px;
+    height: 37px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
 
     color: rgba(0, 0, 0, 1);
     font-family: 'Montserrat';
@@ -123,6 +134,8 @@
     font-weight: 700;
     line-height: normal;
     letter-spacing: -0.3px;
+
+    border: 1px solid rgba(0, 0, 0, 1);
 }
 
 .login-return-text:hover{
