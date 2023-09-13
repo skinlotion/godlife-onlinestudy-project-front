@@ -1,5 +1,6 @@
 import React from 'react'
 import './style.css';
+import InputBox from '../../components/InputBox';
 
 //      component: 인증 페이지      //
 export default function Authentication() {
@@ -27,7 +28,7 @@ export default function Authentication() {
           </div> */}
         </div>
 
-        {/* <div className='auth-middle-box'>
+        <div className='auth-middle-box'>
           <InputBox />
           <InputBox />
           <div className='auth-button'>{'로그인'}</div>
@@ -36,7 +37,7 @@ export default function Authentication() {
             <div className='auth-middle-message-box-divide'>{'|'}</div>
             <div className='auth-middle-create-account'>{'새로운 계정 만들기'}</div>
           </div>
-        </div> */}
+        </div>
         {/* <div className='auth-bottom-box'>
           <div className='auth-another-account-login-message'>{'다음계정을 통해 로그인'}</div>
           <div className='auth-another-account-login-box'>
