@@ -1,0 +1,9 @@
+.logo-icon {
+    margin-top: 42px;
+    width: 357px;
+    height: 80px;
+
+    background-image: url(assets/logo-icon.png);
+    background-position: 50% 50%;
+    background-size: 100% 100%;
+}
