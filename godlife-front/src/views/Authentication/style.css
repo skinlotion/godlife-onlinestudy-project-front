@@ -1,0 +1,117 @@
+#auth-wrapper {
+    padding: 100px 0 150px;
+    min-width: 1440px;
+    height: calc(100vh - 64px - 100px - 150px);
+    min-height: 960px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-image: url(assets/background.png);
+    background-position: 50% 50%;
+    background-size: 100% 100%;
+}
+
+.auth-container{
+    width: 500px;
+    height: 600px;
+
+    padding-top: 25px;
+    padding-bottom: 55px;
+
+    border-radius: 30px;
+    background: #FFF;
+}
+
+.auth-card-top-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+.logo-icon-box{
+    width: 358px;
+    height: 80px;
+}
+
+.logo-icon{
+    width: 100%;
+    height: 100%;
+    
+    background-image: url(assets/logo-icon.png);
+    background-size: 100% 100%;
+    background-position: 50% 50%;
+}
+
+.auth-card-top-text{
+    color: #000;
+    font-family: Roboto;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 22px;
+}
+
+.auth-card-middle-container{
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+    align-items: center;
+}
+
+.auth-card-middle-icon-box{
+    height: 195px;
+    width: 195px;
+}
+
+.email-logo-icon{
+    width: 100%;
+    height: 100%;
+    
+    background-image: url(assets/email-logo.png);
+    background-size: 100% 100%;
+    background-position: 50% 50%;
+}
+.auth-card-middle-text{
+    color: #000;
+    font-family: Montserrat;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: -0.225px;
+
+    white-space: pre-wrap;    
+}
+
+.auth-card-middle-send-email{
+    color: #000;
+
+    font-size: 20px;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: -0.3px;
+}
+
+.auth-card-bottom-container{
+    margin-top: 74px;
+    
+}
+
+.auth-card-bottom-return-link-text{
+    color: #000;
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 21.114px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: -0.317px;
+}
+
+.auth-card-bottom-return-link-text:hover{
+    cursor: pointer;
+}
