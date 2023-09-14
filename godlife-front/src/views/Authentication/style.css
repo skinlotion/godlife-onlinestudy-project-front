@@ -1,0 +1,399 @@
+#auth-wrapper{
+
+    width: 1680px;
+    height: 956px;
+
+    background-image: url(assets/background.png);
+    background-color: rgba(232, 241, 255,1);
+    background-size: 100% 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.auth-card{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    width: 500px;
+    height: 509 px; 
+
+    border-radius: 30px;
+    background-color: rgba(255,255,255,1);
+}
+
+.auth-card-error{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 500px;
+    height: 420px;
+
+    border-radius: 30px;
+    background-color: rgba(255,255,255,1);
+}
+
+.auth-top-box{
+    width: 100%;
+    height: 100%;
+    margin: 25px 71px 10px;
+    display: flex;
+    align-items: center;
+
+
+    flex-direction: column;
+}
+
+.auth-top-title-box{
+    width: 358px;
+    height: 80px;
+    border: 1px solid rgba(0,0,0,1);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.auth-top-title{
+    width: 185px;
+    height: 23px;
+    color: rgba(0,0,0,1);
+    
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+    line-height: 44%    ;
+
+}
+
+.auth-password-selection{
+    width: 358px;
+    height: 55px;
+    /* border: 1px solid rgba(0,0,0,1); */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.auth-password-selection-message{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 110%;
+
+}
+
+.password-error-message-box{
+    width: 300px;
+    height: 84px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    background-color: rgba(255, 175, 163,1);
+  
+    padding: 0px 50px 0px;
+
+    margin-bottom: 4.5px; 
+}
+
+.password-error-message-icon-box{
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.password-error-icon-container{
+    width: 46px;
+    height: 46px;
+
+    padding: 19px 20px 19px 10px;
+
+}
+.password-error-icon-container:hover{
+    cursor: pointer;
+    background-color: rgba(0,0,0,0.5);
+}
+.login-error-icon{
+    width: 100%;
+    height: 100%;
+
+    background-image: url(assets/login-error-icon.png);
+    background-position: 50% 50%;
+    background-size: 100% 100%;
+}
+
+
+
+.password-error-message-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px  2.92px 24px 20px;
+}
+
+.password-error-message{
+    width: 321px;
+    height: 36px;
+
+}
+
+.password-error{
+    display: flex;
+    align-items: center;
+    justify-self: center;
+    color: rgba(0,0,0,1);
+    text-wrap:wrap;
+
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: -0.225px;
+
+
+}
+
+
+.password-error-contents{
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: -0.225px;
+}
+
+/* Inputbox */
+.auth-middle{
+    width: 400px;
+    height: 50px;
+
+    border-radius: 5px;
+    border: 1px solid #CCC;  
+    background-color: rgba(204, 204, 204,1);
+
+    margin-top:px;
+
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+
+.inputbox-conatainer{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;   
+
+}
+
+/* input */
+.input{
+    width: 213px;
+    height: 22px;
+
+    margin: 10px 137px 10px 14px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 110%;
+}
+
+/*icon-button*/
+.icon-box{
+    width: 30px;
+    height: 30px;
+    margin: 10px 10px 10px 0px;
+}
+
+.eye-on-icon{
+    width: 100%;
+    height: 100%;
+    background-image: url(assets/eye-on-icon.png);
+    background-position: 50% 50%;
+    background-size: 100% 100%;
+}
+
+
+.eye-off-icon{
+    width: 100%;
+    height: 100%;
+    background-image: url(assets/eye-off-icon.png);
+    background-position: 50% 50%;
+    background-size: 100% 100%;
+}
+
+.line-box-container{
+    width: 400px;
+    height: 5px;
+    
+    display: flex;
+    flex-direction: row;
+    gap: 13px;
+    margin: 15px 50px 15px;
+
+}
+
+.gray-line-box{
+    width: 70px;
+    height: 5px;
+    gap: 1px;
+    background-color: rgba( 204, 204 , 204 , 1);
+}
+
+
+.red-line-box{
+    width: 70px;
+    height: 5px;
+    gap: 1px;
+    background-color: rgba( 255, 0 , 0 , 1);
+}
+
+.yellow-line-box{
+    width: 70px;
+    height: 5px;
+    gap: 1px;
+    background-color: rgba( 238, 255 , 44 , 1);
+}
+
+.orange-line-box{
+    width: 70px;
+    height: 5px;
+    gap: 1px;
+    background-color: rgba( 255, 205 , 41 , 1);
+}
+
+.light-green-line-box{
+    width: 70px;
+    height: 5px;
+    gap: 1px;
+    background-color: rgba( 133, 224 , 163 , 1);
+}
+
+
+.green-line-box{
+    width: 70px;
+    height: 5px;
+    gap: 1px;
+    background-color: rgba( 16, 139 , 74 , 1);
+}
+
+
+.password-length-error-message-container{
+    width: 321px;
+    height: 36px;
+
+    color : rgba(0,0,0,1);
+    margin: 0px 236px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.password-length-error-message{
+    color : rgba(255, 0, 0, 1);
+    font-size: 15px;
+    font-family: Montserrat;
+    font-size: 15px;
+    font-weight: 500;
+
+}
+
+.auth-card-bottom{
+    width: 370px;
+    height: 45px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    margin-bottom: 50px;
+
+}
+
+.next-button-box{
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    background-color : rgba(0,0,255,1);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+
+}
+
+.next-button-box:hover{
+    cursor: pointer;
+    background-color: rgba(0,0,255,0.6);
+}
+
+.next-button{
+    color: rgba(255,255,255,1);       
+   
+}
+
+.email-send-button-box{
+    width: 370px;
+    height: 45px;
+
+    border-radius: 5px;
+    background-color : rgba(0,0,255,1);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+
+}
+
+
+.email-send-button-box:hover{
+    cursor: pointer;
+    background-color: rgba(0,0,255,0.6);
+}
+
+.email-send-button{
+    color: rgba(255,255,255,1);       
+}
+
+.password-inputbox-conatainer{
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+
+}
+
+
+/* .Input{
+    width: 400px;
+    height: 50px;
+    border-radius: 5px;
+    border: 1px solid #CCC;  
+    background-color: rgba(204,204,204,0.7); 
+}
+
+.inputbox {
+    margin: 20px 0;
+} */
