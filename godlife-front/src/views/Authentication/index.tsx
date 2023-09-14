@@ -1,13 +1,31 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './style.css';
 import InputBox from '../../components/InputBox';
 
 //      component: 인증 페이지      //
 export default function Authentication() {
+  
+  //      state: 화면 상태      //
+  const [view, setView] = useState< 'sign-in' | 'sign-up' >('sign-in');
 
   //      component: sign in 탭 컴포넌트        //
   const SignInTab = () => {
     
+    //      state: 로그인 에러 상태     //
+    const [error, setError] = useState<boolean>(false);
+    //      state: 입력한 이메일 상태     //
+    const [email, setEmail] = useState<string>('');
+
+    //      event handler: 회원가입 링크 클릭 이벤트 처리     //
+    const onSignUpLinkClickHandler = () => {
+      setView('sign-up');
+    }
+
+    //      event handler: 로그인 버튼 클릭 이벤트 처리     //
+    const onSignInButtonClickHandler = () => {
+      
+    }
+
     //      render: sign in 탭 컴포넌트 렌더링      //
     return(
       <div className='auth-box'>
@@ -29,23 +47,27 @@ export default function Authentication() {
         </div>
 
         <div className='auth-middle-box'>
-          <InputBox />
-          <InputBox />
+          <InputBox type='text' placeholder='이메일을 입력하세요' error={error} value={email} setValue={setEmail}/>
+          {/* <InputBox /> */}
           <div className='auth-button'>{'로그인'}</div>
           <div className='auth-middle-button-box'>
             <div className='auth-middle-login-support'>{'로그인을 할 수 없나요?'}</div>
-            <div className='auth-middle-message-box-divide'>{'|'}</div>
-            <div className='auth-middle-create-account'>{'새로운 계정 만들기'}</div>
+            <div className='auth-middle-message-box-divide'></div>
+            <div className='auth-middle-create-account' onClick={onSignUpLinkClickHandler}>{'새로운 계정 만들기'}</div>
           </div>
         </div>
-        {/* <div className='auth-bottom-box'>
+        <div className='auth-bottom-box'>
           <div className='auth-another-account-login-message'>{'다음계정을 통해 로그인'}</div>
-          <div className='auth-another-account-login-box'>
-            <div className='auth-account-login-google'></div>
-            <div className='auth-account-login-naver'></div>
-            <div className='auth-account-login-daum'></div>
+          <div className='auth-account-login-google'>
+            <div className='google-logo'></div>
           </div>
-        </div> */}
+          <div className='auth-account-login-naver'>
+            <div className='naver-logo'></div>
+          </div>
+          <div className='auth-account-login-kakao'>
+            <div className='kakao-logo'></div>
+          </div>
+        </div>
       </div>
     );
   };
@@ -83,8 +105,10 @@ export default function Authentication() {
   //      render: 인증 페이지 렌더링      //
   return (
     <div id='auth-wrapper'>
-      <SignInTab />
-      {/* <SignUpTab /> */}
+      <div className='background-image'>
+        {view === 'sign-in' && <SignInTab />}
+        {view === 'sign-up' && <SignUpTab />}
+      </div>
     </div>
   )
 }

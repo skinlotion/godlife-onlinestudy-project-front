@@ -15,3 +15,30 @@
     background-position: 50% 50%;
     background-size: 100% 100%;
 }
+
+.google-logo {
+    width: 128px;
+    height: 48px;
+
+    background-image: url(assets/google-logo.png);
+    background-position: 50% 50%;
+    background-size: 100% 100%;
+}
+
+.kakao-logo {
+    width: 114px;
+    height: 35px;
+
+    background-image: url(assets/kakao-logo.png);
+    background-position: 50% 50%;
+    background-size: 100% 100%;
+}
+
+.naver-logo {
+    width: 115px;
+    height: 45px;
+
+    background-image: url(assets/naver-logo.png);
+    background-position: 50% 50%;
+    background-size: 100% 100%;
+}

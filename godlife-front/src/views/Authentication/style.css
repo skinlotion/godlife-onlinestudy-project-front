@@ -6,7 +6,7 @@
     justify-content: center;
     align-items: center;
 
-    background-image: url(/src/assets/background.png);
+    background-image: url(/src/assets/background-image.png);
     background-position: 50% 50%;
     background-size: 100% 100%;
 }
@@ -31,8 +31,6 @@
 .auth-top-logo-icon-box {
     width: 358px;
     height: 80px;
-    
-    border: 1px solid rgba(0, 0, 0, 1);
 
     margin: 25px 71px 0;
 
@@ -102,4 +100,140 @@
     font-weight: 500;
 
     white-space: pre-wrap;
+}
+
+.auth-middle-box {
+    margin: 30px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 15px;
+}
+
+.auth-button {
+    width: 400px;
+    height: 50px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: rgba(255, 255, 255, 1);
+
+    font-family: 'Roboto';
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 110%;
+
+    border-radius: 5px;
+    border: 1px solid rgba(30, 11, 255, 1);
+    background-color: rgba(30, 11, 255, 1);
+}
+
+.auth-middle-button-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.auth-middle-login-support {
+    width: 154px;
+    height: 20px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: rgba(0, 0, 0, 1);
+    font-family: 'Roboto';
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 110%;
+}
+
+.auth-middle-message-box-divide {
+    margin: 0 15px 0 6px;
+    width: 1px;
+    height: 20px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    background-color: rgba(125, 127, 129, 1);
+}
+
+.auth-middle-create-account {
+    width: 125px;
+    height: 20px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: rgba(0, 0, 0, 1);
+    font-family: 'Roboto';
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 110%;
+}
+
+.auth-bottom-box {
+    margin-top: 181px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 10px;
+}
+
+.auth-another-account-login-message {
+    color: rgba(0, 0, 0, 1);
+
+    font-family: 'Roboto';
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 110%;
+}
+
+.auth-account-login-google {
+    width: 400px;
+    height: 60px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 5px;
+    border: 1px solid rgba(204, 204, 204, 1);
+    background: rgba(255, 255, 255, 1);
+}
+
+.auth-account-login-naver {
+    width: 400px;
+    height: 60px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 5px;
+    border: 1px solid rgba(204, 204, 204, 1);
+    background: rgba(255, 255, 255, 1);
+}
+
+.auth-account-login-kakao {
+    width: 400px;
+    height: 60px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 5px;
+    border: 1px solid rgba(204, 204, 204, 1);
+    background: rgba(255, 255, 255, 1);
 }
