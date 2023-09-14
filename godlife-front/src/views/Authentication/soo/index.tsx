@@ -44,7 +44,9 @@ export default function FindLogin() {
   return (
     <div id='find-id-login-wrapper'>
       <div className='login-box'>
-        <div className='logo-icon'></div>
+        <div className='logo-icon-box'>
+          <div className='logo-icon'></div>
+        </div>
         <div className='login-sub-title'>{'로그인을 할 수 없습니까?'}</div>
         <div className='login-to-link-text'>{'다음으로 복구 링크 보내기'}</div>
         <input className='input-box' type='email' name='to_email' placeholder='이메일을 입력하세요.' value = {email} onChange={(e) => setEmail(e.target.value)} required />
