@@ -43,17 +43,25 @@ export default function FindLogin() {
   //          render: 이메일 전송 페이지 렌더링         //
   return (
     <div id='find-id-login-wrapper'>
+      <div className='background-image'>
       <div className='login-box'>
         <div className='logo-icon-box'>
           <div className='logo-icon'></div>
         </div>
-        <div className='login-sub-title'>{'로그인을 할 수 없습니까?'}</div>
-        <div className='login-to-link-text'>{'다음으로 복구 링크 보내기'}</div>
-        <input className='input-box' type='email' name='to_email' placeholder='이메일을 입력하세요.' value = {email} onChange={(e) => setEmail(e.target.value)} required />
-        <div className='login-to-link-send'>
-          <div className='login-to-link-send-text' onClick={onSendEmailClickHandler}>{'복구 링크 보내기'}</div>
+        <div className='login-sub-title-box'>
+          <div className='login-sub-title-box-text'>{'로그인을 할 수 없습니까?'}</div>
         </div>
-        <div className='login-return-text' onClick={onBackToLoginClickHandler}>{'로그인으로 돌아가기'}</div>
+        <div className='login-to-link-text-box'>
+          <div className='login-to-link-text'>{'다음으로 복구 링크 보내기'}</div>
+        </div>
+        <input className='input-box' type='email' name='to_email' placeholder='이메일을 입력하세요.' value = {email} onChange={(e) => setEmail(e.target.value)} required />
+        <div className='login-to-link-send' onClick={onSendEmailClickHandler}>
+          <div className='login-to-link-send-text'>{'복구 링크 보내기'}</div>
+        </div>
+        <div className='login-return-text-box' onClick={onBackToLoginClickHandler}>
+          <div className='login-return-text'>{'로그인으로 돌아가기'}</div>
+        </div>
+      </div>
       </div>
     </div>
   );
