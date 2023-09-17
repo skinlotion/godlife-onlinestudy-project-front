@@ -15,12 +15,18 @@
     width: 500px;
     height: 800px;
 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
     border-radius: 30px;
     background-color: rgba(255, 255, 255, 1);
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
 .auth-top-box {
+    margin: 25px 71px 0;
+
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -32,14 +38,19 @@
     width: 358px;
     height: 80px;
 
-    margin: 25px 71px 0;
-
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .auth-top-message {
+    /* width: 153px; */
+    width: 291px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
     color: rgba(0, 0, 0, 1);
 
     font-family: 'Roboto';
@@ -48,10 +59,21 @@
     line-height: 22px;
 }
 
-.auth-middle-error-message-box {
-    margin: -20px 0 0;
+.margin-box {
+    margin: 0 0 15px;
+}
+.margin-box .login-error-icon-box {
+    display: none;
+}
+.margin-box .inputbox-error-message {
+    display: none;
+}
+
+.inputbox-error-message-box {
     width: 400px;
     height: 84px;
+
+    margin: 10px 0 7px;
 
     display: flex;
     align-items: center;
@@ -68,7 +90,7 @@
     height: 46px;
 }
 
-.auth-middle-error-message {
+.inputbox-error-message {
     color: rgba(0, 0, 0, 1);
 
     font-family: 'Montserrat';
@@ -79,10 +101,14 @@
 }
 
 .login-description {
-    font-weight: 700;
+    font-weight: bold;
 }
 
-.auth-middle-registered-account-message-box {
+/* .login-description {
+    font-weight: 700;
+} */
+
+/* .auth-middle-registered-account-message-box {
     margin: -20px 0 0;
     width: 400px;
     height: 84px;
@@ -90,9 +116,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-}
+} */
 
-.auth-middle-registered-account-message {
+/* .auth-middle-registered-account-message {
     color: rgba(0, 0, 0, 1);
 
     font-family: 'Montserrat';
@@ -100,10 +126,10 @@
     font-weight: 500;
 
     white-space: pre-wrap;
-}
+} */
 
 .auth-middle-box {
-    margin: 30px;
+    height: 361px;
 
     display: flex;
     flex-direction: column;
@@ -113,8 +139,8 @@
 }
 
 .auth-button {
-    width: 400px;
-    height: 50px;
+    width: 398px;
+    height: 48px;
 
     display: flex;
     justify-content: center;
@@ -130,6 +156,11 @@
     border-radius: 5px;
     border: 1px solid rgba(30, 11, 255, 1);
     background-color: rgba(30, 11, 255, 1);
+}
+
+.auth-button:hover {
+    cursor: pointer;
+    background-color: rgba(97, 83, 255, 1);
 }
 
 .auth-middle-button-box {
@@ -151,6 +182,11 @@
     font-size: 15px;
     font-weight: 500;
     line-height: 110%;
+}
+
+.auth-middle-login-support:hover {
+    cursor: pointer;
+    font-weight: bold;
 }
 
 .auth-middle-message-box-divide {
@@ -180,9 +216,12 @@
     line-height: 110%;
 }
 
-.auth-bottom-box {
-    margin-top: 181px;
+.auth-middle-create-account:hover {
+    cursor: pointer;
+    font-weight: bold;
+}
 
+.auth-bottom-box {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -236,4 +275,94 @@
     border-radius: 5px;
     border: 1px solid rgba(204, 204, 204, 1);
     background: rgba(255, 255, 255, 1);
+}
+
+.auth-middle-signup-box {
+    height: 280px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 15px;
+}
+
+.auth-termsofuse {
+    width: 350px;
+    height: 40px;
+
+    color: rgba(0, 0, 0, 1);
+    text-align: center;
+    font-family: 'Montserrat';
+    font-size: 17px;
+    font-weight: 500;
+
+    white-space: pre-wrap;
+}
+
+.cloud-Explanation {
+    color: rgba(0, 0, 0, 1);
+    font-family: 'Montserrat';
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.cloud-Explanation:hover {
+    cursor: pointer;
+    text-decoration-line: underline;
+}
+
+.protection-policy {
+    color: rgba(0, 0, 0, 1);
+    font-family: 'Montserrat';
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.protection-policy:hover {
+    cursor: pointer;
+    text-decoration-line: underline;
+}
+
+.auth-bottom-signup-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 10px;
+}
+
+.auth-next-create-account-message {
+    margin-bottom: 20px;
+    width: 296px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: rgba(0, 0, 0, 1);
+    font-family: 'Roboto';
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 110%
+}
+
+.auth-account-exists-message {
+    margin-top: 25px;
+    width: 196px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: rgba(0, 0, 0, 1);
+    font-family: 'Montserrat';
+    font-size: 21px;
+    font-weight: 700;
+    letter-spacing: -0.317px;
+}
+
+.auth-account-exists-message:hover {
+    cursor: pointer;
+    font-weight: 900;
 }

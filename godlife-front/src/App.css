@@ -16,6 +16,58 @@
     background-size: 100% 100%;
 }
 
+.icon-image {
+    border-radius: 50% 50%;
+    width: 30px;
+    height: 30px;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon-button {
+    border-radius: 50% 50%;
+    width: 30px;
+    height: 30px;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon-button:hover {
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.eye-off-icon {
+    width: 30px;
+    height: 30px;
+  
+    background-image: url(assets/eye-off-icon.png);
+    background-position: 50% 50%;
+    background-size: 100% 100%;
+}
+
+.eye-on-icon {
+    width: 30px;
+    height: 30px;
+  
+    background-image: url(assets/eye-on-icon.png);
+    background-position: 50% 50%;
+    background-size: 100% 100%;
+}
+
+.email-update-icon {
+    width: 30px;
+    height: 30px;
+  
+    background-image: url(assets/email-update-icon.png);
+    background-position: 50% 50%;
+    background-size: 100% 100%;
+}
+
 .google-logo {
     width: 128px;
     height: 48px;
