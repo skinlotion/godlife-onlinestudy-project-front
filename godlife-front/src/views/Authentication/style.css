@@ -44,7 +44,6 @@
 }
 
 .auth-top-message {
-    /* width: 153px; */
     width: 291px;
 
     display: flex;
@@ -104,21 +103,16 @@
     font-weight: bold;
 }
 
-/* .login-description {
-    font-weight: 700;
-} */
-
-/* .auth-middle-registered-account-message-box {
-    margin: -20px 0 0;
+.auth-middle-registered-account-message-box {
     width: 400px;
     height: 84px;
 
     display: flex;
     justify-content: center;
     align-items: center;
-} */
+} 
 
-/* .auth-middle-registered-account-message {
+.auth-middle-registered-account-message {
     color: rgba(0, 0, 0, 1);
 
     font-family: 'Montserrat';
@@ -126,7 +120,7 @@
     font-weight: 500;
 
     white-space: pre-wrap;
-} */
+}
 
 .auth-middle-box {
     height: 361px;
@@ -287,6 +281,34 @@
     gap: 15px;
 }
 
+.auth-middle-signup-text-box {
+    height: 361px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 15px;
+}
+
+.auth-middle-registered-acccount-message-box {
+    width: 400px;
+    height: 84px;
+
+    margin: 10px 0 7px;
+
+    display: flex;
+    align-items: center;
+}
+
+.auth-middle-registered-account-message {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    white-space: pre-wrap;
+}
+
 .auth-termsofuse {
     width: 350px;
     height: 40px;
@@ -334,6 +356,20 @@
 
 .auth-next-create-account-message {
     margin-bottom: 20px;
+    width: 296px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: rgba(0, 0, 0, 1);
+    font-family: 'Roboto';
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 110%
+}
+
+.auth-next-create-account-text-message {
     width: 296px;
 
     display: flex;

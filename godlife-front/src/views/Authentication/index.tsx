@@ -163,12 +163,22 @@ export default function Authentication() {
   //      component: sign up 탭 컴포넌트      //
   const SignUpTab = () => {
 
+    //      state: 비밀번호 입력 요소 참조 상태     //
+    const passwordRef = useRef<HTMLInputElement | null>(null);
+    //      state: 로그인 에러 상태     //
+    const [error, setError] = useState<boolean>(false);
     //      state: 페이지 번호 상태      //
     const [page, setPage] = useState<'1-3-0' | '1-3-1' | '1-4-0'>('1-3-0');
     //      state: 입력한 이메일 상태     //
     const [email, setEmail] = useState<string>('');
     // //    state: 이메일 존재 확인 상태      //
-    // const [emailExistenceCheck, setEmailExistenceCheck] = useState<boolean>(false);
+    // const [emailExistenceCheck, setEmailExistenceCheck] = useState<boolean>(false);    
+    //      state: 입력한 비밀번호 상태     //
+    const [password, setPassword] = useState<string>('');
+    //      state: 비밀번호 인풋 타입 상태      //
+    const [passwordType, setPasswordType] = useState<'text' | 'password'>('password');
+    //      state: 비밀번호 인풋 버튼 아이콘 상태     //
+    const [passwordIcon, setPasswordIcon] = useState<'eye-off-icon' | 'eye-on-icon'>('eye-off-icon');
 
     //      event handler: 로그인 링크 클릭 이벤트 처리     //
     const onSignInLinkClickHandler = () => {
@@ -203,6 +213,18 @@ export default function Authentication() {
       }
     }
 
+    //      event handler: 비밀번호 아이콘 클릭 이벤트 처리     //
+    const onPasswordIconClickHandler = () => {
+      if (passwordType === 'password'){
+        setPasswordIcon('eye-on-icon');
+        setPasswordType('text');
+      }
+      if (passwordType === 'text'){
+        setPasswordIcon('eye-off-icon');
+        setPasswordType('password');
+      }
+    }
+
     //      event handler: 가입 버튼 클릭 이벤트 처리     //
     const onSignUpButtonClickHandler = () => {
 
@@ -214,6 +236,34 @@ export default function Authentication() {
       }
       
       setPage('1-4-0');
+    }
+
+    //      event handler: 로그인 버튼 클릭 이벤트 처리     //
+    const onSignInButtonClickHandler = () => {
+
+      setError(false);
+
+      //      description: 패스워드 공백 확인     //
+      const isPasswordCheck = password.length === 0;
+      if (isPasswordCheck) {
+        return;
+      }
+
+      //      description: 이메일 및 비밀번호 일치 확인     //
+      const isSuccess = email === loginInfoMock.email && password === loginInfoMock.password;
+      if (!isSuccess) {
+        setError(true);
+        return;
+      }
+      
+      alert('로그인 성공입니다.');
+    }
+
+    //      event handler: 회원가입 링크 클릭 이벤트 처리     //
+    const onSignUpLinkClickHandler = () => {
+      setEmail('');
+      setView('sign-up');
+      setPage('1-3-0');
     }
 
     //      render: sign up 탭 컴포넌트 렌더링      //
@@ -229,29 +279,42 @@ export default function Authentication() {
           {page === '1-4-0' && (
             <div className='auth-top-message'>{'계속하려면 로그인을 해주세요'}</div>
           )}
-          
-
-          {/* <div className='auth-middle-registered-account-message-box'>
-            <div className='auth-middle-registered-account-message'>{'이 이메일에 연결된 계정을 이미 보유하고 있습니다.\n로그인 하거나 비밀번호를 잊은 경우 재설정 하세요.'}</div>
-          </div> */}
         </div>
-        <div className='auth-middle-signup-box'>
-          <div className='margin-box'></div>
 
-          <InputBox label='로그인' type='text' placeholder='사용할 이메일을 입력하세요.' value={email} setValue={setEmail} icon='email-update-icon'/>
-          {/* <div className='auth-button' onClick={onSignInButtonClickHandler}>{'로그인'}</div>
-          <div className='auth-middle-button-box'>
-            <div className='auth-middle-login-support'>{'로그인을 할 수 없나요?'}</div>
-            <div className='auth-middle-message-box-divide'></div>
-            <div className='auth-middle-create-account' onClick={onSignUpLinkClickHandler}>{'새로운 계정 만들기'}</div>
-          </div> */}
-          
-          <div className='auth-button' onClick={onSignUpButtonClickHandler}>{'가입'}</div>
-          <div className='auth-termsofuse'>{'가입하면 Atlassian '}<span className='cloud-Explanation' onClick={onCloudExplanationClickHandler}>{'Cloud 이용 약관'}</span>{'에 동의하고\n'}<span className='protection-policy' onClick={onProtectionPolicyClickHandler} >{'개인정보 보호정책'}</span>{'을 인정한 것으로 간주됩니다.'}</div>
-        </div>
+        {page === '1-3-0' && (
+          <div className='auth-middle-signup-box'>
+            <div className='margin-box'></div>
+            <InputBox label='로그인' type='text' placeholder='사용할 이메일을 입력하세요.' value={email} setValue={setEmail} icon='email-update-icon'/>
+            <div className='auth-button' onClick={onSignUpButtonClickHandler}>{'가입'}</div>
+            <div className='auth-termsofuse'>{'가입하면 Atlassian '}<span className='cloud-Explanation' onClick={onCloudExplanationClickHandler}>{'Cloud 이용 약관'}</span>{'에 동의하고\n'}<span className='protection-policy' onClick={onProtectionPolicyClickHandler} >{'개인정보 보호정책'}</span>{'을 인정한 것으로 간주됩니다.'}</div>
+          </div>
+        )}
+
+        {page === '1-4-0' && (
+          <div className='auth-middle-signup-text-box'>
+            <div className='auth-middle-registered-account-message-box'>
+              <div className='auth-middle-registered-account-message'>{'이 이메일에 연결된 계정을 이미 보유하고 있습니다.\n로그인 하거나 비밀번호를 잊은 경우 재설정 하세요.'}</div>
+            </div>
+
+            <InputBox label='로그인' type='text' placeholder='이메일을 입력하세요' value={email} setValue={setEmail} icon='email-update-icon'/>
+            <InputBox label='비밀번호' ref={passwordRef} type={passwordType} placeholder='비밀번호를 입력하세요' value={password} setValue={setPassword} icon={passwordIcon} onButtonClick={onPasswordIconClickHandler} />
+            <div className='auth-button' onClick={onSignInButtonClickHandler}>{'로그인'}</div>
+
+            <div className='auth-middle-button-box'>
+              <div className='auth-middle-login-support'>{'로그인을 할 수 없나요?'}</div>
+              <div className='auth-middle-message-box-divide'></div>
+              <div className='auth-middle-create-account' onClick={onSignUpLinkClickHandler}>{'새로운 계정 만들기'}</div>
+            </div>
+          </div>
+        )}
 
         <div className='auth-bottom-signup-box'>
-          <div className='auth-next-create-account-message'>{'또는 다음 계정을 사용하여 계정생성'}</div>
+          {page === '1-3-0' && (
+            <div className='auth-next-create-account-message'>{'또는 다음 계정을 사용하여 계정생성'}</div>
+          )}
+          {page === '1-4-0' && (
+            <div className='auth-next-create-account-text-message'>{'다음계정을 통해 로그인'}</div>
+          )}
           <div className='auth-account-login-google'>
             <div className='google-logo'></div>
           </div>
@@ -261,7 +324,9 @@ export default function Authentication() {
           <div className='auth-account-login-kakao'>
             <div className='kakao-logo'></div>
           </div>
-          <div className='auth-account-exists-message' onClick={onSignInLinkClickHandler}>{'이미 계정이 있습니까?'}</div>
+          {page === '1-3-0' && (
+            <div className='auth-account-exists-message' onClick={onSignInLinkClickHandler}>{'이미 계정이 있습니까?'}</div>
+          )}
         </div>
       </div>
     );
