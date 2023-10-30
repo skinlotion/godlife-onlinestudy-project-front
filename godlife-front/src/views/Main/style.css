@@ -1,6 +1,6 @@
 #main-top-wrapper {
-    padding-top: 32px;
-    padding-bottom: 16px;
+
+    padding: 32px 35px 16px;
 
     font-family: 'Spoqa Han Sans Neo';
 
@@ -11,7 +11,7 @@
 }
 
 .main-top-container {
-    width: 1370px;
+    width: 1374px;
 
     display: flex;
     flex-direction: column;
@@ -34,7 +34,7 @@
 .main-top-up-box-studyroom-tap {
     height: 279px;
 
-    border-width: 1px;  
+    border-width: 2px;  
     color: rgba(0,0,0,1);
     border-style: solid;
     width: 100%;
@@ -42,12 +42,13 @@
 
 .main-top-down-box {
     display: flex;
-    justify-content: space-between;
+    gap: 20px;
 }
 
 .main-top-down-calendar-box {
     display: flex;
     flex-direction: column;
+
     gap: 10px;
 
 }
@@ -60,13 +61,13 @@
 }
 
 .main-top-down-box-calendar {
-    height: 349px;
-
+    height: 359px;
     width: 636px;
 
+    color: rgba(24,160,251,1);
     border-width: 2px;  
-    color: rgba(0,0,0,1);
     border-style: solid;
+    border-radius: 5px;
 }
 
 .main-top-down-todolist-box {
@@ -84,11 +85,12 @@
 }
 
 .main-top-down-box-todolist {
-    height: 100%;
+    height: 359px;
     width: 714px;
 
+    color: rgba(24,160,251,1);
     border-width: 2px;  
-    color: rgba(0,0,0,1);
     border-style: solid;
+    border-radius: 5px;
 }
 

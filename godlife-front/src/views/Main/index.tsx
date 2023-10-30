@@ -37,7 +37,11 @@ export default function Main() {
   const MainMiddle = () => {
     
     return (
-      <></>
+      <div className='main-middle-wrapper'>
+        <div className='main-middle-container'>
+          
+        </div>
+      </div>
     )
   }
 
