@@ -1,0 +1,404 @@
+#my-page-top {
+
+    min-width: 1440px;
+    font-family: 'Spoqa Han Sans Neo';
+}
+
+.user-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.user-info-box {
+    margin-top: 80px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.user-info-title {
+    font-size: 45px;
+    font-weight: 500;
+
+    margin-bottom: 25px;
+}
+
+.info-detail-box {
+    width: 800px;
+    height: 530px;
+
+    display: flex;
+    flex-direction: column;
+
+    border: 2px solid rgba(24, 160, 251, 1);
+    border-radius: 15px;
+    
+    background-color: rgba(255, 255, 255, 1);
+}
+
+.info-detail-box-top {
+    display: flex;
+    flex-direction: row;
+}
+
+.user-profile-box {
+    margin-left: 30px;
+    margin-top: 30px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.user-profile-image {
+    width: 200px;
+    height: 200px;
+
+    background-image: url(assets/default-user-icon.png);
+    background-position: 50% 50%;
+    background-size: 100% 100%;
+}
+
+.user-profile-image-change-box {
+    margin-top: 10px;
+
+    width: 110px;
+    height: 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 10px;
+    background-color: rgba(24, 160, 251, 0.7);
+}
+
+.user-profile-image-change-box-text {
+    color: rgba(255, 255, 255, 1);
+
+    font-weight: 400;
+    font-size: 25px;
+}
+
+.user-basic-info-box {
+    margin-left: 20px;
+    margin-top: 35px;
+
+    display: flex;
+    flex-direction: column;
+
+}
+
+.user-nickname-box {
+    display: flex;
+}
+
+.user-nickname-text {
+    font-size: 30px;
+    font-weight: 500;
+}
+
+.user-nickname-icon {
+    margin-left: 15px;
+    border-radius: 50% 50%;
+
+    width: 35px;
+    height: 35px;
+
+    background-image: url(./assets/edit-button-icon.png);
+    background-position: 50% 50%;
+    background-size: 100% 100%;
+}
+
+.user-nickname-icon:hover {
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.user-email {
+    margin-top: 25px;
+
+    font-size: 25px;
+    font-weight: 500;
+}
+
+.password-modify-box {
+    margin-top: 25px;
+
+    width: 230px;
+    height: 50px;
+
+    border-radius: 10px;
+    background-color: rgba(24, 160, 251, 0.7);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: rgba(255, 255, 255, 1);
+    font-size: 25px;
+    font-weight: 500;
+}
+
+.user-category-box {
+    display: flex;
+    flex-direction: column;
+}
+
+.user-category-title {
+    margin-top: 30px;
+    margin-left: 43px;
+
+    font-size: 30px;
+    font-weight: 500;
+}
+
+.user-category-list-box {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.user-category-1 {
+    display: flex;
+    flex-direction: column;
+
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.user-category-1-box {
+    margin-top: 10px;
+
+    width: 185px;
+    height: 45px;
+
+    display: flex;
+    align-items: center;
+
+    border-radius: 10px;
+    border: 3px solid rgba(24, 160, 251, 1);
+}
+
+.user-category-1-box-title {
+    margin-left: 25px;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.user-category-icon-box {
+    margin-left: auto;
+    margin-right: 10px;
+}
+
+.user-category-icon {
+    width: 25px;
+    height: 25px;
+
+    background-image: url(assets/arrow-down-icon.png);
+    background-position: 50% 50%;
+    background-size: 100% 100%;
+}
+
+.user-category-2 {
+    display: flex;
+    flex-direction: column;
+
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.user-category-2-box {
+    margin-top: 10px;
+
+    width: 185px;
+    height: 45px;
+
+    display: flex;
+    align-items: center;
+
+    border-radius: 10px;
+    border: 3px solid rgba(24, 160, 251, 1);
+}
+
+.user-category-2-box-title {
+    margin-left: 25px;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    color: rgba(207, 207, 207, 1);
+}
+
+.user-category-3 {
+    display: flex;
+    flex-direction: column;
+
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.user-category-3-box {
+    margin-top: 10px;
+
+    width: 185px;
+    height: 45px;
+
+    display: flex;
+    align-items: center;
+
+    border-radius: 10px;
+    border: 3px solid rgba(24, 160, 251, 1);
+}
+
+.user-category-3-box-title {
+    margin-left: 25px;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    color: rgba(207, 207, 207, 1);
+}
+
+.user-grade-box {
+    margin-top: 161px;
+
+    width: 550px;
+    height: 530px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+    border-radius: 15px;
+    border: 2px solid rgba(24, 160, 251, 1);
+
+    background-color: rgba(255, 255, 255, 1);
+}
+
+.user-grade-icon-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.user-grade-icon {
+    width: 100px;
+    height: 100px;
+
+    background-image: url(./assets/sprout-icon.png);
+    background-position: 50% 50%;
+    background-size: 100% 100%;
+}
+
+.user-grade-icon-text {
+    font-size: 30px;
+    font-weight: 400;   
+}
+
+.user-grade-standard {
+    margin-left: 40px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.user-grade-leaf-box {
+    display: flex;
+    flex-direction: row;
+}
+
+.user-leaf-icon {
+    width: 40px;
+    height: 40px;
+
+    background-image: url(assets/leaf-icon.png);
+    background-position: 50% 50%;
+    background-size: 100% 100%;
+}
+
+.user-leaf-text {
+    margin-left: 25px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 25px;
+    font-weight: 400;
+}
+
+.user-grade-weeds-box {
+    display: flex;
+    flex-direction: row;
+}
+
+.user-weeds-icon {
+    width: 40px;
+    height: 40px;
+
+    background-image: url(assets/weeds-icon.png);
+    background-position: 50% 50%;
+    background-size: 100% 100%;
+}
+
+.user-weeds-text {
+    margin-left: 25px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 25px;
+    font-weight: 400;
+}
+
+.user-grade-tree-box {
+    display: flex;
+    flex-direction: row;
+}
+
+.user-tree-icon {
+    width: 40px;
+    height: 40px;
+
+    background-image: url(assets/tree-icon.png);
+    background-position: 50% 50%;
+    background-size: 100% 100%;
+}
+
+.user-tree-text {
+    margin-left: 25px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 25px;
+    font-weight: 400;
+}
+
+.user-check-grade-standard {
+    display: flex;
+    justify-content: center;
+}
+
+.user-grade-standard-box {
+    width: 380px;
+    height: 50px;
+
+    border-radius: 10px;
+    background-color: rgba(24, 160, 251, 0.7);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.user-grade-standard-box-text {
+    color: rgba(255, 255, 255, 1);
+
+    font-size: 25px;
+    font-weight: 400;
+}
