@@ -1,25 +1,17 @@
-.background-image {
+.background-default-color {
     width: 100vw;
     height: 100vh;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    background-image: url(assets/background-image.png);
-    background-position: 50% 50%;
-    background-size: 100% 100%;
+    background-color: rgba(232, 241, 255, 1);
 }
 
 .icon-button {
     border-radius: 50% 50%;
-    width: 30px;
-    height: 30px;
     
     display: flex;
     justify-content: center;
     align-items: center;
-}
+  }
 
 .icon-button:hover {
     cursor: pointer;
