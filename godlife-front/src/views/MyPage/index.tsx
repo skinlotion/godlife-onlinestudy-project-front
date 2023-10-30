@@ -102,6 +102,7 @@ export default function MyPage() {
     return (
       <div id="my-page-bottom">
         <div className="user-activity-histroy">
+          <div className="user-activity-histroy-title">{'활동 기록'}</div>
           <div className="user-activity-box">
             <div className="user-join-study-box">
               <div className="user-join-study-title">{"참여중인 스터디"}</div>
@@ -158,13 +159,13 @@ export default function MyPage() {
                   <div className="join-study-late-day">{"지각일수"}</div>
                 </div>
                 <div className="joined-study-list-box">
-                  <div className="study-title-box">
+                  <div className="joined-study-title-box">
                     <div className="study-title-text"></div>
                   </div>
-                  <div className="study-category-box">
+                  <div className="joined-study-category-box">
                     <div className="study-category-text"></div>
                   </div>
-                  <div className="study-authority-box">
+                  <div className="joined-study-authority-box">
                     <div className="study-authority-text"></div>
                   </div>
                   <div className="study-end-day-box">

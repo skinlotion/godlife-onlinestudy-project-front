@@ -1,9 +1,9 @@
-.background-default-color {
+/* .background-default-color {
     width: 100vw;
     height: 100vh;
 
     background-color: rgba(232, 241, 255, 1);
-}
+} */
 
 .icon-button {
     border-radius: 50% 50%;
@@ -18,7 +18,7 @@
     background-color: rgba(0, 0, 0, 0.05);
 }
 
-.logo-icon {
+/* .logo-icon {
     width: 358px;
     height: 80px;
     
@@ -106,4 +106,4 @@
     background-image: url(assets/email-logo.png);
     background-position: 50% 50%;
     background-size: 100% 100%;
-}
+} */

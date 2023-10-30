@@ -1,14 +1,17 @@
-import React from 'react'
-import { useNavigate } from 'react-router-dom'
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { LOGIN_PATH } from 'constant';
-
+import emailjs from 'emailjs-com';
 
 //          component: 아이디 및 비밀번호 찾기 페이지         //
 export default function FindLogin() {
 
-  //          function: 네비게이트 함수          //
-  const navigator = useNavigate();
+  //          state: 인증할 이메일 상태         //
+  const [email, setEmail] = useState('');
 
+  //          function: 네비게이트 함수         //
+  const navigator = useNavigate();
+  
   //          event handler: 로그인으로 돌아가기 클릭 이벤트 처리         //
   const onBackToLoginClickHandler = () => {
     navigator(LOGIN_PATH);
@@ -60,13 +63,6 @@ export default function FindLogin() {
         </div>
       </div>
       </div>
-    )
-  }
-
-  //          render: 아이디 및 비밀번호 찾기 페이지 렌더링         //
-  return (
-    <div>
-      <SendEmailCode />
     </div>
-  )
+  );
 }
