@@ -1,6 +1,7 @@
 #main-top-wrapper {
+    min-width: 1440px;
 
-    padding: 32px 35px 16px;
+    padding: 32px 35px 10px;
 
     font-family: 'Spoqa Han Sans Neo';
 
@@ -11,7 +12,7 @@
 }
 
 .main-top-container {
-    width: 1374px;
+    width: 100%;
 
     display: flex;
     flex-direction: column;
@@ -21,10 +22,12 @@
 .main-top-up-box {
     display: flex;
     flex-direction: column;
+
+    flex: 1;
     gap: 12px;
 }
 
-.main-top-up-box-studyroom-title {
+.main-top-up-box-studyroom-text {
     color: rgba(0,0,0,1);
 
     font-size: 26px;
@@ -41,7 +44,9 @@
 }
 
 .main-top-down-box {
-    display: flex;
+    display: grid;
+
+    grid-template-columns: 5fr 6fr;
     gap: 20px;
 }
 
@@ -50,23 +55,19 @@
     flex-direction: column;
 
     gap: 10px;
-
 }
 
-.main-top-down-box-calendar-title {
+.main-top-down-calendar-box-text {
     color: rgba(0,0,0,1);
 
     font-size: 26px;
     font-weight: 500;
 }
 
-.main-top-down-box-calendar {
+.main-top-down-calendar {
     height: 359px;
-    width: 636px;
 
-    color: rgba(24,160,251,1);
-    border-width: 2px;  
-    border-style: solid;
+    box-shadow: 0 0 0 2px rgba(24,160,251,1) inset;
     border-radius: 5px;
 }
 
@@ -77,16 +78,17 @@
     gap: 10px;
 }
 
-.main-top-down-box-todolist-title {
+.main-top-down-todolist-box-text {
     color: rgba(0,0,0,1);
 
     font-size: 26px;
     font-weight: 500;
 }
 
-.main-top-down-box-todolist {
-    height: 359px;
-    width: 714px;
+.main-top-down-todolist {
+    /* height: 359px; */
+
+    padding: 12px 17px 11px 13px;
 
     color: rgba(24,160,251,1);
     border-width: 2px;  
@@ -94,3 +96,174 @@
     border-radius: 5px;
 }
 
+.main-top-down-todolist-bar {
+    display: flex;
+    
+    gap: 7px;
+}
+
+.main-top-down-todolist-date {
+    height: 31px;
+    width: 429px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    color: rgba(255,255,255,1);
+    font-size: 18px;
+    font-weight: 500px;
+    
+    border-radius: 5px;
+    background-color: rgba(24, 160, 251, 0.70);
+}
+
+.main-top-down-todolist-icon-box {
+    width: 25px;
+    height: 25px;
+}
+
+.main-top-down-todolist-add-icon {
+    width: 100%;
+    height: 100%;
+
+    background-image: url(assets/todolist-add-icon.png);
+    background-position: 50% 50%;
+    background-size: 100% 100%;
+}
+
+.main-top-down-todolist-delete-icon {
+    width: 100%;
+    height: 100%;
+
+    background-image: url(assets/todolist-delete-icon.png);
+    background-position: 50% 50%;
+    background-size: 100% 100%;
+}
+
+.main-top-down-todolist-add-button {
+    height: 31px;
+    width: 149px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: rgba(255,255,255,1);
+
+    box-shadow: 0 0 0 2px rgba(24,160,251,1) inset;
+    border-radius: 5px;
+}
+
+.main-top-down-todolist-add-button-text {
+    color: rgba(0,0,0,1);
+
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.main-top-down-todolist-delete-button {
+    height: 31px;
+    width: 149px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: rgba(255,255,255,1);
+
+    box-shadow: 0 0 0 2px rgba(24,160,251,1) inset;
+    border-radius: 5px;
+}
+
+.main-top-down-todolist-delete-button-text {
+    color: rgba(0,0,0,1);
+
+    font-size: 16px;
+    font-weight: 500;
+}
+
+
+#main-middle-wrapper {
+    min-width: 1440px;
+
+    padding: 0px 35px 10px;
+
+    font-family: 'Spoqa Han Sans Neo';
+
+    display: flex;
+    justify-content: center;
+    
+    background-color: rgba(232,241,255,1);
+}
+
+.main-middle-box {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.main-middle-box-recommend-studyroom-text {
+    color: rgba(0,0,0,1);
+
+    font-size: 26px;
+    font-weight: 500;
+}
+
+.main-middle-box-recommend-studyroom {
+    display: grid;
+
+    padding: 13px 25px;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+
+    border-radius: 5px;
+    box-shadow: 0 0 0 2px rgba(24,160,251,1) inset;
+
+    gap: 13px;
+
+}
+
+.main-middle-box-recommend-studyroom-box {
+    height: 217px;
+
+    box-shadow: 0 0 0 2px rgba(24, 160, 251, 0.5) inset;
+    background-color: rgba(255,255,255,1);
+
+    border-radius: 15px;
+
+    display: flex;
+    flex-direction: column;
+
+    background-repeat : no-repeat;
+    background-position: 50% 50%;
+    background-size : contain;
+}
+
+.main-middle-box-studyroom-deadline-time {
+    color: rgba(0,0,0,1);
+
+    font-size: 16px;
+    font-weight: 400;
+
+    margin: 8px 0px 0px 10px;
+}
+
+.main-middle-box-studyroom-participation-number {
+    color: rgba(0,0,0,1);
+
+    font-size: 16px;
+    font-weight: 400;
+
+    margin: 132px 0px 3px 10px;
+}
+
+.main-middle-box-studyroom-title {
+    color: rgba(0,0,0,1);
+
+    font-size: 23px;
+    font-weight: 500;
+
+    margin: 0px 0px 5px 10px;
+}

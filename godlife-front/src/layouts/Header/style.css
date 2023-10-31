@@ -1,5 +1,6 @@
 #header {
-    height: 70px;
+    min-width: 1440px;
+    min-height: 70px;
 
     padding-left: 35px;
     padding-right: 70px;
@@ -12,7 +13,7 @@
 }
 
 .header-container {
-    width: 1440px;
+    width: 100%;
 
     display: flex;
     justify-content: space-between;
@@ -56,13 +57,13 @@
     color: rgba(rgba(0,0,0,1));
 
     font-size: 30px;
-    font-weight: regular;
+    font-weight: 400;
 }
 
 .study-search-button:hover {
     cursor: pointer;
 
-    font-weight: bold;
+    font-weight: 700;
 }
 
 .study-create-button {
