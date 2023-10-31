@@ -1,4 +1,9 @@
-import React from "react";
+import JoinListItem from "components/JoinStudyItem";
+import JoinedListItem from "components/JoinedStudyItem";
+import joinStudyListMock from "mocks/join-study-list.mock";
+import joinedStudyListMock from "mocks/joined-study-list.mock";
+import React, { useState } from "react";
+import JoinStudyListItem from "types/join-study-list-item.interface";
 
 //          component: 마이페이지           //
 export default function MyPage() {
@@ -98,90 +103,48 @@ export default function MyPage() {
   //      component: 마이페이지 하단 컴포넌트          //
   const MyPageBottom = () => {
 
+    const [joinStudyList, setJoinStudyList] = useState<JoinStudyListItem[]>([]);
+
     //          render: 마이페이지 하단 렌더링              //
     return (
       <div id="my-page-bottom">
-        <div className="user-activity-histroy">
-          <div className="user-activity-histroy-title">{'활동 기록'}</div>
-          <div className="user-activity-box">
-            <div className="user-join-study-box">
-              <div className="user-join-study-title">{"참여중인 스터디"}</div>
-              <div className="join-study-box">
-                <div className="join-study-box-titles">
-                  <div className="join-study-title">{"방 제목"}</div>
-                  <div className="join-study-category">{"방 카테고리"}</div>
-                  <div className="join-study-authority">{"내 권한"}</div>
-                  <div className="join-study-progress">{"스터디 진행률"}</div>
-                  <div className="join-study-total-day">{"총 스터디 일수"}</div>
-                  <div className="join-study-join-day">{"참석일수"}</div>
-                  <div className="join-study-absent-day">{"결석일수"}</div>
-                  <div className="join-study-late-day">{"지각일수"}</div>
-                </div>
-                <div className="join-study-list-box">
-                  <div className="study-title-box">
-                    <div className="study-title-text"></div>
+        <div className="user-activity-histroy-box">
+          <div className="user-activity-history">
+            <div className="user-activity-histroy-title">{'활동 기록'}</div>
+            <div className="user-activity-box">
+              <div className="user-join-study-box">
+                <div className="user-join-study-title">{"참여중인 스터디"}</div>
+                <div className="join-study-box">
+                  <div className="join-study-box-titles">
+                    <div className="join-study-title">{"방 제목"}</div>
+                    <div className="join-study-category">{"방 카테고리"}</div>
+                    <div className="join-study-authority">{"내 권한"}</div>
+                    <div className="join-study-progress">{"스터디 진행률"}</div>
+                    <div className="join-study-total-day">{"총 스터디 일수"}</div>
+                    <div className="join-study-join-day">{"참석일수"}</div>
+                    <div className="join-study-absent-day">{"결석일수"}</div>
+                    <div className="join-study-late-day">{"지각일수"}</div>
                   </div>
-                  <div className="study-category-box">
-                    <div className="study-category-text"></div>
-                  </div>
-                  <div className="study-authority-box">
-                    <div className="study-authority-text"></div>
-                  </div>
-                  <div className="study-progress-box">
-                    <div className="study-progress-text"></div>
-                  </div>
-                  <div className="study-total-day-box">
-                    <div className="study-total-day-text"></div>
-                  </div>
-                  <div className="study-join-day-box">
-                    <div className="study-join-day-text"></div>
-                  </div>
-                  <div className="study-absent-day-box">
-                    <div className="study-absent-day-text"></div>
-                  </div>
-                  <div className="study-late-day-box">
-                    <div className="study-late-day-text"></div>
+                  <div className="join-study-list-box">
+                    {joinStudyListMock.map((joinItem) => <JoinListItem joinStudyItem={joinItem} />)}
                   </div>
                 </div>
               </div>
-            </div>
-            <div className="user-joined-study-box">
-              <div className="user-joined-study-title">{"참가한 스터디 기록"}</div>
-              <div className="joined-study-box">
-                <div className="joinedstudy-box-titles">
-                  <div className="joined-study-title">{"방 제목"}</div>
-                  <div className="joined-study-category">{"방 카테고리"}</div>
-                  <div className="joined-study-authority">{"스터디 내 권한"}</div>
-                  <div className="joined-study-end-day">{"스터디 종료 날짜"}</div>
-                  <div className="join-study-total-day">{"총 스터디 일수"}</div>
-                  <div className="join-study-join-day">{"참석일수"}</div>
-                  <div className="join-study-absent-day">{"결석일수"}</div>
-                  <div className="join-study-late-day">{"지각일수"}</div>
-                </div>
-                <div className="joined-study-list-box">
-                  <div className="joined-study-title-box">
-                    <div className="study-title-text"></div>
+              <div className="user-joined-study-box">
+                <div className="user-joined-study-title">{"참가한 스터디 기록"}</div>
+                <div className="joined-study-box">
+                  <div className="joined-study-box-titles">
+                    <div className="joined-study-title">{"방 제목"}</div>
+                    <div className="joined-study-category">{"방 카테고리"}</div>
+                    <div className="joined-study-authority">{"스터디 내 권한"}</div>
+                    <div className="joined-study-end-day">{"스터디 종료 날짜"}</div>
+                    <div className="joined-study-total-day">{"총 스터디 일수"}</div>
+                    <div className="joined-study-join-day">{"참석일수"}</div>
+                    <div className="joined-study-absent-day">{"결석일수"}</div>
+                    <div className="joined-study-late-day">{"지각일수"}</div>
                   </div>
-                  <div className="joined-study-category-box">
-                    <div className="study-category-text"></div>
-                  </div>
-                  <div className="joined-study-authority-box">
-                    <div className="study-authority-text"></div>
-                  </div>
-                  <div className="study-end-day-box">
-                    <div className="study-end-day-text"></div>
-                  </div>
-                  <div className="study-total-day-box">
-                    <div className="study-total-day-text"></div>
-                  </div>
-                  <div className="study-join-day-box">
-                    <div className="study-join-day-text"></div>
-                  </div>
-                  <div className="study-absent-day-box">
-                    <div className="study-absent-day-text"></div>
-                  </div>
-                  <div className="study-late-day-box">
-                    <div className="study-late-day-text"></div>
+                  <div className="joined-study-list-box">
+                    {joinedStudyListMock.map((joinedItem) => <JoinedListItem joinedStudyItem={joinedItem} />)}
                   </div>
                 </div>
               </div>
