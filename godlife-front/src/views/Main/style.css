@@ -86,25 +86,26 @@
 }
 
 .main-top-down-todolist {
-    /* height: 359px; */
-
+    height: 100%;
     padding: 12px 17px 11px 13px;
 
-    color: rgba(24,160,251,1);
-    border-width: 2px;  
-    border-style: solid;
+    box-shadow: 0 0 0 2px rgba(24,160,251,1) inset;
     border-radius: 5px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
 }
 
 .main-top-down-todolist-bar {
-    display: flex;
-    
+    display: grid;
+    grid-template-columns: 3fr 1fr 1fr;
+    grid-template-rows: repeat(3, 7px);
     gap: 7px;
 }
 
 .main-top-down-todolist-date {
     height: 31px;
-    width: 429px;
 
     display: flex;
     justify-content: center;
@@ -143,7 +144,6 @@
 
 .main-top-down-todolist-add-button {
     height: 31px;
-    width: 149px;
 
     display: flex;
     justify-content: center;
@@ -164,7 +164,6 @@
 
 .main-top-down-todolist-delete-button {
     height: 31px;
-    width: 149px;
 
     display: flex;
     justify-content: center;
@@ -183,6 +182,79 @@
     font-weight: 500;
 }
 
+.main-top-down-todolist-input {
+    height: 31px;
+
+    display: flex;
+    align-items: center;
+
+    padding-left: 15px;
+    color: rgba(217,217,217,1);
+
+    background-color: rgba(255,255,255,1);
+    border-radius: 5px;
+    box-shadow: 0 0 0 2px rgba(24, 160, 251, 0.5) inset;
+}
+
+.main-top-down-todolist-detail-box {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.main-top-down-todolist-detail {
+    display: flex;
+
+    gap: 3px;
+}
+
+.main-top-down-todolist-check-icon-box {
+    height: 31px;
+    width: 31px;
+}
+
+.main-top-down-todolist-check-icon {
+    width: 100%;
+    height: 100%;
+    
+    background-image: url(assets/list-check-icon.png);
+    background-position: 50% 50%;
+    background-size: 100% 100%;
+}
+
+.main-top-down-todolist-non-check-icon {
+    width: 100%;
+    height: 100%;
+    
+    background-image: url(assets/list-non-check-icon.png);
+    background-position: 50% 50%;
+    background-size: 100% 100%;
+}
+
+.main-top-down-todolist-detail-text {
+    width: 100%;
+
+    padding-left: 17px;
+
+    display: flex;
+    align-items: center;
+
+    border-radius: 9px;
+    background-color: rgba(217,217,217,1);
+}
+
+.main-top-down-todolist-detail-text-ok {
+    width: 100%;
+
+    padding-left: 17px;
+
+    display: flex;
+    align-items: center;
+
+    border-radius: 9px;
+    color: rgba(255,255,255,1);
+    background-color: rgba(24, 160, 251, 0.70);
+}
 
 #main-middle-wrapper {
     min-width: 1440px;
@@ -222,10 +294,9 @@
     box-shadow: 0 0 0 2px rgba(24,160,251,1) inset;
 
     gap: 13px;
-
 }
 
-.main-middle-box-recommend-studyroom-box {
+.main-middle-box-recommend-studyroom-data {
     height: 217px;
 
     box-shadow: 0 0 0 2px rgba(24, 160, 251, 0.5) inset;
@@ -266,4 +337,42 @@
     font-weight: 500;
 
     margin: 0px 0px 5px 10px;
+}
+
+#main-bottom-wrapper {
+    min-width: 1440px;
+
+    padding: 0px 35px 10px;
+
+    font-family: 'Spoqa Han Sans Neo';
+
+    display: flex;
+    justify-content: center;
+    
+    background-color: rgba(232,241,255,1);
+}
+
+.main-bottom-box {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.main-bottom-box-studyroom-search-text {
+    color: rgba(0,0,0,1);
+
+    font-size: 26px;
+    font-weight: 500;
+}
+
+.main-bottom-box-studyroom-search {
+    display: flex;
+    flex-direction: column;
+
+    padding: 19px 15px 22px;
+
+    border-radius: 5px;
+    box-shadow: 0 0 0 2px rgba(24,160,251,1) inset;
 }
