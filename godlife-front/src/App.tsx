@@ -10,7 +10,8 @@ import './views/MyPage/style.css';
 function App() {
 
   return (
-    <MyPage />
+    // <MyPage />
+    <></>
   );
 }
 
