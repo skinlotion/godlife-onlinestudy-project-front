@@ -6,12 +6,13 @@ import './views/Authentication/soo/style.css';
 import { LOGIN_FIND_PATH } from './constant';
 import MyPage from 'views/MyPage';
 import './views/MyPage/style.css';
+import StudyCreate from 'views/StudyCreate';
 
 function App() {
 
   return (
-    // <MyPage />
-    <></>
+    <MyPage />
+    // <StudyCreate />
   );
 }
 
