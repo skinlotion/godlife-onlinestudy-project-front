@@ -1,5 +1,5 @@
 #auth-wrapper {
-    padding: 100px 0 150px;
+    padding: 112px 0 112px;
     min-width: 1440px;
     height: calc(100vh - 64px - 100px - 150px);
     min-height: 960px;
@@ -13,105 +13,116 @@
     background-size: 100% 100%;
 }
 
-.auth-container{
+.auth-container {
+    padding: 45px 50px;
+
     width: 500px;
-    height: 600px;
+    height: 100%;
 
-    padding-top: 25px;
-    padding-bottom: 55px;
+    border-radius: 10px;
 
-    border-radius: 30px;
-    background: #FFF;
-}
-
-.auth-card-top-container{
     display: flex;
     flex-direction: column;
-    justify-content: center;
+
+    background-color: rgba(255, 255, 255, 1);
+    box-shadow: 0px 4px 47px 0px rgba(0, 0, 0, 0.25);
+}
+
+.sign-in-card {
+    display: flex;
+    flex-direction: column;
     align-items: center;
+
+    gap: 115px;
+}
+
+.sign-in-top-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
     gap: 30px;
 }
 
-.logo-icon-box{
-    width: 358px;
-    height: 80px;
+
+.auth-top-box{
+    gap: 40px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.logo-icon{
-    width: 100%;
-    height: 100%;
-    
-    background-image: url(assets/logo-icon.png);
-    background-size: 100% 100%;
+.godlife-logo-icon-box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.godlife-logo-icon{
+    width: 240px;
+    height: 48px;
+
+    background-image: url(assets/godlife-logo-title-icon.png);
     background-position: 50% 50%;
+    background-size: 100% 100%;
 }
 
-.auth-card-top-text{
+.auth-page-text-box{
     color: #000;
+
     font-family: Roboto;
     font-size: 20px;
     font-weight: 700;
     line-height: 22px;
 }
 
-.auth-card-middle-container{
-    margin-top: 40px;
+.sign-in-middle-box {
+    margin-bottom: 115px;
+    
+
     display: flex;
     flex-direction: column;
-    gap: 35px;
     align-items: center;
+    gap : 15px;
 }
 
-.auth-card-middle-icon-box{
-    height: 195px;
-    width: 195px;
-}
-
-.email-logo-icon{
-    width: 100%;
-    height: 100%;
+.auth-error-message-container {
+    height: 80px;
     
-    background-image: url(assets/email-logo.png);
-    background-size: 100% 100%;
+    display: flex;
+    align-items: center;
+
+    padding-left: 10px;
+
+    background-color: #FFAFA3;;
+}
+.auth-error-message-box{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    gap: 20px;
+
+}
+.error-logo-image{
+    width: 40px;
+    height: 40px;
+
+    background-image: url(assets/auth-error_icon.png);
     background-position: 50% 50%;
+    background-size: 100% 100%;
 }
-.auth-card-middle-text{
+.error-message-text{
     color: #000;
-    font-family: Montserrat;
+
     font-size: 15px;
-    font-style: normal;
     font-weight: 500;
     line-height: normal;
-    letter-spacing: -0.225px;
 
-    white-space: pre-wrap;    
+    white-space: pre-wrap;
 }
 
-.auth-card-middle-send-email{
-    color: #000;
-
-    font-size: 20px;
-    font-weight: 500;
-    line-height: normal;
-    letter-spacing: -0.3px;
-}
-
-.auth-card-bottom-container{
-    margin-top: 74px;
-    
-}
-
-.auth-card-bottom-return-link-text{
-    color: #000;
-    text-align: center;
-    font-family: Montserrat;
-    font-size: 21.114px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-    letter-spacing: -0.317px;
-}
-
-.auth-card-bottom-return-link-text:hover{
-    cursor: pointer;
+.Oauth-box{
+    box-shadow: 0 0 0 2px pink inset;
 }
