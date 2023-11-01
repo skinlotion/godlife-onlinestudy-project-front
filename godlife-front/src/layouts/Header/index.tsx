@@ -4,10 +4,10 @@ import { useLocation } from 'react-router-dom';
 
 export default function Header() {
 
-  //    state: path name 상태    //
+  //        state: path name 상태       //
   const { pathname } = useLocation();
 
-  //    render: 헤더 컴포넌트 렌더링    //
+  //        render: 헤더 컴포넌트 렌더링        //
   return (
     <div id='header'>
       <div className='header-container' >

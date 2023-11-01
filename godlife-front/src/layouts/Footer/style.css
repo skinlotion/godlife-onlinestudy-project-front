@@ -1,0 +1,83 @@
+#footer {
+    min-width: 1440px;
+    min-height: 110px;
+
+    padding: 0px 100px 0px 35px;
+
+    font-family: 'Spoqa Han Sans Neo';
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-container {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+}
+
+.footer-left-box {
+    display: flex;
+    align-items: center;
+
+    gap: 39px;
+}
+
+.footer-provision {
+    font-size: 15px;
+    font-weight: 400;
+}
+
+.footer-privacy-policy {
+    font-size: 15px;
+    font-weight: 400;
+}
+
+.footer-copyright {
+    font-size: 15px;
+    font-weight: 400;
+}
+
+.footer-right-box {
+    display: flex;
+    align-items: center;
+
+    margin-left: auto;
+    gap: 5px;
+}
+
+.footer-button {
+    width: 35px;
+    height: 35px;
+}
+
+.notion-logo-icon {
+    width: 100%;
+    height: 100%;
+
+    background-image: url(../../assets/notion-logo-icon.png);
+    background-position: 50% 50%;
+    background-size: 100% 100%;
+}
+
+.kakao-logo-icon {
+    width: 100%;
+    height: 100%;
+
+    background-image: url(../../assets/kakao-logo-icon.png);
+    background-position: 50% 50%;
+    background-size: 100% 100%;
+}
+
+.naver-logo-icon {
+    width: 100%;
+    height: 100%;
+
+    background-image: url(../../assets/naver-logo-icon.png);
+    background-position: 50% 50%;
+    background-size: 100% 100%;
+}

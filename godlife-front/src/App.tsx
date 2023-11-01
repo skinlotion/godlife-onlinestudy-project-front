@@ -5,6 +5,7 @@ import Header from './layouts/Header';
 import Container from './layouts/Container';
 import { MAIN_PATH } from './constant';
 import Main from './views/Main';
+import Footer from './layouts/Footer';
 
 function App() {
 
@@ -16,6 +17,7 @@ function App() {
     <div>
       {<Header />}
       {<Main />}
+      {<Footer />}
     </div>
   );
 }

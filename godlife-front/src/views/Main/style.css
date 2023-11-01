@@ -124,7 +124,7 @@
     height: 25px;
 }
 
-.main-top-down-todolist-add-icon {
+.todolist-add-icon {
     width: 100%;
     height: 100%;
 
@@ -133,7 +133,7 @@
     background-size: 100% 100%;
 }
 
-.main-top-down-todolist-delete-icon {
+.todolist-delete-icon {
     width: 100%;
     height: 100%;
 
@@ -213,7 +213,7 @@
     width: 31px;
 }
 
-.main-top-down-todolist-check-icon {
+.todolist-check-icon {
     width: 100%;
     height: 100%;
     
@@ -222,7 +222,7 @@
     background-size: 100% 100%;
 }
 
-.main-top-down-todolist-non-check-icon {
+.todolist-non-check-icon {
     width: 100%;
     height: 100%;
     
@@ -296,7 +296,7 @@
     gap: 13px;
 }
 
-.main-middle-box-recommend-studyroom-data {
+.main-middle-box-studyroom-data {
     height: 217px;
 
     box-shadow: 0 0 0 2px rgba(24, 160, 251, 0.5) inset;
@@ -374,5 +374,132 @@
     padding: 19px 15px 22px;
 
     border-radius: 5px;
+    box-shadow: 0 0 0 2px rgba(24,160,251,1) inset;
+}
+
+.main-bottom-box-studyroom-search-box {
+    display: flex;
+    align-items: center;
+
+    margin-left: auto;
+
+    gap: 10px;
+}
+
+.main-bottom-box-studyroom-total {
+    font-size: 22px;
+    font-weight: 400;
+}
+
+.main-bottom-box-studyroom-search-input-box {
+    width: 449px;
+    height: 38px;
+
+    padding: 4px 15px;
+
+    border-radius: 30px;
+    background-color: rgba(255,255,255,1);
+    box-shadow: 0 0 0 2px rgba(24, 160, 251, 0.5) inset;
+
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.main-bottom-box-studyroom-search-input {
+    flex: 1;
+
+    border: none;
+    background: none;
+    outline: none;
+
+    color: rgba(176,176,176,1);
+
+    font-size: 21px;
+    font-weight: 400;
+}
+
+.search-icon {
+    width: 100%;
+    height: 100%;
+
+    background-image: url(../../assets/search-icon.png);
+    background-position: 50% 50%;
+    background-size: 100% 100%;
+}
+
+.main-bottom-box-studyroom-category-box {
+    display: flex;
+    align-items: center;
+
+    margin-left: auto;
+    margin-top: 15px;
+
+    gap: 5px;
+}
+
+.main-bottom-box-studyroom-category-activation-button {
+    width: 98px;
+    height: 38px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 25px;
+    font-weight: 400;
+
+    color: rgba(255,255,255,1);
+    background-color: rgba(24, 160, 251, 0.7);
+    box-shadow: 0 0 0 2px rgba(24,160,251,1) inset;
+    border-radius: 10px;
+}
+
+.main-bottom-box-studyroom-category-deactivation-button {
+    width: 98px;
+    height: 38px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 25px;
+    font-weight: 400;
+
+    background-color: rgba(255,255,255,1);
+    box-shadow: 0 0 0 2px rgba(24,160,251,1) inset;
+    border-radius: 10px;
+}
+
+.main-bottom-box-studyroom {
+    display: flex;
+    flex-direction: column;
+
+    margin-top: 37px;
+    gap: 10px;
+}
+
+.main-bottom-box-studyroom-line {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+
+    gap: 8px;
+}
+
+.main-bottom-box-studyroom-additional-view-button {
+    width: 100%;
+    height: 51px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-top: 21px;
+
+    font-size: 30px;
+    font-weight: 500;
+
+    border-radius: 5px;
+    background-color: rgba(255,255,255,1);
     box-shadow: 0 0 0 2px rgba(24,160,251,1) inset;
 }
