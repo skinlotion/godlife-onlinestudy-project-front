@@ -1,7 +1,9 @@
 #my-page-top {
     padding-top: 80px;
     padding-left: 35px;
+
     min-width: 1440px;
+
     font-family: 'Spoqa Han Sans Neo';
 
     background-color: rgba(232, 241, 255, 1);
@@ -59,6 +61,18 @@
     width: 200px;
     height: 200px;
 
+    border-radius: 50% 50%;
+
+    background-position: 50% 50%;
+    background-size: 100% 100%;
+}
+
+.user-profile-default-image {
+    width: 200px;
+    height: 200px;
+
+    border-radius: 50% 50%;
+
     background-image: url(assets/default-user-icon.png);
     background-position: 50% 50%;
     background-size: 100% 100%;
@@ -74,6 +88,11 @@
 
     border-radius: 10px;
     background-color: rgba(24, 160, 251, 0.7);
+}
+
+.user-profile-image-change-box:hover {
+    cursor: pointer;
+    background-color: rgba(24, 160, 251, 1);
 }
 
 .user-profile-image-change-box-text {
@@ -97,6 +116,27 @@
 .user-nickname-box {
     display: flex;
     gap: 15px;
+}
+
+.user-info-nickname-input {
+    border: none;
+    outline: none;
+    background: none;
+
+    display: inline-block;
+
+    color: rgba(0, 0, 0, 0.5);
+
+    font-family: 'Spoqa Han Sans Neo';
+    font-size: 30px;
+    font-weight: 400;
+}
+
+.error-message {
+    color: rgba(255, 0, 0, 1);
+
+    font-size: 15px;
+    font-weight: 400;
 }
 
 .user-nickname-text {
@@ -139,6 +179,11 @@
     color: rgba(255, 255, 255, 1);
     font-size: 25px;
     font-weight: 500;
+}
+
+.password-modify-box:hover {
+    cursor: pointer;
+    background-color: rgba(24, 160, 251, 1);
 }
 
 .user-category-box {
@@ -397,6 +442,11 @@
     justify-content: center;
 }
 
+.user-grade-standard-box:hover {
+    cursor: pointer;
+    background-color: rgba(24, 160, 251, 1);
+}
+
 .user-grade-standard-box-text {
     color: rgba(255, 255, 255, 1);
 
@@ -407,8 +457,7 @@
 /* ! --------------------------- 여기까지 MyPageTop ------------------------------ */
 
 #my-page-bottom {
-    padding-top: 50px;
-    padding-left: 35px;
+    padding: 50px 0px 150px 35px;
     min-width: 1440px;
     
     font-family: 'Spoqa Han Sans Neo';
@@ -436,8 +485,7 @@
     padding-top: 30px;
 
     width: 1377px;
-    height: 822px;
-
+    height: 100%;
 
     border-radius: 15px;
     border: 2px solid rgba(24, 160, 251, 1);
@@ -469,6 +517,10 @@
     color: rgba(255, 255, 255, 1);
     font-size: 15px;
     font-weight: 500;
+
+    height: 140px;
+
+    max-height: 140px;
 
     padding: 20px 10px 20px 10px;
 
@@ -509,11 +561,32 @@
     color: rgba(255, 255, 255, 1);
     font-size: 15px;
     font-weight: 500;
-    text-align: center;    
+    text-align: center;
+
+    height: 250px;
+    max-height: 250px;
 
     padding: 20px 10px 20px 10px;
 
     border-radius: 10px;
     border: 2px solid rgba(24, 160, 251, 0.7);
     background-color: rgba(255, 255, 255, 1);
+}
+
+.track-vertical {
+    top: 2px;
+    bottom: 2px;
+    right: 8px;
+    border-radius: 30px;
+    background: rgba(255, 255, 255, 0.111);
+}
+
+.track-vertical .thumb-vertical {
+    padding: 0 8px 0 0;
+    position: relative;
+    display: block;
+    width: 100%;
+    cursor: pointer;
+    border-radius: inherit;
+    background-color: rgba(24,160,251,1);
 }

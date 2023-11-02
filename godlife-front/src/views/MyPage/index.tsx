@@ -1,14 +1,96 @@
+import DropDownFirstCategory from 'components/Dropdown1Category';
+import DropDownOtherCategory from 'components/DropdownOtherCategory';
 import JoinListItem from 'components/JoinStudyItem';
 import JoinedListItem from 'components/JoinedStudyItem';
+import { userMock } from 'mocks';
 import joinStudyListMock from 'mocks/join-study-list.mock';
 import joinedStudyListMock from 'mocks/joined-study-list.mock';
-import React, { useState } from 'react';
-import JoinStudyListItem from 'types/join-study-list-item.interface';
+import React, { ChangeEvent, useState, useRef, useEffect } from 'react';
+import { Scrollbars } from 'react-custom-scrollbars-2';
+import { useParams } from 'react-router-dom';
+import useUserStore from 'stores/user.store';
 
 //          component: 마이페이지           //
 export default function MyPage() {
+
+  //          state: 조회하는 유저 이메일 path variable 상태          //
+  const {searchEmail} = useParams();
+  //          state: 로그인 유저 정보 상태          //
+  const { user } = useUserStore();
+
   //        component: 마이페이지 상단 컴포넌트        //
   const MyPageTop = () => {
+    
+    //          state: 프로필 이미지 input ref 상태          //
+    const fileInputRef = useRef<HTMLInputElement | null>(null);
+    //          state: 이메일 상태          //
+    const [email, setEmail] = useState<string>('');
+    //          state: 프로필 이미지 상태          //
+    const [profileImage, setProfileImage] = useState<string | null>('');
+    //          state: 닉네임 상태          //
+    const [nickname, setNickname] = useState<string>('');
+    //          state: 닉네임 변경 상태          //
+    const [showChangeNickname, setShowChangeNickname] = useState<boolean>(false);
+    //          state: 닉네임 에러 상태          //
+    const [nicknameError, setNicknameError] = useState<boolean>(false);
+    //          state: 닉네임 에러 메세지 상태          //
+    const [nicknameErrorMessage, setNicknameErrorMessage] = useState<string>('');
+
+    //          event handler: 프로필 이미지 변경 클릭 이벤트 처리          //
+    const onProfileImageChangeButtonClickHandler = () => {
+      if(!fileInputRef.current) return;
+      fileInputRef.current.click();
+    };
+    //          event handler: 프로필 이미지 변경 이벤트 처리          //
+    const onProfileImageChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
+      if (!event.target.files || !event.target.files.length) return;
+      const imageUrl = URL.createObjectURL(event.target.files[0]);
+      setProfileImage(imageUrl);
+    };
+
+    //          event handler: 닉네임 변경 버튼 클릭 이벤트 처리          //
+    const onChangeNicknameButtonClickHander = () => {
+      if (nickname.length < 2) {
+        setNicknameError(true); // 닉네임이 2글자 미만이면 에러 상태 설정
+        setNicknameErrorMessage('닉네임은 2글자 이상이어야 합니다.');
+      } else {
+        setNicknameError(false); // 닉네임이 2글자 이상이면 에러 상태 해제
+        setNicknameErrorMessage('');
+        setShowChangeNickname(!showChangeNickname);
+      }
+      
+    };
+    //          event handler: 닉네임 변경 이벤트 처리          //
+    const onNicknameChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
+      const nickname = event.target.value;
+      setNickname(nickname);
+
+      if (nickname.length >= 2) {
+        setNicknameError(false); // 닉네임이 2글자 이상이면 에러 상태 해제
+        setNicknameErrorMessage('');
+      }
+    };
+    
+    //          event handler: 비밀번호 수정하기 버튼 클릭 이벤트 처리          //
+    const onChangePasswordButtonClickHander = () => {
+      alert('비밀번호 수정 창 띄우기');
+    };
+
+    //          event handler: 등급기준 보러가기 버튼 클릭 이벤트 처리          //
+    const onLookGradeStandardButtonClickHander = () => {
+      alert('등급기준 보러가기 창 띄우기');
+    };
+    
+    
+    //          effect: 조회하는 유저의 이메일이 변경될 때마다 실행할 함수          //
+    useEffect(() => {
+      const { userEmail, userNickname, userProfileImageUrl } = userMock;
+      setEmail(userEmail);
+      setNickname(userNickname);
+      setProfileImage(userProfileImageUrl);
+      
+    }, [searchEmail]);
+
     //             render: 마이페이지 상단 렌더링              //
     return (
       <div id='my-page-top'>
@@ -19,18 +101,30 @@ export default function MyPage() {
               <div className='info-detail-box'>
                 <div className='info-detail-box-top'>
                   <div className='user-profile-box'>
-                    <div className='user-profile-image'></div>
-                    <div className='user-profile-image-change-box'>
+                    <div className='user-profile-image'>
+                      <input ref={fileInputRef} type='file' accept='image/*' style={{ display:'none' }} onChange = {onProfileImageChangeHandler} />
+                          {profileImage === '' ? (
+                            <div className='user-profile-default-image'></div>
+                          ) : (
+                            <div className='user-profile-image' style={{ backgroundImage: `url(${profileImage})` }}></div>
+                          )}
+                    </div>
+                    <div className='user-profile-image-change-box' onClick={onProfileImageChangeButtonClickHandler}>
                       <div className='user-profile-image-change-box-text'>{'변경'}</div>
                     </div>
                   </div>
                   <div className='user-basic-info-box'>
                     <div className='user-nickname-box'>
-                      <div className='user-nickname-text'>{'힘가둑'}</div>
-                      <div className='user-nickname-icon'></div>
+                      {showChangeNickname ? (
+                        <input className='user-info-nickname-input' type='text' size={nickname.length + 2} value={nickname} onChange={onNicknameChangeHandler} />
+                      ) : (
+                        <div className='user-nickname-text'>{nickname}</div>
+                      )}
+                      <div className='user-nickname-icon' onClick={onChangeNicknameButtonClickHander}></div>
+                      {nicknameError &&  <div className='error-message' style={{ paddingTop:'20px' }}>{nicknameErrorMessage}</div>}
                     </div>
-                    <div className='user-email'>{'skin_lotion@naver.com'}</div>
-                    <div className='password-modify-box'>{'비밀번호 수정하기'}</div>
+                    <div className='user-email'>{email}</div>
+                    <div className='password-modify-box' onClick={onChangePasswordButtonClickHander}>{'비밀번호 수정하기'}</div>
                   </div>
                 </div>
                 <div className='user-category-box'>
@@ -38,30 +132,15 @@ export default function MyPage() {
                   <div className='user-category-list-box'>
                     <div className='user-category-1'>
                       <div className='user-category-1-title'>{'1관심 카테고리'}</div>
-                      <div className='user-category-1-box'>
-                        <div className='user-category-1-box-title'>{'취업'}</div>
-                        <div className='user-category-icon-box'>
-                          <div className='user-category-icon'></div>
-                        </div>
-                      </div>
+                      {<DropDownFirstCategory />}
                     </div>
                     <div className='user-category-2'>
                       <div className='user-category-2-title'>{'2관심 카테고리'}</div>
-                      <div className='user-category-2-box'>
-                        <div className='user-category-2-box-title'>{'선택해주세요'}</div>
-                        <div className='user-category-icon-box'>
-                          <div className='user-category-icon'></div>
-                        </div>
-                      </div>
+                      {<DropDownOtherCategory />}
                     </div>
                     <div className='user-category-3'>
                       <div className='user-category-3-title'>{'3관심 카테고리'}</div>
-                      <div className='user-category-3-box'>
-                        <div className='user-category-3-box-title'>{'선택해주세요'}</div>
-                        <div className='user-category-icon-box'>
-                          <div className='user-category-icon'></div>
-                        </div>
-                      </div>
+                      {<DropDownOtherCategory />}
                     </div>
                   </div>
                 </div>
@@ -87,7 +166,7 @@ export default function MyPage() {
                 </div>
               </div>
               <div className='user-check-grade-standard'>
-                <div className='user-grade-standard-box'>
+                <div className='user-grade-standard-box' onClick={onLookGradeStandardButtonClickHander}>
                   <div className='user-grade-standard-box-text'>{'등급기준 보러가기'}</div>
                 </div>
               </div>
@@ -100,7 +179,6 @@ export default function MyPage() {
 
   //      component: 마이페이지 하단 컴포넌트          //
   const MyPageBottom = () => {
-    const [joinStudyList, setJoinStudyList] = useState<JoinStudyListItem[]>([]);
 
     //          render: 마이페이지 하단 렌더링              //
     return (
@@ -123,7 +201,11 @@ export default function MyPage() {
                     <div className='join-study-late-day'>{'지각일수'}</div>
                   </div>
                   <div className='join-study-list-box'>
-                    {joinStudyListMock.map((joinItem) => (<JoinListItem joinStudyItem={joinItem} />))}
+                    <Scrollbars
+                      renderTrackVertical={props => <div {...props} className="track-vertical"/>}
+                      renderThumbVertical={props => <div {...props} className="thumb-vertical"/>}>
+                        {joinStudyListMock.map((joinItem) => (<JoinListItem joinStudyItem={joinItem} />))}
+                    </Scrollbars>
                   </div>
                 </div>
               </div>
@@ -141,7 +223,11 @@ export default function MyPage() {
                     <div className='joined-study-late-day'>{'지각일수'}</div>
                   </div>
                   <div className='joined-study-list-box'>
-                    {joinedStudyListMock.map((joinedItem) => (<JoinedListItem joinedStudyItem={joinedItem} />))}
+                  <Scrollbars
+                      renderTrackVertical={props => <div {...props} className="track-vertical"/>}
+                      renderThumbVertical={props => <div {...props} className="thumb-vertical"/>}>
+                        {joinedStudyListMock.map((joinedItem) => (<JoinedListItem joinedStudyItem={joinedItem} />))}
+                  </Scrollbars>
                   </div>
                 </div>
               </div>
