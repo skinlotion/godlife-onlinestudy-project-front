@@ -13,9 +13,8 @@ import './components/Dropdown1Category/style.css';
 function App() {
 
   return (
-    <MyPage />
-    // <StudyCreate />
-    // <DropDownFirstCategory />
+    // <MyPage />
+    <StudyCreate />
   );
 }
 

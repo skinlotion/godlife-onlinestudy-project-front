@@ -46,6 +46,9 @@ const DropDownOtherCategory = () => {
             <div className={`dropdown-header ${selectedItem ? 'selected' : ''}`} onClick={toggleDropdown}>
                 {selectedItem ? selectedItem : '선택해주세요'}
             </div>
+            <div className='icon-box'>
+               <div className='down-arrow-icon'></div>
+            </div>
                 {isOpen && (
                     <div className='dropdown-list'>
                         <Scrollbars

@@ -40,6 +40,7 @@
 .study-title-box {
     display: flex;
     flex-direction: row;
+    align-items: center;
 
     gap: 130px;
 }
@@ -91,7 +92,7 @@
 }
 
 .study-period-set-box {
-    width: 360px;
+    width: 35%;
     height: 61px;
     display: flex;
     align-items: center;
@@ -112,10 +113,10 @@
 .icon-box {
     padding-right: 15px;
 
-    display: flex;
-    
     width: 35px;
     height: 35px;
+
+    display: flex;
 }
 
 .calendar-icon {
@@ -140,7 +141,7 @@
 }
 
 .study-people-set-box {
-    width: 400px;
+    width: 40%;
     height: 61px;
     display: flex;
     align-items: center;
@@ -180,7 +181,7 @@
 }
 
 .study-category-set-box {
-    width: 400px;
+    width: 40%;
     height: 61px;
     display: flex;
     align-items: center;
@@ -211,7 +212,7 @@
 }
 
 .study-materials-set-box {
-    width: 450px;
+    width: 45%;
     height: 61px;
     display: flex;
     align-items: center;

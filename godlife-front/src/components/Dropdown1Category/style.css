@@ -1,36 +1,60 @@
 .dropdown-box {
   font-family: 'Spoqa Han Sans Neo';
   font-size: 20px;
-}
-
-.dropdown-header {
-  color: rgba(207, 207, 207, 1);
 
   width: 185px;
   height: 45px;
-  margin-bottom: 2px;
-  
-  display: flex;
-  align-items: center;
-  justify-content: center;
 
-  font-weight: 400;
-  
+  display: flex;
+  flex-direction: row;
+
   border-radius: 10px;
   border: 3px solid rgba(24, 160, 251, 1);
   background-color: rgba(255, 255, 255, 1);
 }
 
-.dropdown-header:hover {
+.dropdown-box:hover {
   cursor: pointer;
   background-color: rgba(24, 160, 251, 0.3);
 }
+
+.dropdown-header {
+  color: rgba(207, 207, 207, 1);
+
+  margin-bottom: 2px;
+  padding-left: 25px;
+  
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+
+  font-weight: 400;
+}
+
+.icon-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-right: 10px;
+}
+
+.down-arrow-icon {
+  width: 25px;
+  height: 25px;
+
+  background-image: url(assets/arrow-down-icon.png);
+  background-position: 50% 50%;
+  background-size: 100% 100%;
+}
+
 
 .dropdown-header.selected {
   color: rgba(0, 0, 0, 1);
 }
 
 .dropdown-list {
+  margin-top: 50px;
   padding: 5px 5px 5px 5px;
   width: 205px;
   height: 200px;

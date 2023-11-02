@@ -37,7 +37,7 @@
 
     border: 2px solid rgba(24, 160, 251, 1);
     border-radius: 15px;
-    
+
     background-color: rgba(255, 255, 255, 1);
 }
 
@@ -110,7 +110,6 @@
     flex-direction: column;
 
     gap: 25px;
-
 }
 
 .user-nickname-box {
@@ -340,7 +339,7 @@
 
 .user-grade-icon-text {
     font-size: 30px;
-    font-weight: 400;   
+    font-weight: 400;
 }
 
 .user-grade-standard {
@@ -459,7 +458,7 @@
 #my-page-bottom {
     padding: 50px 0px 150px 35px;
     min-width: 1440px;
-    
+
     font-family: 'Spoqa Han Sans Neo';
 
     background-color: rgba(232, 241, 255, 1);
@@ -477,7 +476,7 @@
 .user-activity-histroy-title {
     font-size: 45px;
     font-weight: 500;
-    
+
     padding-bottom: 25px;
 }
 
@@ -508,7 +507,7 @@
     grid-template-columns: 2fr 1fr 1fr 1fr 0.7fr 0.5fr 0.5fr 0.5fr;
     place-items: center;
     gap: 10px;
-    
+
     font-size: 18px;
     font-weight: 400;
 }
@@ -546,18 +545,18 @@
 
 .joined-study-box-titles {
     display: grid;
-    
-    
+
+
     padding: 0px 10px 10px 10px;
     grid-template-columns: 1.5fr 1fr 1fr 0.7fr 0.7fr 0.5fr 0.5fr 0.5fr;
     place-items: center;
     gap: 10px;
-    
+
     font-size: 18px;
     font-weight: 400;
 }
 
-.joined-study-list-box{
+.joined-study-list-box {
     color: rgba(255, 255, 255, 1);
     font-size: 15px;
     font-weight: 500;
@@ -588,5 +587,5 @@
     width: 100%;
     cursor: pointer;
     border-radius: inherit;
-    background-color: rgba(24,160,251,1);
+    background-color: rgba(24, 160, 251, 1);
 }
