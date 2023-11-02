@@ -1,10 +1,15 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import StudyDefaultImage from '../../assets/study-default-icon.png'
 import { Scrollbars } from 'react-custom-scrollbars-2';
 import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
 import './style.css';
+import 'react-tabs/style/react-tabs.css';
 import { useNavigate, useParams } from 'react-router-dom';
 import useUserStore from '../../stores/user.store';
+import { AUTH_PATH } from '../../constant';
+import studyRoomInfoListMock from '../../mocks/study-room-info-list.mock';
+import usePagination from '../../hooks/pagination.hook';
+import { StudyRoomItem } from '../../types';
 
 //        component: 메인 페이지        //
 export default function Main() {
@@ -16,14 +21,24 @@ export default function Main() {
   //        state: 본인 여부 상태       //
   const [isMyPage, setMyPage] = useState<boolean>(false);
 
-  //        function: 네비게이트 함수       //
-  const navigator = useNavigate();
-
-  //        state: 참여한 스터디 개수 상태        //
-  const [count, setCount] = useState<number>(0);
-  
   //        component: 메인 상단 컴포넌트       //
   const MainTop = () => {
+    
+    //        function: 네비게이트 함수       //
+    const navigator = useNavigate();
+
+    //        state: 페이지네이션 관련 상태       //
+    const { setStudyRoomInfoList } = usePagination<StudyRoomItem>();
+
+    //        state: 참여한 스터디 개수 상태        //
+    const [count, setCount] = useState<number>(0);
+
+    //        effect: 조회하는 유저의 이메일이 변경될 때마다 실행할 함수        //
+    useEffect(() => {
+      setStudyRoomInfoList(studyRoomInfoListMock);
+      setCount(studyRoomInfoListMock.length);
+    }, [searchEmail]);
+
     
     const TabExample: React.FC = () => {
       return (
