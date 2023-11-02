@@ -1,13 +1,53 @@
-import React from 'react'
+import React, { useState } from 'react'
 import StudyDefaultImage from '../../assets/study-default-icon.png'
 import { Scrollbars } from 'react-custom-scrollbars-2';
+import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
 import './style.css';
+import { useNavigate, useParams } from 'react-router-dom';
+import useUserStore from '../../stores/user.store';
 
 //        component: 메인 페이지        //
 export default function Main() {
+
+  //        state: 조회하는 유저 이메일 path variable 상태        //
+  const { searchEmail } = useParams();
+  //        state: 로그인 유저 정보 상태        //
+  const { user, setUser } = useUserStore();
+  //        state: 본인 여부 상태       //
+  const [isMyPage, setMyPage] = useState<boolean>(false);
+
+  //        function: 네비게이트 함수       //
+  const navigator = useNavigate();
+
+  //        state: 참여한 스터디 개수 상태        //
+  const [count, setCount] = useState<number>(0);
   
   //        component: 메인 상단 컴포넌트       //
   const MainTop = () => {
+    
+    const TabExample: React.FC = () => {
+      return (
+        <div>
+          <Tabs>
+            <TabList>
+              <Tab>Tab 1</Tab>
+              <Tab>Tab 2</Tab>
+              <Tab>Tab 3</Tab>
+            </TabList>
+    
+            <TabPanel>
+              {/* <p>Content for Tab 1</p> */}
+            </TabPanel>
+            <TabPanel>
+              <p>Content for Tab 2</p>
+            </TabPanel>
+            <TabPanel>
+              <p>Content for Tab 3</p>
+            </TabPanel>
+          </Tabs>
+        </div>
+      );
+    };
     
     //        render: 메인 상단 컴포넌트 렌더링       //
     return (
@@ -16,7 +56,10 @@ export default function Main() {
 
           <div className='main-top-up-box'>
             <div className='main-top-up-box-studyroom-text'>{'내가 참여한 스터디방 정보'}</div>
-            <div className='main-top-up-box-studyroom-tap'></div>
+            
+            <div className='main-top-up-box-studyroom-tap'>
+              <TabExample />
+            </div>
           </div>
 
           <div className='main-top-down-box'>
