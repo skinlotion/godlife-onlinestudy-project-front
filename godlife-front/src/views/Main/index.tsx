@@ -1,10 +1,11 @@
 import React from 'react'
 import StudyDefaultImage from '../../assets/study-default-icon.png'
+import { Scrollbars } from 'react-custom-scrollbars-2';
 import './style.css';
 
-//        component: 인증 페이지        //
+//        component: 메인 페이지        //
 export default function Main() {
-
+  
   //        component: 메인 상단 컴포넌트       //
   const MainTop = () => {
     
@@ -46,51 +47,81 @@ export default function Main() {
                 <div className='main-top-down-todolist-input'>{'TO DO LIST 입력중입니다....'}</div>
 
                 <div className='main-top-down-todolist-detail-box'>
-                  <div className='main-top-down-todolist-detail'>
-                    <div className='main-top-down-todolist-check-icon-box'>
-                      <div className='todolist-check-icon'></div>
-                    </div>
-                    <div className='main-top-down-todolist-detail-text-ok'>{'스터디 자료 파일 다운받고 미리 숙지하기1'}</div>
-                  </div>
-                  <div className='main-top-down-todolist-detail'>
-                    <div className='main-top-down-todolist-check-icon-box'>
-                      <div className='todolist-non-check-icon'></div>
-                    </div>
-                    <div className='main-top-down-todolist-detail-text'>{'스터디 자료 파일 다운받고 미리 숙지하기2'}</div>
-                  </div>
-                  <div className='main-top-down-todolist-detail'>
-                    <div className='main-top-down-todolist-check-icon-box'>
-                      <div className='todolist-non-check-icon'></div>
-                    </div>
-                    <div className='main-top-down-todolist-detail-text'>{'스터디 자료 파일 다운받고 미리 숙지하기3'}</div>
-                  </div>
-                  <div className='main-top-down-todolist-detail'>
-                    <div className='main-top-down-todolist-check-icon-box'>
-                      <div className='todolist-non-check-icon'></div>
-                    </div>
-                    <div className='main-top-down-todolist-detail-text'>{'스터디 자료 파일 다운받고 미리 숙지하기4'}</div>
-                  </div>
-                  <div className='main-top-down-todolist-detail'>
-                    <div className='main-top-down-todolist-check-icon-box'>
-                      <div className='todolist-non-check-icon'></div>
-                    </div>
-                    <div className='main-top-down-todolist-detail-text'>{'스터디 자료 파일 다운받고 미리 숙지하기5'}</div>
-                  </div>
-                  <div className='main-top-down-todolist-detail'>
-                    <div className='main-top-down-todolist-check-icon-box'>
-                      <div className='todolist-non-check-icon'></div>
-                    </div>
-                    <div className='main-top-down-todolist-detail-text'>{'스터디 자료 파일 다운받고 미리 숙지하기6'}</div>
-                  </div>
-                  <div className='main-top-down-todolist-detail'>
-                    <div className='main-top-down-todolist-check-icon-box'>
-                      <div className='todolist-non-check-icon'></div>
-                    </div>
-                    <div className='main-top-down-todolist-detail-text'>{'스터디 자료 파일 다운받고 미리 숙지하기7'}</div>
-                  </div>
-                </div>
-              </div>
+                    <Scrollbars
+                      renderTrackVertical={props => <div {...props} className="track-vertical"/>}
+                      renderThumbVertical={props => <div {...props} className="thumb-vertical"/>}>
+                        
+                        <div className='main-top-down-todolist-blank'></div>
 
+                        <div className='main-top-down-todolist-detail'>
+                          <div className='main-top-down-todolist-check-icon-box'>
+                            <div className='todolist-non-check-icon'></div>
+                          </div>
+                          <div className='main-top-down-todolist-detail-text'>{'스터디 자료 파일 다운받고 미리 숙지하기2'}</div>
+                        </div>
+
+                        <div className='main-top-down-todolist-detail'>
+                          <div className='main-top-down-todolist-check-icon-box'>
+                            <div className='todolist-check-icon'></div>
+                          </div>
+                          <div className='main-top-down-todolist-detail-text-ok'>{'스터디 자료 파일 다운받고 미리 숙지하기1'}</div>
+                        </div>
+
+                        <div className='main-top-down-todolist-detail'>
+                          <div className='main-top-down-todolist-check-icon-box'>
+                            <div className='todolist-check-icon'></div>
+                          </div>
+                          <div className='main-top-down-todolist-detail-text-ok'>{'스터디 자료 파일 다운받고 미리 숙지하기3'}</div>
+                        </div>
+
+                        <div className='main-top-down-todolist-detail'>
+                          <div className='main-top-down-todolist-check-icon-box'>
+                            <div className='todolist-non-check-icon'></div>
+                          </div>
+                          <div className='main-top-down-todolist-detail-text'>{'스터디 자료 파일 다운받고 미리 숙지하기2'}</div>
+                        </div>
+
+                        <div className='main-top-down-todolist-detail'>
+                          <div className='main-top-down-todolist-check-icon-box'>
+                            <div className='todolist-check-icon'></div>
+                          </div>
+                          <div className='main-top-down-todolist-detail-text-ok'>{'스터디 자료 파일 다운받고 미리 숙지하기1'}</div>
+                        </div>
+
+                        <div className='main-top-down-todolist-detail'>
+                          <div className='main-top-down-todolist-check-icon-box'>
+                            <div className='todolist-check-icon'></div>
+                          </div>
+                          <div className='main-top-down-todolist-detail-text-ok'>{'스터디 자료 파일 다운받고 미리 숙지하기3'}</div>
+                        </div>
+                        <div className='main-top-down-todolist-detail'>
+                          <div className='main-top-down-todolist-check-icon-box'>
+                            <div className='todolist-non-check-icon'></div>
+                          </div>
+                          <div className='main-top-down-todolist-detail-text'>{'스터디 자료 파일 다운받고 미리 숙지하기2'}</div>
+                        </div>
+
+                        <div className='main-top-down-todolist-detail'>
+                          <div className='main-top-down-todolist-check-icon-box'>
+                            <div className='todolist-check-icon'></div>
+                          </div>
+                          <div className='main-top-down-todolist-detail-text-ok'>{'스터디 자료 파일 다운받고 미리 숙지하기1'}</div>
+                        </div>
+
+                        <div className='main-top-down-todolist-detail-rast'>
+                          <div className='main-top-down-todolist-check-icon-box'>
+                            <div className='todolist-check-icon'></div>
+                          </div>
+                          <div className='main-top-down-todolist-detail-text-ok'>{'스터디 자료 파일 다운받고 미리 숙지하기3'}</div>
+                        </div> 
+
+                        <div className='main-top-down-todolist-blank'></div>
+
+                    </Scrollbars>
+
+                </div>
+
+              </div>
             </div>
           </div>
         </div>
@@ -165,6 +196,38 @@ export default function Main() {
             </div>
 
             <div className='main-bottom-box-studyroom'>
+              <div className='main-bottom-box-studyroom-line'>
+                <div className='main-middle-box-studyroom-data' style={{backgroundImage: `url(${StudyDefaultImage})` }}>
+                  <div className='main-middle-box-studyroom-deadline-time'>{'스터디 마감 시간 : 2023년 09월 15일'}</div>
+                  <div className='main-middle-box-studyroom-participation-number'>{'스터디 참여자 수 00 / 00명'}</div>
+                  <div className='main-middle-box-studyroom-title'>{'스터디 이름'}</div>
+                </div>
+
+                <div className='main-middle-box-studyroom-data' style={{backgroundImage: `url(${StudyDefaultImage})` }}>
+                  <div className='main-middle-box-studyroom-deadline-time'>{'스터디 마감 시간 : 2023년 09월 15일'}</div>
+                  <div className='main-middle-box-studyroom-participation-number'>{'스터디 참여자 수 00 / 00명'}</div>
+                  <div className='main-middle-box-studyroom-title'>{'스터디 이름'}</div>
+                </div>
+
+                <div className='main-middle-box-studyroom-data' style={{backgroundImage: `url(${StudyDefaultImage})` }}>
+                  <div className='main-middle-box-studyroom-deadline-time'>{'스터디 마감 시간 : 2023년 09월 15일'}</div>
+                  <div className='main-middle-box-studyroom-participation-number'>{'스터디 참여자 수 00 / 00명'}</div>
+                  <div className='main-middle-box-studyroom-title'>{'스터디 이름'}</div>
+                </div>
+
+                <div className='main-middle-box-studyroom-data' style={{backgroundImage: `url(${StudyDefaultImage})` }}>
+                  <div className='main-middle-box-studyroom-deadline-time'>{'스터디 마감 시간 : 2023년 09월 15일'}</div>
+                  <div className='main-middle-box-studyroom-participation-number'>{'스터디 참여자 수 00 / 00명'}</div>
+                  <div className='main-middle-box-studyroom-title'>{'스터디 이름'}</div>
+                </div>
+
+                <div className='main-middle-box-studyroom-data' style={{backgroundImage: `url(${StudyDefaultImage})` }}>
+                  <div className='main-middle-box-studyroom-deadline-time'>{'스터디 마감 시간 : 2023년 09월 15일'}</div>
+                  <div className='main-middle-box-studyroom-participation-number'>{'스터디 참여자 수 00 / 00명'}</div>
+                  <div className='main-middle-box-studyroom-title'>{'스터디 이름'}</div>
+                </div>
+              </div>
+
               <div className='main-bottom-box-studyroom-line'>
                 <div className='main-middle-box-studyroom-data' style={{backgroundImage: `url(${StudyDefaultImage})` }}>
                   <div className='main-middle-box-studyroom-deadline-time'>{'스터디 마감 시간 : 2023년 09월 15일'}</div>
