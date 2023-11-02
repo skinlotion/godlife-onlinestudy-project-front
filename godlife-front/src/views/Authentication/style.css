@@ -17,9 +17,8 @@
     padding: 45px 50px;
 
     width: 500px;
-    height: 100%;
 
-    border-radius: 10px;
+    border-radius: 30px;
 
     display: flex;
     flex-direction: column;
@@ -33,7 +32,7 @@
     flex-direction: column;
     align-items: center;
 
-    gap: 115px;
+    gap: 40px;
 }
 
 .sign-in-top-box {
@@ -71,16 +70,13 @@
 .auth-page-text-box{
     color: #000;
 
-    font-family: Roboto;
-    font-size: 20px;
+    font-family: Spoqa Han Sans Neo;
+    font-size: 22px;
     font-weight: 700;
     line-height: 22px;
 }
 
 .sign-in-middle-box {
-    margin-bottom: 115px;
-    
-
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -88,21 +84,33 @@
 }
 
 .auth-error-message-container {
+    margin-top: -20px;
+    margin-bottom: -10px;
+    padding-left: 15px;
+    padding-right: 70px;
+
     height: 80px;
     
     display: flex;
     align-items: center;
 
-    padding-left: 10px;
-
     background-color: #FFAFA3;;
 }
+
 .auth-error-message-box{
     display: flex;
     flex-direction: row;
     align-items: center;
 
     gap: 20px;
+}
+.sign-in-middle-box{
+    padding: 0 10px;
+    gap: 15px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
 }
 .error-logo-image{
@@ -116,6 +124,7 @@
 .error-message-text{
     color: #000;
 
+    font-family: Spoqa Han Sans Neo;
     font-size: 15px;
     font-weight: 500;
     line-height: normal;
@@ -123,6 +132,345 @@
     white-space: pre-wrap;
 }
 
+.email-input-box{
+    width: 100%;
+    height: 50px;
+}
+.sign-in-button-box{
+    width: 400px;
+    height: 45px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    background-color: rgba(24, 160, 251, 0.5);
+    border-radius: 5px;
+
+    color: #FFF;
+
+    font-family: Spoqa Han Sans Neo;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 22px; 
+}
+.sign-in-button-box:hover{
+    cursor: pointer;
+    background-color: rgba(24, 160, 251, 1);
+}
+
+.password-input-box{
+    width: 400px;
+    height: 50px;
+}
+
+.authentication-page-chage-button{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    justify-content: space-between;
+    gap: 15px;
+}
+.search-password-navigator-button{
+    color:rgba(86, 86, 86, 1);
+
+    font-family: Spoqa Han Sans Neo;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 22px;
+}
+.search-password-navigator-button:hover{
+    cursor: pointer;
+    color: #000;
+}
+
+.sing-up-navigator-button{
+    color:rgba(86, 86, 86, 1);
+
+    font-family: Spoqa Han Sans Neo;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 22px;
+}
+
+.sing-up-navigator-button:hover{
+    cursor: pointer;
+    color: #000;
+}
+
 .Oauth-box{
-    box-shadow: 0 0 0 2px pink inset;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 10px;
+}
+
+.Oauth-box-title{
+    color: #000;
+
+    font-family: Spoqa Han Sans Neo;
+    font-size: 23px;
+    font-weight: 700;
+    line-height: 22px; /* 110% */
+}
+
+.google-sign-in-box{
+    width: 400px;
+    height: 60px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap : 10px;
+
+    border-radius: 5px;
+    border: 1px solid #CCC;;
+}
+.google-sign-in-box:hover{
+    cursor: pointer;
+    background-color: rgba(204, 204, 204, 0.3);
+}
+.google-logo-image{
+    width: 48px;
+    height: 48px;
+    
+    background-image: url(assets/google-loco-icon.png);
+    background-position: 50% 50%;
+    background-size: 100% 100%; 
+}
+
+.google-logo-name{
+    color: #565656;
+
+    font-family: Spoqa Han Sans Neo;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 22px;
+}
+
+.kakao-sign-in-box{
+    width: 400px;
+    height: 60px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap : 10px;
+
+    border-radius: 5px;
+    border: 1px solid #CCC;;
+}
+.kakao-sign-in-box:hover{
+    cursor: pointer;
+    background-color: rgba(204, 204, 204, 0.3);
+}
+.kakao-logo-image{
+    width: 48px;
+    height: 48px;
+    
+    background-image: url(assets/Kakao-logo-icon.png);
+    background-position: 50% 50%;
+    background-size: 100% 100%; 
+}
+
+.kakao-logo-name{
+    color: #565656;
+
+    font-family: Spoqa Han Sans Neo;
+    font-size: 25px;
+    font-weight: 700;
+    line-height: 22px;
+}
+
+.naver-sign-in-box{
+    width: 400px;
+    height: 60px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap : 10px;
+
+    border-radius: 5px;
+    border: 1px solid #CCC;;
+}
+.naver-sign-in-box:hover{
+    cursor: pointer;
+    background-color: rgba(204, 204, 204, 0.3);
+}
+.naver-logo-image{
+    width: 47px;
+    height: 47px;
+    
+    background-image: url(assets/naver-logo-icon.png);
+    background-position: 50% 50%;
+    background-size: 100% 100%; 
+}
+
+.naver-logo-name{
+    color: #565656;
+
+    font-family: Spoqa Han Sans Neo;
+    font-size: 25px;
+    font-weight: 700;
+    line-height: 22px;
+}
+
+
+/***********************************************************/
+.search-password-card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 35px;
+}
+
+.search-password-top-box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 55px;
+}
+
+.search-password-middle-box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 10px;
+}
+
+.search-password-message{
+    color: #000;
+
+    font-family: Spoqa Han Sans Neo;
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: -0.3px;
+}
+
+.search-password-inputbox{
+    width: 400px;
+    height: 50px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.search-password-bottom-box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 20px;
+}
+.search-password-send-email-button{
+    width: 400px;
+    height: 45px;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+    background-color: rgba(24, 160, 251, 0.5);
+    border-radius: 5px;
+    
+    color: #FFF;
+    font-family: Spoqa Han Sans Neo;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 22px;
+}
+
+.search-password-send-email-button:hover{
+    cursor: pointer;
+    background-color: rgba(24, 160, 251, 1);
+}
+
+.sign-in-navigator-button{
+    color: rgba(86, 86, 86, 1);;
+    font-family: Spoqa Han Sans Neo;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.sign-in-navigator-button:hover{
+    cursor: pointer;
+    color: #000;
+}
+
+/***********************************************************/
+.search-password-email-authentication-card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 60px;
+}
+.search-password-email-authentication-top{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+}
+.send-icon-box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.send-icon{
+    width: 190px;
+    height: 190px;
+
+    background-image: url(assets/send-email-icon.png);
+    background-position: 50% 50%;
+    background-size: 100% 100%;
+}
+.search-password-email-authentication-middle-box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.send-message-notice{
+    color: #000;
+
+    font-family: Spoqa Han Sans Neo;
+    font-size: 15px;
+    font-weight: 300;
+
+    white-space: pre-wrap;
+}
+
+.send-message-receiver-address{
+    color: #000;
+
+    font-family: Spoqa Han Sans Neo;
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: -0.3px
+}
+
+.search-password-resend-email-text-button{
+    margin-bottom: 10px;
+
+    color: #000;
+
+    font-family: Spoqa Han Sans Neo;
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -0.317px;
 }

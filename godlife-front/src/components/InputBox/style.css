@@ -1,18 +1,23 @@
 .inputbox {
     margin: 0;
+    width: 400px;
+    height: 50px;
+
 }
 
 .inputbox-label {
     margin-bottom: 5px;
     color: rgba(0, 0, 0, 0.7);
+    font-family: Spoqa Han Sans Neo;
     font-size: 14px;
     font-weight: 400;
     line-height: 140%;
 }
 
 .inputbox-container {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
-    padding: 11px 16px 11px 0;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+    padding: 10px 14px;
 
     display: flex;
     align-items: center;
@@ -36,6 +41,7 @@
     flex: 1;
 
     color: rgba(0, 0, 0, 0.7);
+    font-family: Spoqa Han Sans Neo;
     font-size: 14px;
     font-weight: 400;
     line-height: 140%;

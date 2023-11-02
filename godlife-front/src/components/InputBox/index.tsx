@@ -3,9 +3,9 @@ import './style.css';
 
 //          interface: Input 상자 컴포넌트 Props          //
 interface Props {
-  label: string;
+  label: string | null;
   type: 'text' | 'password';
-  error: boolean;
+  error: boolean | string ;
   placeholder: string;
   value: string;
   setValue: Dispatch<SetStateAction<string>>
