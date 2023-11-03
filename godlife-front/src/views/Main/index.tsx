@@ -2,14 +2,15 @@ import React, { useState, useEffect } from 'react'
 import StudyDefaultImage from '../../assets/study-default-icon.png'
 import { Scrollbars } from 'react-custom-scrollbars-2';
 import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
-import './style.css';
 import 'react-tabs/style/react-tabs.css';
+import './style.css';
 import { useNavigate, useParams } from 'react-router-dom';
 import useUserStore from '../../stores/user.store';
 import { AUTH_PATH } from '../../constant';
-import studyRoomInfoListMock from '../../mocks/study-room-info-list.mock';
+import studyRoomInfoListMock from '../../mocks/my-study-room-info-list.mock';
 import usePagination from '../../hooks/pagination.hook';
 import { StudyRoomItem } from '../../types';
+import MyStudyRoomInfoListItem from '../../components/MyStudyRoomInfoItem';
 
 //        component: 메인 페이지        //
 export default function Main() {
@@ -18,8 +19,8 @@ export default function Main() {
   const { searchEmail } = useParams();
   //        state: 로그인 유저 정보 상태        //
   const { user, setUser } = useUserStore();
-  //        state: 본인 여부 상태       //
-  const [isMyPage, setMyPage] = useState<boolean>(false);
+  // //        state: 본인 여부 상태       //
+  // const [isMyPage, setMyPage] = useState<boolean>(false);
 
   //        component: 메인 상단 컴포넌트       //
   const MainTop = () => {
@@ -39,31 +40,23 @@ export default function Main() {
       setCount(studyRoomInfoListMock.length);
     }, [searchEmail]);
 
-    
-    const TabExample: React.FC = () => {
-      return (
-        <div>
-          <Tabs>
-            <TabList>
-              <Tab>Tab 1</Tab>
-              <Tab>Tab 2</Tab>
-              <Tab>Tab 3</Tab>
-            </TabList>
-    
-            <TabPanel>
-              {/* <p>Content for Tab 1</p> */}
-            </TabPanel>
-            <TabPanel>
-              <p>Content for Tab 2</p>
-            </TabPanel>
-            <TabPanel>
-              <p>Content for Tab 3</p>
-            </TabPanel>
-          </Tabs>
-        </div>
-      );
+    //      state: 탭 리스트 높이 상태        //
+    const [tabListHeight, setTabListHeight] = useState(0);
+
+    //        effect: 탭 리스트 요소가 존재할 때 실행할 함수        //
+    useEffect(() => {
+      const tabListElement = document.querySelector('.react-tabs__tab-list');
+      if (tabListElement) {
+        const height = tabListElement.clientHeight;
+        setTabListHeight(height);
+      }
+    }, []);
+
+    //        description: 참여 스터디 방이 없을 때 탭 패널 높이 정의       //
+    const selectedTabPanelStyle = {
+      height: `calc(100% - ${tabListHeight}px)`,
     };
-    
+
     //        render: 메인 상단 컴포넌트 렌더링       //
     return (
       <div id='main-top-wrapper'>
@@ -71,9 +64,57 @@ export default function Main() {
 
           <div className='main-top-up-box'>
             <div className='main-top-up-box-studyroom-text'>{'내가 참여한 스터디방 정보'}</div>
-            
             <div className='main-top-up-box-studyroom-tap'>
-              <TabExample />
+
+              {count === 0 ? (
+              
+                <Tabs style={{ height: "100%" }}>
+                  <TabList>
+                    <Tab>{'새로운 스터디 참여하기'}</Tab>
+                    <Tab>{'AZ-900 스터디'}</Tab>
+                  </TabList>
+                  <TabPanel style={selectedTabPanelStyle}>
+                    <div className='my-study-room-nothing-box'>
+                      <div className='my-study-room-nothing-message'>{'참여한 스터디 방이 없습니다!'}</div>
+                      <div className='my-study-room-nothing-button-box'>
+                        <div className='my-study-room-nothing-button-box-text'>{'스터디 검색하기'}</div>
+                      </div>
+                    </div>
+                  </TabPanel>
+                  <TabPanel style={selectedTabPanelStyle}>
+                    <div className='my-study-room-nothing-box'>
+                      <div className='my-study-room-nothing-message'>{'참여한 스터디 방이 없습니다!'}</div>
+                    </div>
+                  </TabPanel>
+                </Tabs>
+
+              ): (
+                <div className='user-board-contents-result-box'>
+                  {/* {viewBoardList.map(boardItem => <BoardListItem boardItem={boardItem} />)} */}
+                </div>
+              )}
+
+              {/* <div>
+                <h2>React Tabs Example</h2>
+                <Tabs>
+                  <TabList>
+                    {tabsData.map((tab, index) => (
+                      <Tab key={index}>{tab.label}</Tab>
+                    ))}
+                  </TabList>
+          
+                  {tabsData.map((tab, index) => (
+                    <TabPanel key={index}>
+                      <div>
+                        <h3>{tab.label}</h3>
+                        <p>{tab.content}</p>
+                      </div>
+                    </TabPanel>
+                  ))}
+                </Tabs>
+              </div> */}
+
+              { studyRoomInfoListMock.map(studyRoomInfoListItem => <MyStudyRoomInfoListItem myStudyRoomInfoListItem={studyRoomInfoListItem}/>) }
             </div>
           </div>
 

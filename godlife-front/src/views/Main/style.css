@@ -36,11 +36,104 @@
 
 .main-top-up-box-studyroom-tap {
     height: 278px;
-
-    border-width: 2px;  
-    color: rgba(0,0,0,1);
-    border-style: solid;
     width: 100%;
+}
+
+/* ------------------------------ */
+.react-tabs__tab-list {
+    border-bottom: 0px;
+    margin: 0;
+    padding: 0;
+}
+
+.react-tabs__tab {
+    display: inline-block;
+
+    border-radius: 10px 10px 0px 0px;
+    border: 2px solid rgba(24,160,251,1);
+
+    position: relative;
+    list-style: none;
+    padding: 6px 12px;
+    cursor: pointer;
+
+    background: #FFF;
+    color: rgba(0,0,0,1);
+    font-size: 15px;
+    font-weight: 400;
+}
+
+.react-tabs__tab--selected {
+    border-radius: 10px 10px 0px 0px;
+    border: 2px solid rgba(24,160,251,1);
+
+    background: rgba(24,160,251,1);
+    color: rgba(255,255,255,1);
+    font-size: 15px;
+    font-weight: 400;
+  }
+
+  .react-tabs__tab:focus:after {
+    content: none;
+  }
+
+  .react-tabs__tab-panel {
+    border-radius: 0px 10px 10px 10px;
+    box-shadow: 0 0 0 2px rgba(24,160,251,1) inset;
+    background-color: rgba(255,255,255,1);
+  }
+
+  .react-tabs__tab-panel--selected {
+    border-radius: 0px 10px 10px 10px;
+    box-shadow: 0 0 0 2px rgba(24,160,251,1) inset;
+    background-color: rgba(255,255,255,1);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 100%;
+  }
+/* ------------------------------ */
+
+.my-study-room-nothing-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    gap: 20px;
+}
+
+.my-study-room-nothing-message {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 49px;
+    font-weight: 400;
+}
+
+.my-study-room-nothing-button-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 429px;
+    height: 56px;
+
+    border-radius: 5px;
+    box-shadow: 0 0 0 2px rgba(24,160,251,1) inset;
+    background-color: rgba(255,255,255,1);
+}
+
+.my-study-room-nothing-button-box-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 30px;
+    font-weight: 400;
 }
 
 .main-top-down-box {
@@ -90,6 +183,7 @@
     padding: 12px 17px 11px 13px;
 
     box-shadow: 0 0 0 2px rgba(24,160,251,1) inset;
+    background-color: rgba(255,255,255,1);
     border-radius: 5px;
 
     display: flex;
@@ -204,7 +298,7 @@
     flex-direction: column;
     padding: 1px 0 1px;
 
-    border: 2px solid rgba(24,160,251,1);
+    /* border: 2px solid rgba(24,160,251,1); */
 
     flex-grow: 1;
 }
