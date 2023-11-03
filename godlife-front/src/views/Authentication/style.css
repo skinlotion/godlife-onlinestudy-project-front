@@ -83,35 +83,26 @@
     gap : 15px;
 }
 
-.auth-error-message-container {
+.error-message-container {
     margin-top: -20px;
     margin-bottom: -10px;
     padding-left: 15px;
     padding-right: 70px;
 
-    height: 80px;
-    
     display: flex;
+    flex-direction: row;
     align-items: center;
+    gap: 10px;
+
+    height: 80px;
 
     background-color: #FFAFA3;;
 }
 
-.auth-error-message-box{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+.error-message-box{
+    justify-content: center;
 
     gap: 20px;
-}
-.sign-in-middle-box{
-    padding: 0 10px;
-    gap: 15px;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
 }
 .error-logo-image{
     width: 40px;
@@ -131,7 +122,15 @@
 
     white-space: pre-wrap;
 }
+.sign-in-middle-box{
+    padding: 0 10px;
+    gap: 15px;
 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
 .email-input-box{
     width: 100%;
     height: 50px;
@@ -161,6 +160,11 @@
 }
 
 .password-input-box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
     width: 400px;
     height: 50px;
 }
@@ -205,7 +209,7 @@
     flex-direction: column;
     align-items: center;
 
-    gap: 10px;
+    gap: 20px;
 }
 
 .Oauth-box-title{
@@ -215,6 +219,13 @@
     font-size: 23px;
     font-weight: 700;
     line-height: 22px; /* 110% */
+}
+.Oauth-authentification-icon-box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
 }
 
 .google-sign-in-box{
@@ -247,7 +258,7 @@
     color: #565656;
 
     font-family: Spoqa Han Sans Neo;
-    font-size: 20px;
+    font-size: 25px;
     font-weight: 700;
     line-height: 22px;
 }
@@ -323,7 +334,7 @@
 }
 
 
-/***********************************************************/
+/**********************************************************************************************************************/
 .search-password-card{
     display: flex;
     flex-direction: column;
@@ -399,6 +410,15 @@
 }
 
 .sign-in-navigator-button{
+    width: 400px;
+    height: 45px;
+    border-radius: 5px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
     color: rgba(86, 86, 86, 1);;
     font-family: Spoqa Han Sans Neo;
     font-size: 18px;
@@ -407,10 +427,11 @@
 
 .sign-in-navigator-button:hover{
     cursor: pointer;
-    color: #000;
+    color: black;
+    background-color: rgba(204, 204, 204, 1);
 }
 
-/***********************************************************/
+/**********************************************************************************************************************/
 .search-password-email-authentication-card{
     display: flex;
     flex-direction: column;
@@ -473,4 +494,376 @@
     font-size: 22px;
     font-weight: 700;
     letter-spacing: -0.317px;
+}
+
+
+/**********************************************************************************************************************/
+.reset-password-card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+}
+
+.reset-password-top-box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 35px;
+}
+.reset-password-middle-box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+.reset-password-main-page-navigator-bottom-box{
+    width: 400px;
+    height: 45px;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+    background-color: rgba(24, 160, 251, 0.5);
+    border-radius: 5px;
+    
+    color: #FFF;
+    font-family: Spoqa Han Sans Neo;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 22px;
+}
+.reset-password-main-page-navigator-bottom-box:hover{
+    cursor: pointer;
+    background-color: rgba(24, 160, 251, 1);
+}
+/**********************************************************************************************************************/
+.sign-up-email-card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 80px;
+}
+
+.sign-up-email-top-box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.sign-up-email-bottom-box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 35px;
+}
+
+.sign-up-email-middle-box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.email-input-box{
+    width: 400px;
+    height: 50px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.sign-up-button-box{
+    width: 400px;
+    height: 45px;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+    background-color: rgba(24, 160, 251, 0.5);
+    border-radius: 5px;
+    
+    color: #FFF;
+    font-family: Spoqa Han Sans Neo;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 22px;
+}
+.sign-up-button-box:hover{
+    cursor: pointer;
+    background-color: rgba(24, 160, 251, 1);
+}
+
+.agree-personal-text-box{
+    width: 400px;
+    height: 40px;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.agree-personal-text{
+    color: #000;
+
+    font-family: Spoqa Han Sans Neo;
+    text-align: center;
+    font-size: 17px;
+    font-weight: 300;
+
+    white-space: pre-wrap;
+}
+
+
+/**********************************************************************************************************************/
+
+.sign-up-email-autentification-card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 48px;
+}
+
+.sign-up-email-autentification-card-top-box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+}
+
+.sign-up-email-autentification-main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 60px;
+}
+
+.sign-up-email-autentification-confirm{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.sign-up-email-autentification-confirm-text{
+    color: #000;
+
+    font-family: Spoqa Han Sans Neo;
+    font-size: 15px;
+    font-weight: 300;
+    letter-spacing: -0.225px;
+}
+
+.sign-up-email-autentification-send-address{
+    color: #000;
+
+    text-align: center;
+    font-family: Spoqa Han Sans Neo;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+}
+
+.sign-up-email-autentification-card-middle-input-box{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.sign-up-email-autentification-card-bottom-box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+}
+
+.sing-up-information-card-navigator-button{
+    width: 400px;
+    height: 45px;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+    background-color: rgba(24, 160, 251, 0.5);
+    border-radius: 5px;
+    
+    color: #FFF;
+    font-family: Spoqa Han Sans Neo;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 22px;
+}
+
+.sing-up-information-card-navigator-button:hover{
+    cursor: pointer;
+    background-color: rgba(24, 160, 251, 1);
+}
+
+.sing-up-email-card-navigator-text-button-box{
+    width: 400px;
+    height: 45px;
+    border-radius: 5px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    color: rgba(86, 86, 86, 1);;
+    font-family: Spoqa Han Sans Neo;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.sing-up-email-card-navigator-text-button-box:hover{
+    cursor: pointer;
+    color: black;
+    background-color: rgba(204, 204, 204, 1);
+}
+
+.sing-up-information-card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 35px;
+}
+
+.sing-up-information-card-top-box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 45px;
+}
+.sing-up-information-card-middle-box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+}
+.sing-up-email-inputbox{
+    gap: 10px;
+}
+.sing-up-email-inputbox-title{
+    color: #000;
+
+    font-family: Spoqa Han Sans Neo;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 22px;
+}
+.sing-up-nickname-inputbox{
+    gap: 10px;
+}
+.sing-up-nickname-inputbox-title{
+    color: #000;
+
+    font-family: Spoqa Han Sans Neo;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 22px;
+}
+.sing-up-password-inputbox{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.sing-up-password-inputbox-title{
+    color: #000;
+
+    font-family: Spoqa Han Sans Neo;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 22px;
+}
+.password-security-gage-box{
+    width: 400px;
+}
+.security-gage-default{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+.gage1{
+    width: 70px;
+    height: 5px;
+    background-color: #CCC;
+}
+.gage2{
+    width: 70px;
+    height: 5px;
+    background-color: #CCC;
+}
+.gage3{
+    width: 70px;
+    height: 5px;
+    background-color: #CCC;
+}
+.gage4{
+    width: 70px;
+    height: 5px;
+    background-color: #CCC;
+}
+.gage5{
+    width: 70px;
+    height: 5px;
+    background-color: #CCC;
+}
+
+.sing-up-category-inputbox-top{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.sing-up-category-inputbox-title{
+    color: #000;
+
+    font-family: Spoqa Han Sans Neo;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 22px;
+}
+.sing-up-category-inputbox-not-select{
+    gap: 2px;
+}
+.sing-up-category-inputbox-select{
+    gap: 2px;
+}
+
+.sing-up-information-card-bottom-box{
+    width: 400px;
+    height: 45px;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+    background-color: rgba(24, 160, 251, 0.5);
+    border-radius: 5px;
+    
+    color: #FFF;
+    font-family: Spoqa Han Sans Neo;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 22px;
+}
+
+.sing-up-information-card-bottom-box:hover{
+    cursor: pointer;
+    background-color: rgba(24, 160, 251, 1);
 }
