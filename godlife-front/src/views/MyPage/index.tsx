@@ -115,9 +115,7 @@ export default function MyPage() {
                                             )}
                                         </div>
                                         <div className='user-email'>{email}</div>
-                                        <div className='password-modify-box' onClick={onChangePasswordButtonClickHander}>
-                                            {'비밀번호 수정하기'}
-                                        </div>
+                                        <div className='password-modify-box' onClick={onChangePasswordButtonClickHander}>{'비밀번호 수정하기'}</div>
                                     </div>
                                 </div>
                                 <div className='user-category-box'>

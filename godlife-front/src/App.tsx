@@ -13,8 +13,10 @@ import './components/Dropdown1Category/style.css';
 function App() {
 
   return (
-    // <MyPage />
-    <StudyCreate />
+    <div>
+      <MyPage />
+      <StudyCreate />
+    </div>
   );
 }
 

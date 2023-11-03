@@ -44,6 +44,8 @@
 .info-detail-box-top {
     display: flex;
     flex-direction: row;
+
+    gap: 20px;
 }
 
 .user-profile-box {
@@ -103,7 +105,6 @@
 }
 
 .user-basic-info-box {
-    padding-left: 20px;
     padding-top: 35px;
 
     display: flex;

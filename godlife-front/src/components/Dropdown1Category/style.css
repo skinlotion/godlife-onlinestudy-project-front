@@ -1,4 +1,4 @@
-.dropdown-box {
+.dropdown-1category-box {
   font-family: 'Spoqa Han Sans Neo';
   font-size: 20px;
 
@@ -13,12 +13,12 @@
   background-color: rgba(255, 255, 255, 1);
 }
 
-.dropdown-box:hover {
+.dropdown-1category-box:hover {
   cursor: pointer;
   background-color: rgba(24, 160, 251, 0.3);
 }
 
-.dropdown-header {
+.dropdown-1category-header {
   color: rgba(207, 207, 207, 1);
 
   margin-bottom: 2px;
@@ -32,14 +32,14 @@
   font-weight: 400;
 }
 
-.icon-box {
+.arrow-down-icon-box {
   display: flex;
   align-items: center;
   justify-content: center;
   padding-right: 10px;
 }
 
-.down-arrow-icon {
+.arrow-down-icon {
   width: 25px;
   height: 25px;
 
@@ -49,11 +49,11 @@
 }
 
 
-.dropdown-header.selected {
+.dropdown-1category-header.selected {
   color: rgba(0, 0, 0, 1);
 }
 
-.dropdown-list {
+.dropdown-1category-list {
   margin-top: 50px;
   padding: 5px 5px 5px 5px;
   width: 205px;
@@ -67,7 +67,7 @@
 
 }
 
-.dropdown-list-index {
+.dropdown-1category-list-index {
   width: 100%;
   height: 43px;
 
@@ -80,12 +80,12 @@
   border-radius: 5px;
 }
 
-.dropdown-list-index:hover {
+.dropdown-1category-list-index:hover {
   cursor: pointer;
   background-color: rgba(232, 241, 255, 1);
 }
 
-.track-vertical {
+.track-category-vertical {
   top: 2px;
   bottom: 2px;
   right: 7px;
@@ -93,7 +93,7 @@
   background: rgba(255, 255, 255, 0.111);
 }
 
-.track-vertical .thumb-vertical {
+.track-category-vertical .thumb-category-vertical {
   padding: 0 7px 0 0;
   position: relative;
   display: block;

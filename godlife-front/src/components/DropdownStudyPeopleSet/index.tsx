@@ -2,8 +2,8 @@ import React, { useRef, useState, useEffect } from 'react';
 import './style.css';
 import Scrollbars from 'react-custom-scrollbars-2';
 
-//          component: DropDown 1관심 카테고리 컴포넌트          //
-const DropDownFirstCategory = () => {
+//          component: DropDown 스터디 인원 설정 컴포넌트          //
+const DropDownStudyPeopleSet = () => {
     //          state: 박스 상태          //
     const [isOpen, setIsOpen] = useState(false);
     //          state: 박스 선택 상태          //
@@ -11,7 +11,7 @@ const DropDownFirstCategory = () => {
     //          state: 박스 드롭다운 ref 상태          //
     const dropdownRef = useRef<HTMLDivElement | null>(null);
 
-    //          event handler: 카테고리 클릭 이벤트 처리          //
+    //          event handler: 인원 설정 클릭 이벤트 처리          //
     const toggleDropdown = () => {
         setIsOpen(!isOpen);
     };
@@ -36,24 +36,27 @@ const DropDownFirstCategory = () => {
         };
     }, []);
 
-    const items = ['자격증', '취업', '어학', '회화', '학교', '기타'];
+    const items = [];
+    for (let i = 1; i <= 20; i++) {
+        items.push(`${i}명`);
+    }
 
-    //          render: DropDown 1관심 카테고리 렌더링          //
+    //          render: DropDown 스터디 인원 설정 렌더링          //
     return (
-        <div ref={dropdownRef} className='dropdown-1category-box'>
-            <div className={`dropdown-1category-header ${selectedItem ? 'selected' : ''}`} onClick={toggleDropdown}>
-                {selectedItem ? selectedItem : '선택해주세요'}
+        <div ref={dropdownRef} className='dropdown-study-people-set-box'>
+            <div className={`dropdown-study-people-set-header ${selectedItem ? 'selected' : ''}`} onClick={toggleDropdown}>
+                {selectedItem ? selectedItem : '스터디 참여 인원을 선택해주세요.'}
             </div>
-            <div className='arrow-down-icon-box'>
-                <div className='arrow-down-icon'></div>
+            <div className='down-icon-box'>
+                <div className='down-icon'></div>
             </div>
             {isOpen && (
-                <div className='dropdown-1category-list'>
+                <div className='dropdown-study-people-set-list'>
                     <Scrollbars 
-                        renderTrackVertical={(props) => <div {...props} className='track-category-vertical' />} 
-                        renderThumbVertical={(props) => <div {...props} className='thumb-category-vertical' />}>
+                        renderTrackVertical={(props) => <div {...props} className='track-people-set-vertical' />} 
+                        renderThumbVertical={(props) => <div {...props} className='thumb-people-set-vertical' />}>
                         {items.map((item) => (
-                            <div className='dropdown-1category-list-index' key={item} onClick={() => selectItem(item)}>
+                            <div className='dropdown-study-people-set-list-index' key={item} onClick={() => selectItem(item)}>
                                 {item}
                             </div>
                         ))}
@@ -64,4 +67,4 @@ const DropDownFirstCategory = () => {
     );
 };
 
-export default DropDownFirstCategory;
+export default DropDownStudyPeopleSet;
