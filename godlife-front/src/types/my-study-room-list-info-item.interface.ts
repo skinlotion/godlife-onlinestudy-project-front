@@ -1,4 +1,4 @@
-export default interface StudyRoomItem {
+export default interface MyStudyRoomInfoItem {
     studyNumber: number;
     studyName: string;
     studyCategory1: string;

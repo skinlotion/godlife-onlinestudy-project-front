@@ -9,7 +9,7 @@ import useUserStore from '../../stores/user.store';
 import { AUTH_PATH } from '../../constant';
 import studyRoomInfoListMock from '../../mocks/my-study-room-info-list.mock';
 import usePagination from '../../hooks/pagination.hook';
-import { StudyRoomItem } from '../../types';
+import { MyStudyRoomInfoItem } from '../../types';
 import MyStudyRoomInfoListItem from '../../components/MyStudyRoomInfoItem';
 
 //        component: 메인 페이지        //
@@ -19,8 +19,6 @@ export default function Main() {
   const { searchEmail } = useParams();
   //        state: 로그인 유저 정보 상태        //
   const { user, setUser } = useUserStore();
-  // //        state: 본인 여부 상태       //
-  // const [isMyPage, setMyPage] = useState<boolean>(false);
 
   //        component: 메인 상단 컴포넌트       //
   const MainTop = () => {
@@ -29,7 +27,7 @@ export default function Main() {
     const navigator = useNavigate();
 
     //        state: 페이지네이션 관련 상태       //
-    const { setStudyRoomInfoList } = usePagination<StudyRoomItem>();
+    const { setStudyRoomInfoList } = usePagination<MyStudyRoomInfoItem>();
 
     //        state: 참여한 스터디 개수 상태        //
     const [count, setCount] = useState<number>(0);
@@ -67,13 +65,12 @@ export default function Main() {
             <div className='main-top-up-box-studyroom-tap'>
 
               {count === 0 ? (
-              
-                <Tabs style={{ height: "100%" }}>
+                // <Tabs style={{ height: "100%" }}>
+                <Tabs>
                   <TabList>
                     <Tab>{'새로운 스터디 참여하기'}</Tab>
-                    <Tab>{'AZ-900 스터디'}</Tab>
                   </TabList>
-                  <TabPanel style={selectedTabPanelStyle}>
+                  <TabPanel className="tabpanel-nothing-box" style={selectedTabPanelStyle}>
                     <div className='my-study-room-nothing-box'>
                       <div className='my-study-room-nothing-message'>{'참여한 스터디 방이 없습니다!'}</div>
                       <div className='my-study-room-nothing-button-box'>
@@ -81,40 +78,28 @@ export default function Main() {
                       </div>
                     </div>
                   </TabPanel>
-                  <TabPanel style={selectedTabPanelStyle}>
-                    <div className='my-study-room-nothing-box'>
-                      <div className='my-study-room-nothing-message'>{'참여한 스터디 방이 없습니다!'}</div>
-                    </div>
-                  </TabPanel>
                 </Tabs>
-
-              ): (
-                <div className='user-board-contents-result-box'>
-                  {/* {viewBoardList.map(boardItem => <BoardListItem boardItem={boardItem} />)} */}
-                </div>
-              )}
-
-              {/* <div>
-                <h2>React Tabs Example</h2>
+              ) : (
                 <Tabs>
                   <TabList>
-                    {tabsData.map((tab, index) => (
-                      <Tab key={index}>{tab.label}</Tab>
+                    {studyRoomInfoListMock.map((tab) => (
+                      <Tab key={tab.studyNumber}>{tab.studyName}</Tab>
                     ))}
                   </TabList>
           
-                  {tabsData.map((tab, index) => (
-                    <TabPanel key={index}>
-                      <div>
-                        <h3>{tab.label}</h3>
-                        <p>{tab.content}</p>
+                  {studyRoomInfoListMock.map((tab) => (
+                    <TabPanel key={tab.studyNumber} className="tabpanel-result-box" style={selectedTabPanelStyle}>
+                      <div className='my-study-room-info-right-box'>
+                        <h3>{tab.studyName}</h3>
+                        <p>{tab.studyCategory1}</p>
+                        <p>{tab.studyPersonnel}</p>
+                        <p>{tab.myGrade}</p>
+                        <p>{tab.studyNextStartDatetime}</p>
                       </div>
                     </TabPanel>
                   ))}
                 </Tabs>
-              </div> */}
-
-              { studyRoomInfoListMock.map(studyRoomInfoListItem => <MyStudyRoomInfoListItem myStudyRoomInfoListItem={studyRoomInfoListItem}/>) }
+              )}
             </div>
           </div>
 
