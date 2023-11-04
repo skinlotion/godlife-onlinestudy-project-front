@@ -1,0 +1,742 @@
+#reset-wrapper{
+
+    width: 100vw;
+    height: 100vh;   
+
+    background-color: rgba(255,255,255,1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.reset-card{
+    width: 900px;
+    height: 868px;   
+    
+    border-radius: 15px;
+    border: 3px solid rgba(24,160,251,1);
+    
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    
+    background-color: rgba(232, 241, 255,1);
+    border-radius: 30px;
+
+    position: relative;
+}
+
+.menu-sidebar{
+    top: 58px;
+    left: -172px;
+    position: absolute;
+
+    width: 170px;
+    height: 260px;
+}
+
+.menu-room{
+    width: 170px;
+    height: 65px;
+    border-radius: 30px 0px 0px 30px;
+    border-top: 3px solid rgba(24, 160, 251, 1);
+    border-bottom: 3px solid rgba(24, 160, 251, 1);
+    border-left: 3px solid rgba(24, 160, 251, 1);
+    background: rgba(24, 160, 251, 1);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: rgba(0,0,0,1);
+
+    text-align: center;
+    font-family: Spoqa Han Sans Neo;
+    font-size: 23px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -0.345px;
+}
+ 
+.menu-room:hover{
+    cursor: pointer;
+}
+
+.menu-room-default{
+    width: 170px;
+    height: 65px;
+    border-radius: 30px 0px 0px 30px;
+    border-top: 3px solid rgba(24, 160, 251, 1);
+    border-bottom: 3px solid rgba(24, 160, 251, 1);
+    border-left: 3px solid rgba(24, 160, 251, 1);
+    background: rgba(255,255,255,1);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: rgba(0,0,0,1);
+
+    text-align: center;
+    font-family: Spoqa Han Sans Neo;
+    font-size: 23px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -0.345px;
+}
+
+.menu-room-default:hover{
+    cursor: pointer;
+}
+
+.menu-member{
+    width: 170px;
+    height: 65px;
+    border-radius: 30px 0px 0px 30px;
+    border-top: 3px solid rgba(24, 160, 251, 1);
+    border-bottom: 3px solid rgba(24, 160, 251, 1);
+    border-left: 3px solid rgba(24, 160, 251, 1);
+    background: rgba(24, 160, 251, 1);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: rgba(0,0,0,1);
+
+    text-align: center;
+    font-family: Spoqa Han Sans Neo;
+    font-size: 23px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -0.345px;
+}
+
+.menu-member-default{
+    width: 170px;
+    height: 65px;
+    border-radius: 30px 0px 0px 30px;
+    border-top: 3px solid rgba(24, 160, 251, 1);
+    border-bottom: 3px solid rgba(24, 160, 251, 1);
+    border-left: 3px solid rgba(24, 160, 251, 1);
+    background-color: rgba(255,255,255,1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: rgba(0,0,0,1);
+
+    text-align: center;
+    font-family: Spoqa Han Sans Neo;
+    font-size: 23px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -0.345px;
+}
+    
+.menu-member-default:hover{
+    cursor: pointer;
+}
+
+.menu-study{
+    width: 170px;
+    height: 65px;
+    border-radius: 30px 0px 0px 30px;
+    border-top: 3px solid rgba(24, 160, 251, 1);
+    border-bottom: 3px solid rgba(24, 160, 251, 1);
+    border-left: 3px solid rgba(24, 160, 251, 1);
+    background-color: rgba(24,160,251,1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: rgba(0,0,0,1);
+
+    text-align: center;
+    font-family: Spoqa Han Sans Neo;
+    font-size: 23px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -0.345px;
+}
+
+.menu-study:hover{
+    cursor: pointer;
+}
+
+.menu-study-default{
+    width: 170px;
+    height: 65px;
+    border-radius: 30px 0px 0px 30px;
+    border-top: 3px solid rgba(24, 160, 251, 1);
+    border-bottom: 3px solid rgba(24, 160, 251, 1);
+    border-left: 3px solid rgba(24, 160, 251, 1);
+    background-color: rgba(255,255,255,1);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: rgba(0,0,0,1);
+
+    text-align: center;
+    font-family: Spoqa Han Sans Neo;
+    font-size: 23px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -0.345px;
+
+    text-wrap: wrap;
+}
+
+.menu-study-default:hover{
+    cursor: pointer;
+}
+
+.menu-material{
+
+    
+}
+
+.menu-material:hover{
+    cursor: pointer;
+}
+
+.menu-material-default{
+    width: 170px;
+    height: 65px;
+    border-radius: 30px 0px 0px 30px;
+    border-top: 3px solid rgba(24, 160, 251, 1);
+    border-bottom: 3px solid rgba(24, 160, 251, 1);
+    border-left: 3px solid rgba(24, 160, 251, 1);
+    background-color: rgba(255,255,255,1);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: rgba(0,0,0,1);
+
+    text-align: center;
+    font-family: Spoqa Han Sans Neo;
+    font-size: 23px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -0.345px;
+
+}
+
+.menu-material-default:hover{
+    cursor: pointer;
+}
+
+.reset-button-box{
+    width: 52px;
+    height: 40px;
+
+    margin: 15px 25px 18px 823px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;    
+}
+
+.reset-button-box:hover{
+    cursor: pointer;   
+}
+
+.btn :hover{
+    cursor: pointer;
+}
+.btn-primary {
+    width: 52px;
+    height: 40px;
+}
+
+.btn-primary :hover{
+    cursor: pointer;
+}
+
+.reset-control-box{
+    width: 611px;
+    height: 480px;
+
+    
+    display: flex;
+    flex-direction: column;
+    
+    margin-bottom: 153.45px;
+}
+
+.study-title-container{
+    width: 611px;
+    height: 35px;
+    
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    
+    gap: 13px;
+}
+
+.study-title{
+    width: 108px;
+    height: 25px;
+    
+    color: rgba(0,0,0,1);
+    font-family: Spoqa Han Sans Neo;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -0.31px; 
+    
+    font-size: 20px;
+}
+
+.study-title-write{
+    width: 488px;
+    height: 100%;
+    border-radius: 5.909px;
+    background-color: rgba(255,255,255,1);
+    border: none;
+}
+
+.study-title-write-error-box{
+    margin-left: 123px;
+    width: auto;
+    height: 14px;
+
+    margin-bottom: 8px;
+    color: rgba(255, 0, 0, 0.70);
+    /* text-wrap: nowrap; */
+}
+
+.study-title-write-error-message{
+    width: auto;
+    height: 14px;
+
+    color: rgba(255, 0, 0, 0.70);
+    font-family: Spoqa Han Sans Neo;
+    font-size: 12.24px;
+    font-weight: 700;
+    line-height: 140%;
+
+    text-wrap: nowrap;
+}
+
+.study-period-container{
+    width: 387px;
+    height: 30px;
+
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    margin-right: 46px;
+}
+
+.study-period-title{
+    width: 110px;
+    height: 25px;
+
+    display: flex;
+    align-items: center;
+
+    color: rgba(0,0,0,1);
+    font-family: Spoqa Han Sans Neo;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -0.31px;  
+
+    font-size: 20px;
+
+    margin-right: 46px;
+
+}
+
+.study-period-end-date-title{
+    width: 41px;
+    height: 20px;
+
+    display: flex;
+    align-items: center;
+    
+    color: rgba(0,0,0,1);
+    text-align: center;
+    font-family: Spoqa Han Sans Neo;
+    font-weight: 400;    
+    letter-spacing: -0.222px;
+    margin-right: 9px;
+    margin-top: 2.5px;
+    text-wrap: nowrap;
+    
+}
+
+.study-period-end-date{
+    width: 151px;
+    height: 30px;
+    
+    border-radius: 5.909px;
+    background-color: rgba(255,255,255,1);    
+
+    margin-right: 5px;
+
+    display: flex;
+    align-items: center;
+}
+
+.study-period-end-date-data{
+    margin-top: 4px 0px 4px 15px;
+    width: 96px;
+    height: 22px;
+
+    color: rgba(0,0,0,1);
+    text-align: center;
+    font-family: Spoqa Han Sans Neo;
+    font-weight: 400; 
+    
+    letter-spacing: -0.27px;
+    text-wrap: nowrap;
+}
+
+.study-period-end-date-icon{
+    width: 30px;
+    height: 30px;
+
+    background-image: url(assets/calendar-icon.png);
+    background-position: 50% 50%;
+    background-size: 100% 100%;
+}
+
+.study-period-end-date-icon:hover{
+    cursor: pointer;
+}
+
+.study-count-setting{
+    margin-top: 30px;
+
+    width: auto;
+    height: 30px;
+
+    display: flex;
+    align-items: center;
+
+}
+
+.study-count-title{
+    width: 153px;
+    height: 25px;
+
+    display: flex;
+    align-items: center;   
+
+    color: rgba(0,0,0,1);
+
+    font-family: Spoqa Han Sans Neo;
+    font-size: 20px;
+    font-weight: 400;
+
+    letter-spacing: -0.31px;
+    margin-right: 15px;
+}
+
+.study-count-add-icon{
+
+    width: 30px;
+    height: 30px;
+
+    background-image: url(assets/plus-square-icon.png);
+    background-position: 50% 50%;
+    background-size: 100% 100%;
+    
+    margin-right: 5px;
+}
+
+.study-count-add-icon:hover{
+    cursor: pointer;
+}
+
+.study-count-contents{
+    width: 48px;
+    height: 30px;
+
+    color: rgba(0,0,0,1);
+
+    font-family: Spoqa Han Sans Neo;
+    font-size: 15px;
+    font-weight: 400;
+
+    letter-spacing: -0.22px;
+    margin-right: 5px;
+
+    display: flex;
+    align-items: center;
+    justify-self: center;
+
+    padding-left: 19px;
+
+    background-color: rgba(255,255,255,1);
+    border: 1px solid rgba(24,160,251,1);
+    border-radius: 5px;
+}
+
+.study-count-minus-icon{
+    width: 30px;
+    height: 30px;
+
+    background-image: url(assets/minus-square-icon.png);
+    background-position: 50% 50%;
+    background-size: 100% 100%;   
+}
+
+.study-count-minus-icon:hover{
+    cursor: pointer;
+}
+
+.study-count-error-message{
+    margin-left: 7px;
+    color: rgba(255, 0, 0, 0.70);
+    font-family: Spoqa Han Sans Neo;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 22px; 
+}
+
+.study-category-container{
+    width: 315px;
+    height: 30px;
+    
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+
+    margin-top: 24px;
+}
+
+.study-category-title{
+    width: 147px;
+    height: 30px;
+
+    color: rgba(0,0,0,1);
+
+    font-family: Spoqa Han Sans Neo;
+    font-size: 20px;
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    justify-self: center;
+    margin-right: 17px;
+
+    text-wrap: nowrap;
+}
+
+.study-category-box{
+    width: 151px;
+    height: 30px;
+
+    display: flex;
+    flex-direction: row;
+    
+    border: 1px solid rgba(24,160,251,1);
+
+    background-color: rgba(255,255,255,1);
+    border-radius: 5px;
+}
+
+.study-category-contents{
+    width: 85px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-left: 17px;
+    text-wrap: nowrap   ;
+}
+
+.study-category-icon{
+    width: 30px;
+    height: 30px;
+
+    background-image: url(assets/down-icon.png);
+    background-position: 50% 50%;
+    background-size: 100% 100%;   
+
+    margin-left: 19px;
+}
+
+.study-category-icon:hover{
+    cursor: pointer;
+}
+
+.study-open-container{
+    width: 563px;
+    height: 70px;
+
+    margin-top: 35px;
+
+    display: flex;
+    flex-direction: row;
+}
+
+.study-open-title{
+    width: 203px;
+    height: 25px;    
+
+    color: rgba(0,0,0,1);
+
+    font-family: Spoqa Han Sans Neo;
+    font-size: 20px;
+    font-weight: 400;
+    letter-spacing: -0.3px;
+
+    margin-right: 31px;
+
+    text-wrap: nowrap;
+}
+
+.study-open{
+    width: 150px;
+    height: 30px;  
+    
+    border: none;
+    margin-right: 18px;
+
+    border-radius: 5.909px;
+    border: 0.591px solid rgba(24, 160, 251, 1);
+    background-color: rgba(255,255,255,1);
+}
+
+.study-open:hover{
+    cursor: pointer;
+    background-color: rgba(207,207,207,1);
+}
+
+.study-close-box{
+    width: 150px;
+    height: 70px;
+    border: none;
+
+    
+    border-radius: 5.909px;
+    
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.study-close{
+    width: 150px;
+    height: 30px;
+    border-radius: 5.909px;
+    border: 0.591px solid rgba(24, 160, 251, 1);
+    background-color: rgba(255,255,255,1);
+}
+
+.study-close:hover{
+    cursor: pointer;
+    background-color: rgba(207,207,207,1);
+}
+
+.study-close-password   {
+    width: 150px;
+    height: 30px;
+    border-radius: 5.909px;
+    border: 0.591px solid rgba(24, 160, 251, 1);
+    background-color: rgba(255,255,255,1);
+    display: flex;
+    flex-direction: row;
+}
+
+.study-close-password-write{
+    width: 120px;
+    height: 20px; 
+
+    border: none;
+    display: flex;
+    justify-content: center ;
+
+    margin-top: 5px;
+}
+
+.password-icon{
+    width: 30px;
+    height: 30px;
+
+    background-image: url(assets/password-icon.png);
+    background-position: 50% 50%;
+    background-size: 100% 100%;
+}
+
+.password-icon:hover{
+    cursor: pointer;
+}
+
+.study-cover-image-box{
+    margin-top: 4px;
+    width: 347px;
+    height: 170px;
+
+    display: flex;
+    flex-direction: row;
+    gap: 7px;
+}
+
+.study-cover-image-title{
+    width: 170px;
+    height: 170px;    
+
+
+    color: rgba(0,0,0,1);
+
+    font-family: Spoqa Han Sans Neo;
+    font-size: 20.682px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -0.3px;
+
+    text-wrap: nowrap;
+}
+
+.study-cover-image-contents{
+    width: 170px;
+    height: 170px; 
+    
+    background-color: rgba(255,255,255,1);
+    border-radius: 8.864px;
+    border: 0.591px solid  rgba(24,160,251,1);
+    position: relative;
+}
+
+.change-controll{
+    position: absolute;
+
+    width: 48px;
+    height: 16px;
+    right: 3px;
+    bottom: 4px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 8.864px;
+    border: 0.591px solid  rgba(24,160,251,1);
+    background-color: rgba(255,255,255,1);
+
+    color: rgba(0,0,0,1);
+    text-align: center;
+    font-family: Spoqa Han Sans Neo;    
+    font-size: 8.7px;
+}
+
+.change-controll:hover{
+    cursor: pointer;
+}
