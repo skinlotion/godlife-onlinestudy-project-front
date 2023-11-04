@@ -9,13 +9,15 @@ import './views/MyPage/style.css';
 import StudyCreate from 'views/StudyCreate';
 import DropDownFirstCategory from 'components/Dropdown1Category';
 import './components/Dropdown1Category/style.css';
+import DatePickerComponent from 'components/DatePicker';
 
 function App() {
 
   return (
     <div>
-      <MyPage />
+      {/* <MyPage /> */}
       <StudyCreate />
+      {/* <DatePickerComponent /> */}
     </div>
   );
 }

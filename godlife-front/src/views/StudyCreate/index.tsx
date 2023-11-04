@@ -3,6 +3,7 @@ import './style.css';
 import DropDownStudyPeopleSet from 'components/DropdownStudyPeopleSet';
 import DropDownFirstCategory from 'components/Dropdown1Category';
 import DropDownStudyCreateCategory from 'components/DropdownStudyCreateCategory';
+import DatePickerComponent from 'components/DatePicker';
 
 //          component: 스터디 생성 페이지          //
 export default function StudyCreate() {
@@ -121,12 +122,9 @@ export default function StudyCreate() {
 
                             <div className='study-period'>
                                 <div className='study-period-text'>{'*스터디 기간'}</div>
-                                <div className='study-period-set-box'>
-                                    <div className='study-period-set-text'>{'스터디 기간을 입력하세요'}</div>
-                                    <div className='icon-box'>
-                                        <div className='calendar-icon'></div>
-                                    </div>
-                                </div>
+                                {/* <div className='study-period-set-box'> */}
+                                    <DatePickerComponent />
+                                {/* </div> */}
                             </div>
 
                             <div className='study-people-set'>
