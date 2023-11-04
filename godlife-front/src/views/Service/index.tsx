@@ -55,22 +55,22 @@ export default function Service(){
       }  
 
 
-      //          event handler: 스터디 이미지 변경 이벤트 처리          //
-      const onImageChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
-        if (!event.target.files || !event.target.files.length) return;
-        const file = event.target.files[0];
-        const imageUrl = URL.createObjectURL(file);
-        const newImageUrls = materialImageUrls.map(url => url);
-        newImageUrls.push(imageUrl);
+      // //          event handler: 스터디 이미지 변경 이벤트 처리          //
+      // const onImageChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
+      //   if (!event.target.files || !event.target.files.length) return;
+      //   const file = event.target.files[0];
+      //   const imageUrl = URL.createObjectURL(file);
+      //   const newImageUrls = materialImageUrls.map(url => url);
+      //   newImageUrls.push(imageUrl);
 
-        const newImages = images.map(image => image);
-        newImages.push(file);
+      //   const newImages = images.map(image => image);
+      //   newImages.push(file);
 
-        // console.log(newImages);
+      //   // console.log(newImages);
 
-        setMaterialImageUrls(newImageUrls);
-        setImages(newImages);
-      }
+      //   setMaterialImageUrls(newImageUrls);
+      //   setImages(newImages);
+      // }
 
   
     //    render : 알림 화면 렌더링    //
@@ -226,7 +226,7 @@ export default function Service(){
                 {/* <button className='study-list-icon-box'>
                   <div className="study-list-icon"></div>
                 </button> */}
-                <div className="study-list-icon-box" onClick={onMaterialImageUploadClickHandler} onChange={onImageChangeHandler}>
+                <div className="study-list-icon-box"  >
                   <div className="study-list-icon"></div>
                 </div>
               </div>
