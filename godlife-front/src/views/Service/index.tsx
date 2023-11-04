@@ -1,83 +1,128 @@
 import { ChangeEvent, useEffect, useRef, useState ,MouseEvent} from 'react';
 import './style.css';
 import { useNavigate, useParams } from 'react-router-dom';
+import { MAIN_PATH } from 'constant';
 
 export default function Service(){
+    
     //          state:  이미지 input ref 상태           //
     const fileInputRef = useRef<HTMLInputElement | null>(null);
-    
-    
+      
+    //    state: 사이드 바 상태     //
+    const [menu,setMenu] = useState<'notice'|'chat'>('chat');
     //          state: 자료 이미지 상태                 //
     const [materialImageUrls, setMaterialImageUrls] = useState<string[] >([]);
-    
+    //    state : 네비게이터 상태 //
+    const navigate = useNavigate();
 
     //          component: notice 카드 컴포넌트          //
     const NoticeCard = () =>{
   
-        const contentsTextAreaRef = useRef<HTMLTextAreaElement | null>(null);
-        const [contents, setContents] = useState<string>('');
+      const contentsTextAreaRef = useRef<HTMLTextAreaElement | null>(null);
+      const [contents, setContents] = useState<string>('');
     
-        //          event handler: 내용 변경 이벤트 처리          //
-        const onContentsChangeHandler = (event: ChangeEvent<HTMLTextAreaElement>) => {
-          const contents = event.target.value;
-          setContents(contents);
-          if (!contentsTextAreaRef.current) return;
-          console.log(contentsTextAreaRef.current.scrollHeight);
-          contentsTextAreaRef.current.focus();
-          contentsTextAreaRef.current.style.height = 'auto';
-          contentsTextAreaRef.current.style.height = `${contentsTextAreaRef.current.scrollHeight}px`;
+      //          event handler: 내용 변경 이벤트 처리          //
+      const onContentsChangeHandler = (event: ChangeEvent<HTMLTextAreaElement>) => {
+        const contents = event.target.value;
+        setContents(contents);
+        if (!contentsTextAreaRef.current) return;
+        console.log(contentsTextAreaRef.current.scrollHeight);
+        contentsTextAreaRef.current.focus();
+        contentsTextAreaRef.current.style.height = 'auto';
+        contentsTextAreaRef.current.style.height = `${contentsTextAreaRef.current.scrollHeight}px`;
+      }
+
+      //    event handler : 사이드바 메뉴 상태 변경 함수     //
+      const onMenuClickHandler = () =>{
+        if(menu ==='notice'){
+          setMenu('chat');  
         }
-    
-        //    render : 알림 화면 렌더링    //
-        return(
-          <div className="side-bar">
-            <div className="alert-box">
-              <div className="alert-title-1" >알림</div>
-              {/* <div className="alert-title-2">알림</div> */}
-              <div className="alert-message-1">채팅</div>
-              {/* <div className="alert-message-2">채팅</div> */}
+
+        if(menu ==='chat'){
+          setMenu('notice');  
+        }
+      }
+
+      //        event handler : 나가기 클릭시 모달폼       //
+      const onExitClickHandler = () =>{
+        navigate(MAIN_PATH);
+      }
+
+      //          event handler: 스터디 이미지 클릭 이벤트 처리          //
+      const onMaterialImageUploadClickHandler = () => {
+        if (!fileInputRef.current) return;
+        fileInputRef.current.click();
+      }  
+
+
+      //          event handler: 스터디 이미지 변경 이벤트 처리          //
+      const onImageChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
+        if (!event.target.files || !event.target.files.length) return;
+        const file = event.target.files[0];
+        const imageUrl = URL.createObjectURL(file);
+        const newImageUrls = materialImageUrls.map(url => url);
+        newImageUrls.push(imageUrl);
+
+        const newImages = images.map(image => image);
+        newImages.push(file);
+
+        // console.log(newImages);
+
+        setMaterialImageUrls(newImageUrls);
+        setImages(newImages);
+      }
+
+  
+    //    render : 알림 화면 렌더링    //
+      return(
+        <div className="side-bar">
+          <div className="alert-box">
+            <div className="alert-title-1" >알림</div>
+            {/* <div className="alert-title-2">알림</div> */}
+            <div className="alert-message-1">채팅</div>
+            {/* <div className="alert-message-2">채팅</div> */}
+          </div>  
+          <div className="notice-box">
+            <div className="notice-contents-box">
+              <div className="notice-icon"></div>
+              <div className="notice-title">공지사항</div>
+            </div>
+            <div className="notice-message">
+              
+            </div>
+          </div>
+          <div className="list-box">
+            <div className="list-contents-box">
+              <div className="list-icon"></div>
+              <div className="list-title">Study TO DO List</div>
+            </div>
+            <div className="list-message">
+  
             </div>  
-            <div className="notice-box">
-              <div className="notice-contents-box">
-                <div className="notice-icon"></div>
-                <div className="notice-title">공지사항</div>
+          </div>
+          <div className="comment-box">
+            <div className="comment-contents-box">
+              <div className="comment-icon"></div>
+              {/* host authorization   */}
+              <div className="comment-title">{'1번 자료 코멘트'}</div>
+              <div className="delete-icon"></div>
+              {/* guest */}            
+            </div>
+            <div className="comment-list">  
+              <div className="comment-record-box">
+  
               </div>
-              <div className="notice-message">
-                
+              <div className="notice-scrollbar-box">
+  
               </div>
             </div>
-            <div className="list-box">
-              <div className="list-contents-box">
-                <div className="list-icon"></div>
-                <div className="list-title">Study TO DO List</div>
-              </div>
-              <div className="list-message">
-    
-              </div>  
-            </div>
-            <div className="comment-box">
-              <div className="comment-contents-box">
-                <div className="comment-icon"></div>
-                {/* host authorization   */}
-                <div className="comment-title">{'1번 자료 코멘트'}</div>
-                <div className="delete-icon"></div>
-                {/* guest */}            
-              </div>
-              <div className="comment-list">  
-                <div className="comment-record-box">
-    
-                </div>
-                <div className="notice-scrollbar-box">
-    
-                </div>
-              </div>
-              <div className='comment-write-box'> 
-                <textarea ref={contentsTextAreaRef} className='comment-index'   spellCheck={false} value={contents} onChange={onContentsChangeHandler}></textarea>
-              </div> 
-            </div>
-    
-        </div>
-        );
+            <div className='comment-write-box'> 
+              <textarea ref={contentsTextAreaRef} className='comment-index'   spellCheck={false} value={contents} onChange={onContentsChangeHandler}></textarea>
+            </div> 
+          </div>
+  
+      </div>
+      );
     }
 
   //          component: chat 카드 컴포넌트          //
