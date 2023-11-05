@@ -35,7 +35,8 @@
 }
 
 .main-top-up-box-studyroom-tap {
-    height: 278px;
+    /* height: 278px; */
+    height: 282px;
     width: 100%;
 }
 
@@ -105,11 +106,9 @@
     box-shadow: 0 0 0 2px rgba(24,160,251,1) inset;
     background-color: rgba(255,255,255,1);
 
-    /* display: flex;
-    justify-content: center;
-    align-items: center; */
-
-    /* height: 100%; */
+    display: grid;
+    grid-template-columns: 3fr 4fr 3.5fr;
+    gap: 10px;
   }
 /* ----------react-tabs관련 CSS : END---------- */
 
@@ -144,6 +143,13 @@
     background-color: rgba(255,255,255,1);
 }
 
+.my-study-room-nothing-button-box:hover {
+    cursor: pointer;
+
+    color: rgba(255,255,255,1);
+    background-color: rgba(24,160,251,1);
+}
+
 .my-study-room-nothing-button-box-text {
     display: flex;
     justify-content: center;
@@ -154,7 +160,183 @@
 }
 
 .my-study-room-info-right-box {
-    
+
+    margin: 10px;
+
+    border-radius: 5px;
+    box-shadow: 0 0 0 2px rgba(24, 160, 251, 0.5) inset;
+}
+
+.my-study-room-info-box {
+    display: flex;
+    flex-direction: column;
+    margin: 5px;
+    gap: 6px;
+}
+
+.participation-study-name-box {
+    display: flex;
+    flex-direction: column;
+
+    gap: 2px;
+}
+
+.participation-study-name {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 15px;
+    font-weight: 400;
+
+    padding: 3px 20px;
+    width: 150px;
+    border-radius: 5px;
+    color: rgba(255,255,255,1);
+    background-color: rgba(24, 160, 251, 0.70);
+}
+
+.participation-study-name-text {
+    font-size: 15px;
+    font-weight: 400;
+
+    margin-left: 5px;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* 라인 수 */
+    -webkit-box-orient: vertical;
+}
+
+.study-category-box {
+    display: flex;
+    margin: -5px 0 0 0;
+    gap: 10px;
+}
+
+.study-category {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 15px;
+    font-weight: 400;
+
+    width: 150px;
+    padding: 3px 20px;
+    border-radius: 5px;
+    color: rgba(255,255,255,1);
+    background-color: rgba(24, 160, 251, 0.70);
+}
+
+.study-category-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.participation-personnel-box {
+    display: flex;
+    gap: 10px;
+}
+
+.participation-personnel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 15px;
+    font-weight: 400;
+
+    width: 150px;
+    padding: 3px 20px;
+    border-radius: 5px;
+    color: rgba(255,255,255,1);
+    background-color: rgba(24, 160, 251, 0.70);
+}
+
+.participation-personnel-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.my-grade-box {
+    display: flex;
+    gap: 10px;
+}
+
+.my-grade {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 15px;
+    font-weight: 400;
+
+    width: 150px;
+    padding: 3px 20px;
+    border-radius: 5px;
+    color: rgba(255,255,255,1);
+    background-color: rgba(24, 160, 251, 0.70);
+}
+
+.my-grade-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.study-next-start-datetime-box {
+    display: flex;
+    gap: 10px;
+}
+
+.study-next-start-datetime {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 15px;
+    font-weight: 400;
+
+    width: 150px;
+    padding: 3px 20px;
+    border-radius: 5px;
+    color: rgba(255,255,255,1);
+    background-color: rgba(24, 160, 251, 0.70);
+}
+
+.study-next-start-datetime-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.study-leave-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 18px;
+    font-weight: 400;
+    color: rgba(255,255,255,1);
+
+    margin: -1px 15px 0;
+    padding: 2px 0;
+
+    border-radius: 10px;
+    box-shadow: 0 0 0 1px rgba(251, 13, 13, 0.45) inset;
+    background-color: rgba(251, 13, 13, 0.45);
 }
 
 .main-top-down-box {
@@ -271,6 +453,20 @@
     border-radius: 5px;
 }
 
+.main-top-down-todolist-add-button:hover {
+    cursor: pointer;
+
+    color: rgba(255,255,255,1);
+    background-color: rgba(24,160,251,1);
+}
+
+.main-top-down-todolist-add-button:hover .main-top-down-todolist-add-button-text {
+    cursor: pointer;
+
+    color: rgba(255,255,255,1);
+    background-color: rgba(24,160,251,1);
+}
+
 .main-top-down-todolist-add-button-text {
     color: rgba(0,0,0,1);
 
@@ -289,6 +485,20 @@
 
     box-shadow: 0 0 0 2px rgba(24,160,251,1) inset;
     border-radius: 5px;
+}
+
+.main-top-down-todolist-delete-button:hover {
+    cursor: pointer;
+
+    color: rgba(255,255,255,1);
+    background-color: rgba(24,160,251,1);
+}
+
+.main-top-down-todolist-delete-button:hover .main-top-down-todolist-delete-button-text {
+    cursor: pointer;
+
+    color: rgba(255,255,255,1);
+    background-color: rgba(24,160,251,1);
 }
 
 .main-top-down-todolist-delete-button-text {

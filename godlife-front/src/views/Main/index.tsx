@@ -31,15 +31,17 @@ export default function Main() {
 
     //        state: 참여한 스터디 개수 상태        //
     const [count, setCount] = useState<number>(0);
+    //        state: 유저의 등급 상태       //
+    const [grade, setGrade] = useState<'일반' | '방장'>('일반');
+
+    //      state: 탭 리스트 높이 상태        //
+    const [tabListHeight, setTabListHeight] = useState(0);
 
     //        effect: 조회하는 유저의 이메일이 변경될 때마다 실행할 함수        //
     useEffect(() => {
       setStudyRoomInfoList(studyRoomInfoListMock);
       setCount(studyRoomInfoListMock.length);
     }, [searchEmail]);
-
-    //      state: 탭 리스트 높이 상태        //
-    const [tabListHeight, setTabListHeight] = useState(0);
 
     //        effect: 탭 리스트 요소가 존재할 때 실행할 함수        //
     useEffect(() => {
@@ -65,7 +67,6 @@ export default function Main() {
             <div className='main-top-up-box-studyroom-tap'>
 
               {count === 0 ? (
-                // <Tabs style={{ height: "100%" }}>
                 <Tabs>
                   <TabList>
                     <Tab>{'새로운 스터디 참여하기'}</Tab>
@@ -90,11 +91,40 @@ export default function Main() {
                   {studyRoomInfoListMock.map((tab) => (
                     <TabPanel key={tab.studyNumber} className="tabpanel-result-box" style={selectedTabPanelStyle}>
                       <div className='my-study-room-info-right-box'>
-                        <h3>{tab.studyName}</h3>
-                        <p>{tab.studyCategory1}</p>
-                        <p>{tab.studyPersonnel}</p>
-                        <p>{tab.myGrade}</p>
-                        <p>{tab.studyNextStartDatetime}</p>
+                        <div className='my-study-room-info-box'>
+
+                          <div className='participation-study-name-box'>
+                            <div className='participation-study-name'>{'참여 스터디 이름'}</div>
+                            <div className='participation-study-name-text'>{tab.studyName}</div>
+                          </div>
+
+                          <div className='study-category-box'>
+                            <div className='study-category'>{'스터디 카테고리'}</div>
+                            <div className='study-category-text'>{tab.studyCategory1}</div>
+                          </div>
+
+                          <div className='participation-personnel-box'>
+                            <div className='participation-personnel'>{'참여인원'}</div>
+                            <div className='participation-personnel-text'>{tab.studyPersonnel}</div>
+                          </div>
+
+                          <div className='my-grade-box'>
+                            <div className='my-grade'>{'내 등급'}</div>
+                            <div className='my-grade-text'>{tab.myGrade}</div>
+                          </div>
+
+                          <div className='study-next-start-datetime-box'>
+                            <div className='study-next-start-datetime'>{'다음 스터디 모임 날짜'}</div>
+                            <div className='study-next-start-datetime-text'>{tab.studyNextStartDatetime}</div>
+                          </div>
+
+                          {grade === '일반' ? (
+                            <div className='study-leave-button'>{'방 퇴장하기'}</div>
+                          ) : (
+                            <div></div>
+                          )}
+
+                        </div>
                       </div>
                     </TabPanel>
                   ))}
