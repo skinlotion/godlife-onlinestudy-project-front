@@ -14,7 +14,15 @@ const studyRoomInfoListMock: MyStudyRoomInfoItem[] = [
         studyName: '백엔드 개발자 스터디',
         studyCategory1: '취업',
         studyPersonnel: '4 / 18',
-        myGrade: '방장',
+        myGrade: '일반',
+        studyNextStartDatetime: '2023. 11 .13',
+    },   
+    {
+        studyNumber: 2,
+        studyName: '백엔드 개발자 스터디',
+        studyCategory1: '취업',
+        studyPersonnel: '4 / 18',
+        myGrade: '일반',
         studyNextStartDatetime: '2023. 11 .13',
     },
 ];

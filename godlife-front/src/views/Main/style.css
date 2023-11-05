@@ -322,6 +322,21 @@
     font-weight: 400;
 }
 
+.study-next-start-datetime-update-button {
+    font-size: 18px;
+    font-weight: 400;
+
+    border-radius: 10px;
+    padding: 3px 8px;
+    border: 2px solid rgba(24, 160, 251, 0.70);
+}
+
+.study-next-start-datetime-update-button:hover {
+    cursor: pointer;
+    color: rgba(255,255,255,1);
+    background-color: rgba(24, 160, 251, 0.70);
+}
+
 .study-leave-button {
     display: flex;
     justify-content: center;

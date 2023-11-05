@@ -32,7 +32,7 @@ export default function Main() {
     //        state: 참여한 스터디 개수 상태        //
     const [count, setCount] = useState<number>(0);
     //        state: 유저의 등급 상태       //
-    const [grade, setGrade] = useState<'일반' | '방장'>('일반');
+    const [grade, setGrade] = useState<'일반' | '방장'>('방장');
 
     //      state: 탭 리스트 높이 상태        //
     const [tabListHeight, setTabListHeight] = useState(0);
@@ -116,14 +116,14 @@ export default function Main() {
                           <div className='study-next-start-datetime-box'>
                             <div className='study-next-start-datetime'>{'다음 스터디 모임 날짜'}</div>
                             <div className='study-next-start-datetime-text'>{tab.studyNextStartDatetime}</div>
+                            {grade === '방장' && (
+                            <div className='study-next-start-datetime-update-button'>{'수정'}</div>
+                            )}
                           </div>
 
-                          {grade === '일반' ? (
+                          {grade === '일반' && (
                             <div className='study-leave-button'>{'방 퇴장하기'}</div>
-                          ) : (
-                            <div></div>
                           )}
-
                         </div>
                       </div>
                     </TabPanel>
