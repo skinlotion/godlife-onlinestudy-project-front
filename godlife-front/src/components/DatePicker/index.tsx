@@ -5,17 +5,24 @@ import 'react-datepicker/dist/react-datepicker.css';
 import { ko } from "date-fns/esm/locale";
 import './style.css';
 
+//          component: 캘린더 컴포넌트          //
 const DatePickerComponent = () => {
+          
+    //          state: 스터디 시작일 상태          //
     const [startDate, setstartDate] = useState<Date | null>(null);
+    //          state: 스터디 종료일 상태          //
     const [endDate, setEndDate] = useState<Date | null>(null);
 
+    //          event handler: 시작일 이벤트 처리          //
     const startDateHandle = (date: Date | null) => {
         setstartDate(date);
     };
+    //          event handler: 종료일 이벤트 처리          //
     const endDateHandle = (date: Date | null) => {
         setEndDate(date);
     };
 
+    //          render: 캘린더 컴포넌트 렌더링          //
     return (
         <div className='datepicker-box'>
             <div className='start-date-box'>

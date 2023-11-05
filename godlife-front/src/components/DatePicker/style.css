@@ -34,7 +34,7 @@
     border: 1px solid rgba(207, 207, 207, 1);
 
     font-family: 'Spoqa Han Sans Neo';
-    font-size: 20px;
+    font-size: 25px;
     font-weight: 500;
 }
 
@@ -44,7 +44,7 @@
 
 .start-date:hover {
     cursor: pointer;
-    background-color: rgba(175, 225, 255, 1);
+    background-color: rgba(24, 160, 251, 0.7);
 }
 
 .end-date {
@@ -59,7 +59,7 @@
     border: 1px solid rgba(207, 207, 207, 1);
 
     font-family: 'Spoqa Han Sans Neo';
-    font-size: 20px;
+    font-size: 25px;
     font-weight: 500;
 }
 
@@ -69,5 +69,5 @@
 
 .end-date:hover {
     cursor: pointer;
-    background-color: rgba(175, 225, 255, 1);
+    background-color: rgba(24, 160, 251, 0.7)
 }

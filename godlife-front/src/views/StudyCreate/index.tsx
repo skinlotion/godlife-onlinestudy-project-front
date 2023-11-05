@@ -122,9 +122,7 @@ export default function StudyCreate() {
 
                             <div className='study-period'>
                                 <div className='study-period-text'>{'*스터디 기간'}</div>
-                                {/* <div className='study-period-set-box'> */}
                                     <DatePickerComponent />
-                                {/* </div> */}
                             </div>
 
                             <div className='study-people-set'>
