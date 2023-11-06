@@ -22,7 +22,12 @@ export default function Search(){
   const onMinusCountHandler = () =>{
     
   }
-
+  
+  //          event handler: 스터디 커버 이미지 클릭 이벤트 처리          //
+  const onStudyCoverImageClickHandler = () => {
+    if (!fileInputRef.current) return;
+    fileInputRef.current.click();
+  }
   
   // render : 스터디 재설정 페이지   렌더링 //
   return (
