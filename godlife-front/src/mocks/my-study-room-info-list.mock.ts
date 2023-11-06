@@ -19,7 +19,7 @@ const studyRoomInfoListMock: MyStudyRoomInfoItem[] = [
     },   
     {
         studyNumber: 2,
-        studyName: '백엔드 개발자 스터디',
+        studyName: '백엔드 개발자 ',
         studyCategory1: '취업',
         studyPersonnel: '4 / 18',
         myGrade: '일반',

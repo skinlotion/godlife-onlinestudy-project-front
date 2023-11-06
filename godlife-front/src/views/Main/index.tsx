@@ -57,6 +57,43 @@ export default function Main() {
       height: `calc(100% - ${tabListHeight}px)`,
     };
 
+    const [activeIndex, setActiveIndex]=useState(0);
+
+    const tabClickHandler=(index: React.SetStateAction<number>)=>{
+        setActiveIndex(index);
+    };
+
+    const tabContArr = studyRoomInfoListMock.map((tab, index) => (
+      {
+        tabTitle: (
+          <div className={activeIndex===index ? "tab-selected" : "tab"} onClick={()=>tabClickHandler(index)}>{tab.studyName}</div>
+        ),
+        tabCont: (
+          <div className='my-study-room-info-right-box'>
+            <div className='my-study-room-info-box'>
+              <div className='participation-study-name-box'>
+                <div className='participation-study-name'>{'참여 스터디 이름'}</div>
+                <div className='participation-study-name-text'>{tab.studyName}</div>
+              </div>
+              <div className='study-category-box'>
+                <div className='study-category'>{'스터디 카테고리'}</div>
+                <div className='study-category-text'>{tab.studyCategory1}</div>
+              </div>
+              <div className='participation-personnel-box'>
+                <div className='participation-personnel'>{'참여인원'}</div>
+                <div className='participation-personnel-text'>{tab.studyPersonnel}</div>
+              </div>
+              <div className='my-grade-box'>
+                <div className='my-grade'>{'내 등급'}</div>
+                <div className='my-grade-text'>{tab.myGrade}</div>
+              </div>
+            </div>
+          </div>
+
+        ),
+      }
+    ));
+
     //        render: 메인 상단 컴포넌트 렌더링       //
     return (
       <div id='main-top-wrapper'>
@@ -64,7 +101,7 @@ export default function Main() {
 
           <div className='main-top-up-box'>
             <div className='main-top-up-box-studyroom-text'>{'내가 참여한 스터디방 정보'}</div>
-            <div className='main-top-up-box-studyroom-tap'>
+            {/* <div className='main-top-up-box-studyroom-tap'>
 
               {count === 0 ? (
                 <Tabs>
@@ -89,7 +126,7 @@ export default function Main() {
                   </TabList>
           
                   {studyRoomInfoListMock.map((tab) => (
-                    <TabPanel key={tab.studyNumber} className="tabpanel-result-box" style={selectedTabPanelStyle}>
+                    <TabPanel key={tab.studyNumber} className="tabpanel-result-box">
                       <div className='my-study-room-info-right-box'>
                         <div className='my-study-room-info-box'>
 
@@ -130,6 +167,19 @@ export default function Main() {
                   ))}
                 </Tabs>
               )}
+            </div> */}
+            <div className='main-top-up-box-studyroom-tap'>
+              <div className='tap-list'>
+                {tabContArr.map((section, index)=>{
+                      return section.tabTitle
+                  })}
+              </div>
+              
+              <div className='tap-panel'>
+                {/* <div className='tabpanel-result-box'> */}
+                  {tabContArr[activeIndex].tabCont}
+                {/* </div> */}
+              </div>
             </div>
           </div>
 
