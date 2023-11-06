@@ -7,15 +7,16 @@ import { LOGIN_FIND_PATH } from './constant';
 import MyPage from 'views/MyPage';
 import './views/MyPage/style.css';
 import StudyCreate from 'views/StudyCreate';
-import DropDownFirstCategory from 'components/Dropdown1Category';
 import './components/Dropdown1Category/style.css';
+import MemberManage from 'views/MemberManage';
 
 function App() {
 
   return (
     <div>
-      <MyPage />
-      <StudyCreate />
+      {/* <MyPage /> */}
+      {/* <StudyCreate /> */}
+      <MemberManage />
     </div>
   );
 }

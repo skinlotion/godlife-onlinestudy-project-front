@@ -191,7 +191,8 @@ export default function MyPage() {
                                         <div className='join-study-late-day'>{'지각일수'}</div>
                                     </div>
                                     <div className='join-study-list-box'>
-                                        <Scrollbars renderTrackVertical={(props) => <div {...props} className='track-vertical' />} renderThumbVertical={(props) => <div {...props} className='thumb-vertical' />}>
+                                        <Scrollbars renderTrackVertical={(props) => <div {...props} className='track-vertical' />} 
+                                        renderThumbVertical={(props) => <div {...props} className='thumb-vertical' />}>
                                             {joinStudyListMock.map((joinItem) => (
                                                 <JoinListItem joinStudyItem={joinItem} />
                                             ))}

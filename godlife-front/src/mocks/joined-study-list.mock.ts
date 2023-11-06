@@ -1,4 +1,4 @@
-import { JoinedStudyListItem } from "types";
+import { JoinedStudyListItem } from 'types';
 
 const joinedStudyListMock: JoinedStudyListItem[] = [
     {
@@ -111,8 +111,6 @@ const joinedStudyListMock: JoinedStudyListItem[] = [
         absentDays: '5일',
         lateDays: '10일',
     },
-    
-    
 ];
 
 export default joinedStudyListMock;

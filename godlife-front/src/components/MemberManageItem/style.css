@@ -1,0 +1,101 @@
+.member-manage-user-list-box {
+    width: 750px;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+
+    border-bottom: 3px solid rgba(24, 160, 251, 1);
+}
+
+.member-manage-user-info-box {
+    width: 150px;
+    padding: 30px 0px 20px 0px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+.member-manage-user-profile-icon-box {
+    width: 35px;
+    height: 35px;
+}
+
+.member-manage-user-profile-default-image {
+    width: 100%;
+    height: 100%;
+
+    background-position: 50% 50%;
+    background-size: 100% 100%;
+    background-image: url(assets/default-user-icon.png);
+}
+
+.member-manage-user-profile-image {
+    width: 100%;
+    height: 100%;
+    
+    border-radius: 50% 50%;
+
+    background-position: 50% 50%;
+    background-size: 100% 100%;
+}
+
+.member-manage-user-nickname-box {
+    flex-direction: columns;
+}
+
+.member-manage-user-authority-exit-box {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.member-manage-user-authority-box {
+    width: 135px;
+    height: 50px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 10px 10px;
+    background-color: rgba(24, 160, 251, 0.7);
+}
+
+.member-manage-user-exit-box {
+    width: 135px;
+    height: 50px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 10px;
+    border: 3px solid rgba(24, 160, 251, 0.5);
+}
+
+.member-manage-user-exit-box:hover {
+    cursor: pointer;
+    background-color: rgba(24, 160, 251, 0.5);
+}
+
+.master-icon-box {
+    width: 15px;
+    height: 15px;
+}
+
+.master-icon {
+    width: 15px;
+    height: 15px;
+
+    position: absolute;
+    transform: translateY(-100%);
+
+    background-position: 50% 50%;
+    background-size: 100% 100%;
+    background-image: url(../../assets/crown-icon.png);
+}

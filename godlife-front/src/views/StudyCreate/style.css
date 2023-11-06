@@ -221,9 +221,10 @@
 }
 
 .file-upload-icon {
-    width: 100%;
-    height: 100%;
+    width: 45px;
+    height: 45px;
     border-radius: 30% 30%;
+    margin-right: 10px;
 
     background-image: url(assets/file-upload-icon.png);
     background-position: 50% 50%;

@@ -1,0 +1,87 @@
+#member-manage-wrapper {
+    width: 100vw;
+    height: 100vh;   
+
+    background-color: rgba(255,255,255,1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-family: 'Spoqa Han Sans Neo';
+    font-size: 17px;
+    font-weight: 400;
+}
+
+.member-manage-card {
+    width: 900px;
+    height: 870px;
+    
+    border-radius: 15px;
+    border: 3px solid rgba(24,160,251,1);
+    
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    
+    background-color: rgba(232, 241, 255,1);
+    border-radius: 30px;
+}
+
+.member-button-box {
+    width: 52px;
+    height: 40px;
+
+    margin: 15px 25px 15px 823px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.member-button-box{
+    cursor: pointer;
+}
+
+.btn:hover{
+    cursor: pointer;
+}
+
+.btn-primary {
+    width: 52px;
+    height: 40px;
+}
+
+.btn-primary:hover{
+    cursor: pointer;
+}
+
+.member-manage-main-box {
+    width: 810px;
+    height: 720px;
+
+    padding-left: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    border-radius: 10px 10px;
+    background-color: rgba(255,255,255,1);
+}
+
+.member-manage-track-vertical {
+    top: 2px;
+    bottom: 2px;
+    right: 8px;
+    border-radius: 30px;
+    background: rgba(255, 255, 255, 0.111);
+}
+
+.member-manage-track-vertical .member-manage-thumb-vertical {
+    padding: 0 8px 0 0;
+    position: relative;
+    display: block;
+    width: 100%;
+    cursor: pointer;
+    border-radius: inherit;
+    background-color: rgba(24, 160, 251, 1);
+}

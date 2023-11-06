@@ -139,9 +139,7 @@ export default function StudyCreate() {
                                 <div className='study-materials-text'>{'*스터디 교육자료'}</div>
                                 <div className='study-materials-set-box'>
                                     <div className='study-materials-set-box-text'>{'스터디 교육자료를 업로드 해주세요.'}</div>
-                                    <div className='icon-box'>
-                                        <div className='file-upload-icon'onClick={onClickFileUploadHandler}></div>
-                                    </div>
+                                    <div className='file-upload-icon'onClick={onClickFileUploadHandler}></div>
                                 </div>
                             </div>
 
