@@ -1,6 +1,7 @@
 import { ChangeEvent, useState } from 'react';
 import './style.css';
 import DropDownFirstCategory from 'components/Dropdown1Category';
+import ModalSideMenu from './../../components/ModalSideMenu/index';
 
 
 
@@ -11,10 +12,12 @@ export default function Search(){
 
   const [selectedItem, setSelectedItem] = useState('');
 
-  // event handler : 참여 인원 추가 버튼 처리 //
+  // event handler : 참여 인원 추가  처리 //
   const onPlusCountHandler = () =>{
-
-  }
+    let count = studyCount;
+    count++;
+    setStudyCount(count);
+}
   // event handler : 참여 인원 감소 버튼 처리 //
   const onMinusCountHandler = () =>{
     
@@ -25,25 +28,7 @@ export default function Search(){
   return (
     <div id='reset-wrapper'>
       <div className='reset-card'>
-        <div className='menu-sidebar'>
-          { 
-            <div className="menu-room">방 설정</div>
-            // <div className="menu-room-default">방 설정</div>
-          }
-          {
-            // <div className="menu-member">멤버 관리</div>
-            <div className='menu-member-default'>멤버 관리</div>
-          }
-          {
-            // <div className="menu-study">{'다음 스터디 설정'}</div>
-            <div className="menu-study-default">{'다음 스터디 설정'}</div>
-          }
-
-          {
-            // <div className="menu-material">자료관리</div>
-            <div className="menu-material-default">자료관리</div>
-          }
-        </div>
+        <ModalSideMenu/>
         <div className="reset-button-box">
           <button type="button" className="btn btn-primary" disabled data-bs-toggle="button">X</button>        
         </div>
@@ -65,7 +50,7 @@ export default function Search(){
           </div>
           <div className='study-count-setting'>
             <div className="study-count-title">*스터디 인원 설정</div>
-            <div className="study-count-add-icon"></div>
+            <div className="study-count-add-icon" onClick={onPlusCountHandler}></div>
             <div className="study-count-contents">{studyCount}</div>
             <div className="study-count-minus-icon"></div>
             {
