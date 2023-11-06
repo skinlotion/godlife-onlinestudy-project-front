@@ -2,6 +2,8 @@ import { ChangeEvent, useState } from 'react';
 import './style.css';
 import DropDownFirstCategory from 'components/Dropdown1Category';
 
+
+
 export default function Search(){
   
   // state : 스터티 참여 가능 인원수  //
