@@ -7,7 +7,7 @@ interface Props {
   type: 'text' | 'password';
   error: boolean | string ;
   placeholder: string;
-  value: string;
+  value: string ;
   setValue: Dispatch<SetStateAction<string>>
   icon?: string;
   errorMessage?: string;

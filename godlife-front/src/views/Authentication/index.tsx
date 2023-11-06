@@ -1,71 +1,86 @@
-import React, { useState, KeyboardEvent, useRef, useEffect } from 'react'
+import React, { useState, KeyboardEvent, useRef, useEffect, ChangeEvent } from 'react'
 import InputBox from '../../components/InputBox';
 import './style.css';
 import DropDownFirstCategory from '../../components/Dropdown1Category';
 export default function Authentication() {
-    
-    //          state : 
-    const [registeremail, SetRegisteremail] = useState<boolean> (false);
-    //          state: 비밀번호 입력 요소 참조 상태          //
-    const passwordRef = useRef<HTMLInputElement | null>(null);
-    //          state :
-    const [passwordErrorState, SetPasswordErrorState] = useState<number> (1);
+
+
     //          state: 화면 상태          //
      const [view, setView] = useState<
         'sign-in-card' | 'sing-up-email-card' | 'search-password-card' 
         | 'search-password-email-autentication-card' | 'sing-up-email-autentication-card' | 'sing-up-information-card'
-        | 'reset-password-card'
-        >('reset-password-card');
-    //          state: 입력한 이메일 상태          //
-    const [email, setEmail] = useState<string>('');
-
-    //          event handler: 이메일 인풋 key down 이벤트 처리          //
-    const onEmailKeyDownHandler = (event: KeyboardEvent<HTMLInputElement>) => {
-        if (event.key !== 'Enter') return;
-        if (!passwordRef.current) return;
-        passwordRef.current.focus();
-    }
-    //          event handler: 비밀번호 인풋 key down 이벤트 처리          //
-    const onPasswordKeyDownHanlder = (event: KeyboardEvent<HTMLInputElement>) => {
-        if (event.key !== 'Enter') return;
-        onSignInButtonClickHandler();
-    }
-    //          event handler: 비밀번호 인풋 버튼 클릭 이벤트 처리          //
-    const onPasswordIconClickHandler = () => {
-    }
-    //          event handler: 로그인 버튼 클릭 이벤트 처리          //
-    const onSignInButtonClickHandler = () => {
-    }
-
-
+        | 'reset-password-card'>('reset-password-card');
+            
     //          component : sign in main card         //
     const SignInCard = () => {
         
         //          state : 로그인 단계 상태         //
         const [signInLevel, setSignInLevel] = useState<number>(1);
+        
         //          state: 비밀번호 입력 요소 참조 상태          //
         const passwordRef = useRef<HTMLInputElement | null>(null);
         
+        //          state: 입력한 이메일 상태          //
+        const [email, setEmail] = useState<string>('');
+        //          state: 이메일 에러 상태          //
+        const [signInEmailerror, setSignInEmailError] = useState<boolean>(false);
+        //          state: 이메일 에러 메세지 상태          //
+        const [emailErrorMessage, setEmailErrorMessage] = useState<string>('');
+        //          state: 이메일 재입력 아이콘 상태          //
+        const [emailReWritingIcon, setEmailReWritingIconIcon] = useState<'email-rewriting-icon'>('email-rewriting-icon');
+
         //          state: 입력한 비밀번호 상태          //
         const [password, setPassword] = useState<string>('');
         //          state: 비밀번호 인풋 타입 상태          //
         const [passwordType, setPasswordType] = useState<'text' | 'password'>('password');
         //          state: 비밀번호 인풋 버튼 아이콘 상태          //
         const [passwordIcon, setPasswordIcon] = useState<'eye-off-icon' | 'eye-on-icon'>('eye-off-icon');
-        //          state: 이메일 에러 상태          //
-        const [signInEmailerror, setSignInEmailError] = useState<boolean>(false);
-        //          state: 비번 에러 상태          //
-        const [signPasswordInerror, setSignInPasswordError] = useState<boolean>(false);
+        //          state: 로그인 에러 상태          //
+        const [signInError, setSignInError] = useState<boolean>(false);
         
         //          event handler: 이메일 인풋 key down 이벤트 처리          //
         const onEmailKeyDownHandler = (event: KeyboardEvent<HTMLInputElement>) => {
         if (event.key !== 'Enter') return;
-        setSignInLevel(2);
+
+        setSignInEmailError(false);
+        setEmailErrorMessage('');
+
+            //          description: 이메일 패턴 확인           //
+            const emailPattern = /^[a-zA-Z0-9_]*@([-.]?[a-zA-Z0-9])*\.[a-zA-Z]{2,4}$/;
+            const checkedEmail = !emailPattern.test(email);
+            if (checkedEmail) {
+                setSignInEmailError(true);
+                setEmailErrorMessage('이메일주소 포맷이 맞지않습니다.');
+            }
+            if (checkedEmail) return;
+            
+            setSignInLevel(2);
+        }
+        //          event handler: 비밀번호 인풋 버튼 클릭 이벤트 처리          //
+        const onEmailReWritingIconClickHandler = () => {
+            setEmailReWritingIconIcon('email-rewriting-icon');
+            setSignInLevel(1);
+            setEmail('');
+        }
+        //          event handler: 로그인 버튼 클릭 이벤트 처리          //
+        const onSignInNextLevelButtonClickHandler = () => {
+            setSignInEmailError(false);
+            setEmailErrorMessage('');
+
+            const emailPattern = /^[a-zA-Z0-9_]*@([-.]?[a-zA-Z0-9])*\.[a-zA-Z]{2,4}$/;
+            const checkedEmail = !emailPattern.test(email);
+            if (checkedEmail) {
+                setSignInEmailError(true);
+                setEmailErrorMessage('이메일주소 포맷이 맞지않습니다.');
+            }
+            if (checkedEmail) return;
+
+            setSignInLevel(2);
         }
         //          event handler: 비밀번호 인풋 key down 이벤트 처리          //
         const onPasswordKeyDownHanlder = (event: KeyboardEvent<HTMLInputElement>) => {
-        if (event.key !== 'Enter') return;
-        onSignInButtonClickHandler();
+            if (event.key !== 'Enter') return;
+            onSignInButtonClickHandler();
         }
         //          event handler: 비밀번호 인풋 버튼 클릭 이벤트 처리          //
         const onPasswordIconClickHandler = () => {
@@ -78,17 +93,21 @@ export default function Authentication() {
             setPasswordIcon('eye-on-icon');
             }
         }
+        //          event handler: 로그인 버튼 클릭 이벤트 처리          //
+        const onSignInButtonClickHandler = () => {
+            alert('로그인버튼눌러진거')
+        }
         //          event handler: '새로운 계정 만들기' 버튼 클릭 이벤트 처리          //
         const onSignUpLinkClickHandler = () => {
             setView('sing-up-email-card');
         }
-
         //          event handler: '로그인을 할 수 없나요?' 링크 버튼 클릭 이벤트 처리          //
         const onSearchPasswordCardLinkClickHandler = () => {
             setView('search-password-card');
         }
-
+        //          effect : 이메일 엔터치면 비밀번호 인풋박스로 넘어가게           //
         useEffect(() => {
+            if (signInLevel === 2 && passwordRef.current) passwordRef.current.focus();
         }, [signInLevel])
 
         //        render : 로그인 페이지 랜더링        //
@@ -101,7 +120,7 @@ export default function Authentication() {
                         </div>
                         <div className='auth-page-text-box'>로그인을 해주세요</div>
                     </div>
-                    {signPasswordInerror &&(
+                    {signInError &&(
                     <div className='error-message-container'>
                         <div className='error-logo-image'></div>
                         <div className='error-message-box'>
@@ -111,27 +130,24 @@ export default function Authentication() {
                     )}
                     <div className='sign-in-middle-box'>
                         <div className='email-input-box'> 
-                        <InputBox label={''} type='text' placeholder='이메일 주소를 입력해주세요.' error={signInEmailerror} value={email} setValue={setEmail} onKeyDown={onEmailKeyDownHandler} />
+                        <InputBox label={''} type='text' placeholder='이메일 주소를 입력해주세요.' value={email} error={signInEmailerror} errorMessage={''} setValue={setEmail} icon={email.length === 0 ? '' : emailReWritingIcon} onButtonClick={onEmailReWritingIconClickHandler} onKeyDown={onEmailKeyDownHandler} />
+                        {signInEmailerror && (
+                            <div className='email-input-error-message-box'>
+                                <div className='email-input-error-message-logo'></div>
+                                <div className='email-input-error-message-text' >{'이메일 양식이 올바르지 않습니다.'}</div>
+                            </div>
+                        )}  
                         </div>
                         {signInLevel===2 && 
                         <>
                             <div className='password-input-box'>
-                            <InputBox ref={passwordRef} label={''} type={passwordType} placeholder='비밀번호를 입력해주세요.' error={signPasswordInerror} value={password} setValue={setPassword} icon={passwordIcon} onKeyDown={onPasswordKeyDownHanlder} onButtonClick={onPasswordIconClickHandler} />
+                            <InputBox ref={passwordRef} label={''} type={passwordType} placeholder='비밀번호를 입력해주세요.' error={signInError} value={password} setValue={setPassword} icon={passwordIcon} onKeyDown={onPasswordKeyDownHanlder} onButtonClick={onPasswordIconClickHandler} />
                             </div>
                         </>
                         }
                         {/*sign-up-email-card에서 1-4-0 계정생성에서 이메일 있을 경우 sing-in으로 와짐*/}
-                        {signInLevel===3 && 
-                        <>
-                            <div></div>
-                            <div className='password-input-box'>
-                            <InputBox ref={passwordRef} label={''} type={passwordType} placeholder='비밀번호를 입력해주세요.' error={signPasswordInerror} value={password} setValue={setPassword} icon={passwordIcon} onKeyDown={onPasswordKeyDownHanlder} onButtonClick={onPasswordIconClickHandler} />
-                            </div>
-                        </>
-                        }
-
-                        
-                        <div className='sign-in-button-box' onClick={onSignInButtonClickHandler}>{'로그인'}</div>
+                        {signInLevel === 1 && <div className='sign-in-button-box' onClick={onSignInNextLevelButtonClickHandler}>{'로그인'}</div>}
+                        {signInLevel===2 && <div className='sign-in-button-box' onClick={onSignInButtonClickHandler}>{'로그인'}</div>}
                         <div className='authentication-page-chage-button'>
                             <div className='search-password-navigator-button' onClick={onSearchPasswordCardLinkClickHandler}>{'로그인을 할 수 없나요?'}</div>
                             <div className='authentication-page-chage-button-divider'>{'\|'}</div>
@@ -159,11 +175,21 @@ export default function Authentication() {
             </div>
         )
     }
-    //          component : 비밀번호 재설정_이메일 입력화면         //
+    //          component : 비밀번호 재설정_이메일 입력 화면         //
     const SearchPasswordCard = () => {
+
         
+        //          state: 입력한 이메일 상태          //
+        const [email, setEmail] = useState<string>('');
+        //          state : 이메일 보낼 이메일 주소 상태            //
+        const [value, setValue] = useState<string>('');
+
+        //          function: 네비게이트 함수          //
+        // const navigator = useNavigate();
+
         //          event handler: '복구 링크 보내기' 버튼 클릭 이벤트 처리          //
         const sendMessageButtonClickHandler = () => {
+            if (!email) return;
             setView('search-password-email-autentication-card');
         }
 
@@ -171,7 +197,20 @@ export default function Authentication() {
         const onSignInLinkClickHandler = () => {
             setView('sign-in-card');
         }
-    
+        //          event handler: 이메일 인풋 key down 이벤트 처리          //
+        const onEmailKeyDownHandler = (event: KeyboardEvent<HTMLInputElement>) => {
+            if (event.key !== 'Enter') return;
+            setView('search-password-email-autentication-card');
+            if (!email) return;
+            // navigator(SEND_EMAIL_PATH(sendEmailAddress));
+        }
+
+        //          event handler: input 값 변경 이벤트 처리          //
+        // const onInputValueChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
+        //     const value = event.target.value;
+        //     setValue(value);
+        // }
+
         //        render : 비밀번호 찾기 페이지 랜더링        //
         return (
             <div className='search-password-card'>
@@ -184,8 +223,10 @@ export default function Authentication() {
                     </div>
                     <div className='search-password-middle-box'>
                         <div className='search-password-message'>{'다음으로 복구 링크 보내기'}</div>
-                        <div className='search-password-inputbox'>
-                            <InputBox label={''} type='text' placeholder='이메일 주소를 입력해주세요.' error={''} value={email} setValue={setEmail} onKeyDown={onEmailKeyDownHandler} />
+                        <div className='search-password-send-email-inputbox'>
+                            <div className='inputbox-container'>
+                                <input className='send-email-address' type='text' placeholder='이메일 주소를 입력해주세요.' value={email} onKeyDown={onEmailKeyDownHandler} />
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -198,6 +239,10 @@ export default function Authentication() {
     }
     //          component : 비밀번호 재설정_이메일 인증 card         //
     const SearchPasswordEmailAutenticationCard = () => {
+
+        //          state: 입력한 이메일 상태          //
+        const [email, setEmail] = useState<string>('');
+
         //        render : 이메일 인증 페이지 랜더링        //
         return (
             <div className='search-password-email-authentication-card'>
@@ -213,7 +258,7 @@ export default function Authentication() {
                     </div>
                     <div className='search-password-email-authentication-middle-box'>
                         <div className='send-message-notice'>{'설정을 완료하고 로그인을 하려면 \n다음주소로 보낸 이메일의 확인 링크를 클릭하세요'}</div>
-                        <div className='send-message-receiver-address'>{'email@email.com'}</div>
+                        <div className='send-message-receiver-address'>{'이전에 입력한 이메일이 떠야하는데 어째하는지 모르겠다'}</div>
                     </div>
                 </div>
                 <div className='search-password-email-authentication-bottom-box'>
@@ -224,6 +269,59 @@ export default function Authentication() {
     }
     //          component : 비밀번호 재설정_비밀번호 입력 화면         //
     const ResetPasswordCard = () => {
+
+        
+
+        //          state: 비밀번호 상태          //
+        const [password, setPassword] = useState<string>('');
+        //          state: 비밀번호 타입 상태          //
+        const [passwordType, setPasswordType] = useState<'text' | 'password'>('password');
+        //          state: 비밀번호 아이콘 상태          //
+        const [passwordIcon, setPasswordIcon] = useState<'eye-on-icon' | 'eye-off-icon'>('eye-off-icon');
+        //          state: 비밀번호 에러 상태          //
+        const [passwordErrorLevel, setPasswordErrorLevel] = useState<number>(1);
+        //          state: 비밀번호 에러 메세지 상태          //
+        const [passwordErrorMessage, setPasswordErrorMessage] = useState<string>('');
+        
+        //          event handler: 비밀번호 인풋 버튼 클릭 이벤트 처리          //
+        const onPasswordIconClickHandler = () => {
+            if (passwordType === 'text') {
+            setPasswordType('password');
+            setPasswordIcon('eye-off-icon');
+            }
+            if (passwordType === 'password') {
+            setPasswordType('text');
+            setPasswordIcon('eye-on-icon');
+            }
+        }
+
+        //          event handler: 비밀번호 변경완료 버튼 클릭 이벤트 처리          //
+        const onPasswordResetComplete = () => {
+
+            // description: 비밀번호 길이 확인 //
+            const checkedPasswordLength = password.trim().length < 8;
+            if (checkedPasswordLength) {
+                setPasswordErrorLevel(1);
+                setPasswordErrorMessage('비밀번호는 8자 이상 입력해주세요.');
+            }
+
+            // description: 비밀번호 조합 및 규칙 //
+            const checkedPasswordPattern = /^[0-9]{10,12}$/;
+            if (checkedPasswordPattern) {
+                setPasswordErrorLevel(2);
+                setPasswordErrorMessage('약함');
+            }
+            // description: 비밀번호 DB이전 기록 확인 //
+            const checkedPasswordDB = password.trim().length < 8;
+            if (checkedPasswordPattern) {
+                setPasswordErrorLevel(3);
+                setPasswordErrorMessage('약함');
+            }
+
+            if (checkedPasswordLength || checkedPasswordPattern || checkedPasswordDB ) return;
+            alert('회원가입 완료~!')
+        }
+        
         //        render : 비밀번호 재설정 페이지 랜더링        //
         return (
             <div className='reset-password-card'>
@@ -232,17 +330,12 @@ export default function Authentication() {
                         <div className='godlife-logo-icon-box'>
                             <div className='godlife-logo-icon'></div>
                         </div>
-                        <div className='auth-page-text-box'>{'새 비밀번호 입력.'}</div>
+                        <div className='auth-page-text-box'>{'새 비밀번호 입력'}</div>
                     </div>
-                    {/*}
+                    {/*{passwordErrorLevel === 1 && 
                     <div className='error-message-container'>
                         <div className='error-logo-image'></div>
-                        <div className='error-message-box'>
-                            <div className='error-message-text'>{'잘못된 이메일 주소 또는 비밀번호 입니다.\n로그인 하는데 도움이 필요하세요?'}</div>
-                            <div className='error-message-text'>{'이전에 사용한 비밀번호 입니다.\n다른 비밀번호를 선택하세요'}</div>
-                            <div className='error-message-text'>{'너무많이 사용되는 비밀번호 입니다.\n추측하기 어려운 비밀번호를 선택하세요'}</div>
-                        </div>
-                    </div>
+                    </div>}
                     */}
                     <div className='reset-password-middle-box'>
                         <div className='password-input-box'>
