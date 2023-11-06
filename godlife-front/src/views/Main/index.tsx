@@ -11,6 +11,9 @@ import studyRoomInfoListMock from '../../mocks/my-study-room-info-list.mock';
 import usePagination from '../../hooks/pagination.hook';
 import { MyStudyRoomInfoItem } from '../../types';
 import MyStudyRoomInfoListItem from '../../components/MyStudyRoomInfoItem';
+import StudyRoomItem from '../../types/study-room-item.interface';
+import { recommendationStudyListMock } from '../../mocks';
+import RecommendationStudyListItem from '../../components/RecommendationStudyListItem';
 
 //        component: 메인 페이지        //
 export default function Main() {
@@ -28,14 +31,12 @@ export default function Main() {
 
     //        state: 페이지네이션 관련 상태       //
     const { setStudyRoomInfoList } = usePagination<MyStudyRoomInfoItem>();
-
     //        state: 참여한 스터디 개수 상태        //
     const [count, setCount] = useState<number>(0);
     //        state: 유저의 등급 상태       //
-    const [grade, setGrade] = useState<'일반' | '방장'>('방장');
-
-    //      state: 탭 리스트 높이 상태        //
-    const [tabListHeight, setTabListHeight] = useState(0);
+    const [grade, setGrade] = useState<'일반' | '방장'>('일반');
+    //        state: 탭 인덱스 상태       //
+    const [activeTabIndex, setActiveTabIndex]=useState<number>(0);
 
     //        effect: 조회하는 유저의 이메일이 변경될 때마다 실행할 함수        //
     useEffect(() => {
@@ -43,53 +44,58 @@ export default function Main() {
       setCount(studyRoomInfoListMock.length);
     }, [searchEmail]);
 
-    //        effect: 탭 리스트 요소가 존재할 때 실행할 함수        //
+    //        effect: 탭 인덱스가 변경될 때마다 실행할 함수       //
     useEffect(() => {
-      const tabListElement = document.querySelector('.react-tabs__tab-list');
-      if (tabListElement) {
-        const height = tabListElement.clientHeight;
-        setTabListHeight(height);
-      }
-    }, []);
 
-    //        description: 참여 스터디 방이 없을 때 탭 패널 높이 정의       //
-    const selectedTabPanelStyle = {
-      height: `calc(100% - ${tabListHeight}px)`,
-    };
+    }, [activeTabIndex])
 
-    const [activeIndex, setActiveIndex]=useState(0);
-
+    //        event handler: 탭 버튼 클릭 이벤트 처리       //
     const tabClickHandler=(index: React.SetStateAction<number>)=>{
-        setActiveIndex(index);
+        setActiveTabIndex(index);
     };
 
     const tabContArr = studyRoomInfoListMock.map((tab, index) => (
       {
         tabTitle: (
-          <div className={activeIndex===index ? "tab-selected" : "tab"} onClick={()=>tabClickHandler(index)}>{tab.studyName}</div>
+          <div className={activeTabIndex===index ? "tab-selected" : "tab"} onClick={()=>tabClickHandler(index)} key={tab.studyName}>{tab.studyName}</div>
         ),
         tabCont: (
           <div className='my-study-room-info-right-box'>
             <div className='my-study-room-info-box'>
-              <div className='participation-study-name-box'>
-                <div className='participation-study-name'>{'참여 스터디 이름'}</div>
-                <div className='participation-study-name-text'>{tab.studyName}</div>
-              </div>
-              <div className='study-category-box'>
-                <div className='study-category'>{'스터디 카테고리'}</div>
-                <div className='study-category-text'>{tab.studyCategory1}</div>
-              </div>
-              <div className='participation-personnel-box'>
-                <div className='participation-personnel'>{'참여인원'}</div>
-                <div className='participation-personnel-text'>{tab.studyPersonnel}</div>
-              </div>
-              <div className='my-grade-box'>
-                <div className='my-grade'>{'내 등급'}</div>
-                <div className='my-grade-text'>{tab.myGrade}</div>
-              </div>
+
+            <div className='participation-study-name-box'>
+              <div className='participation-study-name'>{'참여 스터디 이름'}</div>
+              <div className='participation-study-name-text'>{tab.studyName}</div>
+            </div>
+
+            <div className='study-category-box'>
+              <div className='study-category'>{'스터디 카테고리'}</div>
+              <div className='study-category-text'>{tab.studyCategory1}</div>
+            </div>
+
+            <div className='participation-personnel-box'>
+              <div className='participation-personnel'>{'참여인원'}</div>
+              <div className='participation-personnel-text'>{tab.studyPersonnel}</div>
+            </div>
+
+            <div className='my-grade-box'>
+              <div className='my-grade'>{'내 등급'}</div>
+              <div className='my-grade-text'>{tab.myGrade}</div>
+            </div>
+
+            <div className='study-next-start-datetime-box'>
+              <div className='study-next-start-datetime'>{'다음 스터디 모임 날짜'}</div>
+              <div className='study-next-start-datetime-text'>{tab.studyNextStartDatetime}</div>
+              {grade === '방장' && (
+              <div className='study-next-start-datetime-update-button'>{'수정'}</div>
+              )}
+            </div>
+
+            {grade === '일반' && (
+              <div className='study-leave-button'>{'방 퇴장하기'}</div>
+            )}
             </div>
           </div>
-
         ),
       }
     ));
@@ -101,84 +107,15 @@ export default function Main() {
 
           <div className='main-top-up-box'>
             <div className='main-top-up-box-studyroom-text'>{'내가 참여한 스터디방 정보'}</div>
-            {/* <div className='main-top-up-box-studyroom-tap'>
-
-              {count === 0 ? (
-                <Tabs>
-                  <TabList>
-                    <Tab>{'새로운 스터디 참여하기'}</Tab>
-                  </TabList>
-                  <TabPanel className="tabpanel-nothing-box" style={selectedTabPanelStyle}>
-                    <div className='my-study-room-nothing-box'>
-                      <div className='my-study-room-nothing-message'>{'참여한 스터디 방이 없습니다!'}</div>
-                      <div className='my-study-room-nothing-button-box'>
-                        <div className='my-study-room-nothing-button-box-text'>{'스터디 검색하기'}</div>
-                      </div>
-                    </div>
-                  </TabPanel>
-                </Tabs>
-              ) : (
-                <Tabs>
-                  <TabList>
-                    {studyRoomInfoListMock.map((tab) => (
-                      <Tab key={tab.studyNumber}>{tab.studyName}</Tab>
-                    ))}
-                  </TabList>
-          
-                  {studyRoomInfoListMock.map((tab) => (
-                    <TabPanel key={tab.studyNumber} className="tabpanel-result-box">
-                      <div className='my-study-room-info-right-box'>
-                        <div className='my-study-room-info-box'>
-
-                          <div className='participation-study-name-box'>
-                            <div className='participation-study-name'>{'참여 스터디 이름'}</div>
-                            <div className='participation-study-name-text'>{tab.studyName}</div>
-                          </div>
-
-                          <div className='study-category-box'>
-                            <div className='study-category'>{'스터디 카테고리'}</div>
-                            <div className='study-category-text'>{tab.studyCategory1}</div>
-                          </div>
-
-                          <div className='participation-personnel-box'>
-                            <div className='participation-personnel'>{'참여인원'}</div>
-                            <div className='participation-personnel-text'>{tab.studyPersonnel}</div>
-                          </div>
-
-                          <div className='my-grade-box'>
-                            <div className='my-grade'>{'내 등급'}</div>
-                            <div className='my-grade-text'>{tab.myGrade}</div>
-                          </div>
-
-                          <div className='study-next-start-datetime-box'>
-                            <div className='study-next-start-datetime'>{'다음 스터디 모임 날짜'}</div>
-                            <div className='study-next-start-datetime-text'>{tab.studyNextStartDatetime}</div>
-                            {grade === '방장' && (
-                            <div className='study-next-start-datetime-update-button'>{'수정'}</div>
-                            )}
-                          </div>
-
-                          {grade === '일반' && (
-                            <div className='study-leave-button'>{'방 퇴장하기'}</div>
-                          )}
-                        </div>
-                      </div>
-                    </TabPanel>
-                  ))}
-                </Tabs>
-              )}
-            </div> */}
-            <div className='main-top-up-box-studyroom-tap'>
-              <div className='tap-list'>
+            <div className='main-top-up-box-studyroom-tab'>
+              <div className='tab-list'>
                 {tabContArr.map((section, index)=>{
                       return section.tabTitle
                   })}
               </div>
               
               <div className='tap-panel'>
-                {/* <div className='tabpanel-result-box'> */}
-                  {tabContArr[activeIndex].tabCont}
-                {/* </div> */}
+                {tabContArr[activeTabIndex].tabCont}
               </div>
             </div>
           </div>
@@ -295,35 +232,23 @@ export default function Main() {
 
   //        component: 메인 중단 컴포넌트       //
   const MainMiddle = () => {
+
+    //          state: 추천 스터디 top5 리스트 상태          //
+    const [recommendationStudyList, setRecommendationStudyList] = useState<StudyRoomItem[]>([]);
     
+    //          effect: 컴포넌트 마운트 시 추천 스터디 top5 리스트 불러오기          //
+    useEffect(() => {
+      // TODO: API 호출로 변경
+      setRecommendationStudyList(recommendationStudyListMock);
+    }, []);
+
     //        render: 메인 중단 컴포넌트 렌더링       //
     return (
       <div id='main-middle-wrapper'>
         <div className='main-middle-box'>
           <div className='main-middle-box-recommend-studyroom-text'>{'추천 스터디'}</div>
           <div className='main-middle-box-recommend-studyroom'>
-            {/* 반복되는 스터디방 */}
-            <div className='main-middle-box-studyroom-data' style={{backgroundImage: `url(${StudyDefaultImage})` }}>
-              <div className='main-middle-box-studyroom-deadline-time'>{'스터디 마감 시간 : 2023년 09월 15일'}</div>
-              <div className='main-middle-box-studyroom-participation-number'>{'스터디 참여자 수 00 / 00명'}</div>
-              <div className='main-middle-box-studyroom-title'>{'스터디 이름'}</div>
-            </div>
-            <div className='main-middle-box-studyroom-data' style={{backgroundImage: `url(${StudyDefaultImage})` }}>
-              <div className='main-middle-box-studyroom-deadline-time'>{'스터디 마감 시간 : 2023년 09월 15일'}</div>
-              <div className='main-middle-box-studyroom-participation-number'>{'스터디 참여자 수 00 / 00명'}</div>
-              <div className='main-middle-box-studyroom-title'>{'스터디 이름'}</div>
-            </div>
-            <div className='main-middle-box-studyroom-data' style={{backgroundImage: `url(${StudyDefaultImage})` }}>
-              <div className='main-middle-box-studyroom-deadline-time'>{'스터디 마감 시간 : 2023년 09월 15일'}</div>
-              <div className='main-middle-box-studyroom-participation-number'>{'스터디 참여자 수 00 / 00명'}</div>
-              <div className='main-middle-box-studyroom-title'>{'스터디 이름'}</div>
-            </div>
-            <div className='main-middle-box-studyroom-data' style={{backgroundImage: `url(${StudyDefaultImage})` }}>
-              <div className='main-middle-box-studyroom-deadline-time'>{'스터디 마감 시간 : 2023년 09월 15일'}</div>
-              <div className='main-middle-box-studyroom-participation-number'>{'스터디 참여자 수 00 / 00명'}</div>
-              <div className='main-middle-box-studyroom-title'>{'스터디 이름'}</div>
-            </div>
-            
+            {recommendationStudyList.map(StudyRoomItem => <RecommendationStudyListItem studyRoomItem={StudyRoomItem} />)}
           </div>
         </div>
       </div>
