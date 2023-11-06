@@ -18,6 +18,11 @@
     text-overflow: ellipsis;
 }
 
+.main-middle-box-studyroom-data:hover {
+    cursor: pointer;
+    box-shadow: 5px 5px 10px rgba(24, 160, 251, 0.5);
+}
+
 .main-middle-box-studyroom-deadline-time {
     color: rgba(0,0,0,1);
 
