@@ -33,23 +33,6 @@
   font-weight: 400;
 }
 
-.down-icon-box {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding-right: 15px;
-}
-
-.down-icon {
-  width: 35px;
-  height: 35px;
-
-  background-image: url(assets/down-icon.png);
-  background-position: 50% 50%;
-  background-size: 100% 100%;
-}
-
-
 .dropdown-study-create-category-header.selected {
   display: flex;
   justify-content: center;
@@ -139,7 +122,7 @@
 }
 
 .X-button-icon-box {
-  padding-right: 10px;
+  margin-right: 10px;
   width: 15px;
   height: 15px;
 }
