@@ -87,11 +87,12 @@
     margin-top: -20px;
     margin-bottom: -10px;
     padding-left: 15px;
-    padding-right: 70px;
+    padding-right: 50px;
 
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: center;
     gap: 10px;
 
     height: 80px;
@@ -531,11 +532,124 @@
     align-items: center;
     gap: 35px;
 }
+
+.reset-password-error-message-text{
+    color: #000;
+    margin-bottom: 5px;
+
+    font-family: Spoqa Han Sans Neo;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: normal;
+    
+    white-space: pre-wrap;
+    text-align: center;
+}
+.reset-password-error-message-body-text{
+    color: #000;
+
+    font-family: Spoqa Han Sans Neo;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: normal;
+
+    white-space: pre-wrap;
+}
+
 .reset-password-middle-box{
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 15px;
+    gap: 5px;
+}
+
+.security-gage-default{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2px;
+}
+.password-security-gage-box{
+    width: 400px;
+    
+}
+.gage1{
+    width: 70px;
+    height: 5px;
+    background-color: #CCC;
+}
+.gage2{
+    width: 70px;
+    height: 5px;
+    background-color: #CCC;
+}
+.gage3{
+    width: 70px;
+    height: 5px;
+    background-color: #CCC;
+}
+.gage4{
+    width: 70px;
+    height: 5px;
+    background-color: #CCC;
+}
+.gage5{
+    width: 70px;
+    height: 5px;
+    background-color: #CCC;
+}
+
+.password-error-level1-gage1{
+    width: 70px;
+    height: 5px;
+    background-color: red;
+}
+.password-error-level1-gage2{
+    width: 70px;
+    height: 5px;
+    background-color: red;
+}
+.password-error-level1-gage3{
+    width: 70px;
+    height: 5px;
+    background-color: #CCC;
+}
+.password-error-level1-gage4{
+    width: 70px;
+    height: 5px;
+    background-color: #CCC;
+}
+.password-error-level1-gage5{
+    width: 70px;
+    height: 5px;
+    background-color: #CCC;
+}
+
+.password-error-level2-gage1{
+    width: 70px;
+    height: 5px;
+    background-color: orangered;
+}
+.password-error-leve2-gage2{
+    width: 70px;
+    height: 5px;
+    background-color: orangered;
+}
+.password-error-leve2-gage3{
+    width: 70px;
+    height: 5px;
+    background-color: orangered;
+}
+.password-error-leve2-gage4{
+    width: 70px;
+    height: 5px;
+    background-color: #CCC;
+}
+.password-error-leve2-gage5{
+    width: 70px;
+    height: 5px;
+    background-color: #CCC;
 }
 .reset-password-main-page-navigator-bottom-box{
     width: 400px;
@@ -588,15 +702,10 @@
     gap: 15px;
 }
 
-.email-input-box{
+.sign-up-email-input-box{
+    margin: 0;
     width: 400px;
     height: 50px;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
 }
 .email-input-error-message-box{
 
@@ -633,6 +742,7 @@
     font-weight: 500;
     line-height: 22px;
 }
+
 
 .sign-up-button-box{
     width: 400px;
@@ -730,10 +840,39 @@
 
 .sign-up-email-autentification-card-middle-input-box{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    justify-items: center;
+}
+.email-autentification-input-box{
+    width: 300px;
+    height: 90px;
     gap: 10px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+    background-color: #CCC;
+    border-radius: 10px;
+
+}
+
+.email-autentification-input{
+    width: 300px;
+    height: 90px;
+    gap: 10px;
+    border: none;
+    background-color: #CCC;
+    border-radius: 10px;
+
+    color: #000;
+
+    text-align: center;
+    
+    font-family: Spoqa Han Sans Neo;
+    font-size: 50px;
+    font-weight: 700;
 }
 
 .sign-up-email-autentification-card-bottom-box{
@@ -844,41 +983,6 @@
     font-weight: 700;
     line-height: 22px;
 }
-.password-security-gage-box{
-    width: 400px;
-}
-.security-gage-default{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-}
-.gage1{
-    width: 70px;
-    height: 5px;
-    background-color: #CCC;
-}
-.gage2{
-    width: 70px;
-    height: 5px;
-    background-color: #CCC;
-}
-.gage3{
-    width: 70px;
-    height: 5px;
-    background-color: #CCC;
-}
-.gage4{
-    width: 70px;
-    height: 5px;
-    background-color: #CCC;
-}
-.gage5{
-    width: 70px;
-    height: 5px;
-    background-color: #CCC;
-}
-
 .sing-up-category-inputbox-top{
     display: flex;
     flex-direction: column;
