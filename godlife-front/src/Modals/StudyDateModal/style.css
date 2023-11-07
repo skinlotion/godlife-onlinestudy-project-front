@@ -26,238 +26,6 @@
     position: relative;
 }
 
-.menu-sidebar{
-    top: 58px;
-    left: -172px;
-    position: absolute;
-
-    width: 170px;
-    height: 260px;
-}
-
-.menu-room{
-    width: 170px;
-    height: 65px;
-    border-radius: 30px 0px 0px 30px;
-    border-top: 3px solid rgba(24, 160, 251, 1);
-    border-bottom: 3px solid rgba(24, 160, 251, 1);
-    border-left: 3px solid rgba(24, 160, 251, 1);
-    background-color: rgba(24, 160, 251, 1);
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    color: rgba(0,0,0,1);
-
-    text-align: center;
-    font-family: Spoqa Han Sans Neo;
-    font-size: 23px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    letter-spacing: -0.345px;
-}
- 
-.menu-room:hover{
-    cursor: pointer;
-}
-
-.menu-room-default{
-    width: 170px;
-    height: 65px;
-    border-radius: 30px 0px 0px 30px;
-    border-top: 3px solid rgba(24, 160, 251, 1);
-    border-bottom: 3px solid rgba(24, 160, 251, 1);
-    border-left: 3px solid rgba(24, 160, 251, 1);
-    background-color: rgba(255,255,255,1);
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    color: rgba(0,0,0,1);
-
-    text-align: center;
-    font-family: Spoqa Han Sans Neo;
-    font-size: 23px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    letter-spacing: -0.345px;    
-}
-
-.menu-room-default:hover{
-    cursor: pointer;
-}
-
-.menu-member{
-    width: 170px;
-    height: 65px;
-    border-radius: 30px 0px 0px 30px;
-    border-top: 3px solid rgba(24, 160, 251, 1);
-    border-bottom: 3px solid rgba(24, 160, 251, 1);
-    border-left: 3px solid rgba(24, 160, 251, 1);
-    background-color: rgba(24, 160, 251, 1);
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    color: rgba(0,0,0,1);
-
-    text-align: center;
-    font-family: Spoqa Han Sans Neo;
-    font-size: 23px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    letter-spacing: -0.345px;
-}
-    
-.menu-member:hover{
-    cursor: pointer;
-}
-
-.menu-member-default{
-    width: 170px;
-    height: 65px;
-    border-radius: 30px 0px 0px 30px;
-    border-top: 3px solid rgba(24, 160, 251, 1);
-    border-bottom: 3px solid rgba(24, 160, 251, 1);
-    border-left: 3px solid rgba(24, 160, 251, 1);
-    background-color: rgba(255,255,255,1);
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    color: rgba(0,0,0,1);
-
-    text-align: center;
-    font-family: Spoqa Han Sans Neo;
-    font-size: 23px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    letter-spacing: -0.345px;
-}
-
-.menu-member-default:hover{
-    cursor: pointer;
-}
-
-.menu-study{
-    width: 170px;
-    height: 65px;
-    border-radius: 30px 0px 0px 30px;
-    border-top: 3px solid rgba(24, 160, 251, 1);
-    border-bottom: 3px solid rgba(24, 160, 251, 1);
-    border-left: 3px solid rgba(24, 160, 251, 1);
-    background-color: rgba(24, 160, 251, 1);
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    color: rgba(0,0,0,1);
-
-    text-align: center;
-    font-family: Spoqa Han Sans Neo;
-    font-size: 23px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    letter-spacing: -0.345px;
-}
-
-.menu-study:hover{
-    cursor: pointer;
-}
-
-.menu-study-default{
-    width: 170px;
-    height: 65px;
-    border-radius: 30px 0px 0px 30px;
-    border-top: 3px solid rgba(24, 160, 251, 1);
-    border-bottom: 3px solid rgba(24, 160, 251, 1);
-    border-left: 3px solid rgba(24, 160, 251, 1);
-    background-color: rgba(255,255,255,1);
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    color: rgba(0,0,0,1);
-
-    text-align: center;
-    font-family: Spoqa Han Sans Neo;
-    font-size: 23px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    letter-spacing: -0.345px;
-}
-
-.menu-material{
-    width: 170px;
-    height: 65px;
-    border-radius: 30px 0px 0px 30px;
-    border-top: 3px solid rgba(24, 160, 251, 1);
-    border-bottom: 3px solid rgba(24, 160, 251, 1);
-    border-left: 3px solid rgba(24, 160, 251, 1);
-    background-color: rgba(24, 160, 251, 1);;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    color: rgba(0,0,0,1);
-
-    text-align: center;
-    font-family: Spoqa Han Sans Neo;
-    font-size: 23px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    letter-spacing: -0.345px;
-
-}
-
-.menu-material:hover{
-    cursor: pointer;
-}
-
-
-.menu-material-default{
-    width: 170px;
-    height: 65px;
-    border-radius: 30px 0px 0px 30px;
-    border-top: 3px solid rgba(24, 160, 251, 1);
-    border-bottom: 3px solid rgba(24, 160, 251, 1);
-    border-left: 3px solid rgba(24, 160, 251, 1);
-    background-color: rgba(255,255,255,1);
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    color: rgba(0,0,0,1);
-
-    text-align: center;
-    font-family: Spoqa Han Sans Neo;
-    font-size: 23px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    letter-spacing: -0.345px;
-
-}
-
-.menu-material-default:hover{
-    cursor: pointer;
-}
-
 .notice-button-box{
     width: 52px;
     height: 40px;
@@ -346,14 +114,15 @@
     display: flex;
     flex-direction: column;
     gap: 3px;
-}
 
+    padding-top: 20px;
+}
 
 .next-study-date{
     width: 106px;
     height: 19px;
 
-    margin: 79px 293.07px 0px 9.23px;
+    margin: 0px 293.07px 0px 9.23px;
     text-wrap: nowrap;
     font-family: Spoqa Han Sans Neo;
     font-size: 13.6px;
@@ -362,15 +131,16 @@
     letter-spacing: -0.204px;
 }
 
+/* 스터디 시간 */
 .study-date-box{
     margin: 8px 26.2px 3px 14px;
 
     width: 370px;
     height: 60px;
 
-    background-color: rgba(217,217,217,1);
+    background-color: rgba(24,160,251,0.5);
 
-    border-radius: 5.391px;
+    border-radius: 5px;
 
     display: flex;
     flex-direction: column;
@@ -379,8 +149,121 @@
     gap: 3.63px;
 }
 
-/* 스터디 경고 메시지 컴포넌트 */
+.dropdown-study-people-set-box {
+    font-family: 'Spoqa Han Sans Neo';
+    font-size: 18px;
+  
+    width: 37px;
+    height: 24px;
+  
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  
+    line-height: 115%;
+    font-weight: 400;
 
+    border: 1px solid rgba(0, 0, 0, 1);
+}
+  
+.dropdown-study-people-set-box:hover {
+    cursor: pointer;
+    background-color: rgba(255, 255, 251, 0.7);
+}
+  
+.dropdown-study-people-set-header {
+    color: rgba(207, 207, 207, 1);
+
+    /* margin-bottom: 2px; */
+    padding-left: 17px;
+
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: space-between;
+
+    font-weight: 400;
+}
+  
+.down-icon-box {
+    width: 10px;
+    height: 22px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: rgba(255, 255, 255, 1);
+    /* height: 10px; */
+}
+  
+.down-icon {
+    width: 10px;
+    height: 5px;
+  
+    background-image: url(assets/arrow-down.png);
+    background-position: 50% 50%;
+    background-size: 100% 100%;
+}
+  
+  
+.dropdown-study-people-set-header.selected {
+    display: flex;
+    justify-content: center;
+/* color: rgba(0, 0, 0, 1); */
+}
+
+.dropdown-study-people-set-list {
+    margin-top: 24px;
+    margin-left: -15px;
+    padding: 5px 5px 5px 5px;
+    width: 52px;
+    height: 159px;
+
+    position: absolute;
+
+    border-radius: 5px;
+    border: 1px solid rgba(0, 0, 0, 1);
+    background-color: rgba(255, 255, 255, 1);
+
+}
+
+.dropdown-study-people-set-list-index {
+width: 100%;
+height: 24px;
+
+display: flex;
+align-items: center;
+justify-content: center;
+
+font-weight: 400;
+
+border-radius: 5px;
+}
+
+.dropdown-study-people-set-list-index:hover {
+    cursor: pointer;
+    background-color: rgba(24, 160, 251, 0.7);
+}
+
+.track-people-set-vertical {
+    top: 2px;
+    bottom: 2px;
+    right: 7px;
+    border-radius: 30px;
+    background: rgba(255, 255, 255, 0.111);
+}
+
+.track-people-set-vertical.thumb-people-set-vertical {
+    padding: 0 7px 0 0;
+    position: relative;
+    display: block;
+    width: 100%;
+    cursor: pointer;
+    border-radius: inherit;
+}
+
+/* 스터디 경고 메시지 컴포넌트 */
 .study-date-contents-box{
 
     width: 370px;
@@ -439,25 +322,40 @@
 
 /* 시간 설정  컴포넌트 */
 .study-box-wrapper{
-    width: 37px;
+    width: 89px;
     height: 24px;
 
     display: flex;
     align-items: center;
+}
+
+.study-hour-select-box{
+    width: 37px;
+    height: 100%;
     border: 1px solid rgba(0,0,0,1);
+
+    display: flex;
+    flex-direction: row ;
+    margin-left: 5px;
 }
 
 .study-hour-select{
-    width: 37px;
-    height: 100%;
-}
-
-.study-hour-icon-box{
-    width: 12px;
-    height: 22px;
+    width: 27px;
+    height: 100%;     
 
     display: flex;
     justify-content: center;
+
+
+}
+
+
+.study-hour-icon-box{
+    width: 10px;
+    height: 100%;
+    
+    display: flex;
+
     align-items: center;
     background-color: rgba(255,255,255,1);
 }
@@ -476,6 +374,47 @@
     background-position: 50% 50%;
     background-size: 100% 100%;
 }
+
+.study-minute-select-box{
+    width: 37px;
+    height: 100%;
+    border: 1px solid rgba(0,0,0,1);
+
+    display: flex;
+    flex-direction: row;
+}
+
+.study-minute-select{
+    width: 23px;
+    height: 100%;    
+}
+
+.study-minute-icon-box{
+    width: 12px;
+    height: 100%;
+    
+    display: flex;
+
+    align-items: center;
+    background-color: rgba(255,255,255,1);
+}
+
+.study-minute-icon-box:hover{
+    cursor: pointer;
+}
+
+.study-minute-icon{
+    width: 10px;
+    height: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(assets/arrow-down.png);
+    background-position: 50% 50%;
+    background-size: 100% 100%;
+}
+
+
 
 /* 캘린더 설정 컴포넌트 */
 .study-date-set-box{

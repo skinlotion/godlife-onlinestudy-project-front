@@ -3,6 +3,7 @@
     "date-fns": "^2.30.0",
     "dayjs": "^1.11.10",
     "react-bootstrap": "^2.9.1",
+    "react-calendar": "^4.6.1",
     "react-custom-scrollbars-2": "^4.5.0",
     "react-datepicker": "^4.21.0",
     "zustand": "^4.4.6"
