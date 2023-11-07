@@ -9,6 +9,8 @@ import React, { ChangeEvent, useState, useRef, useEffect } from 'react';
 import { Scrollbars } from 'react-custom-scrollbars-2';
 import { useParams } from 'react-router-dom';
 import useUserStore from 'stores/user.store';
+import MemberManageModal from 'views/MemberManageModal';
+import Modal from 'react-bootstrap/Modal';
 
 //          component: 마이페이지           //
 export default function MyPage() {
@@ -19,6 +21,7 @@ export default function MyPage() {
 
     //        component: 마이페이지 상단 컴포넌트        //
     const MyPageTop = () => {
+
         //          state: 프로필 이미지 input ref 상태          //
         const fileInputRef = useRef<HTMLInputElement | null>(null);
         //          state: 이메일 상태          //
@@ -33,7 +36,9 @@ export default function MyPage() {
         const [nicknameError, setNicknameError] = useState<boolean>(false);
         //          state: 닉네임 에러 메세지 상태          //
         const [nicknameErrorMessage, setNicknameErrorMessage] = useState<string>('');
-
+        //          state: 모달 창 상태          //
+        const [show, setShow] = useState<boolean>(false);
+        
         //          event handler: 프로필 이미지 변경 클릭 이벤트 처리          //
         const onProfileImageChangeButtonClickHandler = () => {
             if (!fileInputRef.current) return;
@@ -45,7 +50,7 @@ export default function MyPage() {
             const imageUrl = URL.createObjectURL(event.target.files[0]);
             setProfileImage(imageUrl);
         };
-
+        
         //          event handler: 닉네임 변경 버튼 클릭 이벤트 처리          //
         const onChangeNicknameButtonClickHander = () => {
             if (nickname.length < 2) {
@@ -61,23 +66,27 @@ export default function MyPage() {
         const onNicknameChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
             const nickname = event.target.value;
             setNickname(nickname);
-
+            
             if (nickname.length >= 2) {
                 setNicknameError(false); // 닉네임이 2글자 이상이면 에러 상태 해제
                 setNicknameErrorMessage('');
             }
         };
-
+        
         //          event handler: 비밀번호 수정하기 버튼 클릭 이벤트 처리          //
         const onChangePasswordButtonClickHander = () => {
             alert('비밀번호 수정 창 띄우기');
         };
-
+        
         //          event handler: 등급기준 보러가기 버튼 클릭 이벤트 처리          //
         const onLookGradeStandardButtonClickHander = () => {
             alert('등급기준 보러가기 창 띄우기');
         };
-
+        
+        //          event handler: 모달 Open,Close 이벤트 처리          //
+        const modalCloseHandler = () => setShow(false);
+        const modalOpenHandler = () => setShow(true);
+        
         //          effect: 조회하는 유저의 이메일이 변경될 때마다 실행할 함수          //
         useEffect(() => {
             const { userEmail, userNickname, userProfileImageUrl } = userMock;
@@ -85,7 +94,7 @@ export default function MyPage() {
             setNickname(userNickname);
             setProfileImage(userProfileImageUrl);
         }, [searchEmail]);
-
+        
         //             render: 마이페이지 상단 렌더링              //
         return (
             <div id='my-page-top'>
@@ -107,12 +116,13 @@ export default function MyPage() {
                                     <div className='user-basic-info-box'>
                                         <div className='user-nickname-box'>
                                             {showChangeNickname ? <input className='user-info-nickname-input' type='text' size={nickname.length + 3} value={nickname} onChange={onNicknameChangeHandler} /> : <div className='user-nickname-text'>{nickname}</div>}
-                                            <div className='user-nickname-icon' onClick={onChangeNicknameButtonClickHander}></div>
+                                            <div className='user-nickname-icon' onClick={onChangeNicknameButtonClickHander}>
                                             {nicknameError && (
-                                                <div className='error-message' style={{ paddingTop: '20px' }}>
+                                                <div className='error-message'>
                                                     {nicknameErrorMessage}
                                                 </div>
                                             )}
+                                            </div>
                                         </div>
                                         <div className='user-email'>{email}</div>
                                         <div className='password-modify-box' onClick={onChangePasswordButtonClickHander}>{'비밀번호 수정하기'}</div>
@@ -157,9 +167,12 @@ export default function MyPage() {
                                 </div>
                             </div>
                             <div className='user-check-grade-standard'>
-                                <div className='user-grade-standard-box' onClick={onLookGradeStandardButtonClickHander}>
+                                <div className='user-grade-standard-box' onClick={modalOpenHandler}>
                                     <div className='user-grade-standard-box-text'>{'등급기준 보러가기'}</div>
                                 </div>
+                                <Modal show={show} centered onHide={modalCloseHandler}>
+                                    {<MemberManageModal modalCloseHandler={modalCloseHandler} />}
+                                </Modal>
                             </div>
                         </div>
                     </div>

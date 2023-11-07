@@ -135,6 +135,8 @@
 .error-message {
     color: rgba(255, 0, 0, 1);
 
+    margin: 20px 0px 0px 40px;
+
     font-size: 15px;
     font-weight: 400;
 }

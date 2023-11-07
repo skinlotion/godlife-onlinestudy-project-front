@@ -8,15 +8,13 @@ import MyPage from 'views/MyPage';
 import './views/MyPage/style.css';
 import StudyCreate from 'views/StudyCreate';
 import './components/Dropdown1Category/style.css';
-import MemberManageModal from 'views/MemberManageModal';
 
 function App() {
 
   return (
     <div>
-      {/* <MyPage />
-      <StudyCreate /> */}
-      <MemberManageModal />
+      <MyPage />
+      <StudyCreate />
     </div>
   );
 }

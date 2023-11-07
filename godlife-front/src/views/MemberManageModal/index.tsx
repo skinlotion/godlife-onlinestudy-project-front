@@ -6,11 +6,16 @@ import { UserGradeList } from 'types';
 import ForceExitModal from 'components/ForceExitModal';
 
 //           component: 멤버 관리 리스트 컴포넌트           //
-export default function MemberManageModal() {
-    
+export default function MemberManageModal({modalCloseHandler}: {modalCloseHandler: () => void}) {
+
     //           interface: 멤버 관리 리스트 아이템 컴포넌트 Props           //
     interface Props {
         userGradeList: UserGradeList;
+    }
+
+    //           event handler: MyPage의 modalCloseHandler를 가져와서 이벤트 처리           //
+    const closeModal = () => {
+        modalCloseHandler();
     }
 
     //           component: 멤버 관리 리스트 아이템 컴포넌트           //
@@ -105,7 +110,7 @@ export default function MemberManageModal() {
     return (
         <div id='member-manage-wrapper'>
             <div className='member-manage-card'>
-                <div className='member-button-box'>
+                <div className='member-button-box' onClick={closeModal}>
                     <button type='button' className='btn btn-primary' disabled data-bs-toggle='button'>X</button>
                 </div>
                 <div className='member-manage-main-box'>
