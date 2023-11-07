@@ -5,4 +5,16 @@ export default interface MyStudyRoomInfoItem {
     studyPersonnel: string;
     myGrade: string;
     studyNextStartDatetime: string | null;
+
+    studyStartDate: string;
+    studyEndDate: string;
+    studyProgressRate: number;
+    studyPeriod: number;
+
+    studyTotalDays: number;
+    studyAttendDays: number;
+    studyAbsentDays: number;
+    studyLateDays: number;
+
+    studyRoomToDoList: object[];
 }

@@ -137,6 +137,18 @@
     background-color: rgba(255,255,255,1);
 }
 
+.tap-panel-nothing-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 247px;
+
+    border-radius: 0px 0px 10px 10px;
+    box-shadow: 0 0 0 2px rgba(24,160,251,1) inset;
+    background-color: rgba(255,255,255,1);
+}
+
 .my-study-room-info-right-box {
     display: flex;
     margin: 10px;
@@ -335,6 +347,62 @@
     border-radius: 10px;
     box-shadow: 0 0 0 1px rgba(251, 13, 13, 0.45) inset;
     background-color: rgba(251, 13, 13, 0.45);
+}
+
+.my-study-room-info-middle {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.my-study-room-info-middle-up-box {
+    display: flex;
+    margin: 10px 0 0 0;
+    border-radius: 5px;
+    box-shadow: 0 0 0 2px rgba(24, 160, 251, 0.5) inset;
+}
+
+.study-progress-rate-box {
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    margin: 12px 19px 9px;
+    gap: 5px;
+}
+
+.study-progress-rate-title {
+    font-size: 22px;
+    font-weight: 500;
+}
+
+.study-date-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin: 1px 0;
+
+    border-radius: 5px;
+    color: rgba(255,255,255,1);
+    background-color: rgba(24, 160, 251, 0.70);
+}
+
+.study-start-date-text {
+    font-size: 19px;
+    font-weight: 400;
+}
+
+.study-end-date-text {
+    font-size: 19px;
+    font-weight: 400;
+}
+
+.my-study-room-info-middle-down-box {
+    display: flex;
+    margin: 0 0 10px 0;
+    border-radius: 5px;
+    box-shadow: 0 0 0 2px rgba(24, 160, 251, 0.5) inset;
 }
 
 .main-top-down-box {
