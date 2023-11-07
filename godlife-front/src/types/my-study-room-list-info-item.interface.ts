@@ -16,5 +16,5 @@ export default interface MyStudyRoomInfoItem {
     studyAbsentDays: number;
     studyLateDays: number;
 
-    studyRoomToDoList: object[];
+    studyRoomToDoList: any[][];
 }

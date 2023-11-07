@@ -59,12 +59,7 @@ export default function Main() {
         setActiveTabIndex(index);
     };
 
-    // recommendationStudyList.map(StudyRoomItem => <RecommendationStudyListItem studyRoomItem={StudyRoomItem} />)}
-
-    // const tabContArr = studyRoomInfoList.map((MyStudyRoomInfoItem, index) => (
-    //     <MyStudyRoomInfoListItem myStudyRoomInfoItem={MyStudyRoomInfoItem} index={index} />
-    // ));
-
+    //        description: 내가 참여한 스터디방 정보 탭 렌더링       //
     const tabContArr = studyRoomInfoListMock.map((tab, index) => (
       {
         tabTitle: (
@@ -72,7 +67,7 @@ export default function Main() {
         ),
         tabCont: (
           <div className='tap-panel'>
-            <div className='my-study-room-info-right-box'>
+            <div className='my-study-room-info-left-box'>
               <div className='my-study-room-info-box'>
                 <div className='participation-study-name-box'>
                   <div className='participation-study-name'>{'참여 스터디 이름'}</div>
@@ -112,7 +107,7 @@ export default function Main() {
               <div className='my-study-room-info-middle-up-box'>
                 <div className='study-progress-rate-box'>
                   <div className='study-progress-rate-title'>{'스터디 진행률'}</div>
-                  {<ProgressBar percentage={60} />}
+                  {<ProgressBar percentage={((tab.studyProgressRate / tab.studyPeriod) * 100)}/>}
                   <div className='study-date-box'>
                     <div className='study-start-date-text'>{`시작일 : ${tab.studyStartDate}`}</div>
                     <div className='study-end-date-text'>{`종료일 : ${tab.studyEndDate}`}</div>
@@ -123,6 +118,63 @@ export default function Main() {
               <div className='my-study-room-info-middle-down-box'>
                 <div className='study-attendance-rate-box'>
                   <div className='study-attendance-rate-title'>{'스터디 내 출석률'}</div>
+                  <div className='study-attendance-box'>
+
+                    <div className='total-study-days-box'>
+                      <div className='total-study-days-title'>{'총 스터디 일수'}</div>
+                      <div className='total-study-days-text'>{`${tab.studyTotalDays}회`}</div>
+                    </div>
+
+                    <div className='attend-study-days-box'>
+                      <div className='attend-study-days-title'>{'참석일수'}</div>
+                      <div className='attend-study-days-text'>{`${tab.studyAttendDays}회`}</div>
+                    </div>
+                      
+                    <div className='late-study-days-box'>
+                      <div className='late-study-days-title'>{'지각일수'}</div>
+                      <div className='late-study-days-text'>{`${tab.studyLateDays}회`}</div>
+                    </div>
+
+                    <div className='absent-study-days-box'>
+                      <div className='absent-study-days-title'>{'결석일수'}</div>
+                      <div className='absent-study-days-text'>{`${tab.studyAbsentDays}회`}</div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div className='my-study-room-right-box'>
+              <div className='study-todolist-box'>
+                <div className='study-todolist-inner-box'>
+                  <div className='study-todolist-title'>{'Study To Do'}</div>
+                  <div className='study-todolist-detail-box'>
+                    <Scrollbars
+                      renderTrackVertical={props => <div {...props} className="track-vertical"/>}
+                      renderThumbVertical={props => <div {...props} className="thumb-vertical"/>}>
+                        <div className='study-todolist-blank'></div>
+
+                        {tab.studyRoomToDoList.map((item, index) => (
+                          <div className={tab.studyRoomToDoList.length - 1 === index ? 'study-todolist-detail-rast' : 'study-todolist-detail'} key={item[0]}>
+                            <div className='study-todolist-check-icon-box'>
+                              <div className={item[2] ? 'todolist-check-icon' : 'todolist-non-check-icon'}></div>
+                            </div>
+                            <div className={item[2] ? 'study-todolist-detail-text-ok' : 'study-todolist-detail-text'}>{item[1]}</div>
+                          </div>
+                        ))}
+
+                        <div className='study-todolist-blank'></div>
+                    </Scrollbars>
+                  </div>
+                </div>
+              </div>
+              <div className='my-study-room-right-button-box'>
+                <div className='study-view-data-button'>
+                  <div className='study-view-data-button-text'>{'스터디 자료 보기'}</div>
+                </div>
+                <div className='study-start-button'>
+                  <div className='study-start-button-text'>{'스터디 시작 하기'}</div>  
                 </div>
               </div>
             </div>
@@ -158,9 +210,7 @@ export default function Main() {
                     return section.tabTitle
                 })}
               </div>
-              {/* <div className='tap-panel'> */}
-                {tabContArr[activeTabIndex].tabCont}
-              {/* </div> */}
+              {tabContArr[activeTabIndex].tabCont}
             </div>
             )}
           </div>
