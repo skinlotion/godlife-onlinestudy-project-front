@@ -4,6 +4,8 @@ import DropDownStudyPeopleSet from 'components/DropdownStudyPeopleSet';
 import DropDownFirstCategory from 'components/Dropdown1Category';
 import DropDownStudyCreateCategory from 'components/DropdownStudyCreateCategory';
 import DatePickerComponent from 'components/DatePicker';
+import { Modal } from 'react-bootstrap';
+import MaterialManageModal from 'views/MaterialManageModal';
 
 //          component: 스터디 생성 페이지          //
 export default function StudyCreate() {
@@ -27,6 +29,8 @@ export default function StudyCreate() {
     const [isPublic, setIsPublic] = useState(true);
     //          state: 스터디 커버 이미지 상태          //
     const [coverImage, setCoverImage] = useState<string | null>('');
+    //          state: 모달 창 상태          //
+    const [show, setShow] = useState<boolean>(false);
 
 
     //          event handler: 스터디 제목 글자수 20제한 이벤트 처리         //
@@ -96,10 +100,9 @@ export default function StudyCreate() {
         setCoverImage(imageUrl);
     };
 
-    //          event handler: 스터디 만들기 클릭 이벤트 처리          //
-    const onClickFileUploadHandler = () => {
-        alert('파일 업로드 창');
-    }
+    //          event handler: 모달 Open, Close 이벤트 처리          //
+    const modalCloseHandler = () => setShow(false);
+    const modalOpenHandler = () => setShow(true);
 
     //            render: 스터디 생성 페이지 렌더링           //
     return (
@@ -139,7 +142,10 @@ export default function StudyCreate() {
                                 <div className='study-materials-text'>{'*스터디 교육자료'}</div>
                                 <div className='study-materials-set-box'>
                                     <div className='study-materials-set-box-text'>{'스터디 교육자료를 업로드 해주세요.'}</div>
-                                    <div className='file-upload-icon'onClick={onClickFileUploadHandler}></div>
+                                    <div className='file-upload-icon' onClick={modalOpenHandler}></div>
+                                    <Modal show={show} centered onHide={modalCloseHandler}>
+                                        {<MaterialManageModal modalCloseHandler={modalCloseHandler} />}
+                                    </Modal>
                                 </div>
                             </div>
 

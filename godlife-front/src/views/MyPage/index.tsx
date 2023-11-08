@@ -83,7 +83,7 @@ export default function MyPage() {
             alert('등급기준 보러가기 창 띄우기');
         };
         
-        //          event handler: 모달 Open,Close 이벤트 처리          //
+        //          event handler: 모달 Open, Close 이벤트 처리          //
         const modalCloseHandler = () => setShow(false);
         const modalOpenHandler = () => setShow(true);
         

@@ -13,7 +13,7 @@ function App() {
 
   return (
     <div>
-      <MyPage />
+      {/* <MyPage /> */}
       <StudyCreate />
     </div>
   );
