@@ -87,7 +87,7 @@
     margin-top: -20px;
     margin-bottom: -10px;
     padding-left: 15px;
-    padding-right: 50px;
+    padding-right: 15px;
 
     display: flex;
     flex-direction: row;
@@ -631,22 +631,22 @@
     height: 5px;
     background-color: orangered;
 }
-.password-error-leve2-gage2{
+.password-error-level2-gage2{
     width: 70px;
     height: 5px;
     background-color: orangered;
 }
-.password-error-leve2-gage3{
+.password-error-level2-gage3{
     width: 70px;
     height: 5px;
     background-color: orangered;
 }
-.password-error-leve2-gage4{
+.password-error-level2-gage4{
     width: 70px;
     height: 5px;
     background-color: #CCC;
 }
-.password-error-leve2-gage5{
+.password-error-level2-gage5{
     width: 70px;
     height: 5px;
     background-color: #CCC;
@@ -949,6 +949,9 @@
     gap: 25px;
 }
 .sing-up-email-inputbox{
+    display: flex;
+    flex-direction: column;
+
     gap: 10px;
 }
 .sing-up-email-inputbox-title{
@@ -959,6 +962,48 @@
     font-weight: 700;
     line-height: 22px;
 }
+
+.sing-up-email-change-box-content{
+    width: 370px;
+    padding: 6px 13px;
+
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    
+}
+
+.sing-up-email-change-address{
+    color: rgba(0, 0, 0, 1);
+    font-family: Spoqa Han Sans Neo;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 140%;
+}
+.sing-up-email-change-icon-box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+}
+.sing-up-email-change-icon{
+    width: 30px;
+    height: 30px;
+  
+    background-image: url(assets/email-update-icon.png);
+    background-position: 50% 50%;
+    background-size: 100% 100%;
+}
+.sing-up-email-change-icon:hover{
+    cursor: pointer;
+}
+
+
 .sing-up-nickname-inputbox{
     gap: 10px;
 }
@@ -974,6 +1019,11 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
+}
+.sing-up-password-inputbox-content{
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
 }
 .sing-up-password-inputbox-title{
     color: #000;
@@ -999,8 +1049,14 @@
 .sing-up-category-inputbox-not-select{
     gap: 2px;
 }
-.sing-up-category-inputbox-select{
-    gap: 2px;
+.category-error-message{
+    margin-top: 1px;
+
+    color: rgba(255, 0, 0, 0.7);
+    font-family: Spoqa Han Sans Neo;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 140%;
 }
 
 .sing-up-information-card-bottom-box{

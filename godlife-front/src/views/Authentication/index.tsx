@@ -13,7 +13,7 @@ export default function Authentication() {
      const [view, setView] = useState<
         'sign-in-card' | 'sing-up-email-card' | 'search-password-card' 
         | 'search-password-email-autentication-card' | 'sing-up-email-autentication-card' | 'sing-up-information-card'
-        | 'reset-password-card'>('reset-password-card');
+        | 'reset-password-card'>('sign-in-card');
             
     //          component : sign in main card         //
     const SignInCard = () => {
@@ -69,7 +69,7 @@ export default function Authentication() {
 
             onSignInNextLevelButtonClickHandler();
         }
-        //          event handler: 비밀번호 인풋 버튼 클릭 이벤트 처리          //
+        //          event handler: 이메일 인풋 버튼 아이콘 클릭 이벤트 처리          //
         const onEmailReWritingIconClickHandler = () => {
             setEmailReWritingIconIcon('email-rewriting-icon');
             setSignInLevel(1);
@@ -300,10 +300,10 @@ export default function Authentication() {
         //          state: 비밀번호 아이콘 상태          //
         const [passwordIcon, setPasswordIcon] = useState<'eye-on-icon' | 'eye-off-icon'>('eye-off-icon');
         //          state: 비밀번호 에러 상태          //
-        const [passwordError, setPasswordEorror] = useState<boolean>(false);
+        const [passwordError, setPasswordError] = useState<boolean>(false);
         //          state: 비밀번호 길이 에러 상태          //
         const [passwordLenghtError, setPasswordLenghtError] = useState<boolean>(false);
-        //          state: 비밀번호 패턴 에러 레벨 상태          //
+        //          state: 비밀번호 패턴 에러 상태          //
         const [passwordPatternError, setPasswordPatternError] = useState<boolean>(false);
         //          state: 비밀번호 에러 메세지 상태          //
         const [passwordErrorMessage, setPasswordErrorMessage] = useState<string>('');
@@ -324,24 +324,24 @@ export default function Authentication() {
         const onPasswordResetCompleteIconClickHandler = () => {
             setPasswordLenghtError(false);
             setPasswordPatternError(false);
-            setPasswordEorror(false);
+            setPasswordError(false);
 
             // description: 비밀번호 길이 확인 //
             const checkedPasswordLength = password.trim().length < 8;
             if (checkedPasswordLength) {
                 
                 setPasswordLenghtError(true);
-                setPasswordEorror(true);
+                setPasswordError(true);
                 setPasswordErrorMessage('약함');
             }
 
             // description: 비밀번호 조합 및 규칙 //
-            const checkedPasswordPattern =  /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])$/
+            const checkedPasswordPattern =  /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_?]).{8,15}$/;
             const checkedPassword = checkedPasswordPattern.test(password);
             if (!checkedPassword) {
 
                 setPasswordPatternError(true);
-                setPasswordEorror(true);
+                setPasswordError(true);
                 setPasswordErrorMessage('약함');
             }
 
@@ -374,10 +374,9 @@ export default function Authentication() {
                         <div className='auth-page-text-box'>{'새 비밀번호 입력'}</div>
                     </div>
                     {passwordError &&(
-                    <div className='reset-password-error-message-container'>
+                    <div className='error-message-container'>
                         <div className='error-logo-image'></div>
                         <div className='error-message-box'>
-                            <div className='reset-password-error-message-text'>{'비밀번호를 다시 입력하세요.'}</div>
                             { passwordLenghtError &&  <div className='reset-password-error-message-body-text'>{'비밀번호를 8자리 이상입력하세요.'}</div>}
                             { passwordPatternError && <div className='reset-password-error-message-body-text'>{'하나 이상의 소문자, 대문자,숫자,특수문자를 포함해야 합니다.'}</div>}
                         </div>
@@ -397,25 +396,21 @@ export default function Authentication() {
                                 <div className='gage5'></div>
                             </div>
                             ) : passwordLenghtError  ? (
-                            <div className='password-security-gage-box'>
-                                <div className='security-gage-default'>
-                                    <div className='password-error-level1-gage1'></div>
-                                    <div className='password-error-level1-gage2'></div>
-                                    <div className='password-error-level1-gage3'></div>
-                                    <div className='password-error-level1-gage4'></div>
-                                    <div className='password-error-level1-gage5'></div>
-                                </div>
+                            <div className='security-gage-default'>
+                                <div className='password-error-level1-gage1'></div>
+                                <div className='password-error-level1-gage2'></div>
+                                <div className='password-error-level1-gage3'></div>
+                                <div className='password-error-level1-gage4'></div>
+                                <div className='password-error-level1-gage5'></div>
                             </div>              
                             ) : (
-                            <div className='password-security-gage-box'>
-                                <div className='security-gage-default'>
-                                    <div className='password-error-level2-gage1'></div>
-                                    <div className='password-error-level2-gage2'></div>
-                                    <div className='password-error-level2-gage3'></div>
-                                    <div className='password-error-level2-gage4'></div>
-                                    <div className='password-error-level2-gage5'></div>
-                                </div>
-                            </div> 
+                            <div className='security-gage-default'>
+                                <div className='password-error-level2-gage1'></div>
+                                <div className='password-error-level2-gage2'></div>
+                                <div className='password-error-level2-gage3'></div>
+                                <div className='password-error-level2-gage4'></div>
+                                <div className='password-error-level2-gage5'></div>
+                            </div>
                             )}  
                         </div>
                     </div>
@@ -583,6 +578,8 @@ export default function Authentication() {
 
         //          state: 이메일 상태          //
         const [email, setEmail] = useState<string>('');
+        //          state: 이메일 재입력 아이콘 상태          //
+        const [emailReWritingIcon, setEmailReWritingIconIcon] = useState<'email-rewriting-icon'>('email-rewriting-icon');
         //          state: 이메일 에러 상태          //
         const [emailError, setEmailError] = useState<boolean>(false);
         //          state: 이메일 에러 메세지 상태          //
@@ -605,58 +602,72 @@ export default function Authentication() {
         const [passwordError, setPasswordError] = useState<boolean>(false);
         //          state: 비밀번호 에러 메세지 상태          //
         const [passwordErrorMessage, setPasswordErrorMessage] = useState<string>('');
+        //          state: 비밀번호 길이 에러 상태          //
+        const [passwordLenghtError, setPasswordLenghtError] = useState<boolean>(false);
+        //          state: 비밀번호 패턴 에러 레벨 상태          //
+        const [passwordPatternError, setPasswordPatternError] = useState<boolean>(false);
 
         //          state: 카테고리 상태          //
         const [category, setCategory] = useState<string>('');
         //          state: 카테고리 에러 상태          //
-        const [categoryError, setcCtegoryError] = useState<boolean>(false);
+        const [categoryError, setCategoryError] = useState<boolean>(false);
         //          state: 카테고리 에러 메세지 상태          //
         const [categoryErrorMessage, setCategoryErrorMessage] = useState<string>('');
 
-        //          effect : 이메일 엔터치면 비밀번호 인풋박스로 넘어가게           //
-        useEffect(() => {
-            if (signInLevel === 2 && passwordRef.current) passwordRef.current.focus();
-        }, [signInLevel])
-
-        
-        //          event handler: '새로운 계정 만들기' 버튼 클릭 이벤트 처리          //
-        const onSingUpCompleteButtonClickHandler =() => {
-
-            setEmailError(false);
-            setEmailErrorMessage('');
-            setNicknameError(false);
-            setNicknameErrorMessage('');
-            setPasswordError(false);
-            setPasswordErrorMessage('');
-            setcCtegoryError(false);
-            setCategoryErrorMessage('');
-
-            // description: 이메일 패턴 확인 //
-            const emailPattern = /^[a-zA-Z0-9]*@([-.]?[a-zA-Z0-9])*\.[a-zA-Z]{2,4}$/;
-            const checkedEmail = !emailPattern.test(email);
-                if (checkedEmail) {
-                    setEmailError(true);
-                    setEmailErrorMessage('이메일주소 포맷이 맞지않습니다.');
-                }
-
+          
+        //          event handler : 닉네임 인풋박스 key down 이벤트 처리            //
+        const onNicknameKeyDownHandler = (event: KeyboardEvent<HTMLInputElement>) => {
+            if (event.key !== 'Enter') return;            
+            
             // description: 닉네임 입력 여부 확인 //
             const checkedNickname = nickname.trim().length === 0;
                 if (checkedNickname) {
                     setNicknameError(true);
                     setNicknameErrorMessage('닉네임을 입력해주세요.');
+                } else{
+                    setNicknameError(false);
+                    setNicknameErrorMessage('');
                 }
-            // description: 카테고리 입력 여부 확인 //
-            const checkedAddress = category.trim().length === 0;
-                if (checkedAddress) {
-                setcCtegoryError(true);
-                setCategoryErrorMessage('카테고리를 선택해주세요.');
-                }
-
-            if (checkedEmail || checkedNickname || checkedTelNumber || checkedAddress) return;
-            
-            alert('로그인 완료입니다. 메인페이지로 넘어갑니다.');
         }
 
+
+        //          event handler: 이메일 인풋 버튼 아이콘 클릭 이벤트 처리          //
+        const onEmailReWritingIconClickHandler = () => {
+            setEmailReWritingIconIcon('email-rewriting-icon');
+            setView('sing-up-email-card');
+        }
+        //          event handler : 비밀번호 인풋박스 key down 이벤트 처리            //
+        const onPasswordKeyDownHandler = (event: KeyboardEvent<HTMLInputElement>) => {
+            if (event.key !== 'Enter') return;
+
+            // description: 비밀번호 길이 확인 //
+            const checkedPasswordLength = password.trim().length < 8;
+            if (checkedPasswordLength) {
+                
+                setPasswordLenghtError(true);
+                setPasswordError(true);
+                setPasswordErrorMessage('약함');
+            } else {
+                setPasswordLenghtError(false);
+                setPasswordError(false);
+                setPasswordErrorMessage('');
+            }
+
+            // description: 비밀번호 조합 및 규칙 //
+            const checkedPasswordPattern =  /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_?]).{8,15}$/;
+            const checkedPassword = checkedPasswordPattern.test(password);
+            if (!checkedPassword) {
+
+                setPasswordPatternError(true);
+                setPasswordError(true);
+                setPasswordErrorMessage('');
+            } else {
+                setPasswordPatternError(false);
+                setPasswordError(false);
+                setPasswordErrorMessage('');
+            }
+
+        }
         //          event handler: 비밀번호 아이콘 클릭 이벤트 처리          //
         const onPasswordIconClickHandler = () => {
             if (passwordType === 'password') {
@@ -668,6 +679,61 @@ export default function Authentication() {
                 setPasswordIcon('eye-off-icon');
             }
         }
+        //          event handler: '새로운 계정 만들기' 버튼 클릭 이벤트 처리          //
+        const onSingUpCompleteButtonClickHandler =() => {
+
+            setEmailError(false);
+            setEmailErrorMessage('');
+            setNicknameError(false);
+            setNicknameErrorMessage('');
+            setPasswordError(false);
+            setPasswordErrorMessage('');
+            setCategoryError(false);
+            setCategoryErrorMessage('');
+
+            // description: 이메일 패턴 확인 //
+            const emailPattern = /^[a-zA-Z0-9]*@([-.]?[a-zA-Z0-9])*\.[a-zA-Z]{2,4}$/;
+            const checkedEmail = !emailPattern.test(email);
+            if (checkedEmail) {
+                setEmailError(true);
+                setEmailErrorMessage('이메일주소 포맷이 맞지않습니다.');
+            }
+            // description: 닉네임 입력 여부 확인 //
+            const checkedNickname = nickname.trim().length === 0;
+            if (checkedNickname) {
+                setNicknameError(true);
+                setNicknameErrorMessage('닉네임을 입력해주세요.');
+            }     
+            // description: 비밀번호 길이 확인 //
+            const checkedPasswordLength = password.trim().length < 8;
+            if (checkedPasswordLength) {
+                
+                setPasswordLenghtError(true);
+                setPasswordError(true);
+                setPasswordErrorMessage('');
+            }
+            // description: 비밀번호 조합 및 규칙 //
+            const checkedPasswordPattern =  /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_?]).{8,15}$/;
+            const checkedPassword = checkedPasswordPattern.test(password);
+            if (!checkedPassword) {
+
+                setPasswordPatternError(true);
+                setPasswordError(true);
+                setPasswordErrorMessage('');
+            }
+            // description: 카테고리 입력 여부 확인 //
+            // const checkedCategory = category.trim().length === 0;
+            // if (checkedCategory) {
+            // setCategoryError(true);
+            // setCategoryErrorMessage('카테고리를 선택해주세요.');
+            // } else{
+            // setCategoryError(false);
+            // setCategoryErrorMessage('');
+            // }
+
+            if (checkedEmail || checkedNickname || checkedPasswordLength || checkedPasswordPattern ) return;
+            alert('로그인 완료입니다. 메인페이지로 넘어갑니다.');
+        }
 
         //        render : 새로운 계정 생성_정보 입력 페이지 랜더링        //
         return (
@@ -677,28 +743,42 @@ export default function Authentication() {
                         <div className='godlife-logo-icon-box'>
                             <div className='godlife-logo-icon'></div>
                         </div>
-                        <div className='auth-page-text-box'>{'email@email.com'}</div>
+                        <div className='auth-page-text-box'>{passwordEmail}</div>
                     </div>
                     <div className='sing-up-information-card-middle-box'>
+                        {passwordError ? (
                         <div className='error-message-container'>
                             <div className='error-logo-image'></div>
                             <div className='error-message-box'>
-                                <div className='error-message-text'>{'너무 많이 사용되는 비밀번호 입니다.\n추측하기 어려운 비밀번호를 선택하세요'}</div>
+                                { passwordLenghtError &&  <div className='reset-password-error-message-body-text'>{'비밀번호를 8~15자리를 입력하세요.'}</div>}
+                                { passwordPatternError && <div className='reset-password-error-message-body-text'>{'하나 이상의 소문자, 대문자,숫자,특수문자를 포함해야 합니다.'}</div>}
+                            </div>
+                        </div>    
+                        ): (
+                            <div></div>
+                        )}
+                        <div className='sing-up-email-inputbox'>
+                            <div className='sing-up-email-inputbox-title'>{'이메일 주소*'}</div>
+                            <div className='sing-up-email-change-box'>
+                                <div className='sing-up-email-change-box-content'>
+                                    <div className='sing-up-email-change-address'>{passwordEmail}</div>
+                                    <div className='sing-up-email-change-icon-box' onClick={onEmailReWritingIconClickHandler}>
+                                        <div className='sing-up-email-change-icon'></div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div className='sing-up-email-inputbox'>
-                            <div className='sing-up-email-inputbox-title'>{'이메일 주소'}</div>
-                            <InputBox label={''} type='text' placeholder='email@email.com' value={email} error={signInEmailerror} errorMessage={''} setValue={setEmail} icon={email.length === 0 ? '' : emailReWritingIcon} onButtonClick={onEmailReWritingIconClickHandler} onKeyDown={onEmailKeyDownHandler} />
-                        </div>
                         <div className='sing-up-nickname-inputbox'>
-                            <div className='sing-up-nickname-inputbox-title'>{'닉네임'}</div>
-                            <input/>
+                            <div className='sing-up-nickname-inputbox-title'>{'닉네임*'}</div>
+                            <InputBox label={''} type='text' placeholder='닉네임을 입력하세요.' value={nickname} error={nicknameError} errorMessage={nicknameErrorMessage} setValue={setNickname} onButtonClick={onEmailReWritingIconClickHandler} onKeyDown={onNicknameKeyDownHandler} />
                         </div>
                         <div className='sing-up-password-inputbox'>
-                            <div className='sing-up-password-inputbox-title'>{'비밀번호'}</div>
-                            {/*비밀번호 입력 인풋박스 컴포넌트 만들어야함=> error message 도 출력되게 */}
-                            <input/>
+                            <div className='sing-up-password-inputbox-content'>
+                                <div className='sing-up-password-inputbox-title'>{'비밀번호*'}</div>
+                                <InputBox label={''} type={passwordType} placeholder='비밀번호를 입력해주세요.' value={password} setValue={setPassword} icon={passwordIcon} error={passwordError} errorMessage={''} onButtonClick={onPasswordIconClickHandler} onKeyDown={onPasswordKeyDownHandler} />
+                            </div>
                             <div className='password-security-gage-box'>
+                                {!passwordError ? (
                                 <div className='security-gage-default'>
                                     <div className='gage1'></div>
                                     <div className='gage2'></div>
@@ -706,18 +786,31 @@ export default function Authentication() {
                                     <div className='gage4'></div>
                                     <div className='gage5'></div>
                                 </div>
-                                {/*비밀번호 유효성 검사 화면*/}
-                                {/*<div className='security-gage-low'></div>
-                                <div className='security-gage-middle'></div>
-                                <div className='security-gage-success'></div>*/}
+                                ) : passwordLenghtError  ? (
+                                <div className='security-gage-default'>
+                                    <div className='password-error-level1-gage1'></div>
+                                    <div className='password-error-level1-gage2'></div>
+                                    <div className='password-error-level1-gage3'></div>
+                                    <div className='password-error-level1-gage4'></div>
+                                    <div className='password-error-level1-gage5'></div>
+                                </div>              
+                                ) : (
+                                <div className='security-gage-default'>
+                                    <div className='password-error-level2-gage1'></div>
+                                    <div className='password-error-level2-gage2'></div>
+                                    <div className='password-error-level2-gage3'></div>
+                                    <div className='password-error-level2-gage4'></div>
+                                    <div className='password-error-level2-gage5'></div>
+                                </div>
+                                )}  
                             </div>
                         </div>
                         <div className='sing-up-category-inputbox-not-select'>
                             <div className='sing-up-category-inputbox-top'>
-                                <div className='sing-up-category-inputbox-title'>{'카테고리 선택'}</div>
+                                <div className='sing-up-category-inputbox-title'>{'카테고리 선택*'}</div>
                                 {<DropDownFirstCategory/>}
                             </div>
-                            <div className='category-error-message'></div>
+                            {categoryError && (<div className='category-error-message'>{categoryErrorMessage}</div>)}
                         </div>
                     </div>
                 </div>
