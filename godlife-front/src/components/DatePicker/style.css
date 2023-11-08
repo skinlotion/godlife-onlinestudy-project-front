@@ -35,7 +35,7 @@
 
     font-family: 'Spoqa Han Sans Neo';
     font-size: 25px;
-    font-weight: 500;
+    font-weight: 400;
 }
 
 .start-date::placeholder {
@@ -60,7 +60,7 @@
 
     font-family: 'Spoqa Han Sans Neo';
     font-size: 25px;
-    font-weight: 500;
+    font-weight: 400;
 }
 
 .end-date::placeholder {

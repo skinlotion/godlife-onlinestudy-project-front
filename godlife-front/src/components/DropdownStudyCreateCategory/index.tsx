@@ -79,10 +79,9 @@ const DropDownStudyCreateCategory = () => {
                                     <div className='X-button-icon' onClick={() => removeCategoryHandler(item)}></div>
                                 </div>
                             </div>
-                            
                         ))}
                     </div>
-                </div>
+            </div>
         </div>
     );
 };

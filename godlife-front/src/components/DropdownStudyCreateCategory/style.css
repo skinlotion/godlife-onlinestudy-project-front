@@ -90,6 +90,7 @@
 }
 
 .selected-category-box-list {
+  display: flex;
   padding-top: 7px;
   margin-bottom: -79px;
 }
