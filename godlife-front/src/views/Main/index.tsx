@@ -9,13 +9,13 @@ import useUserStore from '../../stores/user.store';
 import { AUTH_PATH } from '../../constant';
 import studyRoomInfoListMock from '../../mocks/my-study-room-info-list.mock';
 import usePagination from '../../hooks/pagination.hook';
-import { MyStudyRoomInfoItem } from '../../types';
-import MyStudyRoomInfoListItem from '../../components/MyStudyRoomInfoItem';
+import { MyStudyRoomInfoItem, MyToDoItem } from '../../types';
 import StudyRoomItem from '../../types/study-room-item.interface';
-import { recommendationStudyListMock } from '../../mocks';
+import { myToDoListMock, recommendationStudyListMock } from '../../mocks';
 import RecommendationStudyListItem from '../../components/RecommendationStudyListItem';
 import { isNumberObject } from 'util/types';
 import ProgressBar from '../../components/ProgressBar';
+import MyToDoListItem from '../../components/MyToDoListItem';
 
 //        component: 메인 페이지        //
 export default function Main() {
@@ -25,22 +25,19 @@ export default function Main() {
   // //        state: 로그인 유저 정보 상태        //
   // const { user, setUser } = useUserStore();
 
+  //        function: 네비게이트 함수       //
+  const navigator = useNavigate();
+
   //        component: 메인 상단 컴포넌트       //
   const MainTop = () => {
-    
-    // //        function: 네비게이트 함수       //
-    // const navigator = useNavigate();
-
-    // //        state: 페이지네이션 관련 상태       //
-    // const { setStudyRoomInfoList } = usePagination<MyStudyRoomInfoItem>();
     //        state: 참여한 스터디 개수 상태        //
-    const [count, setCount] = useState<number>(0);
-    //        state: 유저의 등급 상태       //
-    const [grade, setGrade] = useState<'일반' | '방장'>('일반');
+    const [ count, setCount ] = useState<number>(0);
     //        state: 탭 인덱스 상태       //
-    const [activeTabIndex, setActiveTabIndex]=useState<number>(0);
+    const [ activeTabIndex, setActiveTabIndex ]=useState<number>(0);
     //        state: 참여한 스터디 방 정보        //
-    const [studyRoomInfoList, setStudyRoomInfoList] = useState<MyStudyRoomInfoItem[]>([]);
+    const [ studyRoomInfoList, setStudyRoomInfoList ] = useState<MyStudyRoomInfoItem[]>([]);
+    //        state: 나의 투두리스트 상태       //
+    const [ myToDoList, setMyToDoList ] = useState<MyToDoItem[]>([]);
 
     //          effect: 컴포넌트 마운트 시 참여한 스터디 방 정보 리스트 불러오기          //
     useEffect(() => {
@@ -50,17 +47,40 @@ export default function Main() {
 
     //        effect: 조회하는 유저의 이메일이 변경될 때마다 실행할 함수        //
     useEffect(() => {
-      // setStudyRoomInfoList(studyRoomInfoListMock);
+      setStudyRoomInfoList(studyRoomInfoListMock);
       setCount(studyRoomInfoListMock.length);
     }, [searchEmail]);
+
+      //          effect: 나의 투두 리스트 불러오기          //
+      useEffect(() => {
+        // TODO: API 호출로 변경
+        setMyToDoList(myToDoListMock);
+      }, []);
 
     //        event handler: 탭 버튼 클릭 이벤트 처리       //
     const tabClickHandler=(index: React.SetStateAction<number>)=>{
         setActiveTabIndex(index);
     };
+    
+    //        event handler: 스터디 To Do List Check 클릭 이벤트 처리       //
+    const handleToggle = (studyNumber: number, todoId: number) => {
+      const updatedStudyRoomInfoList = studyRoomInfoList.map((study) => {
+        if (study.studyNumber === studyNumber) {
+          const updatedToDoList = study.studyRoomToDoList.map((todo) => {
+            if (todo[0] === todoId) {
+              return [todo[0], todo[1], !todo[2]];
+            }
+            return todo;
+          });
+          return { ...study, studyRoomToDoList: updatedToDoList };
+        }
+        return study;
+      });
+      setStudyRoomInfoList(updatedStudyRoomInfoList);
+    };
 
     //        description: 내가 참여한 스터디방 정보 탭 렌더링       //
-    const tabContArr = studyRoomInfoListMock.map((tab, index) => (
+    const tabContArr = studyRoomInfoList.map((tab, index) => (
       {
         tabTitle: (
           <div className={activeTabIndex===index ? "tab-selected" : "tab"} onClick={()=>tabClickHandler(index)}>{tab.studyName}</div>
@@ -92,12 +112,12 @@ export default function Main() {
                 <div className='study-next-start-datetime-box'>
                   <div className='study-next-start-datetime'>{'다음 스터디 모임 날짜'}</div>
                   <div className='study-next-start-datetime-text'>{tab.studyNextStartDatetime}</div>
-                  {grade === '방장' && (
+                  {tab.myGrade === '방장' && (
                   <div className='study-next-start-datetime-update-button'>{'수정'}</div>
                   )}
                 </div>
 
-                {grade === '일반' && (
+                {tab.myGrade === '일반' && (
                   <div className='study-leave-button'>{'방 퇴장하기'}</div>
                 )}
               </div>
@@ -154,16 +174,16 @@ export default function Main() {
                       renderTrackVertical={props => <div {...props} className="track-vertical"/>}
                       renderThumbVertical={props => <div {...props} className="thumb-vertical"/>}>
                         <div className='study-todolist-blank'></div>
-
-                        {tab.studyRoomToDoList.map((item, index) => (
-                          <div className={tab.studyRoomToDoList.length - 1 === index ? 'study-todolist-detail-rast' : 'study-todolist-detail'} key={item[0]}>
-                            <div className='study-todolist-check-icon-box'>
+                        {tab.studyRoomToDoList.map((item, todoIndex) => (
+                          <div className={tab.studyRoomToDoList.length - 1 === todoIndex ? 'study-todolist-detail-rast' : 'study-todolist-detail'} key={item[0]}>
+                            <div className='study-todolist-check-icon-box' onClick={() => handleToggle(tab.studyNumber, item[0])}>
                               <div className={item[2] ? 'todolist-check-icon' : 'todolist-non-check-icon'}></div>
                             </div>
-                            <div className={item[2] ? 'study-todolist-detail-text-ok' : 'study-todolist-detail-text'}>{item[1]}</div>
+                            <div className={item[2] ? 'study-todolist-detail-text-ok' : 'study-todolist-detail-text'}>
+                              <div className='study-todolist-detail-textvalue'>{item[1]}</div>
+                            </div>
                           </div>
                         ))}
-
                         <div className='study-todolist-blank'></div>
                     </Scrollbars>
                   </div>
@@ -245,77 +265,84 @@ export default function Main() {
                     <Scrollbars
                       renderTrackVertical={props => <div {...props} className="track-vertical"/>}
                       renderThumbVertical={props => <div {...props} className="thumb-vertical"/>}>
-                        
-                        <div className='main-top-down-todolist-blank'></div>
+                      <div className='main-top-down-todolist-blank'></div>
+                        {myToDoList.map((MyToDoItem, index) => <MyToDoListItem myToDoItem={MyToDoItem} />)}
 
-                        <div className='main-top-down-todolist-detail'>
-                          <div className='main-top-down-todolist-check-icon-box'>
-                            <div className='todolist-non-check-icon'></div>
-                          </div>
-                          <div className='main-top-down-todolist-detail-text'>{'스터디 자료 파일 다운받고 미리 숙지하기2'}</div>
+
+                      {/* <div className='main-top-down-todolist-detail'>
+                        <div className='main-top-down-todolist-check-icon-box'>
+                          <div className='todolist-non-check-icon'></div>
                         </div>
-
-                        <div className='main-top-down-todolist-detail'>
-                          <div className='main-top-down-todolist-check-icon-box'>
-                            <div className='todolist-check-icon'></div>
-                          </div>
-                          <div className='main-top-down-todolist-detail-text-ok'>{'스터디 자료 파일 다운받고 미리 숙지하기1'}</div>
+                        <div className='main-top-down-todolist-detail-text'>
+                          <div className='main-top-down-todolist-detail-textvalue'>{'스터디 자료 파일 다운받고 미리 숙지하기212321dfddfdfd1231232131231232131231212321312321312321312321321321312321'}</div>
                         </div>
-
-                        <div className='main-top-down-todolist-detail'>
-                          <div className='main-top-down-todolist-check-icon-box'>
-                            <div className='todolist-check-icon'></div>
-                          </div>
-                          <div className='main-top-down-todolist-detail-text-ok'>{'스터디 자료 파일 다운받고 미리 숙지하기3'}</div>
+                      </div>
+                      <div className='main-top-down-todolist-detail'>
+                        <div className='main-top-down-todolist-check-icon-box'>
+                          <div className='todolist-check-icon'></div>
                         </div>
-
-                        <div className='main-top-down-todolist-detail'>
-                          <div className='main-top-down-todolist-check-icon-box'>
-                            <div className='todolist-non-check-icon'></div>
-                          </div>
-                          <div className='main-top-down-todolist-detail-text'>{'스터디 자료 파일 다운받고 미리 숙지하기2'}</div>
+                        <div className='main-top-down-todolist-detail-text-ok'>
+                          <div className='main-top-down-todolist-detail-textvalue'>{'스터디 자료 파일 다운받고 미리 숙지하기1'}</div>
                         </div>
-
-                        <div className='main-top-down-todolist-detail'>
-                          <div className='main-top-down-todolist-check-icon-box'>
-                            <div className='todolist-check-icon'></div>
-                          </div>
-                          <div className='main-top-down-todolist-detail-text-ok'>{'스터디 자료 파일 다운받고 미리 숙지하기1'}</div>
+                      </div>
+                      <div className='main-top-down-todolist-detail'>
+                        <div className='main-top-down-todolist-check-icon-box'>
+                          <div className='todolist-check-icon'></div>
                         </div>
-
-                        <div className='main-top-down-todolist-detail'>
-                          <div className='main-top-down-todolist-check-icon-box'>
-                            <div className='todolist-check-icon'></div>
-                          </div>
-                          <div className='main-top-down-todolist-detail-text-ok'>{'스터디 자료 파일 다운받고 미리 숙지하기3'}</div>
+                        <div className='main-top-down-todolist-detail-text-ok'>
+                          <div className='main-top-down-todolist-detail-textvalue'>{'스터디 자료 파일 다운받고 미리 숙지하기3'}</div>
                         </div>
-                        <div className='main-top-down-todolist-detail'>
-                          <div className='main-top-down-todolist-check-icon-box'>
-                            <div className='todolist-non-check-icon'></div>
-                          </div>
-                          <div className='main-top-down-todolist-detail-text'>{'스터디 자료 파일 다운받고 미리 숙지하기2'}</div>
+                      </div>
+                      <div className='main-top-down-todolist-detail'>
+                        <div className='main-top-down-todolist-check-icon-box'>
+                          <div className='todolist-non-check-icon'></div>
                         </div>
-
-                        <div className='main-top-down-todolist-detail'>
-                          <div className='main-top-down-todolist-check-icon-box'>
-                            <div className='todolist-check-icon'></div>
-                          </div>
-                          <div className='main-top-down-todolist-detail-text-ok'>{'스터디 자료 파일 다운받고 미리 숙지하기1'}</div>
+                        <div className='main-top-down-todolist-detail-text'>
+                          <div className='main-top-down-todolist-detail-textvalue'>{'스터디 자료 파일 다운받고 미리 숙지하기2'}</div>
                         </div>
+                      </div>
+                      <div className='main-top-down-todolist-detail'>
+                        <div className='main-top-down-todolist-check-icon-box'>
+                          <div className='todolist-check-icon'></div>
+                        </div>
+                        <div className='main-top-down-todolist-detail-text-ok'>
+                          <div className='main-top-down-todolist-detail-textvalue'>{'스터디 자료 파일 다운받고 미리 숙지하기1'}</div>
+                        </div>
+                      </div>
 
-                        <div className='main-top-down-todolist-detail-rast'>
-                          <div className='main-top-down-todolist-check-icon-box'>
-                            <div className='todolist-check-icon'></div>
-                          </div>
-                          <div className='main-top-down-todolist-detail-text-ok'>{'스터디 자료 파일 다운받고 미리 숙지하기3'}</div>
-                        </div> 
+                      <div className='main-top-down-todolist-detail'>
+                        <div className='main-top-down-todolist-check-icon-box'>
+                          <div className='todolist-check-icon'></div>
+                        </div>
+                        <div className='main-top-down-todolist-detail-text-ok'>{'스터디 자료 파일 다운받고 미리 숙지하기3'}</div>
+                      </div>
+                      <div className='main-top-down-todolist-detail'>
+                        <div className='main-top-down-todolist-check-icon-box'>
+                          <div className='todolist-non-check-icon'></div>
+                        </div>
+                        <div className='main-top-down-todolist-detail-text'>{'스터디 자료 파일 다운받고 미리 숙지하기2'}</div>
+                      </div>
 
-                        <div className='main-top-down-todolist-blank'></div>
+                      <div className='main-top-down-todolist-detail'>
+                        <div className='main-top-down-todolist-check-icon-box'>
+                          <div className='todolist-check-icon'></div>
+                        </div>
+                        <div className='main-top-down-todolist-detail-text-ok'>
+                          <div className='main-top-down-todolist-detail-textvalue'>{'스터디 자료 파일 다운받고 미리 숙지하기1'}</div>
+                        </div>
+                      </div>
 
+                      <div className='main-top-down-todolist-detail-rast'>
+                        <div className='main-top-down-todolist-check-icon-box'>
+                          <div className='todolist-check-icon'></div>
+                        </div>
+                        <div className='main-top-down-todolist-detail-text-ok'>
+                          <div className='main-top-down-todolist-detail-textvalue'>{'스터디 자료 파일 다운받고 미리 숙지하기212321dfddfdfd1231232131231232131231212321312321312321312321321321312321'}</div>
+                        </div>
+                      </div>  */}
+                      <div className='main-top-down-todolist-blank'></div>
                     </Scrollbars>
-
                 </div>
-
               </div>
             </div>
           </div>

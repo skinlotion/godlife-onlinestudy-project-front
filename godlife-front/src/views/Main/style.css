@@ -35,7 +35,7 @@
 }
 
 .main-top-up-box-studyroom-tab {
-    height: 282px;
+    height: 100%;
     width: 100%;
 }
 
@@ -130,7 +130,7 @@
     display: grid;
     grid-template-columns: 4fr 4fr 4.5fr;
 
-    height: 247px;
+    height: auto;
     
     gap: 10px;
 
@@ -343,8 +343,7 @@
     font-weight: 400;
     color: rgba(255,255,255,1);
 
-    margin: -1px 15px 0;
-    padding: 2px 0;
+    margin: -3px 15px 0;
 
     border-radius: 10px;
     box-shadow: 0 0 0 1px rgba(251, 13, 13, 0.45) inset;
@@ -442,10 +441,7 @@
     justify-content: center;
     align-items: center;
 
-    padding: 0 10px;
     border-radius: 5px;
-    border: 1px solid rgba(255,255,255,1);
-
     margin: 5px 0 5px 31px;
     gap: 4px;
 }
@@ -456,9 +452,7 @@
     justify-content: center;
     align-items: center;
 
-    padding: 0 10px;
     border-radius: 5px;
-    border: 1px solid rgba(255,255,255,1);
 
     gap: 4px;
 }
@@ -469,9 +463,7 @@
     justify-content: center;
     align-items: center;
 
-    padding: 0 10px;
     border-radius: 5px;
-    border: 1px solid rgba(255,255,255,1);
 
     gap: 4px;
 }
@@ -482,11 +474,8 @@
     justify-content: center;
     align-items: center;
 
-    margin: 5px 31px 5px 0;
-    padding: 0 10px;
     border-radius: 5px;
-    border: 1px solid rgba(255,255,255,1);
-
+    margin: 5px 31px 5px 0;
     gap: 4px;
 }
 
@@ -512,7 +501,8 @@
 
     width: 100%;
     margin: 9px;
-    gap: 9px;
+    gap: 4px;
+    /* gap: 9px; */
 }
 
 .study-todolist-title {
@@ -522,6 +512,7 @@
 
 .study-todolist-detail-box {
     width: 100%;
+    height: auto;
 
     display: flex;
     flex-direction: column;
@@ -552,9 +543,13 @@
     width: 31px;
 }
 
+.study-todolist-check-icon-box:hover {
+    cursor: pointer;
+}
+
 .study-todolist-detail-text {
-    width: 87%;
-    padding-left: 17px;
+    width: 85%;
+    padding: 0 10px 0 17px;
 
     display: flex;
     align-items: center;
@@ -564,9 +559,8 @@
 }
 
 .study-todolist-detail-text-ok {
-    width: 87%;
-
-    padding-left: 17px;
+    width: 85%;
+    padding: 0 10px 0 17px;
 
     display: flex;
     align-items: center;
@@ -574,6 +568,13 @@
     border-radius: 9px;
     color: rgba(255,255,255,1);
     background-color: rgba(24, 160, 251, 0.70);
+}
+
+.study-todolist-detail-textvalue {
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .my-study-room-right-button-box {
@@ -854,20 +855,22 @@
 
 .main-top-down-todolist-detail {
     display: flex;
-
     margin-bottom: 12px;
     gap: 3px;
 }
 
 .main-top-down-todolist-detail-rast {
     display: flex;
-
     gap: 3px;
 }
 
 .main-top-down-todolist-check-icon-box {
     height: 31px;
     width: 31px;
+}
+
+.main-top-down-todolist-check-icon-box:hover {
+    cursor: pointer;
 }
 
 .todolist-check-icon {
@@ -889,20 +892,23 @@
 }
   
 .main-top-down-todolist-detail-text {
-    width: 91%;
-    padding-left: 17px;
+    width: 90%;
+    padding: 0 10px 0 17px;
 
     display: flex;
     align-items: center;
 
     border-radius: 9px;
     background-color: rgba(217,217,217,1);
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .main-top-down-todolist-detail-text-ok {
-    width: 91%;
-
-    padding-left: 17px;
+    width: 90%;
+    padding: 0 10px 0 17px;
 
     display: flex;
     align-items: center;
@@ -910,6 +916,17 @@
     border-radius: 9px;
     color: rgba(255,255,255,1);
     background-color: rgba(24, 160, 251, 0.70);
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.main-top-down-todolist-detail-textvalue {
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 #main-middle-wrapper {

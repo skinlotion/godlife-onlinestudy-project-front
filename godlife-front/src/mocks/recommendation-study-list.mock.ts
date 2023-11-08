@@ -30,7 +30,7 @@ const recommendationStudyListMock: StudyRoomItem[] = [
         studyCoverImageUrl: '',
     },    
     {
-        studyNumber: 4,
+        studyNumber: 5,
         studyName: '안녕하세요 111원숭이입니다12345678898990001.',
         studyEndDate: '2023년 01월 30일',
         studyPersonnel: '3 / 11',
