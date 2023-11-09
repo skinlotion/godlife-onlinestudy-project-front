@@ -16,6 +16,7 @@ import RecommendationStudyListItem from '../../components/RecommendationStudyLis
 import { isNumberObject } from 'util/types';
 import ProgressBar from '../../components/ProgressBar';
 import MyToDoListItem from '../../components/MyToDoListItem';
+import { hover } from '@testing-library/user-event/dist/hover';
 
 //        component: 메인 페이지        //
 export default function Main() {
@@ -63,7 +64,7 @@ export default function Main() {
     };
     
     //        event handler: 스터디 To Do List Check 클릭 이벤트 처리       //
-    const handleToggle = (studyNumber: number, todoId: number) => {
+    const onStudyToDoListCheckClickHandler = (studyNumber: number, todoId: number) => {
       const updatedStudyRoomInfoList = studyRoomInfoList.map((study) => {
         if (study.studyNumber === studyNumber) {
           const updatedToDoList = study.studyRoomToDoList.map((todo) => {
@@ -78,6 +79,26 @@ export default function Main() {
       });
       setStudyRoomInfoList(updatedStudyRoomInfoList);
     };
+
+    //        event handler: 방 퇴장하기 버튼 클릭 이벤트 처리         //
+    const onStudyRoomLeaveButtonClickHandler = () => {
+      alert('방 퇴장하기 처리');
+    }
+
+    //        event handler: 다음 스터디 모임 날짜 수정 버튼 클릭 이벤트 처리        //
+    const onNextStudyMeetingDayUpdateButtonClickHandler = () => {
+      alert('다음 스터디 모임 날짜 수정 처리');
+    }
+
+    //        event handler: 스터디 자료 보기 버튼 클릭 이벤트 처리        //
+    const onStudyMaterialViewButtonClickHandler = () => {
+      alert('스터디 자료 보기 처리');
+    }
+
+    //        event handler: 스터디 시작 하기 버튼 클릭 이벤트 처리        //
+    const onStudyStartButtonClickHandler = () => {
+      alert('스터디 시작 하기 처리');
+    }
 
     //        description: 내가 참여한 스터디방 정보 탭 렌더링       //
     const tabContArr = studyRoomInfoList.map((tab, index) => (
@@ -113,12 +134,12 @@ export default function Main() {
                   <div className='study-next-start-datetime'>{'다음 스터디 모임 날짜'}</div>
                   <div className='study-next-start-datetime-text'>{tab.studyNextStartDatetime}</div>
                   {tab.myGrade === '방장' && (
-                  <div className='study-next-start-datetime-update-button'>{'수정'}</div>
+                  <div className='study-next-start-datetime-update-button' onClick={onNextStudyMeetingDayUpdateButtonClickHandler}>{'수정'}</div>
                   )}
                 </div>
 
                 {tab.myGrade === '일반' && (
-                  <div className='study-leave-button'>{'방 퇴장하기'}</div>
+                  <div className='study-leave-button' onClick={onStudyRoomLeaveButtonClickHandler}>{'방 퇴장하기'}</div>
                 )}
               </div>
             </div>
@@ -176,9 +197,17 @@ export default function Main() {
                         <div className='study-todolist-blank'></div>
                         {tab.studyRoomToDoList.map((item, todoIndex) => (
                           <div className={tab.studyRoomToDoList.length - 1 === todoIndex ? 'study-todolist-detail-rast' : 'study-todolist-detail'} key={item[0]}>
-                            <div className='study-todolist-check-icon-box' onClick={() => handleToggle(tab.studyNumber, item[0])}>
-                              <div className={item[2] ? 'todolist-check-icon' : 'todolist-non-check-icon'}></div>
-                            </div>
+
+                            {tab.myGrade === '방장' ? 
+                              <div className='study-todolist-check-icon-box' onClick={() => onStudyToDoListCheckClickHandler(tab.studyNumber, item[0])}>
+                                <div className={item[2] ? 'todolist-check-icon' : 'todolist-non-check-icon'}></div>
+                              </div>
+                            : 
+                              <div className='study-todolist-check-icon-non-hover-box'>
+                                <div className={item[2] ? 'todolist-check-icon' : 'todolist-non-check-icon'}></div>
+                              </div>
+                            }
+
                             <div className={item[2] ? 'study-todolist-detail-text-ok' : 'study-todolist-detail-text'}>
                               <div className='study-todolist-detail-textvalue'>{item[1]}</div>
                             </div>
@@ -190,10 +219,10 @@ export default function Main() {
                 </div>
               </div>
               <div className='my-study-room-right-button-box'>
-                <div className='study-view-data-button'>
+                <div className='study-view-data-button' onClick={onStudyMaterialViewButtonClickHandler}>
                   <div className='study-view-data-button-text'>{'스터디 자료 보기'}</div>
                 </div>
-                <div className='study-start-button'>
+                <div className='study-start-button' onClick={onStudyStartButtonClickHandler}>
                   <div className='study-start-button-text'>{'스터디 시작 하기'}</div>  
                 </div>
               </div>
@@ -266,7 +295,7 @@ export default function Main() {
                       renderTrackVertical={props => <div {...props} className="track-vertical"/>}
                       renderThumbVertical={props => <div {...props} className="thumb-vertical"/>}>
                       <div className='main-top-down-todolist-blank'></div>
-                        {myToDoList.map((MyToDoItem, index, listNumber) => <MyToDoListItem myToDoItem={MyToDoItem} index={index} listNumber={myToDoList.length - 1} />)}
+                        {myToDoList.map((MyToDoItem, index) => <MyToDoListItem myToDoItem={MyToDoItem} index={index} listNumber={myToDoList.length - 1} />)}
                       <div className='main-top-down-todolist-blank'></div>
                     </Scrollbars>
                 </div>
