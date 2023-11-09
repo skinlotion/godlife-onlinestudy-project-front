@@ -1,0 +1,23 @@
+.notice-common-content-box {
+    width: 770px;
+    height: 570px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: rgba(255, 255, 255, 1);
+
+    border-radius: 10px;
+    margin-bottom: 80px;
+}
+
+.notice-common-contents-left-box {
+    width: 755px;
+    height: 570px;
+
+    display: flex;
+    flex-direction: column;
+
+    background-color: rgba(255, 255, 255, 1);
+}

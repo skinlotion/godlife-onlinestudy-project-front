@@ -8,13 +8,22 @@ import MyPage from 'views/MyPage';
 import './views/MyPage/style.css';
 import StudyCreate from 'views/StudyCreate';
 import './components/Dropdown1Category/style.css';
+import HostNoticeItem from 'components/HostNoticeItem';
+import HostNoticeManageModal from 'views/HostNoticeManageModal';
+import HostToDoListManageModal from 'views/HostToDoListManageModal';
+import NoticeModal from 'views/NoticeModal';
+import ToDoListModal from 'views/ToDoListModal';
 
 function App() {
 
   return (
     <div>
       {/* <MyPage /> */}
-      <StudyCreate />
+      {/* <StudyCreate /> */}
+      <HostNoticeManageModal />
+      <HostToDoListManageModal />
+      <NoticeModal />
+      <ToDoListModal />
     </div>
   );
 }
