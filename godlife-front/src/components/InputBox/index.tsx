@@ -13,14 +13,15 @@ interface Props {
   errorMessage?: string;
   onKeyDown?: (event: KeyboardEvent<HTMLInputElement>) => void;
   onButtonClick?: () => void;
-}
+  onChange? : (event: ChangeEvent<HTMLInputElement>) => void
+;}
 
 //          component: Input 상자 컴포넌트          //
 const InputBox = forwardRef<HTMLInputElement, Props>((props: Props, ref) => {
   
   //          state: Properties          //
   const { label, type, error, placeholder, value, icon, errorMessage } = props;
-  const { setValue, onKeyDown, onButtonClick } = props;
+  const { setValue, onKeyDown, onButtonClick, onChange } = props;
 
   //          event handler: input 값 변경 이벤트 처리          //
   const onInputValueChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
@@ -38,7 +39,7 @@ const InputBox = forwardRef<HTMLInputElement, Props>((props: Props, ref) => {
     <div className='inputbox'>
       <div className='inputbox-label'>{label}</div>
       <div className={error ? 'inputbox-container-error' : 'inputbox-container'}>
-        <input ref={ref} className='input' type={type} placeholder={placeholder} value={value} onChange={onInputValueChangeHandler} onKeyDown={onKeyDownHandler} />
+        <input ref={ref} className='input' type={type} placeholder={placeholder} value={value} onChange={onChange ? onChange : onInputValueChangeHandler} onKeyDown={onKeyDownHandler} />
         {onButtonClick !== undefined && (
           <div className='icon-button' onClick={onButtonClick}>
             {icon !== undefined && <div className={icon}></div>}

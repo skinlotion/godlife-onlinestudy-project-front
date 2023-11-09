@@ -1,4 +1,4 @@
-import { useRef, useState, KeyboardEvent } from 'react';
+import { useRef, useState, KeyboardEvent, ChangeEvent } from 'react';
 import './style.css';
 import InputBox from '../../components/InputBox';
 
@@ -37,6 +37,38 @@ export default function ResetPasswordModal() {
     //          state: 비밀번호 확인 에러 메세지 상태          //
     const [passwordCheckErrorMessage, setPasswordCheckErrorMessage] = useState<string>('');
 
+    const onPasswordChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
+        const { value } = event.target;
+        setPassword(value);
+
+        setPasswordError(false);
+        setPasswordErrorMessage('');
+        setPasswordCheckError(false);
+        setPasswordCheckErrorMessage('');
+
+        // description: 비밀번호 길이 확인 //
+        const checkedPasswordLength = value.trim().length < 8;
+        if (checkedPasswordLength) {
+            
+            setPasswordLenghtError(true);
+            setPasswordError(true);
+            setPasswordErrorMessage('');
+        }
+
+        // description: 비밀번호 조합 및 규칙 //
+        const checkedPasswordPattern =  /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_?]).{8,15}$/;
+        const checkedPassword = checkedPasswordPattern.test(value);
+        if (!checkedPassword) {
+
+            setPasswordPatternError(true);
+            setPasswordError(true);
+            setPasswordErrorMessage('');
+        }
+
+        if ( checkedPasswordLength || !checkedPassword) return;
+        setPasswordSuccess(true);
+
+    }
 
     //          event handler: 비밀번호 아이콘 클릭 이벤트 처리          //
     const onPasswordIconClickHandler = () => {
@@ -142,6 +174,7 @@ export default function ResetPasswordModal() {
         }
 
         if ( checkedPasswordLength || !checkedPassword || checkedPasswordCheck) return;
+        setPasswordSuccess(true);
 
         alert('완료입니다~!@')
     }
@@ -161,19 +194,11 @@ export default function ResetPasswordModal() {
                             <div className='password-modify-input-container'>
                                 <div className='password-modify-input-box'>
                                     <div className='password-modify-input-title'>{'새 비밀번호 입력'}</div>
-                                    <InputBox label='' type={passwordType} placeholder='새 비밀번호를 입력해주세요.' value={password} setValue={setPassword} icon={passwordIcon} error={passwordError} errorMessage={passwordErrorMessage} onKeyDown={onPasswordKeyDownHandler} onButtonClick={onPasswordIconClickHandler} />
+                                    <InputBox label='' type={passwordType} placeholder='새 비밀번호를 입력해주세요.' value={password} setValue={setPassword} onChange={onPasswordChangeHandler} icon={passwordIcon} error={passwordError} errorMessage={passwordErrorMessage} onKeyDown={onPasswordKeyDownHandler} onButtonClick={onPasswordIconClickHandler} />
                                 </div>
                                 <div className='password-security-gage-box'>
-                                    {!passwordError || passwordDefault && (
-                                    <div className='security-gage-default'>
-                                        <div className='gage1'></div>
-                                        <div className='gage2'></div>
-                                        <div className='gage3'></div>
-                                        <div className='gage4'></div>
-                                        <div className='gage5'></div>
-                                    </div>
-                                    )}
-                                    {passwordError || passwordLenghtError && (
+                                    {
+                                    passwordLenghtError ? (
                                     <div className='security-gage-default'>
                                         <div className='password-error-level1-gage1'></div>
                                         <div className='password-error-level1-gage2'></div>
@@ -181,8 +206,8 @@ export default function ResetPasswordModal() {
                                         <div className='password-error-level1-gage4'></div>
                                         <div className='password-error-level1-gage5'></div>
                                     </div>
-                                    )}
-                                    {passwordError || passwordPatternError && (
+                                    ) :
+                                    passwordPatternError ? (
                                     <div className='security-gage-default'>
                                         <div className='password-error-level2-gage1'></div>
                                         <div className='password-error-level2-gage2'></div>
@@ -190,8 +215,8 @@ export default function ResetPasswordModal() {
                                         <div className='password-error-level2-gage4'></div>
                                         <div className='password-error-level2-gage5'></div>
                                     </div>
-                                    )}
-                                    {!passwordError || passwordSuccess &&(
+                                    ) :
+                                    passwordSuccess ? (
                                     <div className='security-gage-default'>
                                         <div className='password-success-gage1'></div>
                                         <div className='password-success-gage1'></div>
@@ -199,7 +224,16 @@ export default function ResetPasswordModal() {
                                         <div className='password-success-gage1'></div>
                                         <div className='password-success-gage1'></div>
                                     </div>
-                                    )}
+                                    ) : (
+                                    <div className='security-gage-default'>
+                                        <div className='gage1'></div>
+                                        <div className='gage2'></div>
+                                        <div className='gage3'></div>
+                                        <div className='gage4'></div>
+                                        <div className='gage5'></div>
+                                    </div>
+                                    )
+                                    }
                                 </div>
                             </div>
                             <div className='password-modify-check-input-container'>
@@ -208,7 +242,7 @@ export default function ResetPasswordModal() {
                             </div>
                         </div>
                         <div className='password-modify-modal-main-modify-password-complete-button-box'>
-                            <div className='password-modify-modal-main-modify-password-complete-button'>{'완료'}</div>
+                            <div className='password-modify-modal-main-modify-password-complete-button' onClick={onNextStepButtonClickHandler}>{'완료'}</div>
                         </div>
                     </div>
                 </div>

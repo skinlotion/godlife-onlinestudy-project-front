@@ -6,11 +6,13 @@ import Authentication from './views/Authentication';
 import { AUTH_PATH } from './views/constant';
 import { SEND_EMAIL_PATH } from './constant';
 import ResetPasswordModal from './views/MypageResetPasswordModal';
+import ManinpageStudyRoomJoinModal from './views/MainpageStudyRoomJoinModal';
 
 function App() {
   return (
     // <Authentication />
-    <ResetPasswordModal/>
+    // <ResetPasswordModal/>
+    <ManinpageStudyRoomJoinModal/>
   );
 }
 

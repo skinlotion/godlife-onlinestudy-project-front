@@ -6,8 +6,8 @@
 }
 
 .password-modify-modal-card{
-    width: 980px;
-    height: 760px;
+    width: 880px;
+    height: 680px;
 
     border: 1px solid black;
     border-radius: 10px;
@@ -55,7 +55,7 @@
     flex-direction: column;
     align-items: center;
 
-    gap: 105px;
+    gap: 85px;
 }
 .password-modify-modal-main-title{
     text-align: center;
@@ -63,7 +63,7 @@
     color: #000;
 
     font-family: Spoqa Han Sans Neo;
-    font-size: 45px;
+    font-size: 43px;
     font-weight: 700;
     line-height: 32.343px;
 }
@@ -71,7 +71,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 115px;
+    gap: 100px;
 }
 .password-modify-modal-main-modify-password{
     display: flex;
@@ -97,7 +97,7 @@
     color: #000;
 
     font-family: Spoqa Han Sans Neo;
-    font-size: 35px;
+    font-size: 33px;
     font-weight: 700;
     line-height: 32.343px;
 }
@@ -206,7 +206,7 @@
     color: #000;
 
     font-family: Spoqa Han Sans Neo;
-    font-size: 35px;
+    font-size: 33px;
     font-weight: 700;
     line-height: 32.343px;
 }
@@ -231,7 +231,7 @@
     
     color: #FFF;
     font-family: Spoqa Han Sans Neo;
-    font-size: 30px;
+    font-size: 28px;
     font-weight: 700;
     line-height: 22px;
 }
