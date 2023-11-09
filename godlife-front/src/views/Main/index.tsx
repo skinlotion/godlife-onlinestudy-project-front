@@ -17,6 +17,7 @@ import { isNumberObject } from 'util/types';
 import ProgressBar from '../../components/ProgressBar';
 import MyToDoListItem from '../../components/MyToDoListItem';
 import { hover } from '@testing-library/user-event/dist/hover';
+import InputBox from '../../components/MyToDoListInputBox';
 
 //        component: 메인 페이지        //
 export default function Main() {
@@ -26,8 +27,8 @@ export default function Main() {
   // //        state: 로그인 유저 정보 상태        //
   // const { user, setUser } = useUserStore();
 
-  //        function: 네비게이트 함수       //
-  const navigator = useNavigate();
+  // //        function: 네비게이트 함수       //
+  // const navigator = useNavigate();
 
   //        component: 메인 상단 컴포넌트       //
   const MainTop = () => {
@@ -39,6 +40,8 @@ export default function Main() {
     const [ studyRoomInfoList, setStudyRoomInfoList ] = useState<MyStudyRoomInfoItem[]>([]);
     //        state: 나의 투두리스트 상태       //
     const [ myToDoList, setMyToDoList ] = useState<MyToDoItem[]>([]);
+    //          state: 입력한 나의 투두리스트 상태         //
+    const [inputMyToDoList, setInputMyToDoList] = useState<string>('');
 
     //          effect: 컴포넌트 마운트 시 참여한 스터디 방 정보 리스트 불러오기          //
     useEffect(() => {
@@ -98,6 +101,16 @@ export default function Main() {
     //        event handler: 스터디 시작 하기 버튼 클릭 이벤트 처리        //
     const onStudyStartButtonClickHandler = () => {
       alert('스터디 시작 하기 처리');
+    }
+
+    //        event handler: 나의 투두리스트 추가하기       //
+    const onMyToDoListAddClickHandler = () => {
+      alert('투두리스트 추가하기 처리');
+    }
+
+    //        event handler: 나의 투두리스트 삭제하기       //
+    const onMyToDoListDeleteClickHandler = () => {
+      alert('투두리스트 삭제하기 처리');
     }
 
     //        description: 내가 참여한 스터디방 정보 탭 렌더링       //
@@ -274,13 +287,13 @@ export default function Main() {
               <div className='main-top-down-todolist'>
                 <div className='main-top-down-todolist-bar'>
                   <div className='main-top-down-todolist-date'>{'2023년 12월 08일 목요일'}</div>
-                  <div className='main-top-down-todolist-add-button'>
+                  <div className='main-top-down-todolist-add-button' onClick={onMyToDoListAddClickHandler}>
                     <div className='main-top-down-todolist-icon-box'>
                       <div className='todolist-add-icon'></div>
                     </div>
-                    <div className='main-top-down-todolist-add-button-text'>{'To Do 추가하기'}</div>
+                    <div className='main-top-down-todolist-add-button-text' >{'To Do 추가하기'}</div>
                   </div>
-                  <div className='main-top-down-todolist-delete-button'>
+                  <div className='main-top-down-todolist-delete-button' onClick={onMyToDoListDeleteClickHandler}>
                     <div className='main-top-down-todolist-icon-box'>
                       <div className='todolist-delete-icon'></div>
                     </div>
@@ -288,7 +301,7 @@ export default function Main() {
                   </div>
                 </div>
 
-                <div className='main-top-down-todolist-input'>{'TO DO LIST 입력중입니다....'}</div>
+                <InputBox type={'text'} placeholder='TO DO LIST 입력중입니다....' value={inputMyToDoList} setValue={setInputMyToDoList} />
 
                 <div className='main-top-down-todolist-detail-box'>
                     <Scrollbars
