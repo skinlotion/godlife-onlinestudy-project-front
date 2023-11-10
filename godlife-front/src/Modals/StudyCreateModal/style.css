@@ -1,9 +1,4 @@
 #reset-wrapper{
-
-    width: 100vw;
-    height: 100vh;   
-
-    background-color: rgba(255,255,255,1);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -11,7 +6,7 @@
 
 .reset-card{
     width: 900px;
-    height: 868px;   
+    height: 870px;    
     
     border-radius: 15px;
     border: 3px solid rgba(24,160,251,1);
@@ -199,10 +194,7 @@
     cursor: pointer;
 }
 
-.menu-material{
 
-    
-}
 
 .menu-material:hover{
     cursor: pointer;
@@ -276,7 +268,7 @@
 }
 
 .study-title-container{
-    width: 611px;
+    width: 511px;
     height: 35px;
     
     display: flex;
@@ -284,6 +276,8 @@
     flex-direction: row;
     
     gap: 13px;
+    
+
 }
 
 .study-title{
@@ -297,14 +291,46 @@
     letter-spacing: -0.31px; 
     
     font-size: 20px;
+    text-align: center;
+    text-wrap: nowrap;
+}
+
+.study-title-write-container{
+    width: 370px;
+    height: 100%;
+    
+    display: flex;
+    justify-content: space-between;
+
+    background-color: rgba(255,255,255,1);
+    border-radius: 5px;
+    /* border: 0.5px solid rgba(24, 16,251, 1); */
 }
 
 .study-title-write{
-    width: 488px;
+    width: 370px;
     height: 100%;
-    border-radius: 5.909px;
-    background-color: rgba(255,255,255,1);
+
     border: none;
+    display: flex;
+
+    padding-left: 20px;
+
+    outline: none;
+    border-radius: 5px;
+}
+
+.study-title-write-count{
+    /* width: 61px;
+    height: 100%; */
+    padding-right: 15px;
+    display: flex;
+    align-items: center;
+    background-color: rgba(255,255,255,1);
+    /* right: 186px;
+    top: 77.5px; */
+    /* position: absolute; */
+    border-radius: 5px;
 }
 
 .study-title-write-error-box{
@@ -315,6 +341,7 @@
     margin-bottom: 8px;
     color: rgba(255, 0, 0, 0.70);
     /* text-wrap: nowrap; */
+
 }
 
 .study-title-write-error-message{
@@ -331,13 +358,14 @@
 }
 
 .study-period-container{
-    width: 387px;
+    width: 655px;
     height: 30px;
 
     display: flex;
     flex-direction: row;
     align-content: center;
     margin-right: 46px;
+
 }
 
 .study-period-title{
@@ -354,14 +382,14 @@
     letter-spacing: -0.31px;  
 
     font-size: 20px;
-
-    margin-right: 46px;
-
+    margin-top: 2.5px;
+    margin-right: 36px;
+    padding-top: 2.5px;
 }
 
 .study-period-end-date-title{
     width: 41px;
-    height: 20px;
+    height: 25px;
 
     display: flex;
     align-items: center;
@@ -373,21 +401,22 @@
     letter-spacing: -0.222px;
     margin-right: 9px;
     margin-top: 2.5px;
-    text-wrap: nowrap;
-    
+    padding-top: 2.5px;
+    text-wrap: nowrap;  
 }
 
 .study-period-end-date{
     width: 151px;
     height: 30px;
     
-    border-radius: 5.909px;
+    border-radius: 5px;
     background-color: rgba(255,255,255,1);    
 
-    margin-right: 5px;
+    /* margin-right: 5px; */
 
     display: flex;
     align-items: center;
+    position: relative;
 }
 
 .study-period-end-date-data{
@@ -404,13 +433,30 @@
     text-wrap: nowrap;
 }
 
+.study-period-end-date-icon-box{
+    /* width: 255px; */
+    height: 60px;
+
+    display: flex;
+    flex-direction: row;
+    position: relative;   
+
+    background-color: rgba(255,255,255,1);
+}
+
+.study-period-end-date-icon:hover{
+    cursor: pointer;
+}
+
 .study-period-end-date-icon{
     width: 30px;
     height: 30px;
-
+    
     background-image: url(assets/calendar-icon.png);
     background-position: 50% 50%;
     background-size: 100% 100%;
+    
+    position: absolute;
 }
 
 .study-period-end-date-icon:hover{
@@ -608,9 +654,38 @@
     border: none;
     margin-right: 18px;
 
-    border-radius: 5.909px;
-    border: 0.591px solid rgba(24, 160, 251, 1);
+    border-radius: 5px;
+    border: 0.5px solid rgba(24, 160, 251, 0.7);
     background-color: rgba(255,255,255,1);
+
+    color: rgba(0,0,0,1);
+    font-family: Spoqa Han Sans Neo;
+    font-size: 15px;
+    font-weight: 400;
+    letter-spacing: -0.225px;
+}
+
+.study-open-select{
+    width: 150px;
+    height: 30px;  
+    
+    border: none;
+    margin-right: 18px;
+
+    color: rgba(0,0,0,1);
+    font-family: Spoqa Han Sans Neo;
+    font-size: 15px;
+    font-weight: 400;
+    letter-spacing: -0.225px;
+
+    border-radius: 5px;
+    border: 0.5px solid rgba(24, 160, 251, 0.7);
+    background-color: rgba(24,160,251,0.7); 
+}
+
+.study-open-select:hover{
+    cursor: pointer;
+    background-color: rgba(207,207,207,1);
 }
 
 .study-open:hover{
@@ -624,7 +699,7 @@
     border: none;
 
     
-    border-radius: 5.909px;
+    border-radius: 5px;
     
     display: flex;
     flex-direction: column;
@@ -634,9 +709,15 @@
 .study-close{
     width: 150px;
     height: 30px;
-    border-radius: 5.909px;
-    border: 0.591px solid rgba(24, 160, 251, 1);
+    border-radius: 5px;
+    border: 0.5px solid rgba(24, 160, 251, 1);
     background-color: rgba(255,255,255,1);
+
+    color: rgba(0,0,0,1);
+    font-family: Spoqa Han Sans Neo;
+    font-size: 15px;
+    font-weight: 400;
+    letter-spacing: -0.225px;
 }
 
 .study-close:hover{
@@ -644,11 +725,30 @@
     background-color: rgba(207,207,207,1);
 }
 
+.study-close-select{
+    width: 150px;
+    height: 30px;
+    border-radius: 5px;
+    border: 0.5px solid rgba(24, 160, 251, 1);
+    background-color: rgba(24,160,251,0.7);
+
+    color: rgba(0,0,0,1);
+    font-family: Spoqa Han Sans Neo;
+    font-size: 15px;
+    font-weight: 400;
+    letter-spacing: -0.225px;
+}
+
+.study-close-select:hover{
+    cursor: pointer;
+    background-color: rgba(207,207,207,1);
+}
+
 .study-close-password   {
     width: 150px;
     height: 30px;
-    border-radius: 5.909px;
-    border: 0.591px solid rgba(24, 160, 251, 1);
+    border-radius: 5px;
+    border: 0.5px solid rgba(24, 160, 251, 1);
     background-color: rgba(255,255,255,1);
     display: flex;
     flex-direction: row;
@@ -663,6 +763,7 @@
     justify-content: center ;
 
     margin-top: 5px;
+    outline: none;
 }
 
 .password-icon{
@@ -711,8 +812,27 @@
     
     background-color: rgba(255,255,255,1);
     border-radius: 8.864px;
-    border: 0.591px solid  rgba(24,160,251,1);
+    border: 0.5px solid  rgba(24,160,251,1);
     position: relative;
+}
+
+.study-cover-profile-default-image{
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border: none;
+}
+
+.study-cover-profile-image{
+    width: 100%;
+    height: 100%;
+
+    background-position: 50% 50%;
+    background-size: 100% 100%;
 }
 
 .change-controll{
@@ -728,15 +848,18 @@
     justify-content: center;
 
     border-radius: 8.864px;
-    border: 0.591px solid  rgba(24,160,251,1);
+    border: 0.5px solid  rgba(24,160,251,1);
     background-color: rgba(255,255,255,1);
 
     color: rgba(0,0,0,1);
     text-align: center;
     font-family: Spoqa Han Sans Neo;    
     font-size: 8.7px;
+
+    
 }
 
 .change-controll:hover{
+    opacity: 0.85;
     cursor: pointer;
 }
