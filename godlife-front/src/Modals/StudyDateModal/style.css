@@ -3,7 +3,6 @@
     width: 100vw;
     height: 100vh;   
 
-    background-color: rgba(255,255,255,1);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -82,10 +81,11 @@
 }
 
 .room-schedule{
-
+    height: 18.5px;
     margin: 0px  auto 2.5px 21px;
-    color: rgba(0,0,0,1);
 
+
+    color: rgba(0,0,0,1);
     font-family: Spoqa Han Sans Neo;
     font-size: 13.6px;
     font-weight: 400;
