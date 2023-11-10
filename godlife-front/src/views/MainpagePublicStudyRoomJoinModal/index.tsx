@@ -1,7 +1,24 @@
+import { tab } from '@testing-library/user-event/dist/tab';
+import ProgressBar from '../../components/ProgressBar';
 import './style.css';
+import { useEffect, useState } from 'react';
+import { StudyNoticeMock, studyRoomInfoListMock } from '../../mocks';
+import { MyStudyRoomInfoItem } from '../../types';
+import Scrollbars from 'react-custom-scrollbars-2';
+import NoticeItem from '../../components/RoomJoinMoadalNoticeItem';
 
 
-export default function ManinpageStudyRoomJoinModal() {
+export default function ManinpagePublicStudyRoomJoinModal() {
+
+    //        state: 참여한 스터디 방 정보        //
+    const [ studyRoomInfoList, setStudyRoomInfoList ] = useState<MyStudyRoomInfoItem>(studyRoomInfoListMock);
+
+
+    //          effect: 컴포넌트 마운트 시 참여한 스터디 방 정보 리스트 불러오기          //
+    useEffect(() => {
+    // TODO: API 호출로 변경
+    setStudyRoomInfoList(studyRoomInfoListMock);
+    }, []);
 
 
     //        render : 계정인증 메인 랜더링        //
@@ -51,13 +68,14 @@ export default function ManinpageStudyRoomJoinModal() {
                             <div className='studyroom-progress-rate-box'>
                                 <div className='studyroom-progress-rate-title'>{'스터디 진행률'}</div>
                                 <div className='studyroom-progress-rate-progressbar-box'>
+                                    {<ProgressBar percentage={((studyRoomInfoList.studyProgressRate  / studyRoomInfoListMock.studyPeriod) * 100)}/>}
                                     <div className='studyroom-progress-rate-progressbar'></div>
                                     <div className='studyroom-progress-rate-date'>
                                         <div className='studyroom-start-date-box'>
-                                            <div className='studyroom-start-date'>{'시작일 : 2023.00.00'}</div>
+                                            <div className='studyroom-start-date'>{`시작일 : ${studyRoomInfoListMock.studyStartDate}`}</div>
                                         </div>
                                         <div className='studyroom-end-date-box'>
-                                            <div className='studyroom-end-date'>{'종료일 : 2023.00.00'}</div>
+                                            <div className='studyroom-end-date'>{`종료일 : ${studyRoomInfoListMock.studyEndDate}`}</div>
                                         </div>
                                     </div>
                                 </div>
@@ -65,35 +83,52 @@ export default function ManinpageStudyRoomJoinModal() {
                         </div>
                     </div>
                     <div className='studyroom-info-notice-container'>
-                        <div className='studyroom-info-notice-title-box'>
-                            <div className='studyroom-info-notice-title-icon-box'>
-                                <div className='studyroom-info-notice-title-icon'></div>
+                        <div className='studyroom-info-notice-box'>
+                            <div className='studyroom-info-notice-title-box'>
+                                <div className='studyroom-info-notice-title-icon-box'>
+                                    <div className='studyroom-info-notice-title-icon'></div>
+                                </div>
+                                <div className='studyroom-info-notice-title'>{'공지사항'}</div>
                             </div>
-                            <div className='studyroom-info-notice-title'>{'공지사항'}</div>
+                            <div className='studyroom-info-notice-content'>
+                                <div className='studyroom-info-notice-content-box'>
+                                    <div className='studyroom-info-notice-icon'></div>
+                                    <div className='studyroom-info-notice-text'>{'공지사항 내용입니다..블라블라블라입니다.'}</div>
+                                </div>
+                                <div className='studyroom-info-notice-content-box'>
+                                    <div className='studyroom-info-notice-icon'></div>
+                                    <div className='studyroom-info-notice-text'>{'공지사항 내용입니다..블라블라블라입니다.'}</div>
+                                </div>
+                            </div>
                         </div>
-                        <div className='studyroom-info-notice-content'>
-                            <div className='studyroom-info-notice-box'>
-                                <div className='studyroom-info-notice-icon'></div>
-                                <div className='studyroom-info-notice-text'></div>
-                            </div>
+                        <div className='notice-contents-left-box'>
+                        {/* <Scrollbars
+                                renderTrackVertical={(props) => <div {...props} className='track-vertical' />} 
+                                renderThumbVertical={(props) => <div {...props} className='thumb-vertical' />}>
+                            {StudyNoticeMock.map((noticeItem) => (
+                                <NoticeItem  key={noticeItem.studyNoticeNumber} noticeItem={noticeItem} />
+                            ))}
+                        </Scrollbars> */}
                         </div>
                     </div>
                     <div className='studyroom-info-todo-list-container'>
-                        <div className='studyroom-info-todo-list-title-box'>
-                            <div className='studyroom-info-todo-list-icon-box'>
-                                <div className='studyroom-info-todo-list-title-icon'></div>
+                        <div className='studyroom-info-todo-list-box'>
+                            <div className='studyroom-info-todo-list-title-box'>
+                                <div className='studyroom-info-todo-list-icon-box'>
+                                    <div className='studyroom-info-todo-list-title-icon'></div>
+                                </div>
+                                <div className='studyroom-info-todo-list-title'>{'Study To Do List'}</div>
                             </div>
-                            <div className='studyroom-info-todo-list-title'>{'Study To Do List'}</div>
-                        </div>
-                        <div className='studyroom-info-todo-list-content'>
-                            <div className='studyroom-info-todo-list-box'>
-                                <div className='studyroom-info-todo-list-icon'></div>
-                                <div className='studyroom-info-todo-list-text'></div>
+                            <div className='studyroom-info-todo-list-content'>
+                                <div className='studyroom-info-todo-list-content-box'>
+                                    <div className='studyroom-info-todo-list-icon'></div>
+                                    <div className='studyroom-info-todo-list-text'>{'블라블라블라입니다~~~~~'}</div>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div className='studyroom-info-button-box'>
-                        <div className='studyroom-join-button'></div>
+                        <div className='studyroom-join-button-text'>{'참가하기'}</div>
                     </div>
                 </div>
             </div>

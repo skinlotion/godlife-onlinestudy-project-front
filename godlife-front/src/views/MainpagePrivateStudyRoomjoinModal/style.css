@@ -299,3 +299,206 @@
     font-size: 22px;
     font-weight: 400;
 }
+.studyroom-info-notice-container{
+    width: 1160px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.studyroom-info-notice-box{
+    border: 4px solid rgba(24, 160, 251, 0.70);
+    background-color: white;
+    border-radius: 10px;
+
+    padding: 15px 25px;
+
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+}
+.studyroom-info-notice-title-box{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    gap: 10px;
+}
+.studyroom-info-notice-title-icon-box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.studyroom-info-notice-title-icon{
+    height: 50px;
+    width: 50px;
+
+    background-image: url(assets/notice-icon.png);
+    background-position: 50% 50%;
+    background-size: 100% 100%;   
+}
+.studyroom-info-notice-title{
+    color: #000;
+
+    font-family: Spoqa Han Sans Neo;
+    font-size: 25px;
+    font-weight: 400;
+}
+.studyroom-info-notice-content{
+    gap: 10px;
+    width: 100%;
+}
+.studyroom-info-notice-content-box{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+}
+.studyroom-info-notice-icon{
+    width: 8px;
+    height: 8px;
+
+    background-image: url(assets/notice-content-texthead-icon.png);
+    background-position: 50% 50%;
+    background-size: 100% 100%;
+}
+.studyroom-info-notice-text{
+    color: #000;
+
+    font-family: Spoqa Han Sans Neo;
+    font-size: 25px;
+    font-weight: 400;
+}
+.notice-contents-box {
+    width: 100%;
+    height: 200px;
+
+    
+    display: flex;
+    flex-direction: column;
+
+}
+
+.studyroom-join-content-track-vertical {
+    top: 2px;
+    bottom: 2px;
+    right: 7px;
+    border-radius: 30px;
+    background: rgba(255, 255, 255, 0.111);
+  }
+  
+  .studyroom-join-content-track-vertical .studyroom-join-content-thumb-vertical {
+    padding: 0 7px 0 0;
+    position: relative;
+    display: block;
+    width: 100%;
+    cursor: pointer;
+    border-radius: inherit;
+    background-color: rgba(24,160,251,1);
+  }
+
+.studyroom-info-todo-list-container{
+    width: 1160px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.studyroom-info-todo-list-box{
+    border: 4px solid rgba(24, 160, 251, 0.70);
+    background-color: white;
+    border-radius: 10px;
+
+    padding: 15px 25px;
+
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+}
+.studyroom-info-todo-list-title-box{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    gap: 10px;   
+}
+.studyroom-info-todo-list-icon-box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.studyroom-info-todo-list-title-icon{
+    height: 50px;
+    width: 50px;
+
+    background-image: url(assets/notice-icon.png);
+    background-position: 50% 50%;
+    background-size: 100% 100%;   
+}
+.studyroom-info-todo-list-title{
+    color: #000;
+
+    font-family: Spoqa Han Sans Neo;
+    font-size: 25px;
+    font-weight: 400;
+}
+.studyroom-info-todo-list-content{
+    gap: 10px;
+}
+.studyroom-info-todo-list-content-box{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+}
+.studyroom-info-todo-list-icon{
+    width: 8px;
+    height: 8px;
+
+    background-image: url(assets/notice-content-texthead-icon.png);
+    background-position: 50% 50%;
+    background-size: 100% 100%;
+}
+
+.studyroom-info-todo-list-text{
+    color: #000;
+
+    font-family: Spoqa Han Sans Neo;
+    font-size: 25px;
+    font-weight: 400;
+}
+.studyroom-private-join-container{
+    width: 1160px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    justify-content: space-between;
+}
+.studyroom-password-input-box{
+    width: 485;
+}
+.studyroom-info-button-box{
+    width: 700px;
+    height: 95px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 5px;
+    background-color: rgba(24, 160, 251, 1);
+}
+.studyroom-info-button-box:hover{
+    cursor: pointer;
+}
+.studyroom-join-button-text{
+    color: #FFF;
+
+    text-align: center;
+    font-family: Spoqa Han Sans Neo;
+    font-size: 27px;
+    font-weight: 700;
+}
