@@ -6,6 +6,7 @@ import { StudyNoticeMock, studyRoomInfoListMock } from '../../mocks';
 import { MyStudyRoomInfoItem } from '../../types';
 import Scrollbars from 'react-custom-scrollbars-2';
 import NoticeItem from '../../components/RoomJoinMoadalNoticeItem';
+import RoomJoinModalNoticeItem from '../../components/RoomJoinMoadalNoticeItem';
 
 
 export default function ManinpagePublicStudyRoomJoinModal() {
@@ -45,7 +46,7 @@ export default function ManinpagePublicStudyRoomJoinModal() {
                     </div>
                 </div>
                 <div className='studyroom-join-modal-main'>
-                    <div className='studyroom-info-container'>
+                <div className='studyroom-info-container'>
                         <div className='studyroom-info-box'>
                             <div className='studyroom-info-state-box'>
                                 <div className='studyroom-participation-personnel-box'>
@@ -91,25 +92,18 @@ export default function ManinpagePublicStudyRoomJoinModal() {
                                 <div className='studyroom-info-notice-title'>{'공지사항'}</div>
                             </div>
                             <div className='studyroom-info-notice-content'>
-                                <div className='studyroom-info-notice-content-box'>
-                                    <div className='studyroom-info-notice-icon'></div>
-                                    <div className='studyroom-info-notice-text'>{'공지사항 내용입니다..블라블라블라입니다.'}</div>
-                                </div>
-                                <div className='studyroom-info-notice-content-box'>
-                                    <div className='studyroom-info-notice-icon'></div>
-                                    <div className='studyroom-info-notice-text'>{'공지사항 내용입니다..블라블라블라입니다.'}</div>
+                                <div className='notice-contents-box'>
+                                <Scrollbars
+                                    renderTrackVertical={(props) => <div {...props} className='studyroom-join-content-track-vertical' />} 
+                                    renderThumbVertical={(props) => <div {...props} className='studyroom-join-content-thumb-vertical' />}>
+                                {StudyNoticeMock.map((noticeItem) => (
+                                    <RoomJoinModalNoticeItem key={noticeItem.studyNoticeNumber} noticeItem={noticeItem} />
+                                ))}
+                                </Scrollbars>
                                 </div>
                             </div>
                         </div>
-                        <div className='notice-contents-left-box'>
-                        {/* <Scrollbars
-                                renderTrackVertical={(props) => <div {...props} className='track-vertical' />} 
-                                renderThumbVertical={(props) => <div {...props} className='thumb-vertical' />}>
-                            {StudyNoticeMock.map((noticeItem) => (
-                                <NoticeItem  key={noticeItem.studyNoticeNumber} noticeItem={noticeItem} />
-                            ))}
-                        </Scrollbars> */}
-                        </div>
+
                     </div>
                     <div className='studyroom-info-todo-list-container'>
                         <div className='studyroom-info-todo-list-box'>
@@ -120,9 +114,14 @@ export default function ManinpagePublicStudyRoomJoinModal() {
                                 <div className='studyroom-info-todo-list-title'>{'Study To Do List'}</div>
                             </div>
                             <div className='studyroom-info-todo-list-content'>
-                                <div className='studyroom-info-todo-list-content-box'>
-                                    <div className='studyroom-info-todo-list-icon'></div>
-                                    <div className='studyroom-info-todo-list-text'>{'블라블라블라입니다~~~~~'}</div>
+                            <div className='notice-contents-box'>
+                                <Scrollbars
+                                    renderTrackVertical={(props) => <div {...props} className='studyroom-join-content-track-vertical' />} 
+                                    renderThumbVertical={(props) => <div {...props} className='studyroom-join-content-thumb-vertical' />}>
+                                {StudyNoticeMock.map((noticeItem) => (
+                                    <RoomJoinModalNoticeItem key={noticeItem.studyNoticeNumber} noticeItem={noticeItem} />
+                                ))}
+                                </Scrollbars>
                                 </div>
                             </div>
                         </div>

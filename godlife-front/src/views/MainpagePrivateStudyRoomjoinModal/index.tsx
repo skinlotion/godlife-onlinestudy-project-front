@@ -142,14 +142,6 @@ export default function ManinpagePriavateStudyRoomJoinModal() {
                                 ))}
                                 </Scrollbars>
                                 </div>
-                                {/* <div className='studyroom-info-notice-content-box'>
-                                    <div className='studyroom-info-notice-icon'></div>
-                                    <div className='studyroom-info-notice-text'>{'공지사항 내용입니다..블라블라블라입니다.'}</div>
-                                </div>
-                                <div className='studyroom-info-notice-content-box'>
-                                    <div className='studyroom-info-notice-icon'></div>
-                                    <div className='studyroom-info-notice-text'>{'공지사항 내용입니다..블라블라블라입니다.'}</div>
-                                </div> */}
                             </div>
                         </div>
 
@@ -164,18 +156,14 @@ export default function ManinpagePriavateStudyRoomJoinModal() {
                             </div>
                             <div className='studyroom-info-todo-list-content'>
                             <div className='notice-contents-box'>
-                                {/* <Scrollbars
+                                <Scrollbars
                                     renderTrackVertical={(props) => <div {...props} className='studyroom-join-content-track-vertical' />} 
                                     renderThumbVertical={(props) => <div {...props} className='studyroom-join-content-thumb-vertical' />}>
                                 {StudyNoticeMock.map((noticeItem) => (
                                     <RoomJoinModalNoticeItem key={noticeItem.studyNoticeNumber} noticeItem={noticeItem} />
                                 ))}
-                                </Scrollbars> */}
+                                </Scrollbars>
                                 </div>
-                                {/* <div className='studyroom-info-todo-list-content-box'>
-                                    <div className='studyroom-info-todo-list-icon'></div>
-                                    <div className='studyroom-info-todo-list-text'>{'블라블라블라입니다~~~~~'}</div>
-                                </div> */}
                             </div>
                         </div>
                     </div>
