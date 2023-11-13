@@ -1,4 +1,5 @@
 import React from 'react'
+<<<<<<< HEAD
 import './style.css'
 
 export default function Footer() {
@@ -26,5 +27,11 @@ export default function Footer() {
         </div>
       </div>
     </div>
+=======
+
+export default function index() {
+  return (
+    <div>index</div>
+>>>>>>> main
   )
 }
