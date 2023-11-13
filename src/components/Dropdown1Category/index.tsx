@@ -2,7 +2,6 @@ import React, { useRef, useState, useEffect } from 'react';
 import './style.css';
 import Scrollbars from 'react-custom-scrollbars-2';
 
-
 //          component: DropDown 1관심 카테고리 컴포넌트          //
 const DropDownFirstCategory = () => {
     //          state: 박스 상태          //
@@ -41,20 +40,20 @@ const DropDownFirstCategory = () => {
 
     //          render: DropDown 1관심 카테고리 렌더링          //
     return (
-        <div ref={dropdownRef} className='dropdown-box'>
-            <div className={`dropdown-header ${selectedItem ? 'selected' : ''}`} onClick={toggleDropdown}>
+        <div ref={dropdownRef} className='dropdown-1category-box'>
+            <div className={`dropdown-1category-header ${selectedItem ? 'selected' : ''}`} onClick={toggleDropdown}>
                 {selectedItem ? selectedItem : '선택해주세요'}
             </div>
-            <div className='icon-box'>
-                <div className='down-arrow-icon'></div>
+            <div className='arrow-down-icon-box'>
+                <div className='arrow-down-icon'></div>
             </div>
             {isOpen && (
-                <div className='dropdown-list'>
+                <div className='dropdown-1category-list'>
                     <Scrollbars 
-                        renderTrackVertical={(props) => <div {...props} className='track-vertical' />} 
-                        renderThumbVertical={(props) => <div {...props} className='thumb-vertical' />}>
+                        renderTrackVertical={(props) => <div {...props} className='track-category-vertical' />} 
+                        renderThumbVertical={(props) => <div {...props} className='thumb-category-vertical' />}>
                         {items.map((item) => (
-                            <div className='dropdown-list-index' key={item} onClick={() => selectItem(item)}>
+                            <div className='dropdown-1category-list-index' key={item} onClick={() => selectItem(item)}>
                                 {item}
                             </div>
                         ))}

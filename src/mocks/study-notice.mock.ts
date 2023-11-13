@@ -1,4 +1,4 @@
-import { StudyNoticeListItem } from "../types";  
+import { StudyNoticeListItem } from "types"; 
 
 const StudyNoticeMock : StudyNoticeListItem[] = [
 

@@ -1,4 +1,4 @@
-import { StudyNoticeListItem } from '../../types'; 
+import { StudyNoticeListItem } from 'types';
 import './style.css';
 import { ChangeEvent, useEffect, useRef, useState } from 'react';
 
