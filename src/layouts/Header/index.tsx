@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import React, { useRef, useState } from 'react'
 import './style.css';
 import { useLocation, useNavigate } from 'react-router-dom';
@@ -38,12 +37,5 @@ export default function Header({ onSearchMoveClickHandler }: HeaderProps) {
         </div>
       </div>
     </div>
-=======
-import React from 'react'
-
-export default function index() {
-  return (
-    <div>index</div>
->>>>>>> main
   )
 }

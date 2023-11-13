@@ -1,6 +1,5 @@
 import React, { ChangeEvent, KeyboardEvent, useState, useEffect, useRef, forwardRef } from 'react'
 import { Scrollbars } from 'react-custom-scrollbars-2';
-import 'react-tabs/style/react-tabs.css';
 import './style.css';
 import { useParams } from 'react-router-dom';
 import studyRoomInfoListMock from '../../mocks/my-study-room-info-list.mock';

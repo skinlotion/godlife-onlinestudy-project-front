@@ -1,6 +1,5 @@
 import { StudyToDoListMock } from 'mocks';
 import './style.css';
-
 import React, { useState, forwardRef, ButtonHTMLAttributes, MouseEvent, ChangeEvent, useRef } from 'react';
 import Scrollbars from 'react-custom-scrollbars-2';
 import ToDoItem from 'components/ToDoListItem';

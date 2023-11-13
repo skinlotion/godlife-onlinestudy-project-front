@@ -8,11 +8,10 @@ import Scrollbars from 'react-custom-scrollbars-2';
 import InputBox from '../../components/InputBox';
 import RoomJoinModalNoticeItem from '../../components/RoomJoinMoadalNoticeItem';
 
-
 export default function ManinpagePriavateStudyRoomJoinModal() {
 
     //        state: 참여한 스터디 방 정보        //
-    const [ studyRoomInfoList, setStudyRoomInfoList ] = useState<MyStudyRoomInfoItem>(studyRoomInfoListMock);
+    const [ studyRoomInfoList, setStudyRoomInfoList ] = useState<MyStudyRoomInfoItem[]>(studyRoomInfoListMock);
 
     //          state: 입력한 비밀번호 상태          //
     const [roompassword, setRoomPassword] = useState<string>('');
@@ -24,8 +23,6 @@ export default function ManinpagePriavateStudyRoomJoinModal() {
     const [privateRoomJoinError, setPrivateRoomJoinError] = useState<boolean>(false);
     //          state: 비밀번호 에러 메세지 상태          //
     const [privateRoomJoinErrorMessage, setPrivateRoomJoinErrorMessage] = useState<string>('');
-
-
 
     //          effect: 컴포넌트 마운트 시 참여한 스터디 방 정보 리스트 불러오기          //
     useEffect(() => {
@@ -110,14 +107,14 @@ export default function ManinpagePriavateStudyRoomJoinModal() {
                             <div className='studyroom-progress-rate-box'>
                                 <div className='studyroom-progress-rate-title'>{'스터디 진행률'}</div>
                                 <div className='studyroom-progress-rate-progressbar-box'>
-                                    {<ProgressBar percentage={((studyRoomInfoList.studyProgressRate  / studyRoomInfoListMock.studyPeriod) * 100)}/>}
+                                    {<ProgressBar percentage={((studyRoomInfoList[0].studyProgressRate  / studyRoomInfoList[0].studyPeriod) * 100)}/>}
                                     <div className='studyroom-progress-rate-progressbar'></div>
                                     <div className='studyroom-progress-rate-date'>
                                         <div className='studyroom-start-date-box'>
-                                            <div className='studyroom-start-date'>{`시작일 : ${studyRoomInfoListMock.studyStartDate}`}</div>
+                                            <div className='studyroom-start-date'>{`시작일 : ${studyRoomInfoListMock[0].studyStartDate}`}</div>
                                         </div>
                                         <div className='studyroom-end-date-box'>
-                                            <div className='studyroom-end-date'>{`종료일 : ${studyRoomInfoListMock.studyEndDate}`}</div>
+                                            <div className='studyroom-end-date'>{`종료일 : ${studyRoomInfoListMock[0].studyEndDate}`}</div>
                                         </div>
                                     </div>
                                 </div>
