@@ -5,11 +5,11 @@ import { useState,useRef,  useEffect, ChangeEvent } from 'react';
 import ModalSideMenu from 'components/ModalSideMenu';
 import Scrollbars from 'react-custom-scrollbars-2';
 
-import { Calendar, formatDate } from '@fullcalendar/core'
-import FullCalendar from '@fullcalendar/react'
-import dayGridPlugin from '@fullcalendar/daygrid'
-import timeGridPlugin from '@fullcalendar/timegrid'
-import interactionPlugin from '@fullcalendar/interaction'
+// import { Calendar, formatDate } from '@fullcalendar/core'
+// import FullCalendar from '@fullcalendar/react'
+// import dayGridPlugin from '@fullcalendar/daygrid'
+// import timeGridPlugin from '@fullcalendar/timegrid'
+// import interactionPlugin from '@fullcalendar/interaction'
 import { weekdays } from 'moment';
 
 let eventGuid = 0
@@ -515,30 +515,30 @@ export default function StudyDate(){
         }
 
     //  event handler  :  입력시 필요한 조건 충족 체크 이벤트 처리  //
-    const onInputErrorCheckChangeHandler = (event : ChangeEvent<HTMLInputElement>) =>{
-        if(timeError){
-            InputError = timeError;
-            return;
-        }
-    }
+    // const onInputErrorCheckChangeHandler = (event : ChangeEvent<HTMLInputElement>) =>{
+    //     if(timeError){
+    //         InputError = timeError;
+    //         return;
+    //     }
+    // }
 
-    function renderEventContent(eventInfo : any) {
-        return (
-          <>
-            <b>{eventInfo.timeText}</b>
-            <i>{eventInfo.event.title}</i>
-          </>
-        )
-      }
+    // function renderEventContent(eventInfo : any) {
+    //     return (
+    //       <>
+    //         <b>{eventInfo.timeText}</b>
+    //         <i>{eventInfo.event.title}</i>
+    //       </>
+    //     )
+    //   }
       
-      function renderSidebarEvent(event: any) {
-        return (
-          <li key={event.id}>
-            <b>{formatDate(event.start, {year: 'numeric', month: 'short', day: 'numeric'})}</b>
-            <i>{event.title}</i>
-          </li>
-        )
-      }
+    //   function renderSidebarEvent(event: any) {
+    //     return (
+    //       <li key={event.id}>
+    //         <b>{formatDate(event.start, {year: 'numeric', month: 'short', day: 'numeric'})}</b>
+    //         <i>{event.title}</i>
+    //       </li>
+    //     )
+    //   }
     
   // render : 다음 스터디 일정 렌더링 //
   return (
@@ -553,37 +553,7 @@ export default function StudyDate(){
                 <div className='room-schedule'>스터디 일정</div>
                 <div className='room-date-set-box'>
                     <div className="room-date-control">
-                    <FullCalendar
-                        plugins={[ dayGridPlugin ]}
-                        // plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
-                        // headerToolbar={{
-                        // left: 'prev,next today',
-                        // center: 'title',
-                        // right: 'dayGridMonth,timeGridWeek,timeGridDay'
-                        // }}
-                        // editable={true}
-                        // selectable={true}
-                        // selectMirror={true}
-                        dayMaxEvents={true}
-                        weekends={true}
-                        locale='ko'
-                        
-                        // weekends={weekendsVisible}
-                        // initialEvents={INITIAL_EVENTS} // alternatively, use the `events` setting to fetch from a feed
-                        // select={handleDateSelect}
-                        // eventContent={renderEventContent} // custom render function
-                        // eventClick={handleEventClick}
-                        // eventsSet={handleEvents} // called after events are initialized/added/changed/removed
-                        /* you can update a remote database when these fire:
-                        eventAdd={function(){}}
-                        eventChange={function(){}}
-                        eventRemove={function(){}}
-                        */
-                        events= {[
-                            { title: 'event 1', date: '2023-11-11' },
-                            { title: 'event 2', date: '2019-04-02' }
-                        ]}
-                    />
+
                     </div>
                     <div className="room-date-contents">
                         <div className='next-study-date'>다음스터디 날짜</div>
@@ -599,7 +569,7 @@ export default function StudyDate(){
                         }
                     </div>
                 </div>
-                <div className='insert-box' onChange={onInputErrorCheckChangeHandler}>입력하기</div>
+                {/* <div className='insert-box' onChange={onInputErrorCheckChangeHandler}>입력하기</div> */}
             </div>    
         </div>
   </div>
