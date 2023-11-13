@@ -1,0 +1,37 @@
+.room-join-notice-list-item-box {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}
+
+.room-join-notice-list-item-icon-box {
+    margin-top: 10px;
+    width: 15px;
+    height: 15px;
+    align-items: center;
+}
+.room-join-notice-list-item-icon {
+    width: 100%;
+    height: 100%;
+
+    border-radius: 50% 50%;
+
+    background-image: url(assets/check-button-icon.png);
+    background-position: 50% 50%;
+    background-size: 100% 100%;
+}
+.room-join-notice-common-list-item-contents {
+    width: 100%;
+    border: none;
+    outline: none;  
+
+    color: #000;
+
+    font-family: Spoqa Han Sans Neo;
+    font-size: 25px;
+    font-weight: 400;
+
+    resize: none;
+    overflow: hidden;
+}
