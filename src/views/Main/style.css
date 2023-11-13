@@ -1,0 +1,1134 @@
+#main-top-wrapper {
+    min-width: 1440px;
+
+    padding: 32px 35px 10px;
+
+    font-family: 'Spoqa Han Sans Neo';
+
+    display: flex;
+    justify-content: center;
+    
+    background-color: rgba(232,241,255,1);
+}
+
+.main-top-container {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.main-top-up-box {
+    display: flex;
+    flex-direction: column;
+
+    flex: 1;
+    gap: 12px;
+}
+
+.main-top-up-box-studyroom-text {
+    color: rgba(0,0,0,1);
+
+    font-size: 26px;
+    font-weight: 500;
+}
+
+.main-top-up-box-studyroom-tab {
+    height: 100%;
+    width: 100%;
+}
+
+.tab-list {
+    display: flex;
+}
+
+.tab {
+    display: inline-block;
+
+    border-radius: 10px 10px 0px 0px;
+    border: 2px solid rgba(24,160,251,1);
+
+    position: relative;
+    list-style: none;
+    padding: 6px 25px;
+    cursor: pointer;
+
+    background: #FFF;
+    color: rgba(0,0,0,1);
+    font-size: 15px;
+    font-weight: 400;
+    
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.tab-selected {
+    border-radius: 10px 10px 0px 0px;
+    border: 2px solid rgba(24,160,251,1);
+    padding: 6px 25px;
+
+    background: rgba(24,160,251,1);
+    color: rgba(255,255,255,1);
+    font-size: 15px;
+    font-weight: 400;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+.my-study-room-nothing-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    gap: 20px;
+}
+
+.my-study-room-nothing-message {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 49px;
+    font-weight: 400;
+}
+
+.my-study-room-nothing-button-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 429px;
+    height: 56px;
+
+    border-radius: 5px;
+    box-shadow: 0 0 0 2px rgba(24,160,251,1) inset;
+    background-color: rgba(255,255,255,1);
+}
+
+.my-study-room-nothing-button-box:hover {
+    cursor: pointer;
+
+    color: rgba(255,255,255,1);
+    background-color: rgba(24,160,251,1);
+}
+
+.my-study-room-nothing-button-box-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 30px;
+    font-weight: 400;
+}
+
+.tap-panel {
+    display: grid;
+    grid-template-columns: 4fr 4fr 4.5fr;
+
+    height: auto;
+    
+    gap: 10px;
+
+    border-radius: 0px 0px 10px 10px;
+    box-shadow: 0 0 0 2px rgba(24,160,251,1) inset;
+    background-color: rgba(255,255,255,1);
+}
+
+.tap-panel-nothing-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 247px;
+
+    border-radius: 0px 0px 10px 10px;
+    box-shadow: 0 0 0 2px rgba(24,160,251,1) inset;
+    background-color: rgba(255,255,255,1);
+}
+
+.my-study-room-info-left-box {
+    display: flex;
+    margin: 10px 0 10px 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 0 2px rgba(24, 160, 251, 0.5) inset;
+}
+
+.my-study-room-info-box {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    margin: 3px;
+    gap: 6px;
+}
+
+.participation-study-name-box {
+    display: flex;
+    flex-direction: column;
+
+    gap: 2px;
+}
+
+.participation-study-name {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 15px;
+    font-weight: 400;
+
+    padding: 3px 20px;
+    width: 150px;
+    border-radius: 5px;
+    color: rgba(255,255,255,1);
+    background-color: rgba(24, 160, 251, 0.70);
+}
+
+.participation-study-name-text {
+    font-size: 15px;
+    font-weight: 400;
+
+    height: 38px;
+
+    margin-left: 5px;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* 라인 수 */
+    -webkit-box-orient: vertical;
+}
+
+.study-category-box {
+    display: flex;
+    margin: -5px 0 0 0;
+    gap: 10px;
+}
+
+.study-category {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 15px;
+    font-weight: 400;
+
+    width: 150px;
+    padding: 3px 20px;
+    border-radius: 5px;
+    color: rgba(255,255,255,1);
+    background-color: rgba(24, 160, 251, 0.70);
+}
+
+.study-category-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.participation-personnel-box {
+    display: flex;
+    gap: 10px;
+}
+
+.participation-personnel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 15px;
+    font-weight: 400;
+
+    width: 150px;
+    padding: 3px 20px;
+    border-radius: 5px;
+    color: rgba(255,255,255,1);
+    background-color: rgba(24, 160, 251, 0.70);
+}
+
+.participation-personnel-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.my-grade-box {
+    display: flex;
+    gap: 10px;
+}
+
+.my-grade {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 15px;
+    font-weight: 400;
+
+    width: 150px;
+    padding: 3px 20px;
+    border-radius: 5px;
+    color: rgba(255,255,255,1);
+    background-color: rgba(24, 160, 251, 0.70);
+}
+
+.my-grade-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.study-next-start-datetime-box {
+    display: flex;
+    gap: 10px;
+}
+
+.study-next-start-datetime {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 15px;
+    font-weight: 400;
+
+    width: 150px;
+    padding: 3px 20px;
+    border-radius: 5px;
+    color: rgba(255,255,255,1);
+    background-color: rgba(24, 160, 251, 0.70);
+}
+
+.study-next-start-datetime-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.study-next-start-datetime-update-button {
+    font-size: 18px;
+    font-weight: 400;
+
+    border-radius: 10px;
+    padding: 1px 8px;
+    box-shadow: 0 0 0 2px rgba(24, 160, 251, 0.70) inset;
+}
+
+.study-next-start-datetime-update-button:hover {
+    cursor: pointer;
+    color: rgba(255,255,255,1);
+    background-color: rgba(24, 160, 251, 0.70);
+}
+
+.study-leave-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: auto;
+
+    font-size: 18px;
+    font-weight: 400;
+    color: rgba(255,255,255,1);
+
+    margin: -3px 15px 0;
+
+    border-radius: 10px;
+    box-shadow: 0 0 0 1px rgba(251, 13, 13, 0.45) inset;
+    background-color: rgba(251, 13, 13, 0.45);
+}
+
+.study-leave-button:hover {
+    cursor: pointer;
+}
+
+.my-study-room-info-middle {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.my-study-room-info-middle-up-box {
+    display: flex;
+    margin: 10px 0 0 0;
+    border-radius: 5px;
+    box-shadow: 0 0 0 2px rgba(24, 160, 251, 0.5) inset;
+}
+
+.study-progress-rate-box {
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    margin: 12px 19px 9px;
+    gap: 5px;
+}
+
+.study-progress-rate-title {
+    font-size: 22px;
+    font-weight: 500;
+}
+
+.study-date-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin: 1px 0;
+    padding: 0 10px;
+
+    border-radius: 5px;
+    color: rgba(255,255,255,1);
+    background-color: rgba(24, 160, 251, 0.7);
+}
+
+.study-start-date-text {
+    font-size: 19px;
+    font-weight: 400;
+}
+
+.study-end-date-text {
+    font-size: 19px;
+    font-weight: 400;
+}
+
+.my-study-room-info-middle-down-box {
+    height: 100%;
+    display: flex;
+    margin: 0 0 10px 0;
+    border-radius: 5px;
+    box-shadow: 0 0 0 2px rgba(24, 160, 251, 0.5) inset;
+}
+
+.study-attendance-rate-box {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 12px 19px 10px;
+    gap: 7px;
+}
+
+.study-attendance-rate-title {
+    font-size: 22px;
+    font-weight: 500;
+}
+
+.study-attendance-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+
+    gap: 35px;
+    border-radius: 5px;
+
+    color: rgba(255,255,255,1);
+    background-color: rgba(24, 160, 251, 0.7);
+}
+
+.total-study-days-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 5px;
+    margin: 5px 0 5px 31px;
+    gap: 4px;
+}
+
+.attend-study-days-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 5px;
+
+    gap: 4px;
+}
+
+.late-study-days-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 5px;
+
+    gap: 4px;
+}
+
+.absent-study-days-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 5px;
+    margin: 5px 31px 5px 0;
+    gap: 4px;
+}
+
+.my-study-room-right-box {
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+}
+
+.study-todolist-box {
+    height: 100%;
+
+    display: flex;
+    margin: 10px 10px 10px 0;
+    border-radius: 5px;
+    box-shadow: 0 0 0 2px rgba(24, 160, 251, 0.5) inset;
+}
+
+.study-todolist-inner-box {
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    margin: 9px;
+    gap: 4px;
+    /* gap: 9px; */
+}
+
+.study-todolist-title {
+    font-size: 22px;
+    font-weight: 500;
+}
+
+.study-todolist-detail-box {
+    width: 100%;
+    height: auto;
+
+    display: flex;
+    flex-direction: column;
+    padding: 1px 0 1px;
+
+    flex-grow: 1;
+}
+
+.study-todolist-blank {
+    height: 2px;
+}
+
+.study-todolist-detail {
+    display: flex;
+
+    margin-bottom: 12px;
+    gap: 3px;
+}
+
+.study-todolist-detail-rast {
+    display: flex;
+
+    gap: 3px;
+}
+
+.study-todolist-check-icon-box {
+    height: 31px;
+    width: 31px;
+}
+
+.study-todolist-check-icon-box:hover {
+    cursor: pointer;
+}
+
+.study-todolist-check-icon-non-hover-box {
+    height: 31px;
+    width: 31px;
+}
+
+.study-todolist-detail-text {
+    width: 85%;
+    padding: 0 10px 0 17px;
+
+    display: flex;
+    align-items: center;
+
+    border-radius: 9px;
+    background-color: rgba(217,217,217,1);
+}
+
+.study-todolist-detail-text-ok {
+    width: 85%;
+    padding: 0 10px 0 17px;
+
+    display: flex;
+    align-items: center;
+
+    border-radius: 9px;
+    color: rgba(255,255,255,1);
+    background-color: rgba(24, 160, 251, 0.70);
+}
+
+.study-todolist-detail-textvalue {
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.my-study-room-right-button-box {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+
+    gap: 10px;
+    margin: 0 10px 10px 0;
+}
+
+.study-view-data-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    font-size: 20px;
+    font-weight: 500;
+
+
+    border-radius: 5px;
+    box-shadow: 0 0 0 2px rgba(24,160,251,1) inset;
+}
+
+.study-view-data-button:hover {
+    cursor: pointer;
+
+    color: rgba(255,255,255,1);
+    background-color: rgba(24,160,251,1);
+}
+
+.study-view-data-button-text {
+    display: flex;
+
+    margin: 6px 38px;
+}
+
+.study-start-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    font-size: 20px;
+    font-weight: 500;
+
+
+    border-radius: 5px;
+    box-shadow: 0 0 0 2px rgba(24,160,251,1) inset;
+}
+
+.study-start-button:hover {
+    cursor: pointer;
+
+    color: rgba(255,255,255,1);
+    background-color: rgba(24,160,251,1);
+}
+
+.study-start-button-text {
+    display: flex;
+
+    margin: 6px 38px;
+}
+
+.main-top-down-box {
+    display: grid;
+
+    grid-template-columns: 5fr 6fr;
+    gap: 20px;
+}
+
+.main-top-down-calendar-box {
+    display: flex;
+    flex-direction: column;
+
+    gap: 10px;
+}
+
+.main-top-down-calendar-box-text {
+    color: rgba(0,0,0,1);
+
+    font-size: 26px;
+    font-weight: 500;
+}
+
+.main-top-down-calendar {
+    height: 359px;
+
+    box-shadow: 0 0 0 2px rgba(24,160,251,1) inset;
+    border-radius: 5px;
+}
+
+.main-top-down-todolist-box {
+    display: flex;
+    flex-direction: column;
+
+    gap: 10px;
+}
+
+.main-top-down-todolist-box-text {
+    color: rgba(0,0,0,1);
+
+    font-size: 26px;
+    font-weight: 500;
+}
+
+.main-top-down-todolist {
+    height: 100%;
+    padding: 12px 17px 11px 13px;
+
+    box-shadow: 0 0 0 2px rgba(24,160,251,1) inset;
+    background-color: rgba(255,255,255,1);
+    border-radius: 5px;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 7px;
+}
+
+.main-top-down-todolist-bar {
+    display: grid;
+    grid-template-columns: 3fr 1fr 1fr;
+    grid-template-rows: repeat(3, 7px);
+    gap: 7px;
+}
+
+.main-top-down-todolist-date {
+    height: 31px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    color: rgba(255,255,255,1);
+    font-size: 18px;
+    font-weight: 500px;
+    
+    border-radius: 5px;
+    background-color: rgba(24, 160, 251, 0.70);
+}
+
+.main-top-down-todolist-icon-box {
+    width: 25px;
+    height: 25px;
+}
+
+.todolist-add-icon {
+    width: 100%;
+    height: 100%;
+
+    background-image: url(assets/todolist-add-icon.png);
+    background-position: 50% 50%;
+    background-size: 100% 100%;
+}
+
+.todolist-delete-icon {
+    width: 100%;
+    height: 100%;
+
+    background-image: url(assets/todolist-delete-icon.png);
+    background-position: 50% 50%;
+    background-size: 100% 100%;
+}
+
+.main-top-down-todolist-add-button {
+    height: 31px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: rgba(255,255,255,1);
+
+    box-shadow: 0 0 0 2px rgba(24,160,251,1) inset;
+    border-radius: 5px;
+}
+
+.main-top-down-todolist-add-button:hover {
+    cursor: pointer;
+
+    color: rgba(255,255,255,1);
+    background-color: rgba(24,160,251,1);
+}
+
+.main-top-down-todolist-add-button:hover .main-top-down-todolist-add-button-text {
+    cursor: pointer;
+
+    color: rgba(255,255,255,1);
+    background-color: rgba(24,160,251,1);
+}
+
+.main-top-down-todolist-add-button-text {
+    color: rgba(0,0,0,1);
+
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.main-top-down-todolist-delete-button {
+    height: 31px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: rgba(255,255,255,1);
+
+    box-shadow: 0 0 0 2px rgba(24,160,251,1) inset;
+    border-radius: 5px;
+}
+
+.main-top-down-todolist-delete-button:hover {
+    cursor: pointer;
+
+    color: rgba(255,255,255,1);
+    background-color: rgba(24,160,251,1);
+}
+
+.main-top-down-todolist-delete-button:hover .main-top-down-todolist-delete-button-text {
+    cursor: pointer;
+
+    color: rgba(255,255,255,1);
+    background-color: rgba(24,160,251,1);
+}
+
+.main-top-down-todolist-delete-button-text {
+    color: rgba(0,0,0,1);
+
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.main-top-down-todolist-detail-box {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    padding: 1px 0 1px;
+
+    flex-grow: 1;
+}
+
+.track-vertical {
+    top: 2px;
+    bottom: 2px;
+    right: 8px;
+    border-radius: 30px;
+    background: rgba(255, 255, 255, 0.111);
+}
+
+.track-vertical .thumb-vertical {
+    padding: 0 7px 0 0;
+    position: relative;
+    display: block;
+    width: 100%;
+    cursor: pointer;
+    border-radius: inherit;
+    background-color: rgba(24,160,251,1);
+}
+
+.main-top-down-todolist-blank {
+    height: 2px;
+}
+
+#main-middle-wrapper {
+    min-width: 1440px;
+
+    padding: 0px 35px 10px;
+
+    font-family: 'Spoqa Han Sans Neo';
+
+    display: flex;
+    justify-content: center;
+    
+    background-color: rgba(232,241,255,1);
+}
+
+.main-middle-box {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.main-middle-box-recommend-studyroom-text {
+    color: rgba(0,0,0,1);
+
+    font-size: 26px;
+    font-weight: 500;
+}
+
+.main-middle-box-recommend-studyroom {
+    display: grid;
+
+    padding: 13px 25px;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr; 
+
+    border-radius: 5px;
+    box-shadow: 0 0 0 2px rgba(24,160,251,1) inset;
+
+    gap: 13px;
+}
+
+#main-bottom-wrapper {
+    min-width: 1440px;
+
+    padding: 0px 35px 10px;
+
+    font-family: 'Spoqa Han Sans Neo';
+
+    display: flex;
+    justify-content: center;
+    
+    background-color: rgba(232,241,255,1);
+}
+
+.main-bottom-box {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.main-bottom-box-studyroom-search-text {
+    color: rgba(0,0,0,1);
+
+    font-size: 26px;
+    font-weight: 500;
+}
+
+.main-bottom-box-studyroom-search {
+    display: flex;
+    flex-direction: column;
+
+    padding: 19px 15px 22px;
+
+    border-radius: 5px;
+    box-shadow: 0 0 0 2px rgba(24,160,251,1) inset;
+}
+
+.main-bottom-box-studyroom-search-box {
+    display: flex;
+    align-items: center;
+
+    margin-left: auto;
+
+    gap: 10px;
+}
+
+.main-bottom-box-studyroom-total {
+    font-size: 22px;
+    font-weight: 400;
+}
+
+.main-bottom-box-studyroom-search-input-box {
+    width: 449px;
+    height: 38px;
+
+    padding: 4px 15px;
+
+    border-radius: 30px;
+    background-color: rgba(255,255,255,1);
+    box-shadow: 0 0 0 2px rgba(24, 160, 251, 0.5) inset;
+
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.main-bottom-box-studyroom-search-input {
+    flex: 1;
+
+    border: none;
+    background: none;
+    outline: none;
+
+    color: rgba(176,176,176,1);
+
+    font-size: 21px;
+    font-weight: 400;
+}
+
+.search-icon {
+    width: 100%;
+    height: 100%;
+
+    background-image: url(../../assets/search-icon.png);
+    background-position: 50% 50%;
+    background-size: 100% 100%;
+}
+
+.main-bottom-box-studyroom-category-box {
+    display: flex;
+    align-items: center;
+
+    margin-left: auto;
+    margin-top: 15px;
+
+    gap: 5px;
+}
+
+.main-bottom-box-studyroom-category-title {
+    font-size: 22px;
+    font-weight: 400;
+
+    margin-right: 10px;
+}
+
+.main-bottom-box-studyroom-category-button-selected {
+    width: 98px;
+    height: 38px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 25px;
+    font-weight: 400;
+
+    color: rgba(255,255,255,1);
+    background-color: rgba(24, 160, 251, 0.7);
+    box-shadow: 0 0 0 2px rgba(24,160,251,1) inset;
+    border-radius: 10px;
+}
+
+.main-bottom-box-studyroom-category-button-selected:hover {
+    cursor: pointer;
+}
+
+.main-bottom-box-studyroom-category-button {
+    width: 98px;
+    height: 38px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 25px;
+    font-weight: 400;
+
+    color: rgba(0,0,0,1);
+    background-color: rgba(255,255,255,1);
+    box-shadow: 0 0 0 2px rgba(24,160,251,1) inset;
+    border-radius: 10px;
+}
+
+.main-bottom-box-studyroom-category-button:hover {
+    cursor: pointer;
+}
+
+.main-bottom-box-studyroom-pubilc-check-category-box {
+    display: flex;
+    align-items: center;
+
+    margin-left: auto;
+    margin-top: 15px;
+
+    gap: 5px;
+}
+
+.main-bottom-box-studyroom-public-check-category-title {
+    font-size: 22px;
+    font-weight: 400;
+
+    margin-right: 10px;
+}
+
+.main-bottom-box-studyroom-public-check-category-button-selected {
+    width: 98px;
+    height: 38px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 25px;
+    font-weight: 400;
+
+    color: rgba(255,255,255,1);
+    background-color: rgba(24, 160, 251, 0.7);
+    box-shadow: 0 0 0 2px rgba(24,160,251,1) inset;
+    border-radius: 10px;
+}
+
+.main-bottom-box-studyroom-public-check-category-button-selected:hover {
+    cursor: pointer;
+}
+
+.main-bottom-box-studyroom-public-check-category-button {
+    width: 98px;
+    height: 38px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 25px;
+    font-weight: 400;
+
+    color: rgba(0,0,0,1);
+    background-color: rgba(255,255,255,1);
+    box-shadow: 0 0 0 2px rgba(24,160,251,1) inset;
+    border-radius: 10px;
+}
+
+.main-bottom-box-studyroom-public-check-category-button:hover {
+    cursor: pointer;
+}
+
+.main-bottom-box-studyroom {
+    display: flex;
+    flex-direction: column;
+
+    margin-top: 37px;
+    gap: 10px;
+}
+
+.main-bottom-box-studyroom-line {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+
+    gap: 8px;
+}
+
+
+.main-bottom-box-studyroom-more-detail-button {
+    width: 100%;
+    height: 51px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-top: 21px;
+
+    font-size: 30px;
+    font-weight: 500;
+
+    border-radius: 5px;
+    background-color: rgba(255,255,255,1);
+    box-shadow: 0 0 0 2px rgba(24,160,251,1) inset;
+}
+
+.main-bottom-box-studyroom-more-detail-button:hover {
+  cursor: pointer;
+}

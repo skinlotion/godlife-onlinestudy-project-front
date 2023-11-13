@@ -1,0 +1,35 @@
+.my-todolist-inputbox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.my-todolist-inputbox-container {
+    height: 31px;
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+
+    background-color: rgba(217,217,217,1);
+    box-shadow: 0 0 0 2px rgba(24, 160, 251, 0.5) inset;
+}
+
+.my-todolist-inputbox-container:hover {
+    background-color: rgba(255,255,255,1);;
+    box-shadow: 0 0 0 2px rgba(24,160,251,1) inset;
+}
+
+.my-todolist-input {
+    border: none;
+    background: none;
+    outline: none;
+
+    flex: 1;
+    padding: 0 10px;
+
+    color: rgba(0, 0, 0, 0.7);
+    font-size: 17px;
+    font-weight: 400;
+}
