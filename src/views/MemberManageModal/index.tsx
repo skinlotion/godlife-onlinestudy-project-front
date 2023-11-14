@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import './style.css';
 import { userGradeListMock } from 'mocks';
 import { Scrollbars } from 'react-custom-scrollbars-2';
 import { UserGradeList } from 'types';
 import ForceExitModal from 'components/ForceExitModal';
+import './style.css';
 
 //           component: 멤버 관리 리스트 컴포넌트           //
 export default function MemberManageModal({modalCloseHandler}: {modalCloseHandler: () => void}) {
@@ -13,15 +13,16 @@ export default function MemberManageModal({modalCloseHandler}: {modalCloseHandle
         userGradeList: UserGradeList;
     }
 
-    //           event handler: MyPage의 modalCloseHandler를 가져와서 이벤트 처리           //
-    const closeModal = () => {
-        modalCloseHandler();
-    }
+    //           event handler: 모달창이 아닌 다른곳을 클릭했을 때 모달창이 닫히도록 처리           //
+    const closeModalOutsideClickHandler = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+        if (event.target === event.currentTarget) {
+            modalCloseHandler();
+        }
+    };
 
     //           component: 멤버 관리 리스트 아이템 컴포넌트           //
     function MemberManageList({ userGradeList }: Props) {
 
-        
         //           state: Properties           //
         const {userNickname, userProfileImageUrl, userGrade} = userGradeList;
         //           state: 프로필 이미지 상태           //
@@ -60,6 +61,8 @@ export default function MemberManageModal({modalCloseHandler}: {modalCloseHandle
         useEffect(() => {
             if (userProfileImageUrl) {
                 setProfileImage(userProfileImageUrl);
+            } else {
+                setProfileImage('');
             }
         }, [userProfileImageUrl]);
 
@@ -108,9 +111,9 @@ export default function MemberManageModal({modalCloseHandler}: {modalCloseHandle
 
     //           render: 멤버 관리 리스트 컴포넌트 렌더링           //
     return (
-        <div id='member-manage-wrapper'>
+        <div id='member-manage-wrapper' onClick={closeModalOutsideClickHandler}>
             <div className='member-manage-card'>
-                <div className='member-button-box' onClick={closeModal}>
+                <div className='member-button-box' onClick={modalCloseHandler}>
                 <button type='button' className='modal-close-button'>X</button>
                 </div>
                 <div className='member-manage-main-box'>

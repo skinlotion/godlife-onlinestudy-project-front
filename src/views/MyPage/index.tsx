@@ -11,7 +11,6 @@ import { useParams } from 'react-router-dom';
 import useUserStore from 'stores/user.store';
 import MemberManageModal from 'views/MemberManageModal';
 import Modal from 'react-bootstrap/Modal';
-// import 'bootstrap/dist/css/bootstrap.min.css';
 import './style.css';
 
 //          component: 마이페이지           //
@@ -172,9 +171,7 @@ export default function MyPage() {
                                 <div className='user-grade-standard-box' onClick={modalOpenHandler}>
                                     <div className='user-grade-standard-box-text'>{'등급기준 보러가기'}</div>
                                 </div>
-                                <Modal show={show} centered onHide={modalCloseHandler}>
-                                    {<MemberManageModal modalCloseHandler={modalCloseHandler} />}
-                                </Modal>
+                                {<MemberManageModal modalCloseHandler={modalCloseHandler} />}
                             </div>
                         </div>
                     </div>
