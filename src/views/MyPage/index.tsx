@@ -11,6 +11,8 @@ import { useParams } from 'react-router-dom';
 import useUserStore from 'stores/user.store';
 import MemberManageModal from 'views/MemberManageModal';
 import Modal from 'react-bootstrap/Modal';
+// import 'bootstrap/dist/css/bootstrap.min.css';
+import './style.css';
 
 //          component: 마이페이지           //
 export default function MyPage() {

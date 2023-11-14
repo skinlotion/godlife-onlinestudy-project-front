@@ -1,5 +1,5 @@
 #todo-wrapper {
-    font-family: Spoqa Han Sans Neo;
+    font-family: 'Spoqa Han Sans Neo';
     background-color: rgba(255, 255, 255, 1);
     display: flex;
     align-items: center;
@@ -23,9 +23,6 @@
 }
 
 .todo-button-box {
-    width: 52px;
-    height: 40px;
-
     margin: 15px 25px 15px 823px;
 
     display: flex;
@@ -33,21 +30,21 @@
     justify-content: center;
 }
 
-.todo-button-box:hover {
-    cursor: pointer;
-}
-
-.btn :hover {
-    cursor: pointer;
-}
-
-.btn-primary {
+.modal-close-button {
     width: 52px;
     height: 40px;
+
+    background-color: rgba(255, 255, 255, 1);
+    border: 3px solid rgba(24, 160, 251, 1);
+    border-radius: 10px 10px;
+
+    font-family: 'Spoqa Han Sans Neo';
+    font-size: 20px;
 }
 
-.btn-primary:hover {
+.modal-close-button:hover {
     cursor: pointer;
+    background-color: rgba(24, 160, 251, 0.50);
 }
 
 .todo-title-box {
@@ -77,7 +74,6 @@
 }
 
 .todo-write-box {
-
     width: 845px;
     height: 50px;
     margin: 0px 10px 15px 45px;
@@ -94,7 +90,6 @@
     color: #000;
 
     text-align: center;
-    font-family: Spoqa Han Sans Neo;
     font-size: 20px;
     font-style: normal;
     font-weight: 400;
@@ -144,7 +139,6 @@
 }
 
 .todo-write-plus-box {
-
     width: 80px;
     height: 50px;
 
@@ -161,7 +155,7 @@
 
     color: rgba(0, 0, 0, 1);
     text-align: center;
-    font-family: Spoqa Han Sans Neo;
+    font-family: 'Spoqa Han Sans Neo';
     font-size: 20px;
     font-weight: 400;
     line-height: normal;
@@ -169,6 +163,7 @@
 }
 
 .todo-write-plus-box:hover {
+    background-color: rgba(24, 160, 251, 0.50);
     cursor: pointer;
 }
 
@@ -180,10 +175,10 @@
     align-items: center;
     justify-content: center;
 
-    background-color: rgba(255, 255, 255, 1);
-
     border-radius: 10px;
     margin-bottom: 80px;
+
+    background-color: rgba(255, 255, 255, 1);
 }
 
 .todo-contents-left-box {

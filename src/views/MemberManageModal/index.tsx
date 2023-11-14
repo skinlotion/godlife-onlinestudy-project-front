@@ -111,7 +111,7 @@ export default function MemberManageModal({modalCloseHandler}: {modalCloseHandle
         <div id='member-manage-wrapper'>
             <div className='member-manage-card'>
                 <div className='member-button-box' onClick={closeModal}>
-                    <button type='button' className='btn btn-primary' disabled data-bs-toggle='button'>X</button>
+                <button type='button' className='modal-close-button'>X</button>
                 </div>
                 <div className='member-manage-main-box'>
                 <Scrollbars renderTrackVertical={(props) => <div {...props} className='member-manage-track-vertical' />} 

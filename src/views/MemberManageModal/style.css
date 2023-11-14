@@ -119,6 +119,7 @@
     
     display: flex;
     align-items: center;
+    justify-content: center;
     flex-direction: column;
     
     background-color: rgba(232, 241, 255,1);
@@ -126,9 +127,6 @@
 }
 
 .member-button-box {
-    width: 52px;
-    height: 40px;
-
     margin: 15px 25px 15px 823px;
 
     display: flex;
@@ -136,21 +134,21 @@
     justify-content: center;
 }
 
-.member-button-box{
-    cursor: pointer;
-}
-
-.btn:hover{
-    cursor: pointer;
-}
-
-.btn-primary {
+.modal-close-button {
     width: 52px;
     height: 40px;
+
+    background-color: rgba(255, 255, 255, 1);
+    border: 3px solid rgba(24, 160, 251, 1);
+    border-radius: 10px 10px;
+
+    font-family: 'Spoqa Han Sans Neo';
+    font-size: 20px;
 }
 
-.btn-primary:hover{
+.modal-close-button:hover {
     cursor: pointer;
+    background-color: rgba(24, 160, 251, 0.50);
 }
 
 .member-manage-main-box {
