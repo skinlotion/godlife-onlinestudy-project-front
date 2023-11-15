@@ -1,12 +1,12 @@
 import dayjs from "dayjs";
 
 export const convertUrlsToFiles = async (urls: string[]) => {
-    const files = [];
-    for (let index = 0; index < urls.length; index++) {
-        const file = await convertUrlToFile(urls[index]);
-        // files.push(file);
-    }
-    return files;
+    // const files = [];
+    // for (let index = 0; index < urls.length; index++) {
+    //     const file = await convertUrlToFile(urls[index]);
+    //     // files.push(file);
+    // }
+    // return files;
 }
 
 export const convertUrlToFile = async (url: string) => {

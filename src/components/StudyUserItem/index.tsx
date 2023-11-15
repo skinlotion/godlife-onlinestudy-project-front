@@ -1,4 +1,5 @@
 
+import { StudyUserListItem } from 'types';
 import './style.css';
 import DefaultProfileImage from 'assets/default-profile-image.png';
 
@@ -9,7 +10,7 @@ interface Props {
 export default function UserListItem({userListItem}: Props){
   
     //          state: Properties                               //
-    const { studyNumber, userEmail, studyGrade,studyProfileImageUrl,studyNickName} = userListItem;
+    const { studyNumber, studyUserEmail, studyGrade,studyProfileImageUrl,studyNickName} = userListItem;
 
 
 

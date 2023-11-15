@@ -42,8 +42,8 @@ function App() {
   
   return (
     <div>
-      <MyPage />
-      {/* <StudyCreate /> */}
+      {/* <MyPage /> */}
+      <StudyCreate />
       {/* <HostNoticeManageModal /> */}
       {/* <NoticeModal /> */}
       {/* <HostToDoListManageModal /> */}

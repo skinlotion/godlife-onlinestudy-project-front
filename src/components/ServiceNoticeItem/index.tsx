@@ -1,6 +1,7 @@
 
 import './style.css';
 import { ChangeEvent, useRef, useState } from 'react';
+import { StudyNoticeListItem } from 'types';
 import { cutString } from 'utils';
 
 interface Props {
