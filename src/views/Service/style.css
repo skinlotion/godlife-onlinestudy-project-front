@@ -1,18 +1,18 @@
 #service-wrapper{
 
-    width: 100vw;
-    height: 100vh;
-
     display: flex;
     flex-direction: column;
 
     background-color: rgba(232,241,255,1);
+    /* display: flex;
+    align-items: center;
+    justify-content: center; */
 }
-
+/*     render: 헤더 컴포넌트 렌더링          */
 .service-header{
     
     height: 62px;
-    width: 100%;
+    max-width: 1440px;
 
     display: flex;
     align-items: center;
@@ -25,9 +25,7 @@
     width: 131px;
     height: 31px;
 
-
-    /* margin-left: 25px; */
-    margin: 13px 0px 18px 25px;
+    margin: 8px 0px 0px 35px;
     
     display: flex;
 
@@ -69,8 +67,7 @@
 }
 
 .header-center{
-
-    margin: 12px 549px 15px 87px;
+    margin: 12px 660px 0px 87px;
     height: 35px;
     width: calc(100vw-202px-28px-24px);
     display: flex;
@@ -80,7 +77,7 @@
 }
 
 .header-room-title-box{
-    width: 280px;
+    width: 330px;
     height: 35px;
 
     display: flex;
@@ -138,13 +135,11 @@
 }
 
 .header-end{
-    width: 165px;
     height: 24px;
-
-    margin: 18px 0px 20px 0px;
     display: flex;
     flex-direction: row;
-    gap:28px
+    gap:28px;
+    justify-content:right;
 }
 
 .header-setting{
@@ -253,8 +248,10 @@
 }
 
 .service-container{
-    /* height: calc(vh-62px); */
-    width: 100%;
+    width: calc(100vw-216px);
+    max-width: 1440px;
+    height: 1024px;
+    max-height: 1024px;
     display: flex;
 
     flex-direction: row;
@@ -262,18 +259,22 @@
 }
 
 .side-bar{
-    width: 238px;
-    height: calc(100vh-62px);   
+    max-width: 238px;
+    height: calc(vh-62px);   
+    /* padding-top: 62px; */
     background-color: rgba(232,241,255,1);
     
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-bottom: 53px;
+
 }
 
 .alert-box{
     /* margin: 0px 0px 4px 15px; */
+    
     margin-bottom: 10px;
     width: 170px;
     height: 35px;
@@ -455,9 +456,7 @@
 
     background-color: rgba(255,255,255,1);
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    padding: 2px 2px;
 }
 
 .list-box{
@@ -492,10 +491,9 @@
     background-position: 50% 50%;
 }
 
-.list-icon ::hover{
+.list-icon :hover{
     cursor: pointer;
 }
-
 
 .list-title{
 
@@ -523,16 +521,14 @@
 
     background-color: rgba(255,255,255,1);
 
-    display: flex;
-    /* align-items: center; */
-    justify-content: center;
-
+    padding: 2px 2px;
 }
 
 .comment-box{
 
     margin: 0px 17px 32px 20px;
-    height: 590px;
+    height: 515px;
+    max-height: 515px;
     width: 192px;
 
     border-radius: 17.266px;
@@ -549,6 +545,8 @@
     width: 170px;
     height: 25px;
     
+    padding-top: 15px;
+
     display: flex;
     align-items: center;
     justify-content: center;
@@ -612,11 +610,11 @@
 }
 
 .comment-list{
-    height: 470px;
+    height: 390px;
     width: 185px;
 
-    margin: 0px 0px  10px;
-    overflow:scroll;
+    margin: 11px 0px  10px;
+    /* overflow:scroll; */
 
     display: flex;
     justify-content: center;
@@ -626,24 +624,108 @@
     scrollbar-face-color: rgba(24, 160, 251, 1);
     scrollbar-track-color : rgba(24, 160, 251, 1)
 }
-/* 
-.comment-list::-webkit-scrollbar-button{
-    
-    background: rgba(24, 160, 251, 1);
-    width: 10px;
-    height: 157px;
-    
-} */
-
 
 .comment-record-box{
     width: 174px;
-    height: 452px;
+    min-width: 174px;
+    height: 360px;
 
-    margin-top: 18px;
+    margin-top: 6px;
 
-    /* background-color: rgba(0,255,0,025); */
+}
 
+.comment-list-item-top{
+    width: 128px;
+    height: 15px;
+    
+    display: flex;  
+    align-items: center;
+    flex-direction: row;  
+    gap: 2px;
+}
+
+.comment-list-class-image-box{
+    width: 15px;
+    height: 15px;
+    align-items: center;
+}
+
+.comment-list-class-king-image{
+    width: 100%;
+    height: 100%;
+
+    border-radius: 50% 50%;
+
+    background-image: url(assets/king-icon.png);    
+    background-position: 50% 50%;
+    background-size: 100% 100%;
+}
+
+.comment-list-class-normal-image{
+    width: 100%;
+    height: 100%;
+
+    border-radius: 50% 50%;
+
+    background-image: url(assets/normal-icon.png);
+    background-position: 50% 50%;
+    background-size: 100% 100%;   
+}
+
+.comment-list-profile-image-box{
+    width: 15px;
+    height: 15px;
+    align-items: center;
+}
+
+.comment-list-profile-image{
+    border-radius: 50% 50%;
+    width: 100%;
+    height: 100%;
+
+
+    background-position: 50% 50%;
+    background-size: 100% 100%;
+}
+
+
+.comment-list-user-grade{
+    align-items: center;
+    color: rgba(0, 0, 0, 1);
+    font-family: 'Spoqa Han Sans Neo';
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: -0.18px;
+    text-align: center;
+}
+
+.comment-list-user-nickname{
+    align-items: center;
+    color: rgba(0, 0, 0, 1);
+    font-family: 'Spoqa Han Sans Neo';
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: -0.18px;    
+    text-align: center;
+}
+
+.comment-list-edit-icon-box{
+    width:10px;
+    height: 10px;
+    align-items: center;
+}
+
+.comment-list-edit-icon{
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    background-image: url(assets/comment-edit-icon.png);
+    background-position: 50% 50%;
+    background-size: 100% 100%;
+}
+
+.comment-list-edit-icon:hover{
+    cursor: pointer;
 }
 
 .comment-record-box:hover{
@@ -659,7 +741,6 @@
 
     margin: 11px 5px 9px 0px;
 
-    /* overflow: scroll; */
 }
 
 
@@ -671,14 +752,10 @@
     justify-content: center;
     align-items: center;
 
-
     border-radius: 10px;
 }
 
-
-
-.comment-index{
-    width: 145px;
+.comment-write{
     max-height: 60px;
     border-radius: 10px;
     background-color: rgba(255,255,255,1);
@@ -686,6 +763,7 @@
     overflow: scroll;
     resize: none;
     border: none;
+    outline: none;
     /* font */
     font-size: 14px;
     font-weight: 400;
@@ -693,45 +771,47 @@
     -ms-overflow-style: none;
 }
 
-.comment-index::-webkit-scrollbar{
+.comment-write::-webkit-scrollbar{
     display: none;
 }
 /* chat card component */
 
 .chat-box{
     width: 190px;
-    height: 710px;
+    height: 820px;
 
-    margin: 0px 6px 149px;
+    margin: 0px 20px 90px;
 
     border-radius: 15px;
     border: 3px solid rgba(24, 160, 251, 0.50);
     
     display: flex;
-    justify-content: center;
+
+
     flex-direction: column;
 
     background-color: rgba(232,241,255,1);
+    padding: 0px 10px 5px;
 }
 
 .comment-chat-box{
     width: 100%;
-    height : 621px;
+    height : 754px;
+
 }
 
-.comment-contents-log-box{
+.chat-write-box{
     width: 170px;
     height: 80px;
 
-    margin: 0px 7px 6px;
+    /* margin: 0px 7px 6px; */
     display: flex;
-    justify-content: center;
     border-radius: 10px;
     
 }
 
-.comment-contents-index{
-    width: 170px;
+.chat-write{
+
     max-height: 80px;
     border-radius: 10px;
     
@@ -758,36 +838,51 @@
 }
 
 .service-contents{
-    width: 1225px;
-    height: 885px;
 
-    margin: 2px 13px 11px 0px;
-    background: rgba(255,255,255,1);
+    padding-top: 17px;
+    background-color: rgba(255,255,255,1);
     
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.study-info{
-    width: 1199px;
-    height: 715px;
-
-    margin: 13px 12px 0px 14px;
-
     display: flex;
     flex-direction: row;
-    gap: 14px;
+    max-height: 1000px;
+}
 
-    border-radius: 17.266px;
+
+
+.study-list-contents-box{
+
+    height: 920px;
+
+    margin: 0px 15px 80px 25px;
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    gap: 16px;
+
+}
+
+.study-image-container-info{
+    width: 1160px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+
+
+    border-radius: 17.3px;
 
     background: rgba(255,255,255,1);
     
+    /* margin-left: 10px; */
 }
 
-.study-info-material-box{
-    width: 990px;
-    height: 715px;
+/* render  :자료 이미지 카드 컴포넌트 */
+.study-image-material-box{
+    width: 1140px;
+    height: 800px;
 
     border-radius: 17.266px;
     border: 3.5px solid rgba(24, 160, 251, 0.50);
@@ -796,13 +891,14 @@
     display: flex;
     align-items: center;
     justify-content: center;
+
+    margin-bottom: 16px;
 }
 
-.study-info-material{
-    width: 970px;
-    height: 695px;
+.study-image-material{
+    width: 1115px;
+    height: 780px;
     
-    border-radius: 10px;
     border: 1.151px solid rgba(0,0,0,1);
 
     display: flex;
@@ -810,64 +906,32 @@
     justify-content: center;    
 }
 
-.study-info-memeber-info-box{
-    width: 195px;
-    height: 715px;
+/*       render : 자료 이미지 리스트 컴포넌트 렌더링       */
 
-    display: flex;
-    flex-direction: column;
-
-    border-radius: 15px;
-    border: 3.5px solid rgba(24, 160, 251, 0.50);
-
-    background-color: rgba(232,241,255,1);
-
-}
-
-.study-info-memeber-info{
-
-}
-
-.study-list-contents-box{
-    width: 1199px;
-    height: 130px;
-
-    margin: 0px 12px 14px 14px;
-
-    background-color: rgba(255,255,255,1);
-
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-    gap: 16px;
-}
-
-
-.study-list-contents{
-
-    width: 988px;
+.study-list-image-contents{
+    width: 1200px;
     height: 128px;
 
-    margin-top: 2px ;
-
     display: flex;
     flex-direction: row;
+    align-items: center;
+    justify-content: center;
     gap: 4px;
 
+    /* margin-left: 10px; */
 }
 
 .left-arrow-box{
     width: 30px;
-    height: 128px;
-    border-radius: 34.531px 0px 0px 34.531px;
-    border: 1.151px solid rgba(24, 160, 251, 0.50);
+    height: 146px;
+    border-radius: 34px 0px 0px 34px;
+    border: 1px solid rgba(24, 160, 251, 0.50);
     
     display: flex;
     align-items: center;
     justify-content: center;
 
     background-color: rgba(232,241,255,1);   
-
 }
 
 .left-arrow{
@@ -883,62 +947,105 @@
     cursor: pointer;
 }
 
-.study-list-box{
-    width: 920px;
-    height: 128px;
+.study-list-center{
+    width: 1080px;
+    height: 146px;
+    
+    display: flex;
+    align-items: center;
 
     background-color: rgba(232,241,255,1); 
+    
+    padding-left: 30px;
+}
+
+.study-list-box{
+    width: 900px;
+    height: 128px;
 
     display: flex;
     align-items: center;
 
     flex-direction: row;
-    gap: 20px;
+    gap: 15px;
+
+    margin-right: 20px;
+    
 }
 
 .study-list{
     width: 770px;
     height: 116px;
 
-    margin-left: 10px;
-    
     display: flex;
     align-items: center; 
 
     flex-direction: row;
-    gap: 10px;
+
+    border: none;
+}
+
+.study-material-image-box{
+    width: 140px;
+    height: 130px;    
+
+    position: relative;
+}
+
+.study-material-image-box:hover{
+    cursor: pointer;
+}
+
+.study-material-image{
+    width: 140px;
+    height: 130px;    
 
 }
-.study-list-material-box{
+
+.study-material-image:hover{
+    cursor: pointer;
+}
+
+.delete-button-box{
+    width: 20px;
+    height: 20px;
+
+    position: absolute;
+    top: 5px;
+    right: 5px;
+
+    background-image: url(assets/elimate-icon.png);
+    background-position: 50% 50%;
+    background-size: 100% 100%;
+}
+
+.delete-button-box:hover{
+    cursor: pointer;
+}
+
+.material-image{
     width: 120px;
     height: 115px;
     
     border: 1px solid rgba(0,0,0,1);
-    background-color: rgba(0,241,255,1);      
+    background-position: 50% 50%;
+    background-size: 100% 100%;
 }
 
-.study-list-material-default-box{
+.material-image-acticve{
     width: 120px;
     height: 115px;
-    
+
     border: 1px solid rgba(0,0,0,1);
+    background-position: 50% 50%;
+    background-size: 100% 100%;
 
-    background-color: rgba(232,241,255,1);  
+    position: relative;
 }
-    /* 
-    .image-close{
-        position: absolute;
-        top: 5px;
-        right: 5px;
 
-        width: 20px;
-        height: 20px;
-
-        background-image: url(assets/image-delete-icon.png);
-        background-position: 50% 50%;
-        background-size: 100% 100%;
-    } */
-
+.material-image:hover{
+    cursor: pointer;
+}
 
 .study-list-materials-box{
     width: 100%;
@@ -947,49 +1054,40 @@
     position: relative;
 }
 
-.study-list-material{
+
+
+.study-list-move-icon-box {
+    width: 100px;
+    height: 100px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: rgba(232,241,255,1);   
+    margin-left: 5px;
+}
+
+.study-list-move-icon-box:hover {
+    cursor: pointer;
+}
+
+.study-list-move-icon{
     width: 100%;
     height: 100%;
-}
-
-.image-close{
-    position: absolute;
-    top: 5px;
-    right: 5px;
-}
-
-.study-list-icon-box{
-
-    /* margin-right: 20px; */
-    margin: 14px 20px 14px 0px;
-
-    width: 100px;
-    height: 100px;
-
-    background-color: rgba(0,0,255,0.5);
-
-}
-
-.study-list-icon{
-    width: 100px;
-    height: 100px;
     
     background-image: url(assets/plus-icon.png);
     background-size: 100% 100%;
     background-position: 50% 50%;
-    
 }
 
-.study-list-icon:hover{
-    cursor: pointer;
-}
 
 .right-arrow-box{
 
     width: 30px;
-    height: 128px;
+    height: 146px;
     border-radius: 0px 34.531px 34.531px 0px;
-    border: 1.151px solid rgba(24, 160, 251, 0.50);
+    border: 1px solid rgba(24, 160, 251, 0.50);
     
     display: flex;
     align-items: center;
@@ -1012,17 +1110,157 @@
     cursor: pointer;
 }
 
-.icon-box-list{
+/* render : 스터디 인원  정보 컴포넌트 */
+.study-info-memeber-info-box{
+    width: 228px;
+    height: 820px;
 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 15px;
+    border: 3.5px solid rgba(24, 160, 251, 0.50);
+
+
+    background-color: rgba(232,241,255,1);
+    
+    padding-left: 30px;
+}
+
+.study-info-memeber-info{
+    width: 195px;
+    height: 715px;
+
+    display: flex;
+    align-items: center;
+}
+
+.user-wrapper{
+    width: 155px;
+    height: 145px;
+    
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    
+    position: relative;
+}
+
+.user-hand-position{
+    position: absolute;
+    top: -1dpx;
+    left: -10px;
+}
+
+.user-hand-box{
+    width: 55px;
+    height: 55px;
+}
+
+.user-hand{
+    width: 100%;
+    height: 100%;
+
+    background-image: url(assets/hand-icon.png);
+    background-size: 100% 100%;
+    background-position: 50% 50%;
+}
+
+.user-top{
+    margin: 20px 7.5px 2px;
+    width: 140px;
+    height: 103px;
+
+    display: flex;
+    flex-direction: row;
+}
+
+.user-top-image-default-box{
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-image: url(assets/study-user-icon.png);
+    background-position: 50% 50%;
+    background-size: 100% 100%;
+}
+
+.user-bottom{
+    width: 119px;
+    height: 20px;
+
+    margin-bottom: 5px;
+
+    margin: 1px 7.5px 2px;
+    display: flex;
+    flex-direction: row;
+
+    gap: 2px;
+}
+
+.user-bottom-grade-box{
+    width: 15px;
+    height: 15px;
+}
+
+.user-bottom-grade-king-image{
+    width: 100%;
+    height: 100%;
+
+    border-radius: 50% 50%;
+
+    background-image: url(assets/king-icon.png);    
+    background-position: 50% 50%;
+    background-size: 100% 100%;
+}
+
+.user-bottom-grade-normal-image{
+    width: 100%;
+    height: 100%;
+
+    border-radius: 50% 50%;
+
+    background-image: url(assets/normal-icon.png);
+    background-position: 50% 50%;
+    background-size: 100% 100%; 
+}
+
+.user-bottom-profile-box{
+    width: 15px;
+    height: 15px;
+}
+
+.comment-list-profile-image{
+    width: 100%;
+    height: 100%;
+
+    border-radius: 50% 50%;
+
+    background-position: 50% 50%;
+    background-size: 100% 100%; 
+}
+
+.user-bottom-nickname{
+    color: rgba(0,0,0,1);
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: -0.18px;
+    font-family: Spoqa Han Sans Neo;
+}
+
+/*        render : 스터디 인원  동작 컴포넌트 렌더링      */
+.icon-box-list{
     width: 195px;
     height: 90px;        
-    margin: 0px 12px 54px 0px;
+    margin: 0px 12px 10px 0px;
     
     display: flex;
     align-items: center;
     gap: 10px;
     flex-direction: column;
-
 }
 
 .check-icon-box{
@@ -1072,6 +1310,8 @@
 
     text-wrap: nowrap;
 }
+
+
 
 .hand-icon-box{
     width: 195px;
@@ -1126,4 +1366,22 @@
     letter-spacing: -0.3px;
         
     text-wrap: nowrap;
+}
+
+.comment-track-vertical {
+    top: 2px;
+    bottom: 2px;
+    right: 8px;
+    border-radius: 30px;
+    background: rgba(255, 255, 255, 0.111);
+}
+
+.comment-track-vertical .comment-thumb-vertical {
+    padding: 0 8px 0 0;
+    position: relative;
+    display: block;
+    width: 100%;
+    cursor: pointer;
+    border-radius: inherit;
+    background-color: rgba(24, 160, 251, 1);
 }

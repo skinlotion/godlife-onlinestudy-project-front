@@ -1,4 +1,5 @@
 // import { StudyMaterialListMock } from 'mocks';
+import { StudyMaterialListMock } from 'mocks';
 import {useState, useEffect } from 'react';
 // import { StudyMaterialViewListItem } from 'types';
 
