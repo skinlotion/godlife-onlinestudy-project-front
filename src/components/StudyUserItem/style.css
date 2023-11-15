@@ -1,0 +1,118 @@
+.user-wrapper{
+
+    width: 155px;
+    height: 145px;
+    
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    
+    position: relative;
+}
+
+.user-hand-position{
+    position: absolute;
+    top: -1dpx;
+    left: -10px;
+}
+
+.user-hand-box{
+    width: 55px;
+    height: 55px;
+}
+
+.user-hand{
+    width: 100%;
+    height: 100%;
+
+    background-image: url(assets/hand-icon.png);
+    background-size: 100% 100%;
+    background-position: 50% 50%;
+}
+
+.user-top{
+    margin: 20px 7.5px 2px;
+    width: 140px;
+    height: 103px;
+
+    display: flex;
+    flex-direction: row;
+}
+
+.user-top-image-default-box{
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-image: url(assets/study-user-icon.png);
+    background-position: 50% 50%;
+    background-size: 100% 100%;
+}
+
+.user-bottom{
+
+    width: 119px;
+    height: 20px;
+
+    margin-bottom: 5px;
+
+    margin: 1px 7.5px 2px;
+    display: flex;
+    flex-direction: row;
+
+    gap: 2px;
+}
+
+.user-bottom-grade-box{
+    width: 15px;
+    height: 15px;
+
+}
+
+.user-bottom-grade-king-image{
+    width: 100%;
+    height: 100%;
+
+    border-radius: 50% 50%;
+
+    background-image: url(assets/king-icon.png);    
+    background-position: 50% 50%;
+    background-size: 100% 100%;
+}
+
+.user-bottom-grade-normal-image{
+    width: 100%;
+    height: 100%;
+
+    border-radius: 50% 50%;
+
+    background-image: url(assets/normal-icon.png);
+    background-position: 50% 50%;
+    background-size: 100% 100%; 
+}
+
+.user-bottom-profile-box{
+    width: 15px;
+    height: 15px;
+}
+
+.comment-list-profile-image{
+    width: 100%;
+    height: 100%;
+
+    border-radius: 50% 50%;
+
+    background-position: 50% 50%;
+    background-size: 100% 100%; 
+}
+
+.user-bottom-nickname{
+    color: rgba(0,0,0,1);
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: -0.18px;
+    font-family: Spoqa Han Sans Neo;
+}
