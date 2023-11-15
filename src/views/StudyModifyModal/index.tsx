@@ -1,6 +1,5 @@
 import React, { ChangeEvent, useEffect, useRef, useState } from 'react';
 import './style.css';
-import DropDownFirstCategory from 'components/Dropdown1Category';
 
 import 'react-calendar/dist/Calendar.css';
 import ModalSideMenu from 'components/ModalSideMenu';
@@ -201,9 +200,7 @@ export default function StudyModifyModal({ studyListItem }: Props) {
             <div className='reset-card'>
                 <ModalSideMenu />
                 <div className='reset-button-box'>
-                    <button type='button' className='btn btn-primary' disabled data-bs-toggle='button'>
-                        X
-                    </button>
+                    <button type='button' className='modal-close-button'>X</button>
                 </div>
                 <div className='reset-control-box'>
                     <div className='study-title-container'>

@@ -29,9 +29,16 @@ export default function MaterialManageModal({modalCloseHandler}: {modalCloseHand
     modalCloseHandler();
   }
 
+  //           event handler: 모달창이 아닌 다른곳을 클릭했을 때 모달창이 닫히도록 처리           //
+  const closeModalOutsideClickHandler = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+    if (event.target === event.currentTarget) {
+        modalCloseHandler();
+    }
+};
+
   //          render: 자료 관리하기 모달 컴포넌트 렌더링          //
   return (
-    <div id='material-manage-wrapper'>
+    <div id='material-manage-wrapper' onClick={closeModalOutsideClickHandler}>
         <div className='material-manage-card'>
             <div className='material-manage-header-box'>
               <div className='material-manage-title-text'>{'자료 관리하기'}</div>

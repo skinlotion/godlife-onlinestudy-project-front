@@ -39,7 +39,7 @@ export default function HostNoticeManageModal() {
         <div id='notice-wrapper'>
             <div className='notice-card'>
                 <div className='notice-button-box'>
-                    <button type='button' className='btn btn-primary' disabled data-bs-toggle='button'>X</button>
+                    <button type='button' className='modal-close-button'>X</button>
                 </div>
                 <div className='notice-title-box'>
                     <div className='notice-title'>{'공지사항'}</div>
@@ -54,8 +54,8 @@ export default function HostNoticeManageModal() {
                 <div className='notice-content-box'>
                     <div className='notice-contents-left-box'>
                     <Scrollbars
-                            renderTrackVertical={(props) => <div {...props} className='track-vertical' />} 
-                            renderThumbVertical={(props) => <div {...props} className='thumb-vertical' />}>
+                            renderTrackVertical={(props) => <div {...props} className='notice-track-vertical' />} 
+                            renderThumbVertical={(props) => <div {...props} className='notice-thumb-vertical' />}>
                         {StudyNoticeMock.map((noticeItem) => (
                             <HostNoticeItem key={noticeItem.studyNoticeNumber} noticeItem={noticeItem} />
                         ))}

@@ -230,31 +230,28 @@
 }
 
 .reset-button-box {
-    width: 52px;
-    height: 40px;
-
-    margin: 15px 25px 18px 823px;
+    margin: 15px 25px 15px 823px;
 
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.reset-button-box:hover {
-    cursor: pointer;
-}
-
-.btn :hover {
-    cursor: pointer;
-}
-
-.btn-primary {
+.modal-close-button {
     width: 52px;
     height: 40px;
+
+    background-color: rgba(255, 255, 255, 1);
+    border: 3px solid rgba(24, 160, 251, 1);
+    border-radius: 10px 10px;
+
+    font-family: 'Spoqa Han Sans Neo';
+    font-size: 20px;
 }
 
-.btn-primary :hover {
+.modal-close-button:hover {
     cursor: pointer;
+    background-color: rgba(24, 160, 251, 0.50);
 }
 
 .reset-control-box {
@@ -306,6 +303,10 @@
 
     border-radius: 5px;
     border: 1px solid rgba(24, 160, 251, 1);
+
+    font-family: 'Spoqa Han Sans Neo';
+    font-size: 15px;
+    font-weight: 400;
 }
 
 .study-title-write::placeholder {
@@ -315,7 +316,7 @@
 .study-title-write-count {
     position: absolute;
     padding-right: 15px;
-    top: 5%;
+    top: 15%;
     right: 0;
     font-size: 20px;
     font-weight: 400;
@@ -573,7 +574,7 @@
     background-color: rgba(255, 255, 255, 1);
 
     color: rgba(0, 0, 0, 1);
-    font-family: Spoqa Han Sans Neo;
+    font-family: 'Spoqa Han Sans Neo';
     font-size: 15px;
     font-weight: 400;
     letter-spacing: -0.225px;
@@ -592,6 +593,7 @@
     background-color: rgba(24, 160, 251, 0.7);
 
     color: rgba(0, 0, 0, 1);
+    font-family: 'Spoqa Han Sans Neo';
     font-size: 15px;
     font-weight: 400;
     letter-spacing: -0.225px;
@@ -608,8 +610,8 @@
 }
 
 .study-close-password-write {
-    margin-top: 10px;
-    margin-bottom: -40px;
+    margin-top: 8px;
+    margin-bottom: -50px;
 
     width: 150px;
     height: 30px;
@@ -617,11 +619,8 @@
     border: 0.5px solid rgba(24, 160, 251, 1);
     background-color: rgba(255, 255, 255, 1);
     
-    position: relative;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    font-family: 'Spoqa Han Sans Neo';
+    font-size: 15px;
 }
 
 .password-icon {
@@ -631,7 +630,7 @@
     height: 30px;
 
     position: absolute;
-    transform: translateX(400%);
+    transform: translateX(410%);
 
     background-image: url(assets/copy-icon.png);
     background-position: 50% 50%;

@@ -39,7 +39,7 @@ export default function HostToDoListManageModal() {
         <div id='todo-wrapper'>
             <div className='todo-card'>
                 <div className='todo-button-box'>
-                    <button type='button' className='btn btn-primary' disabled data-bs-toggle='button'>X</button>
+                    <button type='button' className='modal-close-button'>X</button>
                 </div>
                 <div className='todo-title-box'>
                     <div className='todo-title'>{'Study\nTo Do List'}</div>

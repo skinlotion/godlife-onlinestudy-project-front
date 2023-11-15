@@ -1,4 +1,6 @@
 .notice-common-content-box {
+    margin-bottom: 80px;
+
     width: 770px;
     height: 570px;
 
@@ -6,10 +8,9 @@
     align-items: center;
     justify-content: center;
 
-    background-color: rgba(255, 255, 255, 1);
-
     border-radius: 10px;
-    margin-bottom: 80px;
+
+    background-color: rgba(255, 255, 255, 1);
 }
 
 .notice-common-contents-left-box {
