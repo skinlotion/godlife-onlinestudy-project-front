@@ -4,7 +4,7 @@ export const convertUrlsToFiles = async (urls: string[]) => {
     const files = [];
     for (let index = 0; index < urls.length; index++) {
         const file = await convertUrlToFile(urls[index]);
-        files.push(file);
+        // files.push(file);
     }
     return files;
 }
