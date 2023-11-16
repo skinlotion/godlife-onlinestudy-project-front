@@ -11,12 +11,14 @@ import searchStudyListMock from "./search-study-list.mock";
 import materialManageListMock from './material-manage-list.mock';
 import studyRoomInfoListMock from "./my-study-room-info-list.mock"
 import recommendationStudyListMock from "./recommendation-study-list.mock";
+import accessTokenMock from "./accessToken-mock";
 
 export {
   userMock,
   loginInfoMock,
   studyListMock,
   myToDoListMock,
+  accessTokenMock,
   StudyNoticeMock,
   joinStudyListMock,
   userGradeListMock,
