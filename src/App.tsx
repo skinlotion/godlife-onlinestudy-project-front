@@ -16,34 +16,30 @@ import { studyListMock } from 'mocks';
 import MemberManageModal from 'views/MemberManageModal';
 import MyPage from 'views/MyPage';
 
-interface Props {
-  studyListItem: StudyListItem;
-}
-
+// interface Props {
+//   studyListItem: StudyListItem;
+// }
 
 function App() {
 
-  const studyItem = studyListMock.find((item) => item.studyNumber === 1);
+  // const studyItem = studyListMock.find((item) => item.studyNumber === 1);
 
-  if (!studyItem) {
-    return null;
-  }
-  
-  // //        state: 현재 페이지 url 상태       //
-  // const { pathname } = useLocation();
-
-  // //        description: 검색 버튼 Ref        //
-  // const searchDivRef = useRef<HTMLDivElement | null>(null);
-
-  // const onSearchMoveClickHandler = () => {
-  //   if (!searchDivRef.current) return;
-  //   searchDivRef.current.scrollIntoView({ behavior: 'smooth' });
+  // if (!studyItem) {
+  //   return null;
   // }
+
+  //        description: 검색 버튼 Ref        //
+  const searchDivRef = useRef<HTMLDivElement | null>(null);
+
+  const onSearchMoveClickHandler = () => {
+    if (!searchDivRef.current) return;
+    searchDivRef.current.scrollIntoView({ behavior: 'smooth' });
+  }
   
   return (
     <div>
       {/* <MyPage /> */}
-      <StudyCreate />
+      {/* <StudyCreate /> */}
       {/* <HostNoticeManageModal /> */}
       {/* <NoticeModal /> */}
       {/* <HostToDoListManageModal /> */}

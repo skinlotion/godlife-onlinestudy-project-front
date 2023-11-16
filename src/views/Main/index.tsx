@@ -11,6 +11,10 @@ import MyToDoListItem from '../../components/MyToDoListItem';
 import MyToDoListInputBox from '../../components/MyToDoListInputBox';
 import SearchInputBox from '../../components/SearchInputBox';
 import SearchStudyListItem from '../../components/SearchStudyListItem';
+import ResponseDto from 'apis/dto/response';
+import { GetUserToDoListResponseDto } from 'apis/dto/response/user';
+import { getUserToDoListRequest } from 'apis';
+import { accessTokenMock } from '../../mocks';
 
 //        component: 메인 페이지        //
 const Main = forwardRef<HTMLDivElement>((props, ref) => {
@@ -30,6 +34,19 @@ const Main = forwardRef<HTMLDivElement>((props, ref) => {
     const [ myToDoList, setMyToDoList ] = useState<MyToDoItem[]>([]);
     //        state: 입력한 나의 투두리스트 상태        //
     const [inputMyToDoList, setInputMyToDoList] = useState<string>('');
+    //        state: 캘린더 선택 일자 상태        //
+    const [calendarChoiceDay, setCalendarChoiceDay] = useState<string>('2023-11-15');
+
+    //        function: get user to do list response 처리 함수        //
+    const getUserToDoListResponse = (responseBody: GetUserToDoListResponseDto | ResponseDto) => {
+      const { code } = responseBody;
+      if (code === 'DBE') alert('데이터베이스 오류입니다.');
+      alert(code);
+      if (code !== 'SU') return;
+
+      const { userToDoList } = responseBody as GetUserToDoListResponseDto;
+      setMyToDoList(userToDoList);
+    }
 
     //        effect: 컴포넌트 마운트 시 참여한 스터디 방 정보 리스트 불러오기        //
     useEffect(() => {
@@ -46,8 +63,11 @@ const Main = forwardRef<HTMLDivElement>((props, ref) => {
     //        effect: 나의 투두 리스트 불러오기       //
     useEffect(() => {
       // TODO: API 호출로 변경
-      setMyToDoList(myToDoListMock);
-    }, []);
+
+      getUserToDoListRequest(calendarChoiceDay, accessTokenMock).then(getUserToDoListResponse);
+      // alert('투두리스트 불러오기');
+      // setMyToDoList(myToDoListMock);
+    }, [calendarChoiceDay]);
 
     //        event handler: 탭 버튼 클릭 이벤트 처리       //
     const tabClickHandler=(index: React.SetStateAction<number>)=>{
@@ -290,7 +310,7 @@ const Main = forwardRef<HTMLDivElement>((props, ref) => {
                               </div>
 
                               <MyToDoListInputBox type={'text'} placeholder='TO DO LIST 입력중입니다....' value={inputMyToDoList} setValue={setInputMyToDoList} />
-
+                            
                               <div className='main-top-down-todolist-detail-box'>
                                       <Scrollbars
                                           renderTrackVertical={props => <div {...props} className="track-vertical"/>}
