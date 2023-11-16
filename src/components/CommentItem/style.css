@@ -1,0 +1,148 @@
+.comment-list-item-box{
+    width: 142px;
+    height: auto;
+
+    display: flex;
+    flex-direction: column;
+    /* gap: 3; */
+
+    margin-left: 10px;
+    margin-bottom: 5px;
+}
+
+.comment-list-item-top{
+
+    width: 128px;
+    height: 15px;
+    
+    display: flex;  
+    align-items: center;
+    flex-direction: row;  
+    gap: 2px;
+    
+}
+
+.comment-list-class-image-box{
+    width: 15px;
+    height: 15px;
+    align-items: center;
+}
+
+.comment-list-class-king-image{
+    width: 100%;
+    height: 100%;
+
+    border-radius: 50% 50%;
+
+    background-image: url(assets/king-icon.png);    
+    background-position: 50% 50%;
+    background-size: 100% 100%;
+}
+
+.comment-list-class-normal-image{
+    width: 100%;
+    height: 100%;
+
+    border-radius: 50% 50%;
+
+    background-image: url(assets/normal-icon.png);
+    background-position: 50% 50%;
+    background-size: 100% 100%;   
+}
+
+.comment-list-profile-image-box{
+    width: 15px;
+    height: 15px;
+    align-items: center;
+}
+
+.comment-list-profile-image{
+    border-radius: 50% 50%;
+    width: 100%;
+    height: 100%;
+
+
+    background-position: 50% 50%;
+    background-size: 100% 100%;
+}
+
+
+.comment-list-user-grade{
+    align-items: center;
+    color: rgba(0, 0, 0, 1);
+    font-family: 'Spoqa Han Sans Neo';
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: -0.18px;
+    text-align: center;
+}
+
+.comment-list-user-nickname{
+    align-items: center;
+    color: rgba(0, 0, 0, 1);
+    font-family: 'Spoqa Han Sans Neo';
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: -0.18px;    
+    text-align: center;
+}
+
+.comment-list-edit-icon-box{
+    width:10px;
+    height: 10px;
+    align-items: center;
+}
+
+.comment-list-edit-icon{
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    background-image: url(assets/comment-edit-icon.png);
+    background-position: 50% 50%;
+    background-size: 100% 100%;
+}
+
+.comment-list-edit-icon:hover{
+    cursor: pointer;
+}
+
+.comment-list-item-middle{
+    width: 141px;
+
+}
+
+.comment-list-item-contents{
+    
+
+    color: rgba(0, 0, 0, 1);
+    font-family: 'Spoqa Han Sans Neo';
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: -0.18px; 
+    width: 140px;
+    border : none;
+    outline: none;
+    background: none;
+    resize: none;
+}
+
+
+.comment-list-item-bottom{
+    line-height: normal;
+    color: rgba(125, 127, 129, 1);
+    font-family: 'Spoqa Han Sans Neo';
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: -0.14px; 
+    margin-top: -12px;
+    margin-bottom: 15px;
+}
+
+.comment-list-item-time{
+    line-height: normal;
+    color: rgba(125, 127, 129, 1);
+    font-family: 'Spoqa Han Sans Neo';
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: -0.14px;
+}

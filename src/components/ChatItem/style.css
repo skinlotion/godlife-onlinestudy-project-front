@@ -1,0 +1,114 @@
+.chat-list-item-box{
+    width: 150px;
+    height: auto;
+
+    display: flex;
+    flex-direction: column;
+    gap: 3;
+
+    padding-top: 1px;
+    padding-left: 4px;
+
+    margin-top: 9px;
+}
+
+.chat-list-item-top{
+    width: 90px;
+    height: 25px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 2px;
+    margin-bottom: 2px;
+}
+
+.chat-list-class-image-box{
+    width: 15px;
+    height: 15px;
+    align-items: center;
+}
+
+.comment-list-class-king-image{
+    width: 100%;
+    height: 100%;
+
+    border-radius: 50% 50%;
+
+    background-image: url(assets/king-icon.png);    
+    background-position: 50% 50%;
+    background-size: 100% 100%;
+}
+
+.comment-list-class-normal-image{
+    width: 100%;
+    height: 100%;
+    
+    border-radius: 50% 50%;
+
+    background-image: url(assets/normal-icon.png);
+    background-position: 50% 50%;
+    background-size: 100% 100%;   
+}
+
+.chat-list-profile-image-box{
+    width: 15px;
+    height: 15px;
+    align-items: center;
+}
+
+.chat-list-profile-image{
+    border-radius: 50% 50%;
+    width: 100%;
+    height: 100%;
+
+
+    background-position: 50% 50%;
+    background-size: 100% 100%;
+}
+
+.chat-list-user-nickname{
+    align-items: center;
+    color: rgba(0, 0, 0, 1);
+    font-family: 'Spoqa Han Sans Neo';
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: -0.18px;    
+    text-align: center;
+}
+
+.chat-list-item-middle{
+    width: 100%;
+    height: auto;
+    padding-right: 50px;
+}
+
+.chat-list-item-contents{
+    width: 100%;
+    height: auto;
+
+    color: rgba(0, 0, 0, 1);
+    font-family: 'Spoqa Han Sans Neo';
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: -0.18px;    
+    /* text-align: center; */
+}
+
+.chat-list-item-bottom{
+    line-height: normal;
+    color: rgba(125, 127, 129, 1);
+    font-family: 'Spoqa Han Sans Neo';
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: -0.14px; 
+}
+
+.comment-list-item-time{
+    line-height: normal;
+    color: rgba(125, 127, 129, 1);
+    font-family: 'Spoqa Han Sans Neo';
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: -0.14px; 
+}

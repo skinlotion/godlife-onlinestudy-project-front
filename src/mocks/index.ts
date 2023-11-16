@@ -13,6 +13,11 @@ import studyRoomInfoListMock from "./my-study-room-info-list.mock"
 import recommendationStudyListMock from "./recommendation-study-list.mock";
 import accessTokenMock from "./accessToken-mock";
 
+import StudyChatListMock from "./study-chat.mock";
+import StudyMaterialCommentListMock from "./study-material-comment-list.mock";
+import StudyMaterialListMock from "./study-material.mock";
+import StudyUserListMock from "./study-user-list.mock";
+
 export {
   userMock,
   loginInfoMock,
@@ -28,4 +33,9 @@ export {
   materialManageListMock,
   studyRoomInfoListMock,
   recommendationStudyListMock,
+
+  StudyChatListMock,
+  StudyUserListMock,
+  StudyMaterialListMock,
+  StudyMaterialCommentListMock
 };
