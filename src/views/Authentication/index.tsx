@@ -2,6 +2,8 @@ import React, { useState, KeyboardEvent, useRef, useEffect, ChangeEvent } from '
 import InputBox from '../../components/InputBox';
 import './style.css';
 import DropDownFirstCategory from '../../components/Dropdown1Category';
+import { SignInResponseDto } from 'apis/response/auth';
+import ResponseDto from 'apis/response';
 
 export default function Authentication() {
 
@@ -42,11 +44,27 @@ export default function Authentication() {
         //          state: 로그인 에러 상태          //
         const [signInError, setSignInError] = useState<boolean>(false);
 
-        //          event handler: 로그인 버튼 클릭 이벤트 처리          //
+        //          function: sign in email check response 처리 함수          //
+        const signInEmailCheckRespose = (responseBody : SignInResponseDto | ResponseDto) => {
+            const { code } = responseBody;
+            if( code === 'SF') alert('존재하지않는 이메일');
+            if ( code === 'DBE') setSignInEmailError(true);
+            if (code !== 'SU') return;
+            
+            setSignInLevel;
+        }
+        // TODO signInEmailResponse
+        // TODO : code === 'SF' -> 존재하지 않는 이메일로 처리
+        // TODO : code === 'DBE' -> 에러 처리
+        // TODO : code === 'SU' -> signInLevel를 2로 변경
+
+        //          event handler: 이메일 확인 로그인 버튼 클릭 이벤트 처리          //
         const onSignInNextLevelButtonClickHandler = () => {
 
             setSignInEmailError(false);
             setEmailErrorMessage('');
+
+            // TODO : signInEmailRequest -> signInEmailResponse
         
         //          description: 이메일 패턴 확인           //
         const emailPattern = /^[a-zA-Z0-9_]*@([-.]?[a-zA-Z0-9])*\.[a-zA-Z]{2,4}$/;
