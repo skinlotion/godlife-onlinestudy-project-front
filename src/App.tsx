@@ -47,9 +47,9 @@ function App() {
       {/* <StudyDateModal /> */}
       {/* <StudyModifyModal studyListItem={studyItem} /> */}
       {/* <ManinpagePriavateStudyRoomJoinModal/> */}
-      {/* <Header onSearchMoveClickHandler={onSearchMoveClickHandler} />
+      <Header onSearchMoveClickHandler={onSearchMoveClickHandler} />
       <Main ref={searchDivRef} />
-      <Footer /> */}
+      <Footer />
     </div>
   );
 }
