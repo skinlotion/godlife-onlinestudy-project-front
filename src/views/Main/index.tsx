@@ -1,7 +1,7 @@
 import React, { ChangeEvent, KeyboardEvent, useState, useEffect, useRef, forwardRef } from 'react'
 import { Scrollbars } from 'react-custom-scrollbars-2';
 import './style.css';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import studyRoomInfoListMock from '../../mocks/my-study-room-info-list.mock';
 import { MyStudyRoomInfoItem, MyToDoItem, RecommendationStudyRoomItem, SearchStudyRoomItem } from '../../types';
 import { myToDoListMock, recommendationStudyListMock, searchStudyListMock } from '../../mocks';
@@ -11,12 +11,15 @@ import MyToDoListItem from '../../components/MyToDoListItem';
 import MyToDoListInputBox from '../../components/MyToDoListInputBox';
 import SearchInputBox from '../../components/SearchInputBox';
 import SearchStudyListItem from '../../components/SearchStudyListItem';
+import { SERVICE_PATH } from 'constant';
 
 //        component: 메인 페이지        //
 const Main = forwardRef<HTMLDivElement>((props, ref) => {
 
   //        state: 조회하는 유저 이메일 path variable 상태        //
   const { searchEmail } = useParams();
+
+  const navigator = useNavigate();
 
   //        component: 메인 상단 컴포넌트       //
   const MainTop = () => {
@@ -87,8 +90,8 @@ const Main = forwardRef<HTMLDivElement>((props, ref) => {
     }
 
     //        event handler: 스터디 시작 하기 버튼 클릭 이벤트 처리       //
-    const onStudyStartButtonClickHandler = () => {
-      alert('스터디 시작 하기 처리');
+    const onStudyStartButtonClickHandler = (studyNumber: number) => {
+      navigator(SERVICE_PATH(studyNumber));
     }
 
     //        event handler: 나의 투두리스트 추가하기 버튼 클릭 이벤트 처리       //
@@ -223,7 +226,7 @@ const Main = forwardRef<HTMLDivElement>((props, ref) => {
                             <div className='study-view-data-button' onClick={onStudyMaterialViewButtonClickHandler}>
                                 <div className='study-view-data-button-text'>{'스터디 자료 보기'}</div>
                             </div>
-                            <div className='study-start-button' onClick={onStudyStartButtonClickHandler}>
+                            <div className='study-start-button' onClick={() => onStudyStartButtonClickHandler(tab.studyNumber)}>
                                 <div className='study-start-button-text'>{'스터디 시작 하기'}</div>  
                             </div>
                         </div>

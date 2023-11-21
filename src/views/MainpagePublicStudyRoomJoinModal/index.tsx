@@ -1,19 +1,37 @@
 import { tab } from '@testing-library/user-event/dist/tab';
 import ProgressBar from '../../components/ProgressBar';
 import './style.css';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, Dispatch, SetStateAction } from 'react';
 import { StudyNoticeMock, studyRoomInfoListMock } from '../../mocks';
-import { MyStudyRoomInfoItem } from '../../types';
+import { MyStudyRoomInfoItem, RecommendationStudyRoomItem } from '../../types';
 import Scrollbars from 'react-custom-scrollbars-2';
 import NoticeItem from '../../components/RoomJoinMoadalNoticeItem';
 import RoomJoinModalNoticeItem from '../../components/RoomJoinMoadalNoticeItem';
+import { useNavigate } from 'react-router-dom';
+import { SERVICE_PATH } from 'constant';
 
 
-export default function ManinpagePublicStudyRoomJoinModal() {
+interface Props {
+    item: RecommendationStudyRoomItem,
+    setShowModal: Dispatch<SetStateAction<boolean>>,
+}
+
+export default function ManinpagePublicStudyRoomJoinModal({ item, setShowModal }: Props) {
 
     //        state: 참여한 스터디 방 정보        //
     const [ studyRoomInfoList, setStudyRoomInfoList ] = useState<MyStudyRoomInfoItem[]>(studyRoomInfoListMock);
 
+    const navigator = useNavigate();
+
+
+    const onClose = () => {
+        setShowModal(false);
+    }
+
+
+    const onJoinClickHandler = () => {
+        navigator(SERVICE_PATH(item.studyNumber));
+    }
 
     //          effect: 컴포넌트 마운트 시 참여한 스터디 방 정보 리스트 불러오기          //
     useEffect(() => {
@@ -27,14 +45,14 @@ export default function ManinpagePublicStudyRoomJoinModal() {
         <div id='studyroom-join-modal-wrapper'>
             <div className='studyroom-join-modal-card'>
                 <div className='studyroom-join-modal-card-close-button-box'>
-                    <div className='studyroom-join-modal-card-close-button'></div>
+                    <div className='studyroom-join-modal-card-close-button' onClick={onClose}></div>
                 </div>
                 <div className='studyroom-join-modal-header'>
                     <div className='studyroom-image-box'>
                         <div className='studyroom-default-image'></div>
                     </div>
                     <div className='studyroom-join-modal-header-content'>
-                        <div className='studyroom-title'>{'스터디 방 이름1'}</div>
+                        <div className='studyroom-title'>{item.studyName}</div>
                         <div className='studyroom-disclosure'>{'공개'}</div>
                         <div className='studyroom-category'>{'스터디 카테고리'}</div>
                         <div className='studyroom-master-info-box'>
@@ -126,7 +144,7 @@ export default function ManinpagePublicStudyRoomJoinModal() {
                             </div>
                         </div>
                     </div>
-                    <div className='studyroom-info-button-box'>
+                    <div className='studyroom-info-button-box' onClick={onJoinClickHandler}>
                         <div className='studyroom-join-button-text'>{'참가하기'}</div>
                     </div>
                 </div>

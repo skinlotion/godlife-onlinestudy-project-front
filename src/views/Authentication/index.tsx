@@ -1,9 +1,14 @@
 import React, { useState, KeyboardEvent, useRef, useEffect, ChangeEvent } from 'react'
 import InputBox from '../../components/InputBox';
+import { useCookies } from 'react-cookie';
 import './style.css';
+import { useNavigate } from 'react-router-dom';
 import DropDownFirstCategory from '../../components/Dropdown1Category';
-import { SignInResponseDto } from 'apis/response/auth';
+import { SignInEmailCheckResponseDto, SignInResponseDto } from 'apis/response/auth';
 import ResponseDto from 'apis/response';
+import { MAIN_PATH } from 'constant';
+import { SignInEmailCheckRequestDto } from 'apis/request/auth';
+import { signInEmailCheckRequest } from 'apis';
 
 export default function Authentication() {
 
@@ -11,6 +16,11 @@ export default function Authentication() {
     
     //          state : 이메일 보낼 이메일 주소 상태            //
     const [passwordEmail, setPasswordEmail] = useState<string>('');
+    //          state: 쿠키 상태          //
+    const [cookies, setCookie] = useCookies();
+    //          function: 네비게이트 함수          //
+     const navigator = useNavigate();
+
     //          state: 화면 상태          //
      const [view, setView] = useState<
         'sign-in-card' | 'sing-up-email-card' | 'search-password-card' 
@@ -45,38 +55,50 @@ export default function Authentication() {
         const [signInError, setSignInError] = useState<boolean>(false);
 
         //          function: sign in email check response 처리 함수          //
-        const signInEmailCheckRespose = (responseBody : SignInResponseDto | ResponseDto) => {
+        const signInEmailCheckRespose = (responseBody : SignInEmailCheckResponseDto | ResponseDto) => {
             const { code } = responseBody;
             if( code === 'SF') alert('존재하지않는 이메일');
             if ( code === 'DBE') setSignInEmailError(true);
             if (code !== 'SU') return;
             
-            setSignInLevel;
+            setSignInLevel(2);
         }
-        // TODO signInEmailResponse
-        // TODO : code === 'SF' -> 존재하지 않는 이메일로 처리
-        // TODO : code === 'DBE' -> 에러 처리
-        // TODO : code === 'SU' -> signInLevel를 2로 변경
+
+        //          function: sign in response 처리 함수          //
+        const signInRespose = (responseBody : SignInResponseDto | ResponseDto) => {
+            const { code } = responseBody;
+            if (code === 'VF') alert('모두 입력해주세요.');
+            if (code === 'SF') setSignInError(true);
+            if (code === 'DBE') alert('데이터베이스 오류입니다.');
+            if (code !== 'SU') return;
+      
+            const { token, expirationTime } = responseBody as SignInResponseDto;
+      
+            const now = new Date().getTime();
+            const expires = new Date(now + expirationTime * 1000);
+      
+            setCookie('accessToken', token, { expires, path: MAIN_PATH });
+            navigator(MAIN_PATH);
+      
+          }
 
         //          event handler: 이메일 확인 로그인 버튼 클릭 이벤트 처리          //
         const onSignInNextLevelButtonClickHandler = () => {
-
-            setSignInEmailError(false);
-            setEmailErrorMessage('');
-
-            // TODO : signInEmailRequest -> signInEmailResponse
+            const requestBody : SignInEmailCheckRequestDto = {email}
+            signInEmailCheckRequest(requestBody).then(signInEmailCheckRespose);
+            
         
-        //          description: 이메일 패턴 확인           //
-        const emailPattern = /^[a-zA-Z0-9_]*@([-.]?[a-zA-Z0-9])*\.[a-zA-Z]{2,4}$/;
-        const checkedEmail = !emailPattern.test(email);
-            if (checkedEmail) {
-                setSignInEmailError(true);
-                setEmailErrorMessage('이메일주소 포맷이 맞지않습니다.');
-            }
+            //          description: 이메일 패턴 확인           //
+            const emailPattern = /^[a-zA-Z0-9_]*@([-.]?[a-zA-Z0-9])*\.[a-zA-Z]{2,4}$/;
+            const checkedEmail = !emailPattern.test(email);
+                if (checkedEmail) {
+                    setSignInEmailError(true);
+                    setEmailErrorMessage('이메일주소 포맷이 맞지않습니다.');
+                }
 
-            if (checkedEmail) return;
+                if (checkedEmail) return;
 
-            setSignInLevel(2);
+                setSignInLevel(2);
         }
         //          event handler: 이메일 인풋 key down 이벤트 처리          //
         const onEmailKeyDownHandler = (event: KeyboardEvent<HTMLInputElement>) => {

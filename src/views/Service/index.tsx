@@ -29,8 +29,10 @@ export default function Service( ) {
 
     //          state:  스터디 이미지  상태           //
     // const fileInputRef = useRef<HTMLInputElement | null>(null);
-
-
+    
+    //          state: 스터디방 번호 path variable 상태          //
+    const { studyNumber } = useParams();
+    //          state: 스터디방 상태          //
     const {resetService} =  useStudyStore(); 
 
     //           state : 모달 상태                       //
