@@ -10,6 +10,7 @@ const DOMAIN = 'http://localhost:4000';
 
 // description: API Domain 주소 //
 const API_DOMAIN = `${DOMAIN}/api/v1`;
+
 // description: Authorizaition Header //
 const authorization = (token: string) => { 
     return { headers: { Authorization: `Bearer ${token}` } };
@@ -18,9 +19,9 @@ const authorization = (token: string) => {
 // description: sign in email check API end point //
 const SIGN_IN_EMAIL_CHECK_URL = () => `${API_DOMAIN}/auth/sign-in-email-check`
 // description: sigin in API end point //
-const SIGN_IN_URL = () => `${API_DOMAIN}/auth/sign-in`;
+const SIGN_IN_URL = () => `${API_DOMAIN}/sign-in`;
 // description: sign up API end point //
-const SIGN_UP_URL = () => `${API_DOMAIN}/auth/sign-up`;
+const SIGN_UP_URL = () => `${API_DOMAIN}/sign-up`;
 
 // description: sign in email chesck request //
 export const signInEmailCheckRequest = async (requestBody: SignInEmailCheckRequestDto) => {

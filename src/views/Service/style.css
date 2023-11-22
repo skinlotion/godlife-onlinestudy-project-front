@@ -458,6 +458,9 @@
 
     padding: 2px 2px;
 }
+.notice-message:hover{
+    cursor: pointer;
+}
 
 .list-box{
     width: 192px;

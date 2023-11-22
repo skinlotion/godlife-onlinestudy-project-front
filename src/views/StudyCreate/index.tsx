@@ -4,7 +4,7 @@ import DropDownStudyPeopleSet from 'components/DropdownStudyPeopleSet';
 import DropDownFirstCategory from 'components/Dropdown1Category';
 import DropDownStudyCreateCategory from 'components/DropdownStudyCreateCategory';
 import DatePickerComponent from 'components/DatePicker';
-import MaterialManageModal from 'views/MaterialManageModal';
+import MaterialManageModal from 'views/modal/MaterialManageModal';
 
 //          component: 스터디 생성 페이지          //
 export default function StudyCreate() {

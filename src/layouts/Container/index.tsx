@@ -1,9 +1,10 @@
 import React, { useRef, useState } from 'react'
 
 import Footer from "layouts/Footer";
-import { AUTH_PATH } from "../../constant";
+import { AUTH_PATH, SERVICE_PATH } from "../../constant";
 import { Outlet, useLocation } from "react-router-dom"
 import Header from "layouts/Header";
+import Service from 'views/Service';
 
 //          component: 메인 레이아웃          //
 export default function Container() {

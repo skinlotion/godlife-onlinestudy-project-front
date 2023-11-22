@@ -14,12 +14,12 @@ import Authentication from 'views/Authentication';
 import Main from 'views/Main';
 import Service from 'views/Service';
 import MyPage from 'views/MyPage';
-import HostNoticeManageModal from 'views/HostNoticeManageModal';
-import NoticeModal from 'views/NoticeModal';
-import HostToDoListManageModal from 'views/HostToDoListManageModal';
-import ToDoListModal from 'views/ToDoListModal';
-import StudyDateModal from 'views/StudyDateModal';
-import StudyModifyModal from 'views/StudyModifyModal';
+import HostNoticeManageModal from 'views/modal/HostNoticeManageModal';
+import NoticeModal from 'views/modal/NoticeModal';
+import HostToDoListManageModal from 'views/modal/HostToDoListManageModal';
+import ToDoListModal from 'views/modal/ToDoListModal';
+import StudyDateModal from 'views/modal/StudyDateModal';
+import StudyModifyModal from 'views/modal/StudyModifyModal';
 import ManinpagePriavateStudyRoomJoinModal from 'views/MainpagePrivateStudyRoomjoinModal';
 import { studyListMock } from 'mocks';
 
@@ -75,18 +75,18 @@ function App() {
     </Routes>
 
     // <div>
-    //   
-    // <StudyCreate />
-    //   <HostNoticeManageModal />
-    //   <Service/>
-    //   <NoticeModal />
-    //   <HostToDoListManageModal />
-    //   <ToDoListModal />
-    //   <StudyDateModal />
-    //   <StudyModifyModal studyListItem={studyItem} />
-    //   <ManinpagePriavateStudyRoomJoinModal/>
-    //   {/* // <Main ref={searchDivRef} /> */}
-    // </div>
+    //   {/* // <HostNoticeManageModal/>
+    // // <StudyCreate />
+    // //   <HostNoticeManageModal /> */}
+    //       {/* <Service/> */}
+    // {/* //   <NoticeModal />
+    // //   <HostToDoListManageModal />
+    // //   <ToDoListModal />
+    // //   <StudyDateModal />
+    // //   <StudyModifyModal studyListItem={studyItem} /> */}
+    //  {/* <ManinpagePriavateStudyRoomJoinModal/>
+    //  <Main ref={searchDivRef} /> */}
+    // // </div>
   );
 }
 

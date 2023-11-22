@@ -7,8 +7,8 @@ import DropDownFirstCategory from '../../components/Dropdown1Category';
 import { SignInEmailCheckResponseDto, SignInResponseDto } from 'apis/response/auth';
 import ResponseDto from 'apis/response';
 import { MAIN_PATH } from 'constant';
-import { SignInEmailCheckRequestDto } from 'apis/request/auth';
-import { signInEmailCheckRequest } from 'apis';
+import { SignInEmailCheckRequestDto, SignInRequestDto } from 'apis/request/auth';
+import { signInEmailCheckRequest, signInRequest } from 'apis';
 
 export default function Authentication() {
 
@@ -134,7 +134,8 @@ export default function Authentication() {
         }
         //          event handler: 로그인 버튼 클릭 이벤트 처리          //
         const onSignInButtonClickHandler = () => {
-            alert('로그인버튼눌러진거')
+            const requestBody : SignInRequestDto = { userEmail: email, userPassword: password}
+            signInRequest(requestBody).then(signInRespose);
         }
         //          event handler: '새로운 계정 만들기' 버튼 클릭 이벤트 처리          //
         const onSignUpLinkClickHandler = () => {
@@ -466,6 +467,8 @@ export default function Authentication() {
         const [email, setEmail] = useState<string>('');
         //          state: 이메일 에러 상태          //
         const [sendEmailAddresserror, setSendEmailAddressError] = useState<boolean>(false);
+        
+        
 
         //          event handler: '이미 계정이 있습니까?' 버튼 클릭 이벤트 처리          //
         const onSignInLinkClickHandler = () => {
@@ -654,7 +657,37 @@ export default function Authentication() {
         //          state: 카테고리 에러 메세지 상태          //
         const [categoryErrorMessage, setCategoryErrorMessage] = useState<string>('');
 
-          
+        //          function: sign up response 처리 함수          //
+        const signUpResponse = (code: string) => {
+            if (code === 'VF') alert('모두 입력하세요.');
+            if (code === 'DE') {
+              setEmailError(true);
+              setEmailErrorMessage('중복되는 이메일 주소 입니다.');
+              setPage(1);
+            }
+            if (code === 'DN') {
+              setNicknameError(true);
+              setNicknameErrorMessage('닉네임을 입력해 주세요.');
+            }
+            if (code === 'DT') {
+                setCategoryError(true);
+                setCategoryErrorMessage('카테고리를 입력하세요.');
+            }
+            if (code === 'DBE') alert('데이터베이스 오류입니다.');
+            if (code !== 'SU') return;
+      
+            setEmail('');
+            setPassword('');
+            setNickname('');
+            setTelNumber('');
+            setAddress('');
+            setAddressDetail('');
+            setConsent(false);
+            setPage(1);
+            setView('sign-in');
+      
+        }
+
         //          event handler : 닉네임 인풋박스 key down 이벤트 처리            //
         const onNicknameKeyDownHandler = (event: KeyboardEvent<HTMLInputElement>) => {
             if (event.key !== 'Enter') return;            

@@ -20,7 +20,7 @@ export default function ManinpagePublicStudyRoomJoinModal({ item, setShowModal }
 
     //        state: 참여한 스터디 방 정보        //
     const [ studyRoomInfoList, setStudyRoomInfoList ] = useState<MyStudyRoomInfoItem[]>(studyRoomInfoListMock);
-
+    //        state: 네비게이트함수 상태        //
     const navigator = useNavigate();
 
 

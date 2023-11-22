@@ -18,7 +18,7 @@ const Main = forwardRef<HTMLDivElement>((props, ref) => {
 
   //        state: 조회하는 유저 이메일 path variable 상태        //
   const { searchEmail } = useParams();
-
+  //        state: 네비게이트 함수 상태        //
   const navigator = useNavigate();
 
   //        component: 메인 상단 컴포넌트       //
