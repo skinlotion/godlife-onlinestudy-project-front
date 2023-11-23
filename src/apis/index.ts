@@ -10,6 +10,7 @@ import {
   PostUserToDoListRequestDto,
 } from "./dto/request";
 import PostUserToDoListResponseDto from "./dto/response/user/post-user-todolist.response.dto";
+import { GetTop5StudyListResponseDto } from "./dto/response/study";
 
 //        description: Domain URL       //
 const DOMAIN = "http://localhost:4000";
@@ -38,6 +39,10 @@ const POST_USER_TO_DO_LIST_URL = () => `${API_DOMAIN}/main/user-todolist/post`;
 //        description: delete user to do list API end point       //
 const DELETE_USER_TO_DO_LIST_URL = (userlistnumber: number[]) =>
   `${API_DOMAIN}/main/user-todolist/${userlistnumber}`;
+
+//        description: get top 5 study list API end point       //
+const GET_TOP_5_STUDY_LIST_URL = (studyCategory1: string) =>
+  `${API_DOMAIN}/study/top-5/${studyCategory1}`;
 
 //        description: get user todolist request       //
 export const getUserToDoListRequest = async (
@@ -119,6 +124,24 @@ export const deleteUserToDoListRequest = async (
       const responseBody: ResponseDto = error.response.data;
       const { code } = responseBody;
       return code;
+    });
+  return result;
+};
+
+//        description: get top 5 study list request       //
+export const getTop5StudyListRequest = async (
+  studyCategory1: string,
+  token: string
+) => {
+  const result = await axios
+    .get(GET_TOP_5_STUDY_LIST_URL(studyCategory1), authorization(token))
+    .then((response) => {
+      const responseBody: GetTop5StudyListResponseDto = response.data;
+      return responseBody;
+    })
+    .catch((error) => {
+      const responseBody: ResponseDto = error.response.data;
+      return responseBody;
     });
   return result;
 };
