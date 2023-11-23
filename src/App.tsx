@@ -74,11 +74,12 @@ function App() {
       <Route element={<Container />}>
         <Route path={AUTH_PATH} element={<Authentication />} /> 
         <Route path={MAIN_PATH} element={<Main />} />  
-        <Route path={SERVICE_PATH(':studyNumber')} element={<Service />} /> 
+        
         <Route path={STUDY_CREATE_PATH} element ={<StudyCreate />} />
         <Route path={MY_PAGE_PATH} element={<MyPage />} />
         <Route path='*' element={<h1>404 Not Found</h1>} />  
       </Route>
+      <Route path={SERVICE_PATH(':studyNumber')} element={<Service />} /> 
     </Routes>
 
     // <div>

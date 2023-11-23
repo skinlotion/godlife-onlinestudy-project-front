@@ -136,6 +136,7 @@ export default function Authentication() {
         const onSignInButtonClickHandler = () => {
             const requestBody : SignInRequestDto = { userEmail: email, userPassword: password}
             signInRequest(requestBody).then(signInRespose);
+            console.log(11)
         }
         //          event handler: '새로운 계정 만들기' 버튼 클릭 이벤트 처리          //
         const onSignUpLinkClickHandler = () => {
