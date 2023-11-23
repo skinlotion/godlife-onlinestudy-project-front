@@ -1,7 +1,7 @@
 import DefaultProfileImage from 'assets/default-profile-image.png';
 import './style.css';
 import  dayjs from 'dayjs';
-import StudyChatListItem from 'types/study-chat-list';
+import { StudyChatListItem } from 'types';
 
 interface Props{
     studyChatItem : StudyChatListItem;
