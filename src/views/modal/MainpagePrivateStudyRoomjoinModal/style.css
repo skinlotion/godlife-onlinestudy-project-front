@@ -1,17 +1,10 @@
 #studyroom-join-modal-wrapper{
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    background-color: rgba(125, 127, 129, 0.8);
-    z-index: 1000;
+    justify-content: center;
 }
 .studyroom-join-modal-card{
-    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -26,6 +19,8 @@
     border-radius: 10px;
 
     padding: 40px 55px 38px 55px;
+
+    position: relative;
 }
 .studyroom-join-modal-card-close-button-box{
     display: flex;
@@ -41,7 +36,7 @@
     height: 50px;
     width: 50px;
 
-    background-image: url(assets/main-modal-close-icon.png);
+    background-image: url(/src/assets/main-modal-close-icon.png);
     background-position: 50% 50%;
     background-size: 100% 100%;
 }
@@ -74,7 +69,7 @@
     width: 100px;
     height: 100px;
 
-    background-image: url(assets/study-room-default-image-icon.png);
+    background-image: url(/src/assets/study-room-default-image-icon.png);
     background-position: 50% 50%;
     background-size: 100% 100%; 
 }
@@ -128,7 +123,7 @@
     width: 35px;
     height: 35px;
 
-    background-image: url(assets/studuy-grade-master-icon.png);
+    background-image: url(/src/assets/studuy-grade-master-icon.png);
     background-position: 50% 50%;
     background-size: 100% 100%; 
 }
@@ -339,7 +334,7 @@
     height: 50px;
     width: 50px;
 
-    background-image: url(assets/notice-icon.png);
+    background-image: url(/src/assets/notice-icon.png);
     background-position: 50% 50%;
     background-size: 100% 100%;   
 }
@@ -352,6 +347,7 @@
 }
 .studyroom-info-notice-content{
     gap: 10px;
+    width: 100%;
 }
 .studyroom-info-notice-content-box{
     display: flex;
@@ -363,7 +359,7 @@
     width: 8px;
     height: 8px;
 
-    background-image: url(assets/notice-content-texthead-icon.png);
+    background-image: url(/src/assets/notice-content-texthead-icon.png);
     background-position: 50% 50%;
     background-size: 100% 100%;
 }
@@ -374,15 +370,33 @@
     font-size: 25px;
     font-weight: 400;
 }
-.notice-contents-left-box {
-    width: 755px;
-    height: 570px;
+.notice-contents-box {
+    width: 100%;
+    height: 200px;
 
+    
     display: flex;
     flex-direction: column;
 
-    background-color: rgba(255, 255, 255, 1);
 }
+
+.studyroom-join-content-track-vertical {
+    top: 2px;
+    bottom: 2px;
+    right: 7px;
+    border-radius: 30px;
+    background: rgba(255, 255, 255, 0.111);
+  }
+  
+  .studyroom-join-content-track-vertical .studyroom-join-content-thumb-vertical {
+    padding: 0 7px 0 0;
+    position: relative;
+    display: block;
+    width: 100%;
+    cursor: pointer;
+    border-radius: inherit;
+    background-color: rgba(24,160,251,1);
+  }
 
 .studyroom-info-todo-list-container{
     width: 1160px;
@@ -419,7 +433,7 @@
     height: 50px;
     width: 50px;
 
-    background-image: url(assets/notice-icon.png);
+    background-image: url(/src/assets/notice-icon.png);
     background-position: 50% 50%;
     background-size: 100% 100%;   
 }
@@ -443,7 +457,7 @@
     width: 8px;
     height: 8px;
 
-    background-image: url(assets/notice-content-texthead-icon.png);
+    background-image: url(/src/assets/notice-content-texthead-icon.png);
     background-position: 50% 50%;
     background-size: 100% 100%;
 }
@@ -455,8 +469,18 @@
     font-size: 25px;
     font-weight: 400;
 }
-.studyroom-info-button-box{
+.studyroom-private-join-container{
     width: 1160px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    justify-content: space-between;
+}
+.studyroom-password-input-box{
+    width: 485;
+}
+.studyroom-info-button-box{
+    width: 700px;
     height: 95px;
 
     display: flex;

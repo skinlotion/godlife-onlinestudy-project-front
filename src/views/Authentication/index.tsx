@@ -7,8 +7,8 @@ import DropDownFirstCategory from '../../components/Dropdown1Category';
 import { SignInEmailCheckResponseDto, SignInResponseDto } from 'apis/response/auth';
 import ResponseDto from 'apis/response';
 import { MAIN_PATH } from 'constant';
-import { SignInEmailCheckRequestDto, SignInRequestDto } from 'apis/request/auth';
-import { signInEmailCheckRequest, signInRequest } from 'apis';
+import { SignInEmailCheckRequestDto, SignInRequestDto, SignUpRequestDto } from 'apis/request/auth';
+import { signInEmailCheckRequest, signInRequest, signUpRequest } from 'apis';
 
 export default function Authentication() {
 
@@ -84,7 +84,7 @@ export default function Authentication() {
 
         //          event handler: 이메일 확인 로그인 버튼 클릭 이벤트 처리          //
         const onSignInNextLevelButtonClickHandler = () => {
-            const requestBody : SignInEmailCheckRequestDto = {email}
+            const requestBody : SignInEmailCheckRequestDto = {userEmail : email}
             signInEmailCheckRequest(requestBody).then(signInEmailCheckRespose);
             
         
@@ -663,7 +663,6 @@ export default function Authentication() {
             if (code === 'DE') {
               setEmailError(true);
               setEmailErrorMessage('중복되는 이메일 주소 입니다.');
-              setPage(1);
             }
             if (code === 'DN') {
               setNicknameError(true);
@@ -679,12 +678,8 @@ export default function Authentication() {
             setEmail('');
             setPassword('');
             setNickname('');
-            setTelNumber('');
-            setAddress('');
-            setAddressDetail('');
-            setConsent(false);
-            setPage(1);
-            setView('sign-in');
+            setCategory('')
+            setView('sign-in-card');
       
         }
 
@@ -754,6 +749,9 @@ export default function Authentication() {
         }
         //          event handler: '새로운 계정 만들기' 버튼 클릭 이벤트 처리          //
         const onSingUpCompleteButtonClickHandler =() => {
+            const requestBody : SignUpRequestDto = {userEmail: passwordEmail, userPassword: password, userNickname : nickname, userFavorite1 : category }
+            signUpRequest(requestBody).then(signUpResponse);
+            console.log(12)
 
             setEmailError(false);
             setEmailErrorMessage('');

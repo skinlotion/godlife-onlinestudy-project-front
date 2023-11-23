@@ -1,3 +1,3 @@
 export default interface SignInEmailCheckRequestDto {
-    email: string;
+    userEmail: string;
 }

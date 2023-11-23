@@ -20,7 +20,7 @@ import HostToDoListManageModal from 'views/modal/HostToDoListManageModal';
 import ToDoListModal from 'views/modal/ToDoListModal';
 import StudyDateModal from 'views/modal/StudyDateModal';
 import StudyModifyModal from 'views/modal/StudyModifyModal';
-import ManinpagePriavateStudyRoomJoinModal from 'views/MainpagePrivateStudyRoomjoinModal';
+import ManinpagePriavateStudyRoomJoinModal from 'views/modal/MainpagePrivateStudyRoomjoinModal';
 import { studyListMock } from 'mocks';
 
 interface Props {

@@ -4,7 +4,7 @@ import { RecommendationStudyRoomItem } from "../../types";
 import DefaultStudyCoverImage from "../../assets/study-default-icon.png";
 import { useNavigate } from "react-router-dom";
 import { STUDYROOM_DETAIL_PATH } from "../../constant";
-import ManinpagePublicStudyRoomJoinModal from "views/MainpagePublicStudyRoomJoinModal";
+import ManinpagePublicStudyRoomJoinModal from "views/modal/MainpagePublicStudyRoomJoinModal";
 
 //              interface: 추천 스터디 Top5 리스트 아이템 컴포넌트 Props               //
 interface Props {

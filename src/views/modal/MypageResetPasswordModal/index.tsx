@@ -1,6 +1,6 @@
 import { useRef, useState, KeyboardEvent, ChangeEvent } from 'react';
 import './style.css';
-import InputBox from '../../components/InputBox';
+import InputBox from '../../../components/InputBox';
 
 export default function ResetPasswordModal() {
 
