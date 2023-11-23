@@ -4,7 +4,7 @@ import DropDownStudyPeopleSet from 'components/DropdownStudyPeopleSet';
 import DropDownFirstCategory from 'components/Dropdown1Category';
 import DropDownStudyCreateCategory from 'components/DropdownStudyCreateCategory';
 import DatePickerComponent from 'components/DatePicker';
-import MaterialManageModal from 'views/MaterialManageModal';
+import MaterialManageModal from 'views/modal/MaterialManageModal';
 
 //          component: 스터디 생성 페이지          //
 export default function StudyCreate() {
@@ -115,7 +115,7 @@ export default function StudyCreate() {
                                 <div className='study-title-input-box'>
                                     <div className='study-title-input-text'>{'*스터디 제목'}</div>
                                     <div className='input-container'>
-                                        <input type='text' className={`input ${titleError ? 'error' : ''}`} placeholder='제목을 입력하세요.' value={title} onChange={onTitleChangeHandler} />
+                                        <input type='text' className={`input-title-box ${titleError ? 'error' : ''}`} placeholder='제목을 입력하세요.' value={title} onChange={onTitleChangeHandler} />
                                         <span id='char-count'>{`${titleCount}  /  20`}</span>
                                         {titleError && <div className='error-message'>{titleErrorMessage}</div>}
                                     </div>
@@ -132,7 +132,7 @@ export default function StudyCreate() {
                                 {<DropDownStudyPeopleSet />}
                             </div>
 
-                            <div className='study-category'>
+                            <div className='study-create-category'>
                                 <div className='join-study-category-text'>{'*스터디 카테고리'}</div>
                                 {<DropDownStudyCreateCategory />}
                             </div>
