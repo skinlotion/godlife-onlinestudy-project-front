@@ -12,6 +12,11 @@ import MyToDoListInputBox from '../../components/MyToDoListInputBox';
 import SearchInputBox from '../../components/SearchInputBox';
 import SearchStudyListItem from '../../components/SearchStudyListItem';
 import { SERVICE_PATH } from 'constant';
+import ResponseDto from 'apis/dto/response';
+import { GetUserToDoListResponseDto } from 'apis/dto/response/user';
+import { deleteUserToDoListRequest, getUserToDoListRequest, postUserToDoListRequest } from 'apis';
+import { accessTokenMock } from '../../mocks';
+import { PostUserToDoListRequestDto } from 'apis/dto/request';
 
 //        component: 메인 페이지        //
 const Main = forwardRef<HTMLDivElement>((props, ref) => {
@@ -23,6 +28,19 @@ const Main = forwardRef<HTMLDivElement>((props, ref) => {
 
   //        component: 메인 상단 컴포넌트       //
   const MainTop = () => {
+
+    //        description: 오늘 날짜 구하기       //
+    const today = new Date('2023-11-15');
+    const formattedDate = `${today.getFullYear()}년 ${today.getMonth() + 1}월 ${today.getDate()}일`;
+
+    //        description: 해당 날짜의 요일 구하는 함수       //
+    const getInputDayLabel = (calendarChoiceDay: string) => {
+      const week: string[] = ['일요일', '월요일', '화요일', '수요일', '목요일', '금요일', '토요일'];
+      const today: number = new Date(calendarChoiceDay).getDay();
+      const todayLabel: string = week[today];
+      return todayLabel;
+    };
+
     //        state: 참여한 스터디 개수 상태        //
     const [ count, setCount ] = useState<number>(0);
     //        state: 탭 인덱스 상태       //
@@ -31,8 +49,43 @@ const Main = forwardRef<HTMLDivElement>((props, ref) => {
     const [ studyRoomInfoList, setStudyRoomInfoList ] = useState<MyStudyRoomInfoItem[]>([]);
     //        state: 나의 투두리스트 상태       //
     const [ myToDoList, setMyToDoList ] = useState<MyToDoItem[]>([]);
+    //        state: 투두리스트 삭제 체크여부 인덱스 리스트 상태          //
+    const [todoDeleteCheckIndexList, setTodoDeleteCheckIndexList] = useState<number[]>([]);
+    //        state: 투두리스트 삭제 리스트 상태          //
+    const [todoDeleteCheckList, setTodoDeleteCheckList] = useState<number[]>([]);
     //        state: 입력한 나의 투두리스트 상태        //
-    const [inputMyToDoList, setInputMyToDoList] = useState<string>('');
+    const [ inputMyToDoList, setInputMyToDoList ] = useState<string>('');
+    //        state: 유저 투두리스트 삭제 버튼 on/off 상태       //
+    const [ userToDoListDeleteCheck, setUserToDoListDeleteCheck ] = useState<string>('off');
+    //        state: 캘린더 선택 일자 상태(hide)        //
+    const [ calendarChoiceDay, setCalendarChoiceDay ] = useState<string>(`${today.getFullYear()}-${today.getMonth() + 1}-${today.getDate()}`);
+    //        state: 실제로 보이는 일자 상태        //
+    const [ calendarDayText, setCalendarDayText ] = useState<string>(formattedDate + ' ' + getInputDayLabel(`${today.getFullYear()}-${today.getMonth() + 1}-${today.getDate()}`));
+
+    //        function: get user to do list response 처리 함수        //
+    const getUserToDoListResponse = (responseBody: GetUserToDoListResponseDto | ResponseDto) => {
+      const { code } = responseBody;
+      if (code === 'DBE') alert('데이터베이스 오류입니다.');
+      if (code !== 'SU') return;
+
+      const { userToDoList } = responseBody as GetUserToDoListResponseDto;
+      setMyToDoList(userToDoList);
+    }
+
+    //        function: post user to do list response 처리 함수        //
+    const postUserToDoListResponse = (code: string) => {
+      if (code === 'DBE') alert('데이터베이스 오류입니다.');
+      if (code !== 'SU') return;
+    }
+
+    //        function: delete user to do list response 처리 함수       //
+    const deleteUserToDoListResponse = (code: string) => {
+      if (code === 'VF') alert('잘못된 접근입니다.');
+      if (code === 'NU') alert('존재하지 않는 유저 입니다.');
+      if (code === 'NUTDL') alert('존재하지 않는 유저 투두리스트입니다.');
+      if (code === 'DBE') alert('데이터베이스 오류입니다.');
+      if (code !== 'SU') return;
+    }
 
     //        effect: 컴포넌트 마운트 시 참여한 스터디 방 정보 리스트 불러오기        //
     useEffect(() => {
@@ -48,16 +101,15 @@ const Main = forwardRef<HTMLDivElement>((props, ref) => {
 
     //        effect: 나의 투두 리스트 불러오기       //
     useEffect(() => {
-      // TODO: API 호출로 변경
-      setMyToDoList(myToDoListMock);
-    }, []);
+      getUserToDoListRequest(calendarChoiceDay, accessTokenMock).then(getUserToDoListResponse);
+    }, [calendarChoiceDay]);
 
     //        event handler: 탭 버튼 클릭 이벤트 처리       //
     const tabClickHandler=(index: React.SetStateAction<number>)=>{
       setActiveTabIndex(index);
     };
     
-    //        event handler: 스터디 To Do List Check 클릭 이벤트 처리       //
+    //        event handler: 스터디 To Do List Check 클릭 이벤트 처리(방장권한)       //
     const onStudyToDoListCheckClickHandler = (studyNumber: number, todoId: number) => {
       const updatedStudyRoomInfoList = studyRoomInfoList.map((study) => {
         if (study.studyNumber === studyNumber) {
@@ -94,15 +146,63 @@ const Main = forwardRef<HTMLDivElement>((props, ref) => {
       navigator(SERVICE_PATH(studyNumber));
     }
 
-    //        event handler: 나의 투두리스트 추가하기 버튼 클릭 이벤트 처리       //
-    const onMyToDoListAddClickHandler = () => {
-      alert('투두리스트 추가하기 처리');
+    //        event handler: 유저 투두리스트 추가 버튼 클릭 이벤트 처리        //
+    const onUserToDoListInsertButtonClickHandler = async () => {
+      const requestBody: PostUserToDoListRequestDto = {
+        userListDatetime: calendarChoiceDay,
+        userListContent: inputMyToDoList
+      }
+
+      await postUserToDoListRequest(requestBody, accessTokenMock).then(postUserToDoListResponse);
+      const userToDoListResponse = await getUserToDoListRequest(calendarChoiceDay, accessTokenMock);
+      getUserToDoListResponse(userToDoListResponse);
+      setInputMyToDoList('');
     }
 
     //        event handler: 나의 투두리스트 삭제하기 버튼 클릭 이벤트 처리       //
-    const onMyToDoListDeleteClickHandler = () => {
-      alert('투두리스트 삭제하기 처리');
+    const onUserToDoListDeleteButtonClickHandler = async () => {
+      if (userToDoListDeleteCheck === 'off') {
+        setUserToDoListDeleteCheck('on');
+        return;
+      }
+
+      if (todoDeleteCheckList.length === 0) {
+        setUserToDoListDeleteCheck('off');
+        return;
+      }
+
+      await deleteUserToDoListRequest(todoDeleteCheckList, accessTokenMock).then(deleteUserToDoListResponse);
+      const userToDoListResponse = await getUserToDoListRequest(calendarChoiceDay, accessTokenMock);
+      getUserToDoListResponse(userToDoListResponse);
+
+      setTodoDeleteCheckIndexList([]);
+      setTodoDeleteCheckList([]);
+      
+      setUserToDoListDeleteCheck('off');
+
+      // alert(todoDeleteCheckIndexList);
+      // alert(todoDeleteCheckList);
     }
+
+    //        event handler: 나의 투두리스트 삭제 체크 버튼 클릭 이벤트 처리       //
+    const onTodoItemCheckHandler = (index: number, key: number) => {
+      const isExisted = todoDeleteCheckIndexList.includes(index);
+      if (isExisted) {
+        const newTodoCheckIndexList = todoDeleteCheckIndexList.filter(item => item !== index);
+        const newTodoCheckList = todoDeleteCheckList.filter(item => item !== key);
+        setTodoDeleteCheckIndexList(newTodoCheckIndexList);
+        setTodoDeleteCheckList(newTodoCheckList);
+      }
+      else {
+        const newTodoCheckIndexList = todoDeleteCheckIndexList.map(item => item);
+        const newTodoCheckList = todoDeleteCheckList.map(item => item);
+        newTodoCheckIndexList.push(index);
+        newTodoCheckList.push(key);
+        setTodoDeleteCheckIndexList(newTodoCheckIndexList);
+        setTodoDeleteCheckList(newTodoCheckList);
+      }
+    }
+
 
     //        description: 내가 참여한 스터디방 정보 탭 렌더링        //
     const tabContArr = studyRoomInfoList.map((tab, index) => (
@@ -277,29 +377,39 @@ const Main = forwardRef<HTMLDivElement>((props, ref) => {
 
                           <div className='main-top-down-todolist'>
                               <div className='main-top-down-todolist-bar'>
-                                  <div className='main-top-down-todolist-date'>{'2023년 12월 08일 목요일'}</div>
-                                  <div className='main-top-down-todolist-add-button' onClick={onMyToDoListAddClickHandler}>
+                                  <div className='main-top-down-todolist-date'>{calendarDayText}</div>
+                                  <div className='main-top-down-todolist-add-button' onClick={userToDoListDeleteCheck === 'off' ? onUserToDoListInsertButtonClickHandler : undefined}>
                                       <div className='main-top-down-todolist-icon-box'>
                                           <div className='todolist-add-icon'></div>
                                       </div>
                                       <div className='main-top-down-todolist-add-button-text' >{'To Do 추가하기'}</div>
                                   </div>
-                                  <div className='main-top-down-todolist-delete-button' onClick={onMyToDoListDeleteClickHandler}>
+                                  
+                                  {userToDoListDeleteCheck === 'off' ? 
+                                    <div className='main-top-down-todolist-delete-button' onClick={onUserToDoListDeleteButtonClickHandler}>
                                       <div className='main-top-down-todolist-icon-box'>
-                                          <div className='todolist-delete-icon'></div>
+                                        <div className='todolist-delete-icon'></div>
                                       </div>
                                       <div className='main-top-down-todolist-delete-button-text'>{'To Do 삭제하기'}</div>
-                                  </div>
+                                    </div> : 
+                                    <div className='main-top-down-todolist-delete-button-on' onClick={onUserToDoListDeleteButtonClickHandler}>
+                                      <div className='main-top-down-todolist-icon-box'>
+                                        <div className='todolist-delete-icon'></div>
+                                      </div>
+                                      <div className='main-top-down-todolist-delete-button-text'>{'To Do 삭제하기'}</div>
+                                    </div>
+                                  }
                               </div>
 
-                              <MyToDoListInputBox type={'text'} placeholder='TO DO LIST 입력중입니다....' value={inputMyToDoList} setValue={setInputMyToDoList} />
-
+                              <MyToDoListInputBox type={'text'} placeholder='TO DO LIST 입력중입니다....' value={inputMyToDoList} setValue={setInputMyToDoList} disabled={userToDoListDeleteCheck === 'on'} />
+                            
                               <div className='main-top-down-todolist-detail-box'>
                                       <Scrollbars
                                           renderTrackVertical={props => <div {...props} className="track-vertical"/>}
                                           renderThumbVertical={props => <div {...props} className="thumb-vertical"/>}>
                                           <div className='main-top-down-todolist-blank'></div>
-                                              {myToDoList.map((MyToDoItem, index) => <MyToDoListItem myToDoItem={MyToDoItem} index={index} listNumber={myToDoList.length - 1} />)}
+                                              {myToDoList.map((MyToDoItem, index) => <MyToDoListItem myToDoItem={MyToDoItem} index={index} listNumber={myToDoList.length - 1} listDate={calendarChoiceDay} 
+                                              onCheck={onTodoItemCheckHandler} deleteIsChecked={todoDeleteCheckIndexList.includes(index)} deleteButtonCheck={userToDoListDeleteCheck} />)}
                                           <div className='main-top-down-todolist-blank'></div>
                                       </Scrollbars>
                               </div>

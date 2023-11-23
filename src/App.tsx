@@ -23,10 +23,9 @@ import StudyModifyModal from 'views/modal/StudyModifyModal';
 import ManinpagePriavateStudyRoomJoinModal from 'views/modal/MainpagePrivateStudyRoomjoinModal';
 import { studyListMock } from 'mocks';
 
-interface Props {
-  studyListItem: StudyListItem;
-}
-
+// interface Props {
+//   studyListItem: StudyListItem;
+// }
 
 function App() {
   
@@ -36,6 +35,14 @@ function App() {
   const { user, setUser } = useUserStore();
   //          state: cookie 상태          //
   const [cookies, setCookie] = useCookies();
+
+  //        description: 검색 버튼 Ref        //
+  const searchDivRef = useRef<HTMLDivElement | null>(null);
+
+  const onSearchMoveClickHandler = () => {
+    if (!searchDivRef.current) return;
+    searchDivRef.current.scrollIntoView({ behavior: 'smooth' });
+  }
 
   //          function: get sign in user response 처리 함수 //
   const getSignInUserResponse = (responseBody: GetSignInUserResponseDto | ResponseDto) => {
@@ -86,7 +93,12 @@ function App() {
     // //   <StudyModifyModal studyListItem={studyItem} /> */}
     //  {/* <ManinpagePriavateStudyRoomJoinModal/>
     //  <Main ref={searchDivRef} /> */}
+    
+    // <Header onSearchMoveClickHandler={onSearchMoveClickHandler} />
+    //   <Main ref={searchDivRef} />
+    //   <Footer />
     // // </div>
+
   );
 }
 
